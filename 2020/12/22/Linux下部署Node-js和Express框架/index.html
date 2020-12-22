@@ -14,13 +14,18 @@
 putty  
 腾讯云服务器或轻量应用服务器  
 
-服务器配置
+
+云服务器配置
 镜像：系统镜像：CentOS 7.6  
 
-服务器准备
+
+云服务器准备
 重置密码
 
-"> 
+
+
+登录云服务器
+使用 putty 输入公网ip,"> 
     <meta name="author" content="Aisaka Aoi"> 
     <link rel="alternative" href="atom.xml" title="逢坂葵的个人技术博客" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -74,12 +79,93 @@ putty
 <li><a target="_blank" rel="noopener" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">putty</a>  </li>
 <li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/">腾讯云服务器或轻量应用服务器</a>  </li>
 </ul>
-<h3 id="服务器配置"><a href="#服务器配置" class="headerlink" title="服务器配置"></a>服务器配置</h3><ul>
+<hr>
+<h3 id="云服务器配置"><a href="#云服务器配置" class="headerlink" title="云服务器配置"></a>云服务器配置</h3><ul>
 <li>镜像：系统镜像：CentOS 7.6  </li>
 </ul>
-<h3 id="服务器准备"><a href="#服务器准备" class="headerlink" title="服务器准备"></a>服务器准备</h3><ul>
-<li>重置密码<br><img src="/2020/12/22/Linux%E4%B8%8B%E9%83%A8%E7%BD%B2Node-js%E5%92%8CExpress%E6%A1%86%E6%9E%B6/1.png" alt="重置密码"></li>
+<hr>
+<h3 id="云服务器准备"><a href="#云服务器准备" class="headerlink" title="云服务器准备"></a>云服务器准备</h3><ul>
+<li>重置密码</li>
 </ul>
+<p><img src="/2020/12/22/Linux%E4%B8%8B%E9%83%A8%E7%BD%B2Node-js%E5%92%8CExpress%E6%A1%86%E6%9E%B6/1.png" alt="重置密码"></p>
+<hr>
+<h3 id="登录云服务器"><a href="#登录云服务器" class="headerlink" title="登录云服务器"></a>登录云服务器</h3><ul>
+<li>使用 putty 输入公网ip地址登录云服务器</li>
+</ul>
+<p><img src="/2020/12/22/Linux%E4%B8%8B%E9%83%A8%E7%BD%B2Node-js%E5%92%8CExpress%E6%A1%86%E6%9E%B6/2.png" alt="登录云服务器"></p>
+<ul>
+<li>输入账号密码，登录 root</li>
+</ul>
+<hr>
+<h3 id="配置Node-js"><a href="#配置Node-js" class="headerlink" title="配置Node.js"></a>配置Node.js</h3><ul>
+<li>查看当前目录：输入pwd会发现此时默认在 /root</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# pwd</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>若不在 /root，我习惯是切换到 root (方便我之后代码统一)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# cd /root</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>下载node的镜像，此次使用 taobao 镜像的 node v14.15.2 版本<br><font color="lightgrey">（如果太慢了就在电脑上复制链接下载好，用WinSCP传过去）</font></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# wget https://npm.taobao.org/mirrors/node/v14.15.2/node-v14.15.2-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解压下载好的压缩包</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# tar -xvf ./node-v14.15.2-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>为了环境卫生，删除已解压的压缩包</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# rm -rf ./node-v14.15.2-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置node的环境变量</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# ln -s /root/node-v14.15.2-linux-x64/bin/node /usr/local/bin/</span><br><span class="line">[root@VM-8-3-centos ~]# ln -s /root/node-v14.15.2-linux-x64/bin/npm /usr/local/bin/</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看环境配置是否完成</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# node -v</span><br><span class="line">[root@VM-8-3-centos ~]# npm -v</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注：低版本的npm下载依赖比较慢，若下载速度慢，可以使用以下命令可以将npm升级至最新版本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# npm install -g npm</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="配置Express框架"><a href="#配置Express框架" class="headerlink" title="配置Express框架"></a>配置Express框架</h3><ul>
+<li>下载 taobao 的 cnpm，比普通的 npm 翻墙下载快多了，并配置环境变量</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# npm install cnpm -g --registry=https://registry.npm.taobao.org</span><br><span class="line">[root@VM-8-3-centos ~]# ln -s /root/node-v14.15.2-linux-x64/bin/cnpm /usr/local/bin/</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>全局安装Express，并配置环境变量</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# cnpm install -g express </span><br><span class="line">[root@VM-8-3-centos ~]# cnpm install -g express-generator</span><br><span class="line">[root@VM-8-3-centos ~]# ln -s /root/node-v14.15.2-linux-x64/bin/express /usr/local/bin/</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建一个 express 站点 cloud</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# cd /home/</span><br><span class="line">[root@VM-8-3-centos ~]# express cloud</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>初始化完成后，进入到目录中，安装对应的依赖</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# cd cloud/</span><br><span class="line">[root@VM-8-3-centos ~]# cnpm install</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试Express<font color="lightgrey">（记得在云服务器安全组开放3000端口）</font></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# DEBUG=cloud:* npm start</span><br></pre></td></tr></table></figure>
+
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuqi/p/6483317.html">https://www.cnblogs.com/liuqi/p/6483317.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42883636/article/details/87720104">https://blog.csdn.net/weixin_42883636/article/details/87720104</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38306688/article/details/80454896">https://blog.csdn.net/qq_38306688/article/details/80454896</a></p>
+</blockquote>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
