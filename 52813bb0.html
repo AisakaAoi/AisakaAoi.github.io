@@ -11,12 +11,14 @@
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
     <meta name="description" content="前期准备
-putty  
-腾讯云服务器或轻量应用服务器  
+putty
+
+腾讯云服务器或轻量应用服务器
+
 
 
 云服务器配置
-镜像：系统镜像：CentOS 7.6  
+镜像：系统镜像：CentOS 7.6
 
 
 云服务器准备
@@ -25,7 +27,7 @@ putty
 
 
 登录云服务器
-使用 putty 输入公网ip,"> 
+使用 putty 输入公网ip地址登录,"> 
     <meta name="author" content="Aisaka Aoi"> 
     <link rel="alternative" href="atom.xml" title="逢坂葵的个人技术博客" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -76,23 +78,25 @@ putty
         </div>
         <div class="content markdown">
             <h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">putty</a>  </li>
-<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/">腾讯云服务器或轻量应用服务器</a>  </li>
+<li><p><a target="_blank" rel="noopener" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">putty</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/">腾讯云服务器或轻量应用服务器</a></p>
+</li>
 </ul>
 <hr>
 <h3 id="云服务器配置"><a href="#云服务器配置" class="headerlink" title="云服务器配置"></a>云服务器配置</h3><ul>
-<li>镜像：系统镜像：CentOS 7.6  </li>
+<li>镜像：系统镜像：CentOS 7.6</li>
 </ul>
 <hr>
 <h3 id="云服务器准备"><a href="#云服务器准备" class="headerlink" title="云服务器准备"></a>云服务器准备</h3><ul>
 <li>重置密码</li>
 </ul>
-<p><img src="/post/1.png" alt="重置密码"></p>
+<p><img src="https://s3.ax1x.com/2020/12/23/rsoqDU.png"></p>
 <hr>
 <h3 id="登录云服务器"><a href="#登录云服务器" class="headerlink" title="登录云服务器"></a>登录云服务器</h3><ul>
 <li>使用 putty 输入公网ip地址登录云服务器</li>
 </ul>
-<p><img src="/post/2.png" alt="登录云服务器"></p>
+<p><img src="https://s3.ax1x.com/2020/12/23/rsoLbF.png"></p>
 <ul>
 <li>输入账号密码，登录 root</li>
 </ul>
@@ -108,7 +112,7 @@ putty
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# cd /root</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>下载node的镜像，此次使用 taobao 镜像的 node v14.15.2 版本<br><font color="lightgrey">（如果太慢了就在电脑上复制链接下载好，用WinSCP传过去）</font></li>
+<li>下载node的镜像，此次使用 taobao 镜像的 node v14.15.2 版本<br><font color=lightgrey>（如果太慢了就在电脑上复制链接下载好，用WinSCP传过去）</font></li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# wget https://npm.taobao.org/mirrors/node/v14.15.2/node-v14.15.2-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
 
@@ -159,7 +163,7 @@ putty
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# cd cloud/</span><br><span class="line">[root@VM-8-3-centos ~]# cnpm install</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>测试Express<font color="lightgrey">（记得在云服务器安全组开放3000端口）</font></li>
+<li>测试Express<font color=lightgrey>（记得在云服务器安全组开放3000端口）</font></li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# DEBUG=cloud:* npm start</span><br></pre></td></tr></table></figure>
 
