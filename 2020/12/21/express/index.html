@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>express - 逢坂葵的个人技术博客</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Linux下部署Node.js和Express框架
+下载putty、WinSCP
+输入账号密码，登录root
+输入pwd会发现此时默认在/rootcd /root
+下载node和mysql的Linu,"> 
+    <meta name="author" content="Aisaka Aoi"> 
+    <link rel="alternative" href="atom.xml" title="逢坂葵的个人技术博客" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">逢坂葵的个人技术博客</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">express</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">express</h1>
+        <div class="stuff">
+            <span>十二月 21, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>Linux下部署Node.js和Express框架</p>
+<p>下载putty、WinSCP</p>
+<p>输入账号密码，登录root</p>
+<p>输入pwd会发现此时默认在/root<br>cd /root</p>
+<p>下载node和mysql的Linux镜像<br>wget <a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/node/v14.15.2/node-v14.15.2-linux-x64.tar.xz">https://npm.taobao.org/mirrors/node/v14.15.2/node-v14.15.2-linux-x64.tar.xz</a><br>wget <a target="_blank" rel="noopener" href="https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.32-linux-glibc2.12-x86_64.tar.gz">https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.32-linux-glibc2.12-x86_64.tar.gz</a><br>（如果太慢了就在电脑上复制链接下载好，用WinSCP传过去）</p>
+<p>解压<br>tar -xvf ./node-v14.15.2-linux-x64.tar.xz<br>tar -xzvf ./mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz</p>
+<p>为了环境卫生，删除已解压的压缩包<br>rm -rf ./node-v14.15.2-linux-x64.tar.xz<br>rm -rf ./mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz</p>
+<p>移动并修改文件名<br>mv ./mysql-5.7.17-linux-glibc2.5-x86_64 /usr/local/mysql</p>
+<p>cd /usr/local<br>可以看到在 /usr/local/ 目录下，有个mysql文件夹，然后开始mysql用户组和mysql用户，添加完使用groups mysql查看是否添加成功<br>groupadd mysql<br>useradd -r -g mysql mysql<br>groups mysql</p>
+<p>修改mysql目录拥有者为刚建立的mysql用户<br>cd ./mysql<br>chown -R mysql:mysql ./</p>
+<p>MySQL 初始化<br>./scripts/mysql_install_db –user=mysql –basedir=/usr/local/mysql –datadir=/usr/local/mysql/data<br>修改mysql目录拥有者为root用户，修改data目录拥有者为mysql<br>chown -R root:root ./ &amp;&amp; chown -R mysql:mysql data<br>启动mysql ,修改root密码，成功登陆<br>./support-files/mysql.server start<br>./bin/mysqladmin -u root password ‘00000000’<br>./bin/mysql -h127.0.0.1 -uroot -p00000000</p>
+<p>配置环境变量<br>ln -s /root/node-v14.15.2-linux-x64/bin/node /usr/local/bin/node<br>ln -s /root/node-v14.15.2-linux-x64/bin/npm /usr/local/bin/npm</p>
+<p>查看环境配置是否完成<br>node -v<br>npm -v</p>
+<p>注：低版本的npm下载依赖比较慢，若下载速度慢，可以使用以下命令可以将npm升级至最新版本<br>npm install -g npm</p>
+<p>npm install cnpm -g –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
+<p>全局安装express<br>cnpm install -g express<br>cnpm install -g express-generator</p>
+<p>安装pm2<br>执行如下命令来安装 pm2<br>npm install pm2 -g<br>安装完成后，执行命令，为我们的 pm2 添加开机自启动<br>pm2 startup systemd<br>pm2 save –force<br>设置为全局，创建软链<br>ln -s /root/node-v14.15.2-linux-x64/lib/node_modules/pm2/bin/pm2 /usr/local/bin<br>创建一个 express 站点</p>
+<p>接下来，我们来创建一个 express 站点， 执行如下命令，来初始化一个新的以 cloud 为名的应用，<br>cd /home/<br>express cloud<br>初始化完成后，进入到目录中，安装对应的依赖<br>cd cloud<br>cnpm install<br>测试express<br>执行如下命令，来启动 Express ，进行测试<br>DEBUG=cloud:* npm start<br>此时，我们可以打开浏览器，访问 <a target="_blank" rel="noopener" href="http://111.231.56.173:3000/">http://111.231.56.173:3000</a> 就可以访问默认的 Express 界面的内容。</p>
+<p>安装mysql</p>
+<p>WinSCP放到/home/Blog</p>
+<p>cd /home/Blog</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://music.163.com/song/media/outer/url?id=1492276426.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru02.model.json"},"display":{"position":"right","width":300,"height":600},"mobile":{"show":false},"log":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
