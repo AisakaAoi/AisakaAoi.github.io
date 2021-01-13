@@ -1,0 +1,824 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>计算机体系结构 知识点快速复习 - 逢坂葵的个人技术博客</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="第1章 软件体系结构概论1.1 从软件危机说起
+软件危机是指在计算机软件的开发和维护过程中所遇到的一系列严重问题。
+
+1.1.1 软件危机的表现
+软件（成本）日益增加
+
+开发（进度）难以控制
+
+软件,"> 
+    <meta name="author" content="Aisaka Aoi"> 
+    <link rel="alternative" href="atom.xml" title="逢坂葵的个人技术博客" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">逢坂葵的个人技术博客</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">计算机体系结构 知识点快速复习</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">计算机体系结构 知识点快速复习</h1>
+        <div class="stuff">
+            <span>一月 08, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="第1章-软件体系结构概论"><a href="#第1章-软件体系结构概论" class="headerlink" title="第1章 软件体系结构概论"></a>第1章 软件体系结构概论</h2><h3 id="1-1-从软件危机说起"><a href="#1-1-从软件危机说起" class="headerlink" title="1.1 从软件危机说起"></a>1.1 从软件危机说起</h3><ul>
+<li>软件危机是指在计算机软件的<u>开发</u>和<u>维护</u>过程中所遇到的一系列严重问题。</li>
+</ul>
+<h4 id="1-1-1-软件危机的表现"><a href="#1-1-1-软件危机的表现" class="headerlink" title="1.1.1 软件危机的表现"></a>1.1.1 软件危机的表现</h4><ol>
+<li><p>软件（成本）日益增加</p>
+</li>
+<li><p>开发（进度）难以控制</p>
+</li>
+<li><p>软件（质量）差</p>
+</li>
+<li><p>软件（维护）困难</p>
+</li>
+</ol>
+<h4 id="1-1-2-软件危机的原因"><a href="#1-1-2-软件危机的原因" class="headerlink" title="1.1.2 软件危机的原因"></a>1.1.2 软件危机的原因</h4><ol>
+<li><p>用户需求不明确</p>
+<p> 用户在软件开发出来之前，自己也不清楚需求</p>
+<p> 用户对需求描述不清晰</p>
+<p> 在开发软件得过程中，用户修改需求</p>
+<p> 开发人员对需求得理解和用户的不一致</p>
+</li>
+<li><p>缺乏正确的理论指导</p>
+</li>
+<li><p>软件规模越来越大</p>
+</li>
+<li><p>软件复杂度越来越高</p>
+</li>
+</ol>
+<h4 id="1-1-3-如何克服软件危机"><a href="#1-1-3-如何克服软件危机" class="headerlink" title="1.1.3 如何克服软件危机"></a>1.1.3 如何克服软件危机</h4><ul>
+<li><p>技术问题、管理问题</p>
+</li>
+<li><p>软件工程包括三个要素：<u>方法</u>、<u>工具</u>和<u>过程</u></p>
+<p> 方法指导软件技术怎么做</p>
+<p> 工具为软件方法提供自动或者半自动的软件支撑环境</p>
+<p> 过程将软件工程方法和软件工程工具合理结合</p>
+</li>
+</ul>
+<h3 id="1-2-构件与软件重用"><a href="#1-2-构件与软件重用" class="headerlink" title="1.2 构件与软件重用"></a>1.2 构件与软件重用</h3><ul>
+<li><p>软件重用是指在两次或多次不同的软件开发过程中重复使用相同或相近软件元素的过程。</p>
+</li>
+<li><p>软件元素包括<u>程序代码</u>、<u>测试用例</u>、<u>设计文档</u>、<u>设计过程</u>、<u>需求分析文档</u>甚至<u>领域知识</u></p>
+</li>
+<li><p>可重用的软件元素越大，称重用的粒度越大</p>
+</li>
+</ul>
+<h4 id="1-2-1-构件模型及实现"><a href="#1-2-1-构件模型及实现" class="headerlink" title="1.2.1 构件模型及实现"></a>1.2.1 构件模型及实现</h4><ul>
+<li><p>构件：语义完整、语法正确和有可重用价值的单位软件，是可以明确辨识的系统；结构上，它是语义描述、通信接口和实现代码的复合体。</p>
+</li>
+<li><p>构件模型</p>
+<ol>
+<li>CORBA：通用对象请求代理结构</li>
+<li>EJB：Enterprise Java Bean</li>
+<li>DCOM：分布式构件对象模型</li>
+</ol>
+</li>
+</ul>
+<h4 id="1-2-2-构件获取"><a href="#1-2-2-构件获取" class="headerlink" title="1.2.2 构件获取"></a>1.2.2 构件获取</h4><ul>
+<li>建立基于构件的软件开发中，构件的获取途径<ol>
+<li>现有构件<u>适应性修改</u></li>
+<li>从<u>遗留工程</u>中获取</li>
+<li><u>购买现成</u>的商业构件</li>
+<li><u>开发</u>新的符合要求的构件</li>
+</ol>
+</li>
+</ul>
+<h4 id="1-2-3-构件管理"><a href="#1-2-3-构件管理" class="headerlink" title="1.2.3 构件管理"></a>1.2.3 构件管理</h4><ul>
+<li><p>构建分类方法</p>
+<ol>
+<li>关键字分类法</li>
+<li>刻面分类法</li>
+<li>超文本组织方法</li>
+</ol>
+</li>
+<li><p>构件有哪几种</p>
+<ol>
+<li>独立成熟的构件</li>
+<li>有限制的构件</li>
+<li>适应性构件</li>
+<li>装配的构件</li>
+<li>可修改的构件</li>
+</ol>
+</li>
+<li><p>构件库系统的5类用户</p>
+<ol>
+<li>注册用户</li>
+<li>公共用户</li>
+<li>构建提交者</li>
+<li>一般系统管理员</li>
+<li>超级系统管理员</li>
+</ol>
+</li>
+</ul>
+<h4 id="1-2-4-构件重用"><a href="#1-2-4-构件重用" class="headerlink" title="1.2.4 构件重用"></a>1.2.4 构件重用</h4><ul>
+<li><p>什么是构件组装<br> 将构件库中的构件做适应性修改并连接起来或者和当前开发项目的软件元素相连</p>
+</li>
+<li><p>构建组装</p>
+<ol>
+<li>基于<u>功能</u>的组装技术</li>
+<li>基于<u>数据</u>的组装技术</li>
+<li>基于<u>对象</u>的组装技术</li>
+</ol>
+</li>
+</ul>
+<h4 id="1-2-5-软件重用实例"><a href="#1-2-5-软件重用实例" class="headerlink" title="1.2.5 软件重用实例"></a>1.2.5 软件重用实例</h4><ul>
+<li><p>软件重用分为哪几种重用</p>
+<ol>
+<li>需求重用</li>
+<li>设计重用</li>
+<li>代码重新</li>
+<li>组织结构重用</li>
+</ol>
+</li>
+<li><p>设计重用</p>
+<ol>
+<li>系统构建层：Java JDK类库</li>
+<li>通用类构件层：工作流平台核心模块、组织管理模块、系统管理模块、页面风格函数、JSP的CSS JS等字符串处理、数据库连接、通用打印和查询、权限验证和日期处理等与业务逻辑无关的类</li>
+<li>业务构件层：满足不同业务需求而设计的软件包（明确接口、大粒度构建重用）</li>
+<li>表现层：JSP、Serverlet页面（只调用来展现业务流程界面）</li>
+</ol>
+</li>
+<li><p>组织重用中包含了什么组织，各组织的功能是什么</p>
+<ol>
+<li>构建开发组：负责接受并分析来自协调层的构件设计规格说明</li>
+<li>构建应用组：负责设计和实现构件逻辑</li>
+<li>协调组：负责协调构件开发层和构件应用层，接受并分析来自构件应用层的构件需求</li>
+</ol>
+</li>
+</ul>
+<h3 id="1-3-软件体系结构的兴起和发展"><a href="#1-3-软件体系结构的兴起和发展" class="headerlink" title="1.3 软件体系结构的兴起和发展"></a>1.3 软件体系结构的兴起和发展</h3><h4 id="1-3-1-软件体系结构的定义"><a href="#1-3-1-软件体系结构的定义" class="headerlink" title="1.3.1 软件体系结构的定义"></a>1.3.1 软件体系结构的定义</h4><ul>
+<li><p>软件体系结构为软件系统提供了一个<u>结构</u>、<u>行为</u>和<u>属性</u>的<u>高级抽象</u>，由构成系统的元素的<u>描述</u>、这些元素的<u>相互作用</u>、指导元素集成的<u>模式</u>以及这些模式的<u>约束</u>组成。</p>
+</li>
+<li><p>软件体系结构不仅指定了系统的<u>组织结构</u>和<u>拓扑结构</u>，并且显示了系统需求和构成系统的元素之间的对应关系，提供了一些<u>设计决策</u>的基本原理。</p>
+</li>
+</ul>
+<h4 id="1-3-2-软件体系结构的意义"><a href="#1-3-2-软件体系结构的意义" class="headerlink" title="1.3.2 软件体系结构的意义"></a>1.3.2 软件体系结构的意义</h4><ol>
+<li><p>体系结构是风险承担者进行交流的手段</p>
+</li>
+<li><p>体系结构是早期设计决策的体现</p>
+<p> 软件体系结构明确了对系统实现的约束条件</p>
+<p> 软件体系结构决定了开发和维护组织的组织结构</p>
+<p> 软件体系结构制约着系统的质量属性</p>
+<p> 通过研究软件体系结构可能预测软件的质量</p>
+<p> 软件体系机构使推理和控制更改更简单</p>
+<p> 软件体系结构有助于循序渐进的原型设计</p>
+<p> 软件体系结构可以作为培训的基础</p>
+</li>
+<li><p>软件体系结构是可传递和可重用的模型</p>
+</li>
+</ol>
+<h4 id="1-3-3-软件体系结构的发展史"><a href="#1-3-3-软件体系结构的发展史" class="headerlink" title="1.3.3 软件体系结构的发展史"></a>1.3.3 软件体系结构的发展史</h4><ul>
+<li>软件体系结构的发展经历了哪几个阶段<ol>
+<li>无体系设计阶段：以汇编语言进行小规模开发为特征</li>
+<li>萌芽阶段：出现程序结构设计主题，以控制流图和数据流图构成软件结构为特征</li>
+<li>初期阶段：出现从不同侧面描述系统的结构模型，以UML为典型代表</li>
+<li>高级阶段：以描述系统的高层抽象结构为中心，不关心具体建模细节，划分了体系结构模型和传统软件结构的界限，以“4+1”模型为标志</li>
+</ol>
+</li>
+</ul>
+<h2 id="第2章-软件体系结构建模"><a href="#第2章-软件体系结构建模" class="headerlink" title="*第2章 软件体系结构建模"></a>*第2章 软件体系结构建模</h2><ul>
+<li><p>软件体系结构模型有哪几种</p>
+<ol>
+<li><p>结构模型</p>
+</li>
+<li><p>过程模型</p>
+</li>
+<li><p>框架模型</p>
+</li>
+<li><p>功能模型</p>
+</li>
+<li><p>动态模型</p>
+<p>最常用的是结构模型和动态模型</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-1-“4-1”视图模型"><a href="#2-1-“4-1”视图模型" class="headerlink" title="2.1 “4+1”视图模型"></a>2.1 “4+1”视图模型</h3><ul>
+<li><p>“4+1”视图模型有哪几个视图，功能分别是什么</p>
+<ol>
+<li><p>逻辑视图（静态）：支持系统的服务</p>
+</li>
+<li><p>开发视图（静态）：对软件模块进行组织和管理</p>
+</li>
+<li><p>进程视图（动态）：关注系统的运行特性，支持系统的非功能性</p>
+</li>
+<li><p>物理视图（动态）：考虑如何将软件映射到硬件上</p>
+</li>
+<li><p>场景视图</p>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="2-1-1-逻辑视图"><a href="#2-1-1-逻辑视图" class="headerlink" title="2.1.1 逻辑视图"></a>2.1.1 逻辑视图</h4><ul>
+<li>通过抽象、封装和继承，可以用对象模型来代表逻辑视图</li>
+</ul>
+<h4 id="2-1-2-开发视图"><a href="#2-1-2-开发视图" class="headerlink" title="2.1.2 开发视图"></a>2.1.2 开发视图</h4><h4 id="2-1-3-进程视图"><a href="#2-1-3-进程视图" class="headerlink" title="2.1.3 进程视图"></a>2.1.3 进程视图</h4><h4 id="2-1-4-物理视图"><a href="#2-1-4-物理视图" class="headerlink" title="2.1.4 物理视图"></a>2.1.4 物理视图</h4><h4 id="2-1-5-场景"><a href="#2-1-5-场景" class="headerlink" title="2.1.5 场景"></a>2.1.5 场景</h4><ul>
+<li>场景的定义：重要的系统活动的抽象</li>
+</ul>
+<h3 id="2-2-软件体系结构的核心模型"><a href="#2-2-软件体系结构的核心模型" class="headerlink" title="2.2 软件体系结构的核心模型"></a>2.2 软件体系结构的核心模型</h3><ul>
+<li><p>体系结构的核心模型有哪五种元素，基本元素是什么</p>
+<ol>
+<li><p>构件：是具有某种功能的可重用的软件模板单元，表示了系统中的计算元素和数据储存</p>
+</li>
+<li><p>配置：表示构件和连接件之间的拓扑逻辑和约束</p>
+</li>
+<li><p>连接件：表示了构件之间的交互</p>
+</li>
+<li><p>端口</p>
+</li>
+<li><p>角色</p>
+<p>基本元素是：构件、配置、连接件</p>
+</li>
+</ol>
+</li>
+<li><p>构件分为哪两种</p>
+<p> 原子构件和复合构件。复合构件由原子构件和其他复合构件组成</p>
+</li>
+</ul>
+<h3 id="2-3-软件体系结构的生命周期模型"><a href="#2-3-软件体系结构的生命周期模型" class="headerlink" title="2.3 软件体系结构的生命周期模型"></a>2.3 软件体系结构的生命周期模型</h3><ul>
+<li><p>软件体系结构建立在什么时候</p>
+<p> 建立在需求分析之后，软件设计之前</p>
+</li>
+</ul>
+<h4 id="2-3-1-各阶段之间的关系"><a href="#2-3-1-各阶段之间的关系" class="headerlink" title="2.3.1 各阶段之间的关系"></a>2.3.1 各阶段之间的关系</h4><ol>
+<li>需求分析阶段</li>
+<li>建立软件体系结构阶段</li>
+<li>设计阶段</li>
+<li>实现阶段</li>
+</ol>
+<h4 id="2-3-2-软件体系结构的生命周期"><a href="#2-3-2-软件体系结构的生命周期" class="headerlink" title="2.3.2 软件体系结构的生命周期"></a>2.3.2 软件体系结构的生命周期</h4><ol>
+<li>软件体系结构的非形式描述</li>
+<li>软件体系结构的规范描述和设计</li>
+<li>软件体系结构的精化及其验证</li>
+<li>软件体系结构的实施</li>
+<li>软件体系结构的演化和扩展</li>
+<li>软件体系结构的提供，评估和度量</li>
+<li>软件体系结构的终结</li>
+</ol>
+<h2 id="第3章-软件体系结构风格"><a href="#第3章-软件体系结构风格" class="headerlink" title="*第3章 软件体系结构风格"></a>*第3章 软件体系结构风格</h2><ul>
+<li><p>什么是软件体系结构风格</p>
+<p> 描述在一种特定应用领域中系统设计的惯用模式</p>
+</li>
+</ul>
+<h3 id="3-1-经典软件体系结构风格"><a href="#3-1-经典软件体系结构风格" class="headerlink" title="3.1 经典软件体系结构风格"></a>3.1 经典软件体系结构风格</h3><ol>
+<li>数据流风格：批处理序列、管道与过滤器</li>
+<li>调用返回风格：主程序与子程序、面向对象风格、层次结构</li>
+<li>独立构件风格：进程通信、事件系统</li>
+<li>虚拟机风格：解释器、基于规则的系统</li>
+<li>仓库风格：数据库系统、超文本系统、黑板系统</li>
+</ol>
+<h4 id="3-1-1-管道与过滤器"><a href="#3-1-1-管道与过滤器" class="headerlink" title="3.1.1 管道与过滤器"></a>3.1.1 管道与过滤器</h4><ul>
+<li><p>优点</p>
+<ol>
+<li>软件具有很高的隐蔽性和具有高内聚，低耦合的特点</li>
+<li>方便设计师将整个系统的输入或输出看成是多个过滤器的行为的简单合成</li>
+<li>支持重用</li>
+<li>系统维护和增强系统性能简单</li>
+<li>允许对一些属性分析</li>
+<li>支持并行执行</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>使进程成为批处理的结构</li>
+<li>不适合处理交互的应用</li>
+<li>没有统一的数据传输标准，过滤器需要增加数据分析和合成的工作，降低了系统的性能，增加了编写过滤器的复杂度</li>
+</ol>
+</li>
+</ul>
+<h4 id="3-1-2-数据抽象和面向对象系统"><a href="#3-1-2-数据抽象和面向对象系统" class="headerlink" title="3.1.2 数据抽象和面向对象系统"></a>3.1.2 数据抽象和面向对象系统</h4><ul>
+<li><p>优点</p>
+<ol>
+<li>对象对于其他对象的表示是隐藏的，一个对象的表示的改变不影响其他对象</li>
+<li>设计师可以将一些数据的存取问题拆解为一些交互的代理程序的集合</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>一个对象和另外一个对象通过过程调用等进行交互，必须知道对象的标识</li>
+<li>必须修改所有显式调用它的其他对象，并消除由此带来的副作用</li>
+</ol>
+</li>
+</ul>
+<h4 id="3-1-3-基于事件的系统（隐式调用）"><a href="#3-1-3-基于事件的系统（隐式调用）" class="headerlink" title="3.1.3 基于事件的系统（隐式调用）"></a>3.1.3 基于事件的系统（隐式调用）</h4><ul>
+<li><p>优点</p>
+<ol>
+<li>为软件重用带来强大的支持</li>
+<li>方便改进系统</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>构件放弃了系统计算的控制</li>
+<li>数据交换存在问题</li>
+<li>对于正确性的推理存在问题</li>
+</ol>
+</li>
+</ul>
+<h4 id="3-1-4-分层系统（层次系统风格）"><a href="#3-1-4-分层系统（层次系统风格）" class="headerlink" title="3.1.4 分层系统（层次系统风格）"></a>3.1.4 分层系统（层次系统风格）</h4><ul>
+<li><p>优点</p>
+<ol>
+<li>支持软件重用</li>
+<li>支持基于抽象程度递增的系统设计</li>
+<li>支持功能增强</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>不是所有系统都能轻易划分为分层的模式</li>
+<li>难以找到合适，正确的层次抽象方法</li>
+</ol>
+</li>
+</ul>
+<h4 id="3-1-5-仓库系统及知识库（黑板系统）"><a href="#3-1-5-仓库系统及知识库（黑板系统）" class="headerlink" title="3.1.5 仓库系统及知识库（黑板系统）"></a>3.1.5 仓库系统及知识库（黑板系统）</h4><ul>
+<li>黑板系统的组成：知识源、黑板数据结构、控制</li>
+</ul>
+<h4 id="3-1-6-C2风格"><a href="#3-1-6-C2风格" class="headerlink" title="3.1.6 C2风格"></a>3.1.6 C2风格</h4><ul>
+<li>C2风格的特点<ol>
+<li>构件都可以实现需求应用，能将任意复杂度的功能封装</li>
+<li>构件较为独立，构件之间依赖性少</li>
+<li>构件之间的通信是通过以连接件作为中介的异步消息交换机制来实现的</li>
+</ol>
+</li>
+</ul>
+<h3 id="3-2-客户-服务器风格"><a href="#3-2-客户-服务器风格" class="headerlink" title="3.2 客户/服务器风格"></a>3.2 客户/服务器风格</h3><ul>
+<li><p>服务器的任务</p>
+<ol>
+<li>数据库的安全性要求</li>
+<li>数据库访问并发性的控制</li>
+<li>数据库前端的客户应用程序的全局数据完整规则</li>
+<li>数据库的备份与恢复</li>
+</ol>
+</li>
+<li><p>客户应用程序的任务</p>
+<ol>
+<li>提供数据库与用户交互的界面</li>
+<li>向数据库服务器提交用户请求和接收数据库服务器的信息</li>
+<li>利用客户应用程序来对存于客户端的数据执行应用逻辑</li>
+</ol>
+</li>
+<li><p>C/S体系结构的优缺点</p>
+<p> 优点</p>
+<ol>
+<li><p>前后端分离</p>
+</li>
+<li><p>将大量的处理任务分布在客户机上，减少了花费</p>
+<p>缺点</p>
+</li>
+<li><p>开发成本高</p>
+</li>
+<li><p>消息内容和形式单一</p>
+</li>
+<li><p>客户端程序设计复杂</p>
+</li>
+<li><p>界面风格不一，使用繁杂，难以推广</p>
+</li>
+<li><p>软件维护和升级困难</p>
+</li>
+<li><p>软件移植困难</p>
+</li>
+<li><p>不能轻易使用新技术</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="3-3-三层C-S结构风格"><a href="#3-3-三层C-S结构风格" class="headerlink" title="3.3 三层C/S结构风格"></a>3.3 三层C/S结构风格</h3><ul>
+<li>2层cs体系结构的局限性<ol>
+<li>只有一个服务器和以局域网为核心，难以扩展至大型企业广域网和internet</li>
+<li>软硬件的组合和集成能力有限</li>
+<li>数据安全性不好</li>
+<li>客户机负荷太重，难以管理大量的客户机，系统的性能容易变坏</li>
+</ol>
+</li>
+</ul>
+<h4 id="3-3-1-各层的功能"><a href="#3-3-1-各层的功能" class="headerlink" title="3.3.1 各层的功能"></a>3.3.1 各层的功能</h4><ol>
+<li><p>表示层</p>
+<p>功能：提供应用中的用户接口，负担用户和应用的对话功能</p>
+</li>
+<li><p>功能层</p>
+<p>功能：将具体的业务处理逻辑编写到程序中</p>
+</li>
+<li><p>数据层</p>
+<p>功能：管理数据库数据的读写</p>
+</li>
+</ol>
+<h4 id="3-3-2-三层C-S结构应用实例"><a href="#3-3-2-三层C-S结构应用实例" class="headerlink" title="3.3.2 三层C/S结构应用实例"></a>3.3.2 三层C/S结构应用实例</h4><h4 id="3-3-3-三层C-S结构的优点"><a href="#3-3-3-三层C-S结构的优点" class="headerlink" title="3.3.3 三层C/S结构的优点"></a>3.3.3 三层C/S结构的优点</h4><ol>
+<li>允许合理得划分三层结构的功能，使各层的逻辑相对独立</li>
+<li>允许合理有效地选取相应地平台和硬件系统，使之在处理负荷能力和处理特性上适应划分的三层结构</li>
+<li>各层可以并行开发，各层可以选自各自最适合的开发语言</li>
+<li>利用功能层有效地隔离表示层和数据层，为严格的安全管理奠定基础。使整个系统层次更加合理和可控制</li>
+</ol>
+<h3 id="3-4-浏览-服务器风格"><a href="#3-4-浏览-服务器风格" class="headerlink" title="3.4 浏览/服务器风格"></a>3.4 浏览/服务器风格</h3><ul>
+<li><p>优点：同三层C/S结构的优点</p>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>对动态页面缺乏强力支持，没有集成的数据库处理功能</li>
+<li>系统扩展能力差，安全性难以控制</li>
+<li>采用bs结构，响应速度远低于采用cs结构</li>
+<li>bs结构数据提交一般以页面为单位，缺乏数据动态交互性，不利已在线处理事务应用</li>
+</ol>
+</li>
+</ul>
+<h3 id="3-8-异构结构风格"><a href="#3-8-异构结构风格" class="headerlink" title="3.8 异构结构风格"></a>3.8 异构结构风格</h3><ul>
+<li>C/S与B/S混合软件体系结构</li>
+</ul>
+<h4 id="3-8-1-异构结构的实例分析"><a href="#3-8-1-异构结构的实例分析" class="headerlink" title="3.8.1 异构结构的实例分析"></a>3.8.1 异构结构的实例分析</h4><ol>
+<li>“内外有别”模型</li>
+<li>“查改有别”模型</li>
+</ol>
+<h4 id="3-8-2-异构组合匹配问题"><a href="#3-8-2-异构组合匹配问题" class="headerlink" title="3.8.2 异构组合匹配问题"></a>3.8.2 异构组合匹配问题</h4><h2 id="第4章-软件体系结构描述"><a href="#第4章-软件体系结构描述" class="headerlink" title="第4章 软件体系结构描述"></a>第4章 软件体系结构描述</h2><h3 id="4-1-软件体系结构描述方法"><a href="#4-1-软件体系结构描述方法" class="headerlink" title="4.1 软件体系结构描述方法"></a>4.1 软件体系结构描述方法</h3><ul>
+<li><p>软件体系结构的描述方法分为哪几种，学术界和产业界分别常用哪种</p>
+<ol>
+<li><p>图形表示工具</p>
+</li>
+<li><p>数学表示工具</p>
+</li>
+<li><p>文字表示工具</p>
+<p>产业界常用图形表示工具，学术界常用数学表示工具</p>
+</li>
+</ol>
+</li>
+<li><p>软件体系结构的描述和表达方法有哪几种</p>
+<ol>
+<li>图形表示工具</li>
+<li>模块内连接语言</li>
+<li>基于软构件的系统描述语言</li>
+<li>软件体系结构描述语言</li>
+</ol>
+</li>
+</ul>
+<h3 id="4-3-体系结构描述语言"><a href="#4-3-体系结构描述语言" class="headerlink" title="4.3 体系结构描述语言"></a>4.3 体系结构描述语言</h3><ul>
+<li><p>体系结构描述语言ADL三个字母分别代表什么意思</p>
+<p> A:体系结构，D:描述，L:语言</p>
+</li>
+<li><p>ADL中的三个基本要素是什么</p>
+<ol>
+<li>构件：计算或数据存储单元</li>
+<li>连接件：用于构件之间交互建模的体系结构构造块及其支配这些交互的规则</li>
+<li>体系结构配置：描述体系结构的构件与连接件的连接图</li>
+</ol>
+</li>
+</ul>
+<h4 id="4-3-1-ADL与其他语言的比较"><a href="#4-3-1-ADL与其他语言的比较" class="headerlink" title="4.3.1 ADL与其他语言的比较"></a>4.3.1 ADL与其他语言的比较</h4><ul>
+<li>ADL的能力<ol>
+<li>构造能力</li>
+<li>抽象能力</li>
+<li>重用能力</li>
+<li>组合能力</li>
+<li>异构能力</li>
+<li>分析和推理能力</li>
+</ol>
+</li>
+</ul>
+<h4 id="4-3-2-ADL的构成要素"><a href="#4-3-2-ADL的构成要素" class="headerlink" title="4.3.2 ADL的构成要素"></a>4.3.2 ADL的构成要素</h4><ol>
+<li>构件</li>
+<li>连接件</li>
+<li>体系结构配置</li>
+</ol>
+<h3 id="4-4-典型的软件体系结构描述语言"><a href="#4-4-典型的软件体系结构描述语言" class="headerlink" title="4.4 典型的软件体系结构描述语言"></a>4.4 典型的软件体系结构描述语言</h3><h4 id="4-4-3-C2"><a href="#4-4-3-C2" class="headerlink" title="4.4.3 C2"></a>4.4.3 C2</h4><h2 id="第6章-可扩展标记语言"><a href="#第6章-可扩展标记语言" class="headerlink" title="第6章 可扩展标记语言"></a>第6章 可扩展标记语言</h2><ul>
+<li><p>XML的定义和全称</p>
+<p> 定义：XML是一套定义语义标记的规则</p>
+<p> 全称：可扩展标记语言</p>
+</li>
+</ul>
+<h3 id="6-1-XML概述"><a href="#6-1-XML概述" class="headerlink" title="6.1 XML概述"></a>6.1 XML概述</h3><ol>
+<li>能直接应用在Internet上</li>
+<li>能被各式应用软件使用</li>
+<li>能与SGML兼容</li>
+<li>能轻易发展XML相关软件</li>
+<li>能简化SGML</li>
+<li>XML文件可读性高</li>
+<li>XML规范能尽快完成</li>
+<li>XML规范必须简洁</li>
+<li>XML文件易于建立</li>
+<li>语法不可模糊不清</li>
+</ol>
+<h4 id="6-1-1-XML的特点"><a href="#6-1-1-XML的特点" class="headerlink" title="6.1.1 XML的特点"></a>6.1.1 XML的特点</h4><ol>
+<li>简介有效</li>
+<li>易学易用</li>
+<li>开放的国际标准</li>
+<li>高效且可扩充</li>
+</ol>
+<h4 id="6-1-2-XML的作用"><a href="#6-1-2-XML的作用" class="headerlink" title="6.1.2 XML的作用"></a>6.1.2 XML的作用</h4><ol>
+<li>使得搜索更加有意义</li>
+<li>开发灵活的Web应用软件</li>
+<li>实现不同数据的集成</li>
+<li>使用于多种应用环境</li>
+<li>客户端数据处理与计算</li>
+<li>数据显示多样化</li>
+<li>局部数据更新</li>
+<li>与现有Web发布机制相兼容</li>
+<li>可升级性</li>
+<li>压缩性能高</li>
+</ol>
+<h4 id="6-1-3-XML的应用"><a href="#6-1-3-XML的应用" class="headerlink" title="6.1.3 XML的应用"></a>6.1.3 XML的应用</h4><ol>
+<li>应用于客户需要与不同的数据源进行交互时</li>
+<li>应用于将大量运算负荷分布在客户端</li>
+<li>应用于将同一数据以不同的面貌展现给不同的用户</li>
+<li>应用于网络代理对所取得的信息进行编辑、增减以适应个人用户的需要</li>
+</ol>
+<h3 id="6-2-解析XML"><a href="#6-2-解析XML" class="headerlink" title="6.2 解析XML"></a>6.2 解析XML</h3><h4 id="6-2-1-XML与HTML的区别"><a href="#6-2-1-XML与HTML的区别" class="headerlink" title="6.2.1 XML与HTML的区别"></a>6.2.1 XML与HTML的区别</h4><ol>
+<li>和HTML的区别：XML是元标记语言可以用于定义其他标记语言。XML是“纯”数据。</li>
+<li>XSL是专门用于XML文档的样式单语言</li>
+</ol>
+<h4 id="6-2-2-XML文档"><a href="#6-2-2-XML文档" class="headerlink" title="6.2.2 XML文档"></a>6.2.2 XML文档</h4><h4 id="6-2-3-CSS与XML"><a href="#6-2-3-CSS与XML" class="headerlink" title="6.2.3 CSS与XML"></a>6.2.3 CSS与XML</h4><h2 id="第8章-基于服务的体系结构"><a href="#第8章-基于服务的体系结构" class="headerlink" title="*第8章 基于服务的体系结构"></a>*第8章 基于服务的体系结构</h2><ul>
+<li>SOA全称：面向服务的体系结构(Service-Oriented Architecture)</li>
+</ul>
+<h3 id="8-1-SOA概述"><a href="#8-1-SOA概述" class="headerlink" title="8.1 SOA概述"></a>8.1 SOA概述</h3><ul>
+<li><p>SOA定义：是一种在计算环境中设计，开发，部署和管理离散逻辑单元模型的方法</p>
+</li>
+<li><p>SOA的特征</p>
+<ol>
+<li>松散耦合</li>
+<li>粗粒度服务</li>
+<li>标准化接口</li>
+</ol>
+</li>
+</ul>
+<h3 id="8-2-面向服务的分析与设计"><a href="#8-2-面向服务的分析与设计" class="headerlink" title="8.2 面向服务的分析与设计"></a>8.2 面向服务的分析与设计</h3><ol>
+<li>基础设计层</li>
+<li>体系结构层</li>
+<li>业务层</li>
+</ol>
+<ul>
+<li>三个抽象级别：操作，服务和业务流程</li>
+</ul>
+<h3 id="8-3-SOA的关键技术"><a href="#8-3-SOA的关键技术" class="headerlink" title="8.3 SOA的关键技术"></a>8.3 SOA的关键技术</h3><ul>
+<li><p>SOA的服务栈中包含哪几层，功能分别是</p>
+<ol>
+<li><p>发现服务层</p>
+<p> 主要用来帮助客户端应用程序解析远程服务的位置</p>
+</li>
+<li><p>描述服务层</p>
+<p> 为客户端应用程序提供正确地与远程服务交互的描述信息</p>
+</li>
+<li><p>消息格式层</p>
+<p> 保证客户端应用程序和服务器端在格式设置上保持一致</p>
+</li>
+<li><p>编码格式层</p>
+<p> 为客户端和服务器之间提供一个标准的、独立于平台的数据交换编码格式</p>
+</li>
+<li><p>传输协议层</p>
+<p> 为客户端和服务器之间提供网络通信协议</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="8-4-SOA的实现方法"><a href="#8-4-SOA的实现方法" class="headerlink" title="8.4 SOA的实现方法"></a>8.4 SOA的实现方法</h3><ol>
+<li><p>Web Service</p>
+<p> 三种工作角色：服务提供者、服务请求者和服务注册中心（可选）</p>
+<p> Web Service模型中的操作包括发布、查找和绑定</p>
+<ul>
+<li>使用webservice方法时，应用系统分为哪几个层次<ol>
+<li>底层传输层</li>
+<li>服务通信层</li>
+<li>服务描述层</li>
+<li>服务层</li>
+<li>业务流程层</li>
+<li>服务注册层</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>服务注册表</p>
+</li>
+<li><p>ESB</p>
+</li>
+</ol>
+<h3 id="8-5-服务描述语言"><a href="#8-5-服务描述语言" class="headerlink" title="8.5 服务描述语言"></a>8.5 服务描述语言</h3><h4 id="8-5-1-WSDL概述"><a href="#8-5-1-WSDL概述" class="headerlink" title="8.5.1 WSDL概述"></a>8.5.1 WSDL概述</h4><ul>
+<li><p>WSDL(Web Services Description Language)是对服务进行描述的语言，它有一套基于XML的语法定义</p>
+</li>
+<li><p>WSDL子元素：types,message,operation,portType,binding,port,service</p>
+</li>
+</ul>
+<h4 id="8-5-2-使用WSDL文档"><a href="#8-5-2-使用WSDL文档" class="headerlink" title="8.5.2 使用WSDL文档"></a>8.5.2 使用WSDL文档</h4><h4 id="8-5-3-WSDL文档结构"><a href="#8-5-3-WSDL文档结构" class="headerlink" title="8.5.3 WSDL文档结构"></a>8.5.3 WSDL文档结构</h4><h3 id="8-6-统一描述、发现和集成协议"><a href="#8-6-统一描述、发现和集成协议" class="headerlink" title="8.6 统一描述、发现和集成协议"></a>8.6 统一描述、发现和集成协议</h3><ul>
+<li><p>UDDI(Universal Description Discovery and Integration*)是一种用户描述，发现，集成Web服务的技术，他是Web服务协议栈的一个重要部分。</p>
+</li>
+<li><p>UDDI技术规范中，包含的三个部分内容</p>
+<ol>
+<li>UDDI数据模型</li>
+<li>UDDI API</li>
+<li>UDDI注册服务</li>
+</ol>
+</li>
+</ul>
+<h4 id="8-6-1-UDDI数据模型"><a href="#8-6-1-UDDI数据模型" class="headerlink" title="8.6.1 UDDI数据模型"></a>8.6.1 UDDI数据模型</h4><ul>
+<li>数据结构：businessEntity ,businessService ,bindingTemplate , tModel</li>
+</ul>
+<h4 id="8-6-2-注册Web服务"><a href="#8-6-2-注册Web服务" class="headerlink" title="8.6.2 注册Web服务"></a>8.6.2 注册Web服务</h4><h4 id="8-6-3-调用Web服务"><a href="#8-6-3-调用Web服务" class="headerlink" title="8.6.3 调用Web服务"></a>8.6.3 调用Web服务</h4><h3 id="8-7-消息封装协议"><a href="#8-7-消息封装协议" class="headerlink" title="8.7 消息封装协议"></a>8.7 消息封装协议</h3><ul>
+<li>SOAP的定义</li>
+</ul>
+<p>​   SOAP（Simple Object Access Protocol）以XML形式提供一个简单，轻量的用于在分散或分布环境中交换结构化和类型信息的机制</p>
+<ul>
+<li>SOAP主要包括哪几个部分<ol>
+<li>SOAP封装结构</li>
+<li>SOAP编码规则</li>
+<li>SOAP PRC表示</li>
+<li>SOAP绑定</li>
+</ol>
+</li>
+</ul>
+<h4 id="8-7-1-消息封装和编码规则"><a href="#8-7-1-消息封装和编码规则" class="headerlink" title="8.7.1 消息封装和编码规则"></a>8.7.1 消息封装和编码规则</h4><ul>
+<li><p>SOAP消息包括哪几个部分</p>
+<ol>
+<li>封装</li>
+<li>SOAP头</li>
+<li>SOAP体</li>
+</ol>
+</li>
+<li><p>SOAP的编码规则</p>
+<ol>
+<li>值</li>
+<li>简单值</li>
+<li>复合值</li>
+<li>数组</li>
+<li>结构</li>
+<li>简单类型</li>
+<li>复合类型</li>
+</ol>
+</li>
+</ul>
+<h4 id="8-7-2-SOAP应用"><a href="#8-7-2-SOAP应用" class="headerlink" title="8.7.2 SOAP应用"></a>8.7.2 SOAP应用</h4><h4 id="8-7-3-REST"><a href="#8-7-3-REST" class="headerlink" title="8.7.3 REST"></a>8.7.3 REST</h4><h2 id="第9章-富互联网应用体系结构"><a href="#第9章-富互联网应用体系结构" class="headerlink" title="第9章 富互联网应用体系结构"></a>第9章 富互联网应用体系结构</h2><h3 id="9-1-RIA的概念"><a href="#9-1-RIA的概念" class="headerlink" title="9.1 RIA的概念"></a>9.1 RIA的概念</h3><ul>
+<li>RIA的概念：RIA（Rich Internet Application）富互联网应用体系结构</li>
+</ul>
+<h4 id="9-1-1-RIA的提出"><a href="#9-1-1-RIA的提出" class="headerlink" title="9.1.1 RIA的提出"></a>9.1.1 RIA的提出</h4><ul>
+<li>富：丰富的数据模型、丰富的用户界面</li>
+</ul>
+<h4 id="9-1-2-丰富的含义"><a href="#9-1-2-丰富的含义" class="headerlink" title="9.1.2 丰富的含义"></a>9.1.2 丰富的含义</h4><h4 id="9-1-3-RIA的优点"><a href="#9-1-3-RIA的优点" class="headerlink" title="9.1.3 RIA的优点"></a>9.1.3 RIA的优点</h4><h2 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h2><ul>
+<li><p>ADL：软件体系结构描述语言</p>
+</li>
+<li><p>软件重用：指在两次或多次不同的软件开发过程中重复使用相同或相近软件元素的过程</p>
+</li>
+<li><p>场景：重要的系统活动的抽象</p>
+</li>
+<li><p>构件组装：将构件库中的构件做适应性修改并连接起来或者和当前开发项目的软件元素相连</p>
+</li>
+<li><p>XML：可扩展标记语言，是一套定义语义标记的规则</p>
+</li>
+<li><p>XSL：可扩展样式语言，是XML的应用</p>
+</li>
+<li><p>SOA：面向服务的体系结构,是一种在计算环境中设计，开发，部署和管理离散逻辑单元模型的方法</p>
+</li>
+<li><p>WSDL：对服务进行描述的语言，它有一套基于XML的语法定义</p>
+</li>
+<li><p>UDDI：是一种用户描述、发现、集成Web服务的技术，他是Web服务协议栈的一个重要部分</p>
+</li>
+<li><p>SOAP：消息封装协议，以XML形式提供一个简单，轻量的用于在分散或分布环境中交换结构化和类型信息的机制</p>
+</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://music.163.com/song/media/outer/url?id=1492276426.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru02.model.json"},"display":{"position":"right","width":300,"height":600},"mobile":{"show":false},"log":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

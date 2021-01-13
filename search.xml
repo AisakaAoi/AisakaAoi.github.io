@@ -1,190 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>设计模式01_创建型模式_单例模式</title>
-    <url>/c3e2764.html</url>
-    <content><![CDATA[<h3 id="单例模式的定义"><a href="#单例模式的定义" class="headerlink" title="单例模式的定义"></a>单例模式的定义</h3><p>Ensure a class has only one instance, and provide a global point of access to it.</p>
-<p>确保一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。</p>
-<hr>
-<h3 id="单例模式的特点"><a href="#单例模式的特点" class="headerlink" title="单例模式的特点"></a>单例模式的特点</h3><ul>
-<li><p>单例类只有一个实例对象。</p>
-</li>
-<li><p>该单例对象必须由单例类自行创建。</p>
-</li>
-<li><p>单例类对外提供一个访问该单例的全局访问点。</p>
-</li>
-</ul>
-<hr>
-<h3 id="单例模式的优点"><a href="#单例模式的优点" class="headerlink" title="单例模式的优点"></a>单例模式的优点</h3><ul>
-<li><p>单例模式可以保证内存里只有一个实例，减少了内存的开销。</p>
-</li>
-<li><p>可以避免对资源的多重占用。</p>
-</li>
-<li><p>单例模式设置全局访问点，可以优化和共享资源的访问。</p>
-</li>
-</ul>
-<hr>
-<h3 id="单例模式的缺点"><a href="#单例模式的缺点" class="headerlink" title="单例模式的缺点"></a>单例模式的缺点</h3><ul>
-<li><p>单例模式一般没有接口，扩展困难。如果要扩展，则除了修改原来的代码，没有第二种途径，违背开闭原则。</p>
-</li>
-<li><p>在并发测试中，单例模式不利于代码调试。在调试过程中，如果单例中的代码没有执行完，也不能模拟生成一个新的对象。</p>
-</li>
-<li><p>单例模式的功能代码通常写在一个类中，如果功能设计不合理，则很容易违背单一职责原则。</p>
-</li>
-</ul>
-<hr>
-<h3 id="单例模式的应用场景"><a href="#单例模式的应用场景" class="headerlink" title="单例模式的应用场景"></a>单例模式的应用场景</h3><p>对于 Java 来说，单例模式可以保证在一个 JVM 中只存在单一实例。</p>
-<ul>
-<li><p>需要频繁创建的一些类，使用单例可以降低系统的内存压力，减少 GC。</p>
-</li>
-<li><p>某类只要求生成一个对象的时候，如一个班中的班长、每个人的身份证号等。</p>
-</li>
-<li><p>某些类创建实例时占用资源较多，或实例化耗时较长，且经常使用。</p>
-</li>
-<li><p>某类需要频繁实例化，而创建的对象又频繁被销毁的时候，如多线程的线程池、网络连接池等。</p>
-</li>
-<li><p>频繁访问数据库或文件的对象。</p>
-</li>
-<li><p>对于一些控制硬件级别的操作，或者从系统上来讲应当是单一控制逻辑的操作，如果有多个实例，则系统会完全乱套。</p>
-</li>
-<li><p>当对象需要被共享的场合。由于单例模式只允许创建一个对象，共享该对象可以节省内存，并加快对象访问速度。如 Web 中的配置对象、数据库的连接池等。</p>
-</li>
-</ul>
-<hr>
-<h3 id="什么会应用单例模式"><a href="#什么会应用单例模式" class="headerlink" title="什么会应用单例模式"></a>什么会应用单例模式</h3><p>Windows中只能打开一个<strong>任务管理器</strong>，这样可以避免因打开不必要的多个任务管理器而造成内存资源的浪费，或出现多个窗口不同步等错误。</p>
-<p>在计算机系统中，类似的，还有Windows的<strong>回收站</strong>、操作系统中的<strong>文件系统</strong>、多线程中的<strong>线程池</strong>、显卡的<strong>驱动对象</strong>、打印机的<strong>后台处理服务</strong>、应用程序的<strong>日志对象</strong>、数据库的<strong>连接池</strong>、网站的<strong>计数器</strong>、Web 应用的<strong>配置对象</strong>、应用程序中的<strong>对话框</strong>、系统中的<strong>缓存</strong>等常常被设计成单例。</p>
-<p>在现实生活中，同样的，例如<strong>公司 CEO、部门经理</strong>等都属于单例模型。</p>
-<p>J2EE 标准中的 <strong>ServletContext</strong> 和 <strong>ServletContextConfig</strong>、Spring 框架应用中的 <strong>ApplicationContext</strong>等也都是单例模式。</p>
-<hr>
-<h3 id="单例模式的结构"><a href="#单例模式的结构" class="headerlink" title="单例模式的结构"></a>单例模式的结构</h3><ul>
-<li><p>单例类：包含一个实例且能自行创建这个实例的类。</p>
-</li>
-<li><p>访问类：使用单例的类。</p>
-</li>
-</ul>
-<p><img src="http://c.biancheng.net/uploads/allimg/181113/3-1Q1131K441K2.gif"></p>
-<hr>
-<h3 id="单例模式的实现"><a href="#单例模式的实现" class="headerlink" title="单例模式的实现"></a>单例模式的实现</h3><ol>
-<li>饿汉式实现</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonPattern</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Singleton <span class="title">getSingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>懒汉式实现</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonPattern</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton singleton;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Singleton <span class="title">getSingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote>
-<p><a href="http://c.biancheng.net/view/1338.html">http://c.biancheng.net/view/1338.html</a><br><a href="https://www.bilibili.com/video/BV1af4y1y7sS">https://www.bilibili.com/video/BV1af4y1y7sS</a></p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>设计模式02_创建型模式_原型模式</title>
-    <url>/285282a1.html</url>
-    <content><![CDATA[<h3 id="原型模式的定义"><a href="#原型模式的定义" class="headerlink" title="原型模式的定义"></a>原型模式的定义</h3><p>用一个已经创建的实例作为原型，通过复制该原型对象来创建一个和原型相同或相似的新对象。</p>
-<p><font color=lightgrey>在这里，原型实例指定了要创建的对象的种类。用这种方式创建对象非常高效，根本无须知道对象创建的细节。例如，Windows 操作系统的安装通常较耗时，如果复制就快了很多。</font></p>
-<hr>
-<h3 id="原型模式的优点"><a href="#原型模式的优点" class="headerlink" title="原型模式的优点"></a>原型模式的优点</h3><ul>
-<li><p>Java 自带的原型模式基于内存二进制流的复制，在性能上比直接 new 一个对象更加优良。</p>
-</li>
-<li><p>可以使用深克隆方式保存对象的状态，使用原型模式将对象复制一份，并将其状态保存起来，简化了创建对象的过程，以便在需要的时候使用（例如恢复到历史某一状态），可辅助实现撤销操作。</p>
-</li>
-</ul>
-<hr>
-<h3 id="原型模式的缺点"><a href="#原型模式的缺点" class="headerlink" title="原型模式的缺点"></a>原型模式的缺点</h3><ul>
-<li><p>需要为每一个类都配置一个 clone 方法。</p>
-</li>
-<li><p>clone 方法位于类的内部，当对已有类进行改造的时候，需要修改代码，违背了开闭原则。</p>
-</li>
-<li><p>当实现深克隆时，需要编写较为复杂的代码，而且当对象之间存在多重嵌套引用时，为了实现深克隆，每一层对象对应的类都必须支持深克隆，实现起来会比较麻烦。因此，深克隆、浅克隆需要运用得当。</p>
-</li>
-</ul>
-<hr>
-<h3 id="原型模式的应用场景"><a href="#原型模式的应用场景" class="headerlink" title="原型模式的应用场景"></a>原型模式的应用场景</h3><p>在 Spring 中，原型模式应用的非常广泛，例如 scope=’prototype’、JSON.parseObject() 等都是原型模式的具体应用。</p>
-<ul>
-<li><p>对象之间相同或相似，即只是个别的几个属性不同的时候。</p>
-</li>
-<li><p>创建对象成本较大，例如初始化时间长，占用CPU太多，或者占用网络资源太多等，需要优化资源。</p>
-</li>
-<li><p>创建一个对象需要繁琐的数据准备或访问权限等，需要提高性能或者提高安全性。</p>
-</li>
-<li><p>系统中大量使用该类对象，且各个调用者都需要给它的属性重新赋值。</p>
-</li>
-</ul>
-<hr>
-<h3 id="什么会应用原型模式"><a href="#什么会应用原型模式" class="headerlink" title="什么会应用原型模式"></a>什么会应用原型模式</h3><ul>
-<li>在有些系统中，存在大量相同或相似对象的创建问题，如果用传统的构造函数来创建对象，会比较复杂且耗时耗资源，用原型模式生成对象就很高效，就像孙悟空拔下猴毛轻轻一吹就变出很多孙悟空一样简单。</li>
-</ul>
-<hr>
-<h3 id="原型模式的结构"><a href="#原型模式的结构" class="headerlink" title="原型模式的结构"></a>原型模式的结构</h3><ul>
-<li><p>由于 Java 提供了对象的 clone() 方法，所以用 Java 实现原型模式很简单。</p>
-</li>
-<li><p>抽象原型类：规定了具体原型对象必须实现的接口。</p>
-</li>
-<li><p>具体原型类：实现抽象原型类的 clone() 方法，它是可被复制的对象。</p>
-</li>
-<li><p>访问类：使用具体原型类中的 clone() 方法来复制新的对象。</p>
-</li>
-</ul>
-<p><img src="http://c.biancheng.net/uploads/allimg/181114/3-1Q114101Fa22.gif"></p>
-<hr>
-<h3 id="原型模式的实现"><a href="#原型模式的实现" class="headerlink" title="原型模式的实现"></a>原型模式的实现</h3><p>原型模式的克隆分为浅克隆和深克隆。</p>
-<p>Java 中的 Object 类提供了浅克隆的 clone() 方法，具体原型类只要实现 Cloneable 接口就可实现对象的浅克隆，这里的 Cloneable 接口就是抽象原型类。</p>
-<ul>
-<li><p>浅克隆：创建一个新对象，新对象的属性和原来对象完全相同，对于非基本类型属性，仍指向原有属性所指向的对象的内存地址。（即克隆对象内的对象仍是旧对象）</p>
-</li>
-<li><p>深克隆：创建一个新对象，属性中引用的其他对象也会被克隆，不再指向原有对象地址。</p>
-</li>
-</ul>
-<p><img src="https://img-blog.csdn.net/20140116224712140?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdqZ19ibG9n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 原型接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Prototype</span> </span>&#123;</span><br><span class="line">    <span class="function">Object <span class="title">clone</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 飞机类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Plane</span> <span class="keyword">implements</span> <span class="title">Prototype</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Plane</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        name = <span class="string">&quot;Name:&quot;</span> + Math.random();</span><br><span class="line">        type = <span class="string">&quot;Type:&quot;</span> + Math.random();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Plane</span><span class="params">(Plane plane)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = plane.name;</span><br><span class="line">        <span class="keyword">this</span>.type = plane.type;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> type;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// return (Plane)super.clone();     // 浅克隆</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Plane(<span class="keyword">this</span>);             <span class="comment">// 深克隆</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrototypePattern</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;</span><br><span class="line">        Plane plane = <span class="keyword">new</span> Plane();</span><br><span class="line">        System.out.println(plane.getName() + <span class="string">&quot; &quot;</span> + plane.getType());</span><br><span class="line">        Plane clone = (Plane)plane.clone();</span><br><span class="line">        System.out.println(clone.getName() + <span class="string">&quot; &quot;</span> + clone.getType());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote>
-<p><a href="http://c.biancheng.net/view/1343.html">http://c.biancheng.net/view/1343.html</a><br><a href="https://blog.csdn.net/zhangjg_blog/article/details/18369201">https://blog.csdn.net/zhangjg_blog/article/details/18369201</a><br><a href="https://www.bilibili.com/video/BV1Tt4y1e7mk">https://www.bilibili.com/video/BV1Tt4y1e7mk</a></p>
-</blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>静态博客框架Hexo插入本地图片</title>
-    <url>/440a520a.html</url>
-    <content><![CDATA[<p>在Hexo插入本地图片上传到服务器，比调用外部链接节省一丢丢流量，也方便一些，避免图床失效导致失去图片等问题。</p>
-<hr>
-<h3 id="安装插件，在Hexo项目根目录打开Git-Bash或cmd"><a href="#安装插件，在Hexo项目根目录打开Git-Bash或cmd" class="headerlink" title="安装插件，在Hexo项目根目录打开Git Bash或cmd"></a>安装插件，在Hexo项目根目录打开Git Bash或cmd</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-asset-image</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="打开hexo的配置文件-config-yml"><a href="#打开hexo的配置文件-config-yml" class="headerlink" title="打开hexo的配置文件_config.yml"></a>打开hexo的配置文件_config.yml</h3><ul>
-<li>找到 post_asset_folder，把这个选项从false改成true<br><img src="https://s3.ax1x.com/2020/12/23/rso7vV.png"></li>
-</ul>
-<hr>
-<h3 id="打开-node-modules-hexo-asset-image-index-js"><a href="#打开-node-modules-hexo-asset-image-index-js" class="headerlink" title="打开/node_modules/hexo-asset-image/index.js"></a>打开/node_modules/hexo-asset-image/index.js</h3><ul>
-<li>将内容更换为下面的代码（在此感谢Ericam_ 大神：<a href="https://blog.csdn.net/xjm850552586%EF%BC%89">https://blog.csdn.net/xjm850552586）</a></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> cheerio = <span class="built_in">require</span>(<span class="string">&#x27;cheerio&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPosition</span>(<span class="params">str, m, i</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> version = <span class="built_in">String</span>(hexo.version).split(<span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">hexo.extend.filter.register(<span class="string">&#x27;after_post_render&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> config = hexo.config;</span><br><span class="line">  <span class="keyword">if</span>(config.post_asset_folder)&#123;</span><br><span class="line">        <span class="keyword">var</span> link = data.permalink;</span><br><span class="line">    <span class="keyword">if</span>(version.length &gt; <span class="number">0</span> &amp;&amp; <span class="built_in">Number</span>(version[<span class="number">0</span>]) == <span class="number">3</span>)</span><br><span class="line">       <span class="keyword">var</span> beginPos = getPosition(link, <span class="string">&#x27;/&#x27;</span>, <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">       <span class="keyword">var</span> beginPos = getPosition(link, <span class="string">&#x27;/&#x27;</span>, <span class="number">3</span>) + <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;.../about/index.html&quot;.</span></span><br><span class="line">    <span class="keyword">var</span> endPos = link.lastIndexOf(<span class="string">&#x27;/&#x27;</span>) + <span class="number">1</span>;</span><br><span class="line">    link = link.substring(beginPos, endPos);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> toprocess = [<span class="string">&#x27;excerpt&#x27;</span>, <span class="string">&#x27;more&#x27;</span>, <span class="string">&#x27;content&#x27;</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">      <span class="keyword">var</span> key = toprocess[i];</span><br><span class="line"> </span><br><span class="line">      <span class="keyword">var</span> $ = cheerio.load(data[key], &#123;</span><br><span class="line">        ignoreWhitespace: <span class="literal">false</span>,</span><br><span class="line">        xmlMode: <span class="literal">false</span>,</span><br><span class="line">        lowerCaseTags: <span class="literal">false</span>,</span><br><span class="line">        decodeEntities: <span class="literal">false</span></span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(<span class="string">&#x27;img&#x27;</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ($(<span class="built_in">this</span>).attr(<span class="string">&#x27;src&#x27;</span>))&#123;</span><br><span class="line">            <span class="comment">// For windows style path, we replace &#x27;\&#x27; to &#x27;/&#x27;.</span></span><br><span class="line">            <span class="keyword">var</span> src = $(<span class="built_in">this</span>).attr(<span class="string">&#x27;src&#x27;</span>).replace(<span class="string">&#x27;\\&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">            <span class="keyword">if</span>(!<span class="regexp">/http[s]*.*|\/\/.*/</span>.test(src) &amp;&amp;</span><br><span class="line">               !<span class="regexp">/^\s*\//</span>.test(src)) &#123;</span><br><span class="line">              <span class="comment">// For &quot;about&quot; page, the first part of &quot;src&quot; can&#x27;t be removed.</span></span><br><span class="line">              <span class="comment">// In addition, to support multi-level local directory.</span></span><br><span class="line">              <span class="keyword">var</span> linkArray = link.split(<span class="string">&#x27;/&#x27;</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> elem != <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">              &#125;);</span><br><span class="line">              <span class="keyword">var</span> srcArray = src.split(<span class="string">&#x27;/&#x27;</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> elem != <span class="string">&#x27;&#x27;</span> &amp;&amp; elem != <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">              &#125;);</span><br><span class="line">              <span class="keyword">if</span>(srcArray.length &gt; <span class="number">1</span>)</span><br><span class="line">                srcArray.shift();</span><br><span class="line">              src = srcArray.join(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">              $(<span class="built_in">this</span>).attr(<span class="string">&#x27;src&#x27;</span>, config.root + link + src);</span><br><span class="line">              <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info(<span class="string">&quot;update link as:--&gt;&quot;</span>+config.root + link + src);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info(<span class="string">&quot;no src attr, skipped...&quot;</span>);</span><br><span class="line">            <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info($(<span class="built_in">this</span>));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      data[key] = $.html();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="已经可以插入图片了"><a href="#已经可以插入图片了" class="headerlink" title="已经可以插入图片了"></a>已经可以插入图片了</h3><ul>
-<li>例如 hexo n “test” 在 source/_posts 生成 test.md 文件和 test 文件夹<br>就在 test.md 文件里面按 markdown 的标准写(我的文件名是test.jpg)</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">这是代替图片的文字，随便写</span>](<span class="link">test.jpg</span>)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><ul>
-<li>以后 hexo n 后在 source/_posts 的 .md 文件的同名文件夹里，直接放入图片调用图片名即可</li>
-</ul>
-<hr>
-<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote>
-<p><a href="https://blog.csdn.net/xjm850552586/article/details/84101345">https://blog.csdn.net/xjm850552586/article/details/84101345</a><br><a href="https://blog.csdn.net/qq_38148394/article/details/79997971">https://blog.csdn.net/qq_38148394/article/details/79997971</a><br><a href="https://www.jianshu.com/p/f72aaad7b852">https://www.jianshu.com/p/f72aaad7b852</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Linux下部署Node.js和Express框架</title>
     <url>/52813bb0.html</url>
     <content><![CDATA[<h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><ul>
@@ -284,5 +100,1663 @@
       <categories>
         <category>ECS</category>
       </categories>
+  </entry>
+  <entry>
+    <title>设计模式01 创建型模式 单例模式</title>
+    <url>/eb99ed53.html</url>
+    <content><![CDATA[<h3 id="单例模式的定义"><a href="#单例模式的定义" class="headerlink" title="单例模式的定义"></a>单例模式的定义</h3><p>Ensure a class has only one instance, and provide a global point of access to it.</p>
+<p>确保一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。</p>
+<hr>
+<h3 id="单例模式的特点"><a href="#单例模式的特点" class="headerlink" title="单例模式的特点"></a>单例模式的特点</h3><ul>
+<li><p>单例类只有一个实例对象。</p>
+</li>
+<li><p>该单例对象必须由单例类自行创建。</p>
+</li>
+<li><p>单例类对外提供一个访问该单例的全局访问点。</p>
+</li>
+</ul>
+<hr>
+<h3 id="单例模式的优点"><a href="#单例模式的优点" class="headerlink" title="单例模式的优点"></a>单例模式的优点</h3><ul>
+<li><p>单例模式可以保证内存里只有一个实例，减少了内存的开销。</p>
+</li>
+<li><p>可以避免对资源的多重占用。</p>
+</li>
+<li><p>单例模式设置全局访问点，可以优化和共享资源的访问。</p>
+</li>
+</ul>
+<hr>
+<h3 id="单例模式的缺点"><a href="#单例模式的缺点" class="headerlink" title="单例模式的缺点"></a>单例模式的缺点</h3><ul>
+<li><p>单例模式一般没有接口，扩展困难。如果要扩展，则除了修改原来的代码，没有第二种途径，违背开闭原则。</p>
+</li>
+<li><p>在并发测试中，单例模式不利于代码调试。在调试过程中，如果单例中的代码没有执行完，也不能模拟生成一个新的对象。</p>
+</li>
+<li><p>单例模式的功能代码通常写在一个类中，如果功能设计不合理，则很容易违背单一职责原则。</p>
+</li>
+</ul>
+<hr>
+<h3 id="单例模式的应用场景"><a href="#单例模式的应用场景" class="headerlink" title="单例模式的应用场景"></a>单例模式的应用场景</h3><p>对于 Java 来说，单例模式可以保证在一个 JVM 中只存在单一实例。</p>
+<ul>
+<li><p>需要频繁创建的一些类，使用单例可以降低系统的内存压力，减少 GC。</p>
+</li>
+<li><p>某类只要求生成一个对象的时候，如一个班中的班长、每个人的身份证号等。</p>
+</li>
+<li><p>某些类创建实例时占用资源较多，或实例化耗时较长，且经常使用。</p>
+</li>
+<li><p>某类需要频繁实例化，而创建的对象又频繁被销毁的时候，如多线程的线程池、网络连接池等。</p>
+</li>
+<li><p>频繁访问数据库或文件的对象。</p>
+</li>
+<li><p>对于一些控制硬件级别的操作，或者从系统上来讲应当是单一控制逻辑的操作，如果有多个实例，则系统会完全乱套。</p>
+</li>
+<li><p>当对象需要被共享的场合。由于单例模式只允许创建一个对象，共享该对象可以节省内存，并加快对象访问速度。如 Web 中的配置对象、数据库的连接池等。</p>
+</li>
+</ul>
+<hr>
+<h3 id="什么会应用单例模式"><a href="#什么会应用单例模式" class="headerlink" title="什么会应用单例模式"></a>什么会应用单例模式</h3><p>Windows中只能打开一个<strong>任务管理器</strong>，这样可以避免因打开不必要的多个任务管理器而造成内存资源的浪费，或出现多个窗口不同步等错误。</p>
+<p>在计算机系统中，类似的，还有Windows的<strong>回收站</strong>、操作系统中的<strong>文件系统</strong>、多线程中的<strong>线程池</strong>、显卡的<strong>驱动对象</strong>、打印机的<strong>后台处理服务</strong>、应用程序的<strong>日志对象</strong>、数据库的<strong>连接池</strong>、网站的<strong>计数器</strong>、Web 应用的<strong>配置对象</strong>、应用程序中的<strong>对话框</strong>、系统中的<strong>缓存</strong>等常常被设计成单例。</p>
+<p>在现实生活中，同样的，例如<strong>公司 CEO、部门经理</strong>等都属于单例模型。</p>
+<p>J2EE 标准中的 <strong>ServletContext</strong> 和 <strong>ServletContextConfig</strong>、Spring 框架应用中的 <strong>ApplicationContext</strong>等也都是单例模式。</p>
+<hr>
+<h3 id="单例模式的结构"><a href="#单例模式的结构" class="headerlink" title="单例模式的结构"></a>单例模式的结构</h3><ul>
+<li><p>单例类：包含一个实例且能自行创建这个实例的类。</p>
+</li>
+<li><p>访问类：使用单例的类。</p>
+</li>
+</ul>
+<p><img src="http://c.biancheng.net/uploads/allimg/181113/3-1Q1131K441K2.gif"></p>
+<hr>
+<h3 id="单例模式的实现"><a href="#单例模式的实现" class="headerlink" title="单例模式的实现"></a>单例模式的实现</h3><ol>
+<li>饿汉式实现</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonPattern</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Singleton <span class="title">getSingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>懒汉式实现</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonPattern</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton singleton;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Singleton <span class="title">getSingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote>
+<p><a href="http://c.biancheng.net/view/1338.html">http://c.biancheng.net/view/1338.html</a><br><a href="https://www.bilibili.com/video/BV1af4y1y7sS">https://www.bilibili.com/video/BV1af4y1y7sS</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计算机组成原理 知识点快速复习</title>
+    <url>/e2c448f4.html</url>
+    <content><![CDATA[<p>计算机系统 = 硬件 + 软件</p>
+<p>软件</p>
+<ul>
+<li>系统软件<br>用来管理整个计算机系统</li>
+<li>应用软件<br>按任务需要编制成的各种程序</li>
+</ul>
+<p>第一台<strong>电子数字</strong>计算机：ENIAC（1946）<br>| 发展阶段 | 时间 | 逻辑元件 | 速度（次/秒） | 内存 | 外存 |<br>| :-: | :-: | :-: | :-: | :-: | :-: |<br>| 第一代 | 1946-1957 | 电子管 | 几千-几万 | 汞延迟线、磁鼓 | 穿孔卡片、纸带 |<br>| 第二代 | 1958-1964 | 晶体管 | 几万-几十万 | 磁芯存储器 | 磁带 |<br>| 第三代 | 1964-1971 | 中小规模集成电路 | 几十万-几百万 | 半导体存储器 | 磁带、磁盘 |<br>| 第四代 | 1972-现在 | 大规模、超大规模集成电路 | 上千万-万亿 | 半导体存储器 | 磁盘、磁带、光盘、半导体存储器 |</p>
+<p>冯诺依曼计算机的特点：</p>
+<ol>
+<li>计算机由五大部件组成（存储器、运算器、控制器、输入设备、输出设备）</li>
+<li>指令和数据以同等地位存于存储器，可按地址寻访</li>
+<li>指令和数据用二进制表示</li>
+<li>指令由操作码和地址码组成</li>
+<li>存储程序</li>
+<li><strong>以运算器为中心</strong></li>
+</ol>
+<p>现代计算机：<strong>以存储器为中心</strong></p>
+<p>CPU = 运算器 + 控制器</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>MongoDB 基本操作</title>
+    <url>/10cf7a52.html</url>
+    <content><![CDATA[<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="mongod"><a href="#mongod" class="headerlink" title="mongod"></a>mongod</h3><ul>
+<li>打开或者新建一个数据库dir</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">PS C:\Users\16218&gt; mongod --install --dbpath=D:/mongodb-win32-x86_64-windows-4.4.2/data --logpath=D:/mongodb-win32-x86_64-windows-4.4.2/logs/mongodb.log</span><br><span class="line">PS C:\Users\16218&gt; net start mongodb</span><br><span class="line"></span><br><span class="line">PS C:\Users\16218&gt; mongod --config &quot;D:\mongodb-win32-x86_64-windows-4.4.2\mongo.conf&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>周边语法</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">PS C:\Users\16218&gt; bin/mongod.exe --install --dbpath 磁盘路径 --logpath 日志路径        // 创建服务</span><br><span class="line">PS C:\Users\16218&gt; bin/mongod.exe --remove      // 删除服务</span><br><span class="line">PS C:\Users\16218&gt; net start mongodb            // 启动服务</span><br><span class="line">PS C:\Users\16218&gt; net stop mongodb             // 关闭服务</span><br></pre></td></tr></table></figure>
+
+<h3 id="mongoimport"><a href="#mongoimport" class="headerlink" title="mongoimport"></a>mongoimport</h3><ul>
+<li><p>–db 导入到那个库</p>
+</li>
+<li><p>–collection 导入到哪个集合</p>
+</li>
+<li><p>–drop 加上就表示清空原有文档</p>
+</li>
+<li><p>–file 要导入的文件</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">PS C:\Users\16218&gt; mongoimport --db test --collection user --drop --file dir</span><br></pre></td></tr></table></figure>
+
+<h3 id="mongo"><a href="#mongo" class="headerlink" title="mongo"></a>mongo</h3><h4 id="数据库（查看、创建、选择、删除）"><a href="#数据库（查看、创建、选择、删除）" class="headerlink" title="数据库（查看、创建、选择、删除）"></a>数据库（查看、创建、选择、删除）</h4><p>查看：show databases</p>
+<p>创建：有单独的语法 但是忽略 隐式创建</p>
+<p>选择：use 数据库名</p>
+<p>删除：1.通过use选中数据库 2.通过db.dropDatabase()删除数据库</p>
+<h4 id="集合（查看、创建、删除）"><a href="#集合（查看、创建、删除）" class="headerlink" title="集合（查看、创建、删除）"></a>集合（查看、创建、删除）</h4><p>查看：show collextions</p>
+<p>创建：db.createCollection(‘集合名’)     多学一招：忽略 后期插入数据 隐式创建集合</p>
+<p>删除：db.集合名.drop()</p>
+<h4 id="C插入文档"><a href="#C插入文档" class="headerlink" title="C插入文档"></a>C插入文档</h4><p>语法：db.集合名.insert(JSON数据)</p>
+<p>说明：集合存在 则直接插入数据 集合不存在 则隐式创建</p>
+<p>练习：在test2数据库的c1集合中插入数据（姓名叫webopenfather年龄18岁）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; use test2</span><br><span class="line">&gt; db.c1.insert(&#123;uname: &quot;webopenfather&quot;, age: 18&#125;)</span><br><span class="line"></span><br><span class="line">留心1：数据库和集合不存在都隐式创建</span><br><span class="line">留心2：对象的键统一不加引号方便看，但是查看集合数据时系统会自动加</span><br></pre></td></tr></table></figure>
+
+<p>思考1：是否可以自定义_id值？</p>
+<p>回答：可以，只需要给插入的JSON数据增加_id键即可覆盖（但实战强烈不推荐）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.c1.insert(&#123;_id: 1, uname: &quot;webopenfather&quot;, age: 18&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>思考2：如何一次性插入多条记录？</p>
+<p>回答：传递数据，数组中写一个个JSON数据即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.c1.insert([</span><br><span class="line">    &#123;uname: &quot;a&quot;, age: 1&#125;, </span><br><span class="line">    &#123;uname: &quot;b&quot;, age: 2&#125;, </span><br><span class="line">    &#123;uname: &quot;c&quot;, age: 3&#125;, </span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<p>思考3：如何快速插入10条数据？</p>
+<p>回答：mongodb底层使用JS引擎实现的，所以支持部分js语法，因此可以写for循环</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; use test2</span><br><span class="line">&gt; for (let i &#x3D; 1; i &lt;&#x3D; 10; i++) &#123;</span><br><span class="line">    db.c2.insert(&#123;uname: &quot;a&quot;+i, age: i&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="R查询文档"><a href="#R查询文档" class="headerlink" title="R查询文档"></a>R查询文档</h4><p>语法：db.集合名.find(条件 [,查询的列])</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">条件</span><br><span class="line">    查询所有数据                &#123;&#125;或者不写</span><br><span class="line">    查询age&#x3D;6的数据             &#123;age: 6&#125;</span><br><span class="line">    既要age&#x3D;6又要性别&#x3D;男        &#123;age: 6, sex: &#39;男&#39;&#125;</span><br><span class="line"></span><br><span class="line">查询的列（可选参数）</span><br><span class="line">    不写        只查询全部列（字段）</span><br><span class="line">    &#123;age: 1&#125;    只显示age列（字段）</span><br><span class="line">    &#123;age: 0&#125;    除了age列（字段都显示）</span><br><span class="line">    留心：不管怎么写 系统自定义的_id都会存在</span><br></pre></td></tr></table></figure>
+
+<p>升级语法：db.集合名.find({键: {运算符: 值}})</p>
+<p>说明：<br>| 运算符 | 作用 |<br>| :——: | :—-: |<br>| $gt | 大于 |<br>| $gte | 大于等于 |<br>| $lt | 小于 |<br>| $lte | 小于等于 |<br>| $ne | 不等于 |<br>| $in | in |<br>| $nin | not in |</p>
+<p>练习1：查询所有数据</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.c1.find()</span><br></pre></td></tr></table></figure>
+
+<p>练习2：查询年龄大于5岁的数据</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.c1.find(&#123;age: &#123;$gt: 5&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>练习3：查询年龄是5岁、8岁、10岁的数据</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.c1.find(&#123;age: &#123;$in: [5, 8, 10]&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>练习4：只看年龄列，或者年龄以外的列（_id别管它）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.c1.find(&#123;&#125;, &#123;age: 1&#125;)</span><br><span class="line">&gt; db.c1.find(&#123;&#125;, &#123;age: 0&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="U修改文档"><a href="#U修改文档" class="headerlink" title="U修改文档"></a>U修改文档</h4><p>语法：db.集合名.update(条件, 新数据 [,是否新增，是否修改多条])</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">是否新增：指条件匹配不到数据则插入 true插入 false不插入（默认）</span><br><span class="line">是否修改多条：指将匹配成功的数据都修改 true修改多条 false不修改多条（默认）</span><br></pre></td></tr></table></figure>
+
+<p>升级语法：db.集合名.update(条件, {修改器: {键: 值}})</p>
+<p>说明：<br>| 运算符 | 作用 |<br>| :——: | :—-: |<br>| $inc | 递增 |<br>| $rename | 重命名列 |<br>| $set | 修改列值 |<br>| $unset | 删除列 |</p>
+<p>练习1：将{uname: “zc1”}改为{uname: “zc2”}</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.c3.update(&#123;uname: &quot;zc1&quot;&#125;, &#123;uname: &quot;zc2&quot;&#125;)              &#x2F;&#x2F; 这是替换</span><br><span class="line">&gt; db.c3.update(&#123;uname: &quot;zc1&quot;&#125;, &#123;$set: &#123;uname: &quot;zc2&quot;&#125;&#125;)      &#x2F;&#x2F; 这是修改</span><br></pre></td></tr></table></figure>
+
+<p>练习2：给{uname: “zc10”}的年龄加2岁或减两岁</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.c3.update(&#123;uname: &quot;zc1&quot;&#125;, &#123;$inc: &#123;age: 2&#125;&#125;)</span><br><span class="line">&gt; db.c3.update(&#123;uname: &quot;zc1&quot;&#125;, &#123;$inc: &#123;age: -2&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>练习3：修改器综合练习</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname改成zc2</span><br><span class="line">&gt; db.c3.update(&#123;uname: &quot;zc1&quot;&#125;, &#123;$set: &#123;uname: &quot;zc2&quot;&#125;&#125;)</span><br><span class="line">age增加111</span><br><span class="line">&gt; db.c3.update(&#123;uname: &quot;zc2&quot;&#125;, &#123;$inc: &#123;age: 111&#125;&#125;)</span><br><span class="line">who改字段sex</span><br><span class="line">&gt; db.c3.update(&#123;uname: &quot;zc2&quot;&#125;, &#123;$rename: &#123;who: &quot;sex&quot;&#125;&#125;)</span><br><span class="line">other删除</span><br><span class="line">&gt; db.c3.update(&#123;uname: &quot;zc2&quot;&#125;, &#123;$unset: &#123;other: true&#125;&#125;)</span><br><span class="line">或者一起写</span><br><span class="line">db.c3.update(&#123;uname: &quot;zc1&quot;&#125;, &#123;</span><br><span class="line">    $set: &#123;uname: &quot;zc2&quot;&#125;, </span><br><span class="line">    $inc: &#123;age: 111&#125;, </span><br><span class="line">    $rename: &#123;who: &quot;sex&quot;&#125;, </span><br><span class="line">    $unset: &#123;other: true&#125;, </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="D删除文档"><a href="#D删除文档" class="headerlink" title="D删除文档"></a>D删除文档</h4><p>语法：db.集合名.remove(条件, [,是否删除一条])</p>
+<p>注意：是否删除一条 true是 false否（默认）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.c3.remove(&#123;&#125;, true)</span><br><span class="line">&gt; db.c3.remove(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="小总结"><a href="#小总结" class="headerlink" title="小总结"></a>小总结</h4><p>增Create</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.集合名.insert(JSON数据)</span><br></pre></td></tr></table></figure>
+
+<p>删Delete</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.集合名.remove(条件, [,是否删除一条])</span><br></pre></td></tr></table></figure>
+
+<p>改Update</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.集合名.update(条件, 新数据 [,是否新增，是否修改多条])</span><br><span class="line">&gt; db.集合名.update(条件, &#123;修改器: &#123;键: 值&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>查Read</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.集合名.find(条件 [,查询的列])</span><br></pre></td></tr></table></figure>
+
+<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><p>语法：db.集合名.find().sort(JSON数据)</p>
+<p>说明：键 就是要排序的列/字段 值 1升序 -1降序</p>
+<p>练习1：年龄升序&amp;降序</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.c1.find().sort(&#123;age: 1&#125;)</span><br><span class="line">&gt; db.c1.find().sort(&#123;age: -1&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>练习2：按照k1来排序 如果k1的值相同 按照k2来排序 1升序 -1降序</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.collectionName.find().sort(&#123;k1: 1&#125;, &#123;k2: -1&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Limit与Skip方法"><a href="#Limit与Skip方法" class="headerlink" title="Limit与Skip方法"></a>Limit与Skip方法</h4><p>语法：db.集合名.find().sort().skip(数字).limit(数字)</p>
+<p>说明：skip跳过指定数量（可选），limit限制查询的数量</p>
+<p>练习1：降序查询2条</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.c1.find().sort(&#123;age: -1&#125;).skip(0).limit(2)</span><br></pre></td></tr></table></figure>
+
+<p>练习2：降序跳过2条并查询2条</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.c1.find().sort(&#123;age: -1&#125;).skip(2).limit(2)</span><br></pre></td></tr></table></figure>
+
+<p>实战分页</p>
+<p>需求：数据库 1 - 10 数据，每页显示2条（5页）</p>
+<p>语法：db.集合名.find().skip().limit(2)</p>
+<p>skip计算公式：(当前页 - 1) * 每页显示条数</p>
+<h4 id="聚合查询"><a href="#聚合查询" class="headerlink" title="聚合查询"></a>聚合查询</h4><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.集合名称.aggregate([</span><br><span class="line">    &#123;管道: &#123;表达式&#125;&#125;</span><br><span class="line">    ...</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<p>常用管道：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$group  将集合中的文档分组，用于统计结果</span><br><span class="line">$match  过滤数据，只要输出符合条件的文档</span><br><span class="line">$sort   聚合数据进一步排序</span><br><span class="line">$skip   跳过指定文档数</span><br><span class="line">$limit  限制集合数据返回文档数</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>常用表达式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$sum    总和 $sum:1同count表示统计</span><br><span class="line">$avg    平均</span><br><span class="line">$min    最小值</span><br><span class="line">$max    最大值</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>练习1：统计男生、女生的总年龄</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.集合名称.aggregate([</span><br><span class="line">    &#123;</span><br><span class="line">        $group: &#123;</span><br><span class="line">            _id: &quot;$sex&quot;, </span><br><span class="line">            rs: &#123;$sum: &quot;$age&quot;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<p>练习2：统计男生、女生的总人数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.集合名称.aggregate([</span><br><span class="line">    &#123;</span><br><span class="line">        $group: &#123;</span><br><span class="line">            _id: &quot;$sex&quot;, </span><br><span class="line">            rs: &#123;$sum: 1&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<p>练习3：求学生总数和平均年龄</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.集合名称.aggregate([</span><br><span class="line">    &#123;</span><br><span class="line">        $group: &#123;</span><br><span class="line">            _id: null, </span><br><span class="line">            total_num: &#123;$sum: 1&#125;, </span><br><span class="line">            total_avg: &#123;$avg: &quot;$age&quot;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<p>练习4：查询男生、女生人数，按人数升序</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; db.集合名称.aggregate([</span><br><span class="line">    &#123;</span><br><span class="line">        $group: &#123;</span><br><span class="line">            _id: &quot;$sex&quot;, </span><br><span class="line">            rs: &#123;$sum: 1&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        $sort: &#123;rs: 1&#125;</span><br><span class="line">    &#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<h2 id="Linux环境安装MongoDB"><a href="#Linux环境安装MongoDB" class="headerlink" title="Linux环境安装MongoDB"></a>Linux环境安装MongoDB</h2><ul>
+<li><p>下载</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-4.4.2.tgz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# tar -zxvf mongodb-linux-x86_64-rhel70-4.4.2.tgz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将解压包拷贝到指定目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# mv mongodb-linux-x86_64-rhel70-4.4.2/ /usr/local/mongodb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建数据存放目录与日志存放目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# mkdir -p /usr/local/mongodb/data /usr/local/mongodb/logs</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动MongoDB服务</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# /usr/local/mongodb/bin/mongod --dbpath=/usr/local/mongodb/data --logpath=/usr/local/mongodb/logs/mongodb.log --logappend --port=27017 --fork</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后期登录即可</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@VM-8-3-centos ~]# /usr/local/mongodb/bin/mongo</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>设计模式02 创建型模式 原型模式</title>
+    <url>/cff54896.html</url>
+    <content><![CDATA[<h3 id="原型模式的定义"><a href="#原型模式的定义" class="headerlink" title="原型模式的定义"></a>原型模式的定义</h3><p>用一个已经创建的实例作为原型，通过复制该原型对象来创建一个和原型相同或相似的新对象。</p>
+<p><font color=lightgrey>在这里，原型实例指定了要创建的对象的种类。用这种方式创建对象非常高效，根本无须知道对象创建的细节。例如，Windows 操作系统的安装通常较耗时，如果复制就快了很多。</font></p>
+<hr>
+<h3 id="原型模式的优点"><a href="#原型模式的优点" class="headerlink" title="原型模式的优点"></a>原型模式的优点</h3><ul>
+<li><p>Java 自带的原型模式基于内存二进制流的复制，在性能上比直接 new 一个对象更加优良。</p>
+</li>
+<li><p>可以使用深克隆方式保存对象的状态，使用原型模式将对象复制一份，并将其状态保存起来，简化了创建对象的过程，以便在需要的时候使用（例如恢复到历史某一状态），可辅助实现撤销操作。</p>
+</li>
+</ul>
+<hr>
+<h3 id="原型模式的缺点"><a href="#原型模式的缺点" class="headerlink" title="原型模式的缺点"></a>原型模式的缺点</h3><ul>
+<li><p>需要为每一个类都配置一个 clone 方法。</p>
+</li>
+<li><p>clone 方法位于类的内部，当对已有类进行改造的时候，需要修改代码，违背了开闭原则。</p>
+</li>
+<li><p>当实现深克隆时，需要编写较为复杂的代码，而且当对象之间存在多重嵌套引用时，为了实现深克隆，每一层对象对应的类都必须支持深克隆，实现起来会比较麻烦。因此，深克隆、浅克隆需要运用得当。</p>
+</li>
+</ul>
+<hr>
+<h3 id="原型模式的应用场景"><a href="#原型模式的应用场景" class="headerlink" title="原型模式的应用场景"></a>原型模式的应用场景</h3><p>在 Spring 中，原型模式应用的非常广泛，例如 scope=’prototype’、JSON.parseObject() 等都是原型模式的具体应用。</p>
+<ul>
+<li><p>对象之间相同或相似，即只是个别的几个属性不同的时候。</p>
+</li>
+<li><p>创建对象成本较大，例如初始化时间长，占用CPU太多，或者占用网络资源太多等，需要优化资源。</p>
+</li>
+<li><p>创建一个对象需要繁琐的数据准备或访问权限等，需要提高性能或者提高安全性。</p>
+</li>
+<li><p>系统中大量使用该类对象，且各个调用者都需要给它的属性重新赋值。</p>
+</li>
+</ul>
+<hr>
+<h3 id="什么会应用原型模式"><a href="#什么会应用原型模式" class="headerlink" title="什么会应用原型模式"></a>什么会应用原型模式</h3><ul>
+<li>在有些系统中，存在大量相同或相似对象的创建问题，如果用传统的构造函数来创建对象，会比较复杂且耗时耗资源，用原型模式生成对象就很高效，就像孙悟空拔下猴毛轻轻一吹就变出很多孙悟空一样简单。</li>
+</ul>
+<hr>
+<h3 id="原型模式的结构"><a href="#原型模式的结构" class="headerlink" title="原型模式的结构"></a>原型模式的结构</h3><ul>
+<li><p>由于 Java 提供了对象的 clone() 方法，所以用 Java 实现原型模式很简单。</p>
+</li>
+<li><p>抽象原型类：规定了具体原型对象必须实现的接口。</p>
+</li>
+<li><p>具体原型类：实现抽象原型类的 clone() 方法，它是可被复制的对象。</p>
+</li>
+<li><p>访问类：使用具体原型类中的 clone() 方法来复制新的对象。</p>
+</li>
+</ul>
+<p><img src="http://c.biancheng.net/uploads/allimg/181114/3-1Q114101Fa22.gif"></p>
+<hr>
+<h3 id="原型模式的实现"><a href="#原型模式的实现" class="headerlink" title="原型模式的实现"></a>原型模式的实现</h3><p>原型模式的克隆分为浅克隆和深克隆。</p>
+<p>Java 中的 Object 类提供了浅克隆的 clone() 方法，具体原型类只要实现 Cloneable 接口就可实现对象的浅克隆，这里的 Cloneable 接口就是抽象原型类。</p>
+<ul>
+<li><p>浅克隆：创建一个新对象，新对象的属性和原来对象完全相同，对于非基本类型属性，仍指向原有属性所指向的对象的内存地址。（即克隆对象内的对象仍是旧对象）</p>
+</li>
+<li><p>深克隆：创建一个新对象，属性中引用的其他对象也会被克隆，不再指向原有对象地址。</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20140116224712140?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdqZ19ibG9n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 原型接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Prototype</span> </span>&#123;</span><br><span class="line">    <span class="function">Object <span class="title">clone</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 飞机类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Plane</span> <span class="keyword">implements</span> <span class="title">Prototype</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Plane</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        name = <span class="string">&quot;Name:&quot;</span> + Math.random();</span><br><span class="line">        type = <span class="string">&quot;Type:&quot;</span> + Math.random();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Plane</span><span class="params">(Plane plane)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = plane.name;</span><br><span class="line">        <span class="keyword">this</span>.type = plane.type;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> type;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// return (Plane)super.clone();     // 浅克隆</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Plane(<span class="keyword">this</span>);             <span class="comment">// 深克隆</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrototypePattern</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;</span><br><span class="line">        Plane plane = <span class="keyword">new</span> Plane();</span><br><span class="line">        System.out.println(plane.getName() + <span class="string">&quot; &quot;</span> + plane.getType());</span><br><span class="line">        Plane clone = (Plane)plane.clone();</span><br><span class="line">        System.out.println(clone.getName() + <span class="string">&quot; &quot;</span> + clone.getType());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote>
+<p><a href="http://c.biancheng.net/view/1343.html">http://c.biancheng.net/view/1343.html</a><br><a href="https://blog.csdn.net/zhangjg_blog/article/details/18369201">https://blog.csdn.net/zhangjg_blog/article/details/18369201</a><br><a href="https://www.bilibili.com/video/BV1Tt4y1e7mk">https://www.bilibili.com/video/BV1Tt4y1e7mk</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>静态博客框架Hexo插入本地图片</title>
+    <url>/440a520a.html</url>
+    <content><![CDATA[<p>在Hexo插入本地图片上传到服务器，比调用外部链接节省一丢丢流量，也方便一些，避免图床失效导致失去图片等问题。</p>
+<hr>
+<h3 id="安装插件，在Hexo项目根目录打开Git-Bash或cmd"><a href="#安装插件，在Hexo项目根目录打开Git-Bash或cmd" class="headerlink" title="安装插件，在Hexo项目根目录打开Git Bash或cmd"></a>安装插件，在Hexo项目根目录打开Git Bash或cmd</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-asset-image</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="打开hexo的配置文件-config-yml"><a href="#打开hexo的配置文件-config-yml" class="headerlink" title="打开hexo的配置文件_config.yml"></a>打开hexo的配置文件_config.yml</h3><ul>
+<li>找到 post_asset_folder，把这个选项从false改成true<br><img src="https://s3.ax1x.com/2020/12/23/rso7vV.png"></li>
+</ul>
+<hr>
+<h3 id="打开-node-modules-hexo-asset-image-index-js"><a href="#打开-node-modules-hexo-asset-image-index-js" class="headerlink" title="打开/node_modules/hexo-asset-image/index.js"></a>打开/node_modules/hexo-asset-image/index.js</h3><ul>
+<li>将内容更换为下面的代码（在此感谢Ericam_ 大神：<a href="https://blog.csdn.net/xjm850552586%EF%BC%89">https://blog.csdn.net/xjm850552586）</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> cheerio = <span class="built_in">require</span>(<span class="string">&#x27;cheerio&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPosition</span>(<span class="params">str, m, i</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> version = <span class="built_in">String</span>(hexo.version).split(<span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">hexo.extend.filter.register(<span class="string">&#x27;after_post_render&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> config = hexo.config;</span><br><span class="line">  <span class="keyword">if</span>(config.post_asset_folder)&#123;</span><br><span class="line">        <span class="keyword">var</span> link = data.permalink;</span><br><span class="line">    <span class="keyword">if</span>(version.length &gt; <span class="number">0</span> &amp;&amp; <span class="built_in">Number</span>(version[<span class="number">0</span>]) == <span class="number">3</span>)</span><br><span class="line">       <span class="keyword">var</span> beginPos = getPosition(link, <span class="string">&#x27;/&#x27;</span>, <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">       <span class="keyword">var</span> beginPos = getPosition(link, <span class="string">&#x27;/&#x27;</span>, <span class="number">3</span>) + <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;.../about/index.html&quot;.</span></span><br><span class="line">    <span class="keyword">var</span> endPos = link.lastIndexOf(<span class="string">&#x27;/&#x27;</span>) + <span class="number">1</span>;</span><br><span class="line">    link = link.substring(beginPos, endPos);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> toprocess = [<span class="string">&#x27;excerpt&#x27;</span>, <span class="string">&#x27;more&#x27;</span>, <span class="string">&#x27;content&#x27;</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">      <span class="keyword">var</span> key = toprocess[i];</span><br><span class="line"> </span><br><span class="line">      <span class="keyword">var</span> $ = cheerio.load(data[key], &#123;</span><br><span class="line">        ignoreWhitespace: <span class="literal">false</span>,</span><br><span class="line">        xmlMode: <span class="literal">false</span>,</span><br><span class="line">        lowerCaseTags: <span class="literal">false</span>,</span><br><span class="line">        decodeEntities: <span class="literal">false</span></span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(<span class="string">&#x27;img&#x27;</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ($(<span class="built_in">this</span>).attr(<span class="string">&#x27;src&#x27;</span>))&#123;</span><br><span class="line">            <span class="comment">// For windows style path, we replace &#x27;\&#x27; to &#x27;/&#x27;.</span></span><br><span class="line">            <span class="keyword">var</span> src = $(<span class="built_in">this</span>).attr(<span class="string">&#x27;src&#x27;</span>).replace(<span class="string">&#x27;\\&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">            <span class="keyword">if</span>(!<span class="regexp">/http[s]*.*|\/\/.*/</span>.test(src) &amp;&amp;</span><br><span class="line">               !<span class="regexp">/^\s*\//</span>.test(src)) &#123;</span><br><span class="line">              <span class="comment">// For &quot;about&quot; page, the first part of &quot;src&quot; can&#x27;t be removed.</span></span><br><span class="line">              <span class="comment">// In addition, to support multi-level local directory.</span></span><br><span class="line">              <span class="keyword">var</span> linkArray = link.split(<span class="string">&#x27;/&#x27;</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> elem != <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">              &#125;);</span><br><span class="line">              <span class="keyword">var</span> srcArray = src.split(<span class="string">&#x27;/&#x27;</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> elem != <span class="string">&#x27;&#x27;</span> &amp;&amp; elem != <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">              &#125;);</span><br><span class="line">              <span class="keyword">if</span>(srcArray.length &gt; <span class="number">1</span>)</span><br><span class="line">                srcArray.shift();</span><br><span class="line">              src = srcArray.join(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">              $(<span class="built_in">this</span>).attr(<span class="string">&#x27;src&#x27;</span>, config.root + link + src);</span><br><span class="line">              <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info(<span class="string">&quot;update link as:--&gt;&quot;</span>+config.root + link + src);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info(<span class="string">&quot;no src attr, skipped...&quot;</span>);</span><br><span class="line">            <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info($(<span class="built_in">this</span>));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      data[key] = $.html();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="已经可以插入图片了"><a href="#已经可以插入图片了" class="headerlink" title="已经可以插入图片了"></a>已经可以插入图片了</h3><ul>
+<li>例如 hexo n “test” 在 source/_posts 生成 test.md 文件和 test 文件夹<br>就在 test.md 文件里面按 markdown 的标准写(我的文件名是test.jpg)</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">这是代替图片的文字，随便写</span>](<span class="link">test.jpg</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><ul>
+<li>以后 hexo n 后在 source/_posts 的 .md 文件的同名文件夹里，直接放入图片调用图片名即可</li>
+</ul>
+<hr>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote>
+<p><a href="https://blog.csdn.net/xjm850552586/article/details/84101345">https://blog.csdn.net/xjm850552586/article/details/84101345</a><br><a href="https://blog.csdn.net/qq_38148394/article/details/79997971">https://blog.csdn.net/qq_38148394/article/details/79997971</a><br><a href="https://www.jianshu.com/p/f72aaad7b852">https://www.jianshu.com/p/f72aaad7b852</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计算机操作系统 课后习题</title>
+    <url>/4c09e713.html</url>
+    <content><![CDATA[<h2 id="第一章-操作系统引论"><a href="#第一章-操作系统引论" class="headerlink" title="第一章 操作系统引论"></a>第一章 操作系统引论</h2><h4 id="1-设计现代OS的主要目标是什么？"><a href="#1-设计现代OS的主要目标是什么？" class="headerlink" title="1. 设计现代OS的主要目标是什么？"></a>1. 设计现代OS的主要目标是什么？</h4><ul>
+<li>有效性、方便性、可扩充性、开放性</li>
+</ul>
+<h4 id="2-OS的作用可表现在哪几个方面？"><a href="#2-OS的作用可表现在哪几个方面？" class="headerlink" title="2. OS的作用可表现在哪几个方面？"></a>2. OS的作用可表现在哪几个方面？</h4><ul>
+<li><p>OS作为用户与计算机硬件系统之间的接口</p>
+</li>
+<li><p>OS作为计算机系统资源的管理者</p>
+</li>
+<li><p>OS实现了对计算机资源的抽象</p>
+</li>
+</ul>
+<h4 id="3-为什么说操作系统实现了对计算机资源的抽象？"><a href="#3-为什么说操作系统实现了对计算机资源的抽象？" class="headerlink" title="3. 为什么说操作系统实现了对计算机资源的抽象？"></a>3. 为什么说操作系统实现了对计算机资源的抽象？</h4><ul>
+<li><p>OS首先在裸机上覆盖一层I/O设备管理软件，实现了对计算机硬件操作的第一层次抽象。</p>
+</li>
+<li><p>在第一层软件上再覆盖文件管理软件，实现了对硬件资源操作的第二层次抽象。</p>
+</li>
+<li><p>OS通过在计算机硬件上安装多层系统软件，增强了系统功能，隐藏了对硬件操作的细节，由它们共同实现了对计算机资源的抽象。</p>
+</li>
+</ul>
+<h4 id="5-何谓脱机I-O和联机I-O？"><a href="#5-何谓脱机I-O和联机I-O？" class="headerlink" title="5. 何谓脱机I/O和联机I/O？"></a>5. 何谓脱机I/O和联机I/O？</h4><ul>
+<li><p>脱机I/O是指事先将装有用户程序和数据的纸带或卡片装入纸带输入机或卡片机，在外围机的控制下，把纸带或卡片上的数据或程序输入到磁带上。该方式下的输入输出由外围机控制完成，是在脱离主机的情况下进行的。</p>
+</li>
+<li><p>联机I/O方式是指程序和数据的输入输出都是在主机的直接控制下进行的。</p>
+</li>
+</ul>
+<h4 id="9-什么是硬实时任务和软实时任务？试举例说明。"><a href="#9-什么是硬实时任务和软实时任务？试举例说明。" class="headerlink" title="9. 什么是硬实时任务和软实时任务？试举例说明。"></a>9. 什么是硬实时任务和软实时任务？试举例说明。</h4><ul>
+<li><p>硬实时任务是指系统必须满足任务对截止时间的要求，否则可能出现难以预测的结果。举例来说，运载火箭的控制等。</p>
+</li>
+<li><p>软实时任务是指它的截止时间并不严格，偶尔错过了任务的截止时间，对系统产生的影 响不大。举例：网页内容的更新、火车售票系统。</p>
+</li>
+</ul>
+<h4 id="10-试从交互性、及时性以及可靠性方面，将分时系统与实时系统进行比较。"><a href="#10-试从交互性、及时性以及可靠性方面，将分时系统与实时系统进行比较。" class="headerlink" title="10. 试从交互性、及时性以及可靠性方面，将分时系统与实时系统进行比较。"></a>10. 试从交互性、及时性以及可靠性方面，将分时系统与实时系统进行比较。</h4><ul>
+<li><p>及时性<br>实时信息处理系统对实时性的要求与分时系统类似，都是以人所能接受的等待时间来确定；而实时控制系统的及时性，是以控制对象所要求的开始截止时间或完成截止时间来确定的，一般为秒级到毫秒级，甚至有的要低于100微秒。</p>
+</li>
+<li><p>交互性<br>实时信息处理系统具有交互性，但人与系统的交互仅限于访问系统中某些特定的专用服务程序。不像分时系统那样能向终端用户提供数据和资源共享等服务。</p>
+</li>
+<li><p>可靠性<br>分时系统也要求系统可靠，但相比之下，实时系统则要求系统具有高度的可靠性。因为任何差错都可能带来巨大的经济损失，甚至是灾难性后果，所以在实时系统中，往往都采取了多级容错措施保障系统的安全性及数据的安全性。</p>
+</li>
+</ul>
+<h4 id="11-OS有哪几大特征？其最基本的特征是什么？"><a href="#11-OS有哪几大特征？其最基本的特征是什么？" class="headerlink" title="*11. OS有哪几大特征？其最基本的特征是什么？"></a>*11. OS有哪几大特征？其最基本的特征是什么？</h4><ul>
+<li><p>OS四个基本特征：并发性、共享性、虚拟性和异步性</p>
+</li>
+<li><p>最基本的特征：并发性</p>
+</li>
+</ul>
+<h4 id="13-什么是时分复用技术？举例说明它能提高资源利用率的根本原因是什么？"><a href="#13-什么是时分复用技术？举例说明它能提高资源利用率的根本原因是什么？" class="headerlink" title="13. 什么是时分复用技术？举例说明它能提高资源利用率的根本原因是什么？"></a>13. 什么是时分复用技术？举例说明它能提高资源利用率的根本原因是什么？</h4><ul>
+<li><p>时分复用技术：将资源在不同的时间片内分配给各进程以使该资源被重复利用，从而提高资源的利用率。</p>
+</li>
+<li><p>如采用时分复用技术的虚拟处理机，能够在不同的时间片内处理多个用户的请求，从而使得用户感觉自己独占主机，而处理机在这期间也被充分的利用。</p>
+</li>
+</ul>
+<h4 id="14-是什么原因使操作系统具有异步性特征？"><a href="#14-是什么原因使操作系统具有异步性特征？" class="headerlink" title="14. 是什么原因使操作系统具有异步性特征？"></a>14. 是什么原因使操作系统具有异步性特征？</h4><ul>
+<li><p>操作系统的异步性体现在三个方面：</p>
+</li>
+<li><p>一是进程的异步性，进程以人们不可预知的速度向前推进；</p>
+</li>
+<li><p>二是程序的不可再现性，即程序执行的结果有时是不确定的；</p>
+</li>
+<li><p>三是程序执行时间的不可预知性，即每个程序何时执行，执行顺序以及完成时间是不确定的。</p>
+</li>
+</ul>
+<h4 id="15-处理机管理有哪些主要功能？它们的主要任务是什么？"><a href="#15-处理机管理有哪些主要功能？它们的主要任务是什么？" class="headerlink" title="15. 处理机管理有哪些主要功能？它们的主要任务是什么？"></a>15. 处理机管理有哪些主要功能？它们的主要任务是什么？</h4><ul>
+<li><p>处理机管理的主要功能是：进程管理、进程同步、进程通信和处理机调度。</p>
+</li>
+<li><p>进程管理：为作业创建进程，撤销已结束进程，控制进程在运行过程中的状态转换。</p>
+</li>
+<li><p>进程同步：为多个进程（含线程）的运行进行协调。</p>
+</li>
+<li><p>进程通信：用来实现在相互合作的进程之间的信息交换。</p>
+</li>
+<li><p>处理机调度：<br>（1）作业调度：从后备队里按照一定的算法，选出若干个作业，为他们分配运行所需的资源（首选是分配内存）。<br>（2）进程调度：从进程的就绪队列中，按照一定算法选出一个进程，把处理机分配给它，并设臵运行现场，使进程投入执行。</p>
+</li>
+</ul>
+<h4 id="16-内存管理有哪些主要功能？他们的主要任务是什么？"><a href="#16-内存管理有哪些主要功能？他们的主要任务是什么？" class="headerlink" title="16. 内存管理有哪些主要功能？他们的主要任务是什么？"></a>16. 内存管理有哪些主要功能？他们的主要任务是什么？</h4><ul>
+<li><p>内存管理的主要功能有：内存分配、内存保护、地址映射和内存扩充。</p>
+</li>
+<li><p>内存分配：为每道程序分配内存。</p>
+</li>
+<li><p>内存保护：确保每道用户程序都只在自己的内存空间运行，彼此互不干扰。</p>
+</li>
+<li><p>地址映射：将地址空间的逻辑地址转换为内存空间与对应的物理地址。</p>
+</li>
+<li><p>内存扩充：用于实现请求调用功能，置换功能等。</p>
+</li>
+</ul>
+<h4 id="17-设备管理有哪些主要功能？其主要任务是什么？"><a href="#17-设备管理有哪些主要功能？其主要任务是什么？" class="headerlink" title="17. 设备管理有哪些主要功能？其主要任务是什么？"></a>17. 设备管理有哪些主要功能？其主要任务是什么？</h4><ul>
+<li><p>主要功能有:缓冲管理、设备分配和设备处理以及虚拟设备等。</p>
+</li>
+<li><p>主要任务:完成用户提出的I/O请求，为用户分配I/O+设备，提高CPU和I/O设备的利用率，提高I/O速度，以及方便用户使用I/O设备。</p>
+</li>
+</ul>
+<h4 id="18-文件管理有哪些主要功能？其主要任务是什么？"><a href="#18-文件管理有哪些主要功能？其主要任务是什么？" class="headerlink" title="18. 文件管理有哪些主要功能？其主要任务是什么？"></a>18. 文件管理有哪些主要功能？其主要任务是什么？</h4><ul>
+<li><p>文件管理主要功能：文件存储空间的管理、目录管理、文件的读写管理和保护。</p>
+</li>
+<li><p>文件管理的主要任务：管理用户文件和系统文件，方便用户使用，保证文件安全性。</p>
+</li>
+</ul>
+<hr>
+<h2 id="第二章-进程的描述与控制"><a href="#第二章-进程的描述与控制" class="headerlink" title="第二章 进程的描述与控制"></a>第二章 进程的描述与控制</h2><h4 id="2-画出下面四条语句的前趋图"><a href="#2-画出下面四条语句的前趋图" class="headerlink" title="2. 画出下面四条语句的前趋图"></a>2. 画出下面四条语句的前趋图</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">S1：a &#x3D; x + y;</span><br><span class="line">S2：b &#x3D; z + 1;</span><br><span class="line">S3：c &#x3D; a – b;</span><br><span class="line">S4：w &#x3D; c + 1;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>S1、S2 -&gt; S3 -&gt; S4</li>
+</ul>
+<h4 id="3-为什么程序并发执行会产生间断性特征？"><a href="#3-为什么程序并发执行会产生间断性特征？" class="headerlink" title="3. 为什么程序并发执行会产生间断性特征？"></a>3. 为什么程序并发执行会产生间断性特征？</h4><ul>
+<li>程序在并发执行时，由于它们共享系统资源，为完成同一项任务需要相互合作，致使这些并发执行的进程之间，形成了相互制约关系，从而使得进程在执行期间出现间断性。</li>
+</ul>
+<h4 id="6-试从动态性，并发性和独立性上比较进程和程序？"><a href="#6-试从动态性，并发性和独立性上比较进程和程序？" class="headerlink" title="6. 试从动态性，并发性和独立性上比较进程和程序？"></a>6. 试从动态性，并发性和独立性上比较进程和程序？</h4><ul>
+<li><p>动态性是进程最基本的特性，表现为由创建而产生，由调度而执行，因得不到资源而暂停执行，由撤销而消亡。进程有一定的生命期，而程序只是一组有序的指令集合，是静态实体。</p>
+</li>
+<li><p>并发性是进程的重要特征，同时也是OS的重要特征。引入进程的目的正是为了使其程序能和其它进程的程序并发执行，而程序是不能并发执行的。</p>
+</li>
+<li><p>独立性是指进程实体是一个能独立运行的基本单位，也是系统中独立获得资源和独立调度的基本单位。对于未建立任何进程的程序，不能作为独立单位参加运行。</p>
+</li>
+</ul>
+<h4 id="7-试说明PCB的作用具体表现在哪几个方面？为什么说PCB是进程存在的惟一标志？"><a href="#7-试说明PCB的作用具体表现在哪几个方面？为什么说PCB是进程存在的惟一标志？" class="headerlink" title="7. 试说明PCB的作用具体表现在哪几个方面？为什么说PCB是进程存在的惟一标志？"></a>7. 试说明PCB的作用具体表现在哪几个方面？为什么说PCB是进程存在的惟一标志？</h4><ul>
+<li>PCB是进程实体的一部分，是操作系统中最重要的记录型数据结构。作用是使一个在多道程序环境下不能独立运行的程序，成为一个能独立运行的基本单位，成为能与其它进程并发执行的进程。OS是根据PCB对并发执行的进程进行控制和管理的。</li>
+</ul>
+<h4 id="9-进程控制块的组织方式有哪几种？"><a href="#9-进程控制块的组织方式有哪几种？" class="headerlink" title="9. 进程控制块的组织方式有哪几种？"></a>9. 进程控制块的组织方式有哪几种？</h4><ul>
+<li><p>进程控制块PCB的组织方式有：线性表方式、索引表方式、链接表方式。</p>
+</li>
+<li><p>线性表方式：不论进程的状态如何，将所有的PCB连续地存放在内存的系统区。这种方式适用于系统中进程数目不多的情况。</p>
+</li>
+<li><p>索引表方式：该方式是线性表方式的改进，系统按照进程的状态分别建立就绪索引表、阻塞索引表等。</p>
+</li>
+<li><p>链接表方式：系统按照进程的状态将进程的PCB组成队列，从而形成就绪队列、阻塞队列、运行队列等。</p>
+</li>
+</ul>
+<h4 id="10-何谓操作系统内核？内核的主要功能是什么？"><a href="#10-何谓操作系统内核？内核的主要功能是什么？" class="headerlink" title="10. 何谓操作系统内核？内核的主要功能是什么？"></a>10. 何谓操作系统内核？内核的主要功能是什么？</h4><ul>
+<li><p>操作系统内核是指大多数操作系统的核心部分。它由操作系统中用于管理存储器、文件、外设和系统资源的那些部分组成。</p>
+</li>
+<li><p>操作系统内核通常运行进程，并提供进程间的通信。</p>
+</li>
+</ul>
+<h4 id="11-试说明进程在三个基本状态之间转换的典型原因。"><a href="#11-试说明进程在三个基本状态之间转换的典型原因。" class="headerlink" title="11. 试说明进程在三个基本状态之间转换的典型原因。"></a>11. 试说明进程在三个基本状态之间转换的典型原因。</h4><ul>
+<li><p>就绪状态 -&gt; 执行状态：进程分配到CPU资源</p>
+</li>
+<li><p>执行状态 -&gt; 就绪状态：时间片用完</p>
+</li>
+<li><p>执行状态 -&gt; 阻塞状态：I/O请求</p>
+</li>
+<li><p>阻塞状态 -&gt; 就绪状态：I/O完成</p>
+</li>
+</ul>
+<h4 id="21-试从调度性、并发性、拥有资源及系统开销方面对进程和线程进行比较。"><a href="#21-试从调度性、并发性、拥有资源及系统开销方面对进程和线程进行比较。" class="headerlink" title="21. 试从调度性、并发性、拥有资源及系统开销方面对进程和线程进行比较。"></a>21. 试从调度性、并发性、拥有资源及系统开销方面对进程和线程进行比较。</h4><ul>
+<li><p>（1）调度性。<br>在传统的操作系统中，拥有资源的基本单位和独立调度、分派的基本单位都是进程，在引入线程的OS中，则把线程作为调度和分派的基本单位，而把进程作为资源拥有的基本单位；</p>
+</li>
+<li><p>（2）并发性。<br>在引入线程的OS中，不仅进程之间可以并发执行，而且在一个进程中的多个线程之间，亦可并发执行，因而使OS具有更好的并发性；</p>
+</li>
+<li><p>（3）拥有资源。<br>无论是传统的操作系统，还是引入了线程的操作系统，进程始终是拥有资源的一个基本单位，而线程除了拥有一点在运行时必不可少的资源外，本身基本不拥有系统资源，但它可以访问其隶属进程的资源；</p>
+</li>
+<li><p>（4）开销。<br>由于创建或撤销进程时，系统都要为之分配和回收资源，如内存空间等，进程切换时所要保存和设置的现场信息也要明显地多于线程，因此，操作系统在创建、撤消和切换进程时所付出的开销将显著地大于线程。</p>
+</li>
+</ul>
+<h4 id="22-线程控制块TCB中包含了哪些内容？"><a href="#22-线程控制块TCB中包含了哪些内容？" class="headerlink" title="22. 线程控制块TCB中包含了哪些内容？"></a>22. 线程控制块TCB中包含了哪些内容？</h4><ul>
+<li><p>（1）进程标识符（内部，外部）。</p>
+</li>
+<li><p>（2）处理机的信息：通用寄存器，指令计数器，PSW，用户的栈指针。</p>
+</li>
+<li><p>（3）进程调度信息：进程状态，进程的优先级，进程调度所需的其它信息，事件。</p>
+</li>
+<li><p>（4）进程控制信息：程序的数据的地址，资源清单，进程同步和通信机制，链接指针。</p>
+</li>
+</ul>
+<hr>
+<h2 id="第三章-处理机调度与死锁"><a href="#第三章-处理机调度与死锁" class="headerlink" title="第三章 处理机调度与死锁"></a>第三章 处理机调度与死锁</h2><h4 id="1-高级调度与低级调度的主要任务是什么？为什么要引入中级调度？"><a href="#1-高级调度与低级调度的主要任务是什么？为什么要引入中级调度？" class="headerlink" title="1. 高级调度与低级调度的主要任务是什么？为什么要引入中级调度？"></a>1. 高级调度与低级调度的主要任务是什么？为什么要引入中级调度？</h4><ul>
+<li><p>高级调度的主要任务是根据某种算法，把外存上处于后备队列中的那些作业调入内存。</p>
+</li>
+<li><p>低级调度是保存处理机的现场信息，按某种算法选取进程，再把处理器分配给进程。</p>
+</li>
+<li><p>引入中级调度的主要目的是为了提高内存利用率和系统吞吐量。使那些暂时不能运行的进程不再占用内存资源，将它们调至外存等待，把进程状态改为就绪驻外存状态或挂起状态。</p>
+</li>
+</ul>
+<h4 id="2-处理机调度算法的共同目标是什么？批处理系统的调度目标又是什么？"><a href="#2-处理机调度算法的共同目标是什么？批处理系统的调度目标又是什么？" class="headerlink" title="2. 处理机调度算法的共同目标是什么？批处理系统的调度目标又是什么？"></a>2. 处理机调度算法的共同目标是什么？批处理系统的调度目标又是什么？</h4><ul>
+<li><p>共同目标：资源利用率，公平性，平衡性，策略强制执行。</p>
+</li>
+<li><p>批处理系统的调度目标：平均周转时间短，系统吞吐量高，处理机利用率高。</p>
+</li>
+</ul>
+<h4 id="8-在抢占调度方式中，抢占的原则是什么？"><a href="#8-在抢占调度方式中，抢占的原则是什么？" class="headerlink" title="8. 在抢占调度方式中，抢占的原则是什么？"></a>8. 在抢占调度方式中，抢占的原则是什么？</h4><ul>
+<li>抢占的原则有：时间片原则、优先权原则、短作业优先权原则等。</li>
+</ul>
+<h4 id="9-在选择调度方式和调度算法时，应遵循的准则是什么？"><a href="#9-在选择调度方式和调度算法时，应遵循的准则是什么？" class="headerlink" title="9. 在选择调度方式和调度算法时，应遵循的准则是什么？"></a>9. 在选择调度方式和调度算法时，应遵循的准则是什么？</h4><ul>
+<li><p>面向用户的准则：周转时间短、响应时间快、截止时间的保证、优先权准则。</p>
+</li>
+<li><p>面向系统的准则：系统吞吐量高、处理机利用率好、各类资源的平衡利用。</p>
+</li>
+</ul>
+<h4 id="11-何谓静态和动态优先级？确定静态优先级的依据是什么？"><a href="#11-何谓静态和动态优先级？确定静态优先级的依据是什么？" class="headerlink" title="11. 何谓静态和动态优先级？确定静态优先级的依据是什么？"></a>11. 何谓静态和动态优先级？确定静态优先级的依据是什么？</h4><ul>
+<li><p>静态优先级是指在创建进程时确定且在进程的整个运行期间保持不变的优先级。</p>
+</li>
+<li><p>动态优先级是指在创建进程时赋予的优先权，可以随进程推进或随其等待时间增加而改变的优先级，可以获得更好的调度性能。</p>
+</li>
+<li><p>确定进程优先级的依据：进程类型、进程对资源的需求和用户要求。</p>
+</li>
+</ul>
+<h4 id="12-试比较FCFS和SPF两种进程调度算法。"><a href="#12-试比较FCFS和SPF两种进程调度算法。" class="headerlink" title="12. 试比较FCFS和SPF两种进程调度算法。"></a>12. 试比较FCFS和SPF两种进程调度算法。</h4><ul>
+<li><p>相同点：两种调度算法都可以用于作业调度和进程调度。</p>
+</li>
+<li><p>不同点：FCFS调度算法每次都从后备队列中选择一个或多个最先进入该队列的作业，将它们调入内存、分配资源、创建进程、插入到就绪队列。该算法有利于长作业/进程，不利于短作业/进程。SPF算法每次调度都从后备队列中选择一个或若干个估计运行时间最短的作业，调入内存中运行。该算法有利于短作业/进程，不利于长作业/进程。</p>
+</li>
+</ul>
+<h4 id="13-在时间片轮转法中，应如何确定时间片的大小？"><a href="#13-在时间片轮转法中，应如何确定时间片的大小？" class="headerlink" title="*13. 在时间片轮转法中，应如何确定时间片的大小？"></a>*13. 在时间片轮转法中，应如何确定时间片的大小？</h4><ul>
+<li>时间片应略大于一次典型的交互需要的时间。一般应考虑三个因素：系统对相应时间的要求、就绪队列中进程的数目和系统的处理能力。</li>
+</ul>
+<h4 id="16-为什么说传统的几种调度算法都不能算是公平的调度算法？"><a href="#16-为什么说传统的几种调度算法都不能算是公平的调度算法？" class="headerlink" title="16. 为什么说传统的几种调度算法都不能算是公平的调度算法？"></a>16. 为什么说传统的几种调度算法都不能算是公平的调度算法？</h4><ul>
+<li><p>传统的几种调度算法，都只能满足单条调度需求，对其他则不满足。</p>
+</li>
+<li><p>如FCFS不利于短作业和IO型作业，SJF则不利于长作业和紧迫作业的运行，PSA不利于优先权低的作业，RR不利于紧迫作业。</p>
+</li>
+</ul>
+<h4 id="17-保证调度算法是如何做到调度的公平性的？"><a href="#17-保证调度算法是如何做到调度的公平性的？" class="headerlink" title="17. 保证调度算法是如何做到调度的公平性的？"></a>17. 保证调度算法是如何做到调度的公平性的？</h4><ul>
+<li><p>保证调度算法是另外一种类型的调度算法，它向用户所做出的保证并不是优先运行，而是明确的性能保证，该算法可以做到调度的公平性。</p>
+</li>
+<li><p>一种比较容易实现的性能保证是处理机分配的公平性。如果在系统中有n个相同类型的进程同时运行，为公平起见，须保证每个进程都获得相同的处理机时间1/n。</p>
+</li>
+</ul>
+<h4 id="20-按调度方式可将实时调度算法分为哪几种？"><a href="#20-按调度方式可将实时调度算法分为哪几种？" class="headerlink" title="20. 按调度方式可将实时调度算法分为哪几种？"></a>20. 按调度方式可将实时调度算法分为哪几种？</h4><ul>
+<li><p>非抢占式和抢占式。</p>
+</li>
+<li><p>非抢占式又分为非抢占式轮转调度算法和非抢占式优先调度算法。</p>
+</li>
+<li><p>抢占式又分为基于时钟中断的抢占式优先级调度算法和立即抢占的优先级调度算法。</p>
+</li>
+</ul>
+<h4 id="21-什么是最早截止时间优先调度算法？举例说明之。"><a href="#21-什么是最早截止时间优先调度算法？举例说明之。" class="headerlink" title="21. 什么是最早截止时间优先调度算法？举例说明之。"></a>21. 什么是最早截止时间优先调度算法？举例说明之。</h4><ul>
+<li><p>根据任务的开始截止时间确定的任务优先级调度算法。</p>
+</li>
+<li><p>截止时间越早则优先级越高。该算法要求在系统中保持一个实时任务就绪队列，该队列按各任务截止时间的先后排序。</p>
+</li>
+</ul>
+<h4 id="22-什么是最低松弛度优先调度算法？举例说明之。"><a href="#22-什么是最低松弛度优先调度算法？举例说明之。" class="headerlink" title="22. 什么是最低松弛度优先调度算法？举例说明之。"></a>22. 什么是最低松弛度优先调度算法？举例说明之。</h4><ul>
+<li><p>该算法是根据任务的紧急(或松弛)程度，来确定任务的优先级。任务的紧急程度越高，为该任务所赋予的优先级就越高，以使之优先执行。</p>
+</li>
+<li><p>例如，一个任务在200ms时必须完成，而它本身所需的运行时间就有100ms，因此，调度程序必须在100ms之前调度执行，该任务的紧急程度(松弛程度)为100ms。</p>
+</li>
+<li><p>又如，另一任务在400ms时必须完成，它本身需要运行150ms，则其松弛程度为250ms。</p>
+</li>
+</ul>
+<h4 id="23-何谓“优先级倒置”现象，可采取什么方法来解决？"><a href="#23-何谓“优先级倒置”现象，可采取什么方法来解决？" class="headerlink" title="*23. 何谓“优先级倒置”现象，可采取什么方法来解决？"></a>*23. 何谓“优先级倒置”现象，可采取什么方法来解决？</h4><ul>
+<li>当前OS广泛采用优先级调度算法和抢占方式，然而在系统中存在着影响进程运行的资源而可能产生“优先级倒置”的现象，即高优先级进程(或线程)被低优先级进程(或线程)延迟或阻塞。</li>
+</ul>
+<h4 id="25-试举例说明竞争不可抢占资源所引起的死锁。"><a href="#25-试举例说明竞争不可抢占资源所引起的死锁。" class="headerlink" title="25. 试举例说明竞争不可抢占资源所引起的死锁。"></a>25. 试举例说明竞争不可抢占资源所引起的死锁。</h4><ul>
+<li><p>例如，系统中有两个进程P1和P2，它们都准备写两个文件F1和F2，而这两者都属于可重用和不可抢占性资源。进程P1先打开F1，然后再打开文件F2；进程P2先打开文件F2，后打开F1，下面示出了这段代码。</p>
+</li>
+<li><p>Open(f1,w);Open(f2,w);<br>Open(f2,w);Open(f1,w);</p>
+</li>
+<li><p>两个进程P1和P2在并发执行时，如果P1先打开F1和F2，然后P2才去打开F1(或F2)，由于文件F1(F2)已被P1打开，故P2会被阻塞。当P1写完文件F1(或F2)而关闭F1(F2)时，P2会由阻塞状态转为就绪状态，被调度执行后重新打开文件F1(或F2)。在这种情况下，P1和P2都能正常运行下去。若P2先打开F1和F2，然后P1才去打开F1(或F2)，P1和P2同样也可以正常运行下去。但如果在P1打开F1的同时，P2去打开F2，每个进程都占有一个打开的文件，此时就可能出现问题。因为当P1试图去打开F2，而P2试图去打开F1时，这两个进程都会因文件已被打开而阻塞，它们希望对方关闭自己所需要的文件，但谁也无法运行，因此这两个进程将会无限期地等待下去，而形成死锁。</p>
+</li>
+</ul>
+<h4 id="26-为了破坏“请求和保持”条件而提出了两种协议，试比较这两种协议。"><a href="#26-为了破坏“请求和保持”条件而提出了两种协议，试比较这两种协议。" class="headerlink" title="26. 为了破坏“请求和保持”条件而提出了两种协议，试比较这两种协议。"></a>26. 为了破坏“请求和保持”条件而提出了两种协议，试比较这两种协议。</h4><ul>
+<li><p>第一种协议在所有进程开始运行之前，必须一次性地申请其在整个运行过程中所需的全部资源，并且在分配资源时，只要有一种资源不能满足进程的要求，即使其它所需的各种资源都空闲也不分配给该进程，而让该进程等待。因此有资源被严重浪费、进程经常会发生饥饿现象等缺点。</p>
+</li>
+<li><p>第二种协议是对第一种协议的改进，它允许一个进程只获得运行初期所需的资源后，便开始运行。进程运行过程中再逐步释放已分配给自己的，且已用毕的全部资源，然后再请求新的所需资源。如此便可提高设备的利用率，还可减少进程发生饥饿的概率。</p>
+</li>
+</ul>
+<h4 id="27-何谓死锁？产生死锁的原因和必要条件是什么？"><a href="#27-何谓死锁？产生死锁的原因和必要条件是什么？" class="headerlink" title="27. 何谓死锁？产生死锁的原因和必要条件是什么？"></a>27. 何谓死锁？产生死锁的原因和必要条件是什么？</h4><ul>
+<li><p>死锁是指多个进程在运行过程中因争夺资源而造成的一种僵局，当进程处于这种僵持状态时，若无外力作用，它们都将无法再向前推进。</p>
+</li>
+<li><p>产生死锁的原因为竞争资源和进程间推进顺序非法。</p>
+</li>
+<li><p>其必要条件是：互斥条件、请求和保持条件、不剥夺条件、环路等待条件。</p>
+</li>
+</ul>
+<h4 id="29-请详细说明可通过哪些途径预防死锁。"><a href="#29-请详细说明可通过哪些途径预防死锁。" class="headerlink" title="*29. 请详细说明可通过哪些途径预防死锁。"></a>*29. 请详细说明可通过哪些途径预防死锁。</h4><ul>
+<li><p>摈弃“请求和保持”条件，就是如果系统有足够资源，便一次性把进程需要的所有资源分配给它。</p>
+</li>
+<li><p>摈弃“不剥夺”条件，就是已经拥有资源的进程，当它提出新资源请求而不能立即满足时，必须释放它已保持的所有资源，待以后需要时再重新申请。</p>
+</li>
+<li><p>摈弃“环路等待”条件，就是将所有资源按类型排序标号，所有进程对资源的请求必须严格按序号递增的次序提出。</p>
+</li>
+</ul>
+<h2 id="第四章-存储器管理"><a href="#第四章-存储器管理" class="headerlink" title="第四章 存储器管理"></a>第四章 存储器管理</h2><h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><ul>
+<li><h4 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h4></li>
+<li></li>
+</ul>
+<h4 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h4><ul>
+<li><h4 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h4></li>
+<li></li>
+</ul>
+<h4 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h4><ul>
+<li><h4 id="9"><a href="#9" class="headerlink" title="9."></a>9.</h4></li>
+<li></li>
+</ul>
+<h4 id="10"><a href="#10" class="headerlink" title="10."></a>10.</h4><ul>
+<li><h4 id="11"><a href="#11" class="headerlink" title="*11."></a>*11.</h4></li>
+<li></li>
+</ul>
+<h4 id="14"><a href="#14" class="headerlink" title="14."></a>14.</h4><ul>
+<li><h4 id="16"><a href="#16" class="headerlink" title="*16."></a>*16.</h4></li>
+<li></li>
+</ul>
+<h4 id="18"><a href="#18" class="headerlink" title="18."></a>18.</h4><ul>
+<li><h4 id="19"><a href="#19" class="headerlink" title="19."></a>19.</h4></li>
+<li></li>
+</ul>
+<h4 id="20"><a href="#20" class="headerlink" title="*20."></a>*20.</h4><ul>
+<li><h4 id="22"><a href="#22" class="headerlink" title="*22."></a>*22.</h4></li>
+<li></li>
+</ul>
+<h4 id="26"><a href="#26" class="headerlink" title="26."></a>26.</h4><ul>
+<li><h4 id="27"><a href="#27" class="headerlink" title="27."></a>27.</h4></li>
+<li></li>
+</ul>
+]]></content>
+      <categories>
+        <category>《计算机操作系统》</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计算机操作系统 知识点快速复习</title>
+    <url>/fa53649.html</url>
+    <content><![CDATA[<h2 id="一、章节导学"><a href="#一、章节导学" class="headerlink" title="一、章节导学"></a>一、章节导学</h2><h3 id="1-1-操作系统的演进"><a href="#1-1-操作系统的演进" class="headerlink" title="1.1 操作系统的演进"></a>1.1 操作系统的演进</h3><ul>
+<li><p>无操作系统<br>人工操作、用户独占、CPU等待人工操作、<font style="color:red">资源利用率很低</font></p>
+</li>
+<li><p>批处理系统<br>无需等待人工操作、批量输入任务、<font style="color:red">资源利用率提升、多道程序设计</font></p>
+</li>
+<li><p>分时系统<br>人-机交互</p>
+</li>
+</ul>
+<h3 id="1-2-多道程序设计"><a href="#1-2-多道程序设计" class="headerlink" title="1.2 多道程序设计"></a>1.2 多道程序设计</h3><ul>
+<li><p>早期批处理系统只能一次处理一个任务</p>
+</li>
+<li><p><font style="color:red">多道程序设计</font>使得批处理系统可以一次处理多个任务</p>
+</li>
+<li><p>多道程序设计是指在计算机内存中同时存放多个程序</p>
+</li>
+<li><p>多道程序在计算机的管理程序之下相互穿插运行</p>
+</li>
+<li><p><font style="color:red">对多道程序的管理是操作系统的重要功能</font></p>
+</li>
+</ul>
+<h3 id="1-3-操作系统五大功能"><a href="#1-3-操作系统五大功能" class="headerlink" title="1.3 操作系统五大功能"></a>1.3 操作系统五大功能</h3><h4 id="1-3-1-进程管理"><a href="#1-3-1-进程管理" class="headerlink" title="1.3.1 进程管理"></a>1.3.1 进程管理</h4><ul>
+<li><p>-</p>
+<h5 id="1-3-1-1-进程管理之进程实体"><a href="#1-3-1-1-进程管理之进程实体" class="headerlink" title="1.3.1.1 进程管理之进程实体"></a>1.3.1.1 进程管理之进程实体</h5><ul>
+<li><p>为什么需要进程<br>没有配置OS之前，资源属于当前运行的程序<br>配置OS之后，引入<font style="color:red">多道程序设计</font>的概念<br>合理地隔离资源、运行环境，提升资源利用率</p>
+<p><font style="color:red">进程是系统进行资源分配和调度的基本单位</font></p>
+<p><font style="color:red">进程作为程序独立运行的载体保障程序正常执行</font></p>
+<p><font style="color:red">进程的存在使得操作系统资源的利用率大幅提升</font></p>
+</li>
+<li><p>进程的实体</p>
+<ul>
+<li><p>主存中的进程形态（进程标识符、处理机状态、进程调度信息、进程控制信息）<br>PCB储存着以下：<br>标识符：标识符唯一标记一个进程，用于区别其它进程<br>状态：标记进程的进程状态，如：运行态<br>程序计数器：进程即将被执行的下一条指令的地址<br>内存指针：程序代码、进程数据相关指针<br>上下文数据：<font style="color:red">进程执行时处理器存储的数据</font><br>IO状态信息：被进程IO操作所占用的文件列表<br>记账信息：使用处理器时间、时钟数总和等  </p>
+<ul>
+<li>进程控制块（PCB）<br>用于描述和控制进程运行的通用数据结构<br>记录进程当前状态和控制进程运行的全部信息<br>PCB使得进程是能够独立运行的基本单位<br>PCB是操作系统进行调度经常会被读取的信息<br>PCB是常驻内存的，存放在系统专门开辟的PCB区域内  </li>
+</ul>
+</li>
+<li><p>进程（Process）与线程（Thread）<br>线程是操作系统进行运行调度的最小单位<br>包含在进程之中，是进程中实际运行工作的单位<br>一个进程可以并发多个线程，每个线程执行不同的任务  </p>
+<p><font style="color:red">进程的线程共享进程资源</font></p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">进程</th>
+<th align="center">线程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">资源</td>
+<td align="center">资源分配的基本单位</td>
+<td align="center">不拥有资源</td>
+</tr>
+<tr>
+<td align="center">调度</td>
+<td align="center">独立调度的基本单位</td>
+<td align="center">独立调度的最小单位</td>
+</tr>
+<tr>
+<td align="center">系统开销</td>
+<td align="center">进程系统开销大</td>
+<td align="center">线程系统开销小</td>
+</tr>
+<tr>
+<td align="center">通信</td>
+<td align="center">进程IPC</td>
+<td align="center">读写同一进程数据通信</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h5 id="1-3-1-2-进程管理之五状态模型"><a href="#1-3-1-2-进程管理之五状态模型" class="headerlink" title="1.3.1.2 进程管理之五状态模型"></a>1.3.1.2 进程管理之五状态模型</h5></li>
+<li><p>就绪状态<br>当进程被分配到除CPU以外所有必要的资源后<br>只要再获得CPU的使用权，就可以立即运行<br>其它资源都准备好、只差CPU资源的状态为<font style="color:red">就绪状态</font><br>在一个系统中多个处于就绪状态的进程通常排成一个队列（<font style="color:red">就绪队列</font>）  </p>
+</li>
+<li><p>执行状态<br>进程获得CPU，其程序正在执行称为执行状态<br>在单处理机中，在某个时刻只能有一个进程是处于执行状态  </p>
+</li>
+<li><p>阻塞状态<br>进程因某种原因，如：其它设备未就绪而无法继续执行<br>从而放弃CPU的状态称为阻塞状态<br>在一个系统中多个处于阻塞状态的进程通常排成一个队列（<font style="color:red">阻塞队列</font>）  </p>
+</li>
+<li><p>创建状态<br><font style="color:red">分配PCB -&gt; 插入就绪队列</font><br>创建进程时拥有PCB但<font style="color:red">其它资源尚未就绪</font>的状态称为创建状态<br><font style="color:red">操作系统提供fork函数接口创建进程</font>  </p>
+</li>
+<li><p>终止状态<br><font style="color:red">系统清理 -&gt; PCB归还</font><br>进程结束由系统清理或者归还PCB的状态称为终止状态  </p>
+<h5 id="1-3-1-3-进程管理之进程同步"><a href="#1-3-1-3-进程管理之进程同步" class="headerlink" title="1.3.1.3 进程管理之进程同步"></a>1.3.1.3 进程管理之进程同步</h5></li>
+<li><p>为什么需要进程间同步<br>生产者-消费者问题、哲学家进餐问题<br><font style="color:red">对竞争资源在多进程间进行使用次序的协调</font><br><font style="color:red">使得并发执行的多个进程之间可以有效使用资源和相互合作</font>  </p>
+</li>
+<li><p>进程间同步的原则<br>空闲让进：资源无占用，允许使用<br>忙则等待：资源有占用，请求进程等待<br>有限等待：保证有限等待时间能够使用资源<br>让权等待：等待时，进程需要让出CPU  </p>
+<ul>
+<li><p>临界资源<br>临界资源指的是一些虽作为共享资源却又无法同时被多个线程共同访问的共享资源。当有进程在使用临界资源时，其它进程必须依据操作系统的同步机制等待占用进程释放该共享资源才可重新竞争使用共享资源。</p>
+</li>
+<li><p>进程同步的方法<br>消息队列、共享存储、信号量</p>
+</li>
+</ul>
+</li>
+<li><p>线程同步<br><font style="color:red">进程的线程共享进程资源，所以进程内多线程也需要同步</font>  </p>
+<ul>
+<li>线程同步的方法<br>互斥量、读写锁、自旋锁、条件变量</li>
+</ul>
+<h5 id="1-3-1-4-Linux的进程管理"><a href="#1-3-1-4-Linux的进程管理" class="headerlink" title="1.3.1.4 Linux的进程管理"></a>1.3.1.4 Linux的进程管理</h5></li>
+<li><p>Linux进程的相关概念</p>
+<ul>
+<li><p>进程的类型</p>
+<ul>
+<li><p>前台进程<br>前台进程就是具有终端，可以和用户交互的进程  </p>
+</li>
+<li><p>后台进程<br>与前台进程相对，没有占用终端的就是后台进程<br>后台程序基本上不和用户交互，优先级比前台程序低<br><font style="color:red">将需要执行的命令以“&amp;”符号结束</font>  </p>
+</li>
+<li><p>守护进程<br>守护（deamon）进程是特殊的后台进程<br>很多守护进程在系统引导的时候启动，一直运行直到系统关闭<br>Linux有很多典型的守护进程<br><font style="color:red">进程名字以“d”结尾的一般都是守护进程（crond, httpd, sshd, mysqld）</font>  </p>
+</li>
+</ul>
+</li>
+<li><p>进程的标记</p>
+<ul>
+<li><p>进程ID<br>进程ID是进程的唯一标记，每个进程拥有不同的ID<br>进程ID表现为一个非负整数，最大值由操作系统限定<br><font style="color:red">操作系统提供fork函数接口创建进程（父子进程关系）</font><br>父子进程关系可以通过pstree命令查看<br><font style="color:red">ID为0的进程为idle进程，是系统创建的第一个进程</font><br><font style="color:red">ID为1的进程为init进程，是0号进程的子进程，完成系统初始化</font><br><font style="color:red">init进程是所有用户进程的祖先进程</font>  </p>
+</li>
+<li><p>进程的状态标记<br><font style="color:red">R：(TASK_RUNNING)，进程正处于运行状态</font><br><font style="color:red">S：(TASK_INTERRUPTIBLE)，进程正处于睡眠状态</font><br>D：(TASK_UNINTERRUPTIBLE)，进程正处于IO等待的睡眠状态<br>T：(TASK_STOPPED)，进程正处于暂停状态<br>Z：(TASK_DEAD or EXIT_ZOMBIE)，进程正处于退出状态或僵尸进程  </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>操作Linux进程的相关命令</p>
+<ul>
+<li><p>ps命令<br>ps命令常用于显示当前进程的状态<br>ps命令常配合aux参数或ef参数和grep命令检索特定进程  </p>
+</li>
+<li><p>top命令</p>
+</li>
+<li><p>kill命令<br>kill命令发送指定信号给进程<br>kill -l可以查看操作系统支持的信号<br><font style="color:red">只有（SIGKILL 9）信号可以无条件终止进程，其它信号进程有权忽略</font>  </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-2-存储管理"><a href="#1-3-2-存储管理" class="headerlink" title="1.3.2 存储管理"></a>1.3.2 存储管理</h4><ul>
+<li><p>-</p>
+<h5 id="1-3-2-1-存储管理之内存分配与回收"><a href="#1-3-2-1-存储管理之内存分配与回收" class="headerlink" title="1.3.2.1 存储管理之内存分配与回收"></a>1.3.2.1 存储管理之内存分配与回收</h5></li>
+</ul>
+<h4 id="1-3-3-作业管理"><a href="#1-3-3-作业管理" class="headerlink" title="1.3.3 作业管理"></a>1.3.3 作业管理</h4><ul>
+<li><p>-</p>
+<h5 id="1-3-3-1-作业管理之进程调度"><a href="#1-3-3-1-作业管理之进程调度" class="headerlink" title="1.3.3.1 作业管理之进程调度"></a>1.3.3.1 作业管理之进程调度</h5><ul>
+<li><p>进程调度概述<br><font style="color:red">进程调度是指计算机通过决策决定哪个就绪进程可以获得CPU使用权</font><br><font style="color:red">多道程序设计</font><br>保留旧进程的运行信息，清除旧进程（收拾包袱）<br>选择新进程，准备运行环境并分配CPU（新进驻）  </p>
+<ul>
+<li><p>就绪队列的排队机制  </p>
+</li>
+<li><p>选择运行进程的委派机制<br><font style="color:red">调度程序以一定的策略选择就绪进程，将CPU资源分配给它</font>  </p>
+</li>
+<li><p>新老进程的上下文切换机制<br><font style="color:red">保存当前进程的上下文信息，装入被委派执行进程的运行上下文</font>  </p>
+</li>
+<li><p>非抢占式的调度<br>处理器一旦分配给某个进程，就让该进程一直使用下去<br>调度程序不以任何原因抢占正在被使用的处理器<br>直到进程完成工作或因为IO阻塞才会让出处理器  </p>
+</li>
+<li><p>抢占式的调度<br>允许调度程序以一定的策略暂停当前运行的进程<br>保存好旧进程的上下文信息，分配处理器给新进程  </p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">抢占式调度</th>
+<th align="center">非抢占式调度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">系统开销</td>
+<td align="center">频繁切换，开销大</td>
+<td align="center">切换次数少，开销小</td>
+</tr>
+<tr>
+<td align="center">公平性</td>
+<td align="center">相对公平</td>
+<td align="center">不公平</td>
+</tr>
+<tr>
+<td align="center">应用</td>
+<td align="center">通用系统</td>
+<td align="center">专用系统</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>进程调度算法</p>
+<ul>
+<li><p>先来先服务调度算法  </p>
+</li>
+<li><p>短进程优先调度算法<br>调度程序优先选择就绪队列中估计运算时间最短的进程<br>短进程优先调度算法不利于长作业进程的执行  </p>
+</li>
+<li><p>高优先权优先调度算法<br>进程附带优先权，调度程序优先选择权重高的进程<br>高优先权优先调度算法使得紧迫的任务可以优先处理  </p>
+</li>
+<li><p>时间片轮转调度算法<br>按先来先服务的原则排列就绪进程<br>每次从队列头部取出待执行进程，分配一个时间片执行<br>是相对公平的调度算法，但不能保证及时响应用户  </p>
+</li>
+</ul>
+<h5 id="1-3-3-2-作业管理之死锁"><a href="#1-3-3-2-作业管理之死锁" class="headerlink" title="1.3.3.2 作业管理之死锁"></a>1.3.3.2 作业管理之死锁</h5></li>
+<li><p>什么是死锁<br>死锁是指两个或两个以上的进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，它们都将无法推进下去。此时称系统处于死锁状态或系统产生了死锁，这些永远在互相等待的进程称为死锁进程。</p>
+</li>
+<li><p>死锁的产生  </p>
+<ul>
+<li><p>竞争资源<br>共享资源数量不满足各个进程需求<br>各个进程之间发生资源进程导致死锁<br>（等待请求的资源被释放、自身占用资源不释放）  </p>
+</li>
+<li><p>进程调度顺序不当  </p>
+</li>
+<li><p>死锁的四个必要条件  </p>
+<ul>
+<li><p>互斥条件<br>进程对资源的使用是<font style="color:red">排他性的使用</font><br>某资源只能由一个进程使用，其他进程需要使用只能等待  </p>
+</li>
+<li><p>请求保持条件<br>进程至少保持一个资源，又提出新的资源请求<br>新资源被占用，请求被阻塞<br>被阻塞的进程不释放自己保持的资源  </p>
+</li>
+<li><p>不可剥夺条件<br>进程获得的资源在未完成使用前不能被剥夺<br>获得的资源只能由进程自身释放  </p>
+</li>
+<li><p>环路等待条件<br>发生死锁时，必然存在资源-进程环形链  </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>死锁的处理  </p>
+<ul>
+<li><p>预防死锁的方法  </p>
+<ul>
+<li><p>摒弃请求保持条件<br>系统规定进程运行之前，一次性申请所有需要的资源<br>进程在运行期间不会提出资源请求，从而摒弃请求保持条件  </p>
+</li>
+<li><p>摒弃不可剥夺条件<br>当一个进程请求新的资源得不到满足时，必须释放占有的资源<br>进程运行时占有的资源可以被释放，意味着可以被剥夺  </p>
+</li>
+<li><p>摒弃环路等待条件<br>可用资源线性排序，申请必须按照递增申请<br>线性申请不再形成环路，从而摒弃了环路等待条件  </p>
+</li>
+</ul>
+</li>
+<li><p>银行家算法<br>是一个可操作的著名的避免死锁的算法<br>以银行借贷系统分配策略为基础的算法<br>客户申请的贷款时有限的，每次申请需声明最大资金量<br>银行家在能够满足贷款时，都应该给用户贷款<br>客户在使用贷款后，能够及时归还贷款  </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-4-文件管理"><a href="#1-3-4-文件管理" class="headerlink" title="1.3.4 文件管理"></a>1.3.4 文件管理</h4><h4 id="1-3-5-设备管理"><a href="#1-3-5-设备管理" class="headerlink" title="1.3.5 设备管理"></a>1.3.5 设备管理</h4><hr>
+<h2 id="二、操作系统概览"><a href="#二、操作系统概览" class="headerlink" title="二、操作系统概览"></a>二、操作系统概览</h2><h3 id="2-1-什么是操作系统"><a href="#2-1-什么是操作系统" class="headerlink" title="2.1 什么是操作系统"></a>2.1 什么是操作系统</h3><ul>
+<li><p>操作系统是管理计算机硬件和软件资源的<font style="color:red">计算机程序</font></p>
+</li>
+<li><p><font style="color:red">管理硬件、提供用户交互的软件系统</font></p>
+</li>
+<li><p>管理配置内存、决定资源供需顺序、控制输入输出设备等</p>
+</li>
+<li><p>操作系统提供让用户和系统交互的<font style="color:red">操作界面</font></p>
+</li>
+<li><p>操作系统的种类是多种多样的，不局限于计算机</p>
+</li>
+<li><p>从手机到超级计算机，操作系统可简单也可复杂</p>
+</li>
+<li><p>在不同的设备上，操作系统可向用户呈现多种操作手段</p>
+</li>
+</ul>
+<h3 id="2-2-为什么要使用操作系统"><a href="#2-2-为什么要使用操作系统" class="headerlink" title="2.2 为什么要使用操作系统"></a>2.2 为什么要使用操作系统</h3><ul>
+<li><p>我们不可能直接操作计算机硬件</p>
+</li>
+<li><p>设备种类繁多复杂，需要统一界面</p>
+</li>
+<li><p>操作系统的简易性使得更多人能够使用计算机</p>
+</li>
+</ul>
+<h3 id="2-3-操作系统的基本功能"><a href="#2-3-操作系统的基本功能" class="headerlink" title="2.3 操作系统的基本功能"></a>2.3 操作系统的基本功能</h3><h4 id="2-3-1-操作系统统一管理着计算机资源"><a href="#2-3-1-操作系统统一管理着计算机资源" class="headerlink" title="2.3.1 操作系统统一管理着计算机资源"></a>2.3.1 操作系统统一管理着计算机资源</h4><ul>
+<li>处理器资源、存储器资源、IO设备资源、文件资源</li>
+</ul>
+<h4 id="2-3-2-操作系统实现了对计算机资源的抽象"><a href="#2-3-2-操作系统实现了对计算机资源的抽象" class="headerlink" title="2.3.2 操作系统实现了对计算机资源的抽象"></a>2.3.2 操作系统实现了对计算机资源的抽象</h4><ul>
+<li>用户无需面向硬件接口编程（IO设备管理软件提供读写接口，文件管理软件提供操作文件接口）</li>
+</ul>
+<h4 id="2-3-3-操作系统提供了用户于计算机之间的接口"><a href="#2-3-3-操作系统提供了用户于计算机之间的接口" class="headerlink" title="2.3.3 操作系统提供了用户于计算机之间的接口"></a>2.3.3 操作系统提供了用户于计算机之间的接口</h4><ul>
+<li>图像窗口形式、命令形式、系统调用形式</li>
+</ul>
+<h3 id="2-4-操作系统的相关概念"><a href="#2-4-操作系统的相关概念" class="headerlink" title="2.4 操作系统的相关概念"></a>2.4 操作系统的相关概念</h3><h4 id="2-4-1-并发性（是其它特性的前提）"><a href="#2-4-1-并发性（是其它特性的前提）" class="headerlink" title="2.4.1 并发性（是其它特性的前提）"></a>2.4.1 并发性（是其它特性的前提）</h4><ul>
+<li><p><font style="color:red">并行</font>是指两个或多个事件可以在<font style="color:red">同一个时刻</font>发生</p>
+</li>
+<li><p><font style="color:red">并发</font>是指两个或多个事件可以在<font style="color:red">同一个时间间隔</font>发生</p>
+</li>
+</ul>
+<h4 id="2-4-2-共享性"><a href="#2-4-2-共享性" class="headerlink" title="2.4.2 共享性"></a>2.4.2 共享性</h4><ul>
+<li><p>共享性表现为操作系统中的资源可供多个并发的程序共同使用，这种共同使用的形式称之为资源共享<br>多个程序可以同时使用主存资源</p>
+</li>
+<li><p>资源共享根据属性可分为两种方式：互斥共享形式、同时访问形式</p>
+<h5 id="2-4-2-1-互斥共享形式"><a href="#2-4-2-1-互斥共享形式" class="headerlink" title="2.4.2.1 互斥共享形式"></a>2.4.2.1 互斥共享形式</h5><ul>
+<li><p>当资源被程序A占用时，其它想使用的话只能等待</p>
+</li>
+<li><p>只有进程A使用完以后，其它进程才可以使用该资源</p>
+</li>
+</ul>
+<h5 id="2-4-2-2-同时访问形式"><a href="#2-4-2-2-同时访问形式" class="headerlink" title="2.4.2.2 同时访问形式"></a>2.4.2.2 同时访问形式</h5><ul>
+<li><p>某种资源在一段时间内<font style="color:red">并发地</font>被多个程序访问</p>
+</li>
+<li><p>这种“同时”是宏观的，从宏观去看该资源可以被同时访问</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-4-3-虚拟性"><a href="#2-4-3-虚拟性" class="headerlink" title="2.4.3 虚拟性"></a>2.4.3 虚拟性</h4><ul>
+<li><p>虚拟性表现为把一个<font style="color:red">物理实体</font>转变为若干个<font style="color:red">逻辑实体</font></p>
+</li>
+<li><p>物理实体是真实存在的，逻辑实体是虚拟的</p>
+</li>
+<li><p>虚拟的技术主要有<font style="color:red">时分复用技术</font>和<font style="color:red">空分复用技术</font></p>
+<h5 id="2-4-3-1-时分复用技术"><a href="#2-4-3-1-时分复用技术" class="headerlink" title="2.4.3.1 时分复用技术"></a>2.4.3.1 时分复用技术</h5><ul>
+<li><p>资源在时间上进行复用，不同程序<font style="color:red">并发</font>使用，多道程序分时使用计算机的硬件资源</p>
+</li>
+<li><p>虚拟处理器技术<br>借助多道程序设计技术，为每个程序建立进程，多个程序分时复用处理器</p>
+</li>
+<li><p>虚拟设备技术<br>物理设备虚拟为多个逻辑设备，每个程序占用一个逻辑设备，多个程序通过逻辑设备并发访问</p>
+<h5 id="2-4-3-2-空分复用技术"><a href="#2-4-3-2-空分复用技术" class="headerlink" title="2.4.3.2 空分复用技术"></a>2.4.3.2 空分复用技术</h5></li>
+<li><p>空分复用技术用来实现虚拟磁盘、虚拟内存等，提高资源的利用率，提升编程效率</p>
+</li>
+<li><p>虚拟磁盘技术<br>物理磁盘虚拟为逻辑磁盘，C、D、E等逻辑盘，使用起来更加安全、方便</p>
+</li>
+<li><p>虚拟内存技术<br>在逻辑上扩大程序的存储容量，使用比实际内存更大的容量，大大提升编程效率</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-4-4-异步性"><a href="#2-4-4-异步性" class="headerlink" title="2.4.4 异步性"></a>2.4.4 异步性</h4><ul>
+<li><p>在多道程序环境下，允许多个进程并发执行</p>
+</li>
+<li><p>进程在使用资源时可能需要等待或放弃</p>
+</li>
+<li><p>进程的执行并不是一气呵成的，而是以走走停停的形式推进</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>《计算机操作系统》</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计算机体系结构 知识点快速复习</title>
+    <url>/193a6119.html</url>
+    <content><![CDATA[<h2 id="第1章-软件体系结构概论"><a href="#第1章-软件体系结构概论" class="headerlink" title="第1章 软件体系结构概论"></a>第1章 软件体系结构概论</h2><h3 id="1-1-从软件危机说起"><a href="#1-1-从软件危机说起" class="headerlink" title="1.1 从软件危机说起"></a>1.1 从软件危机说起</h3><ul>
+<li>软件危机是指在计算机软件的<u>开发</u>和<u>维护</u>过程中所遇到的一系列严重问题。</li>
+</ul>
+<h4 id="1-1-1-软件危机的表现"><a href="#1-1-1-软件危机的表现" class="headerlink" title="1.1.1 软件危机的表现"></a>1.1.1 软件危机的表现</h4><ol>
+<li><p>软件（成本）日益增加</p>
+</li>
+<li><p>开发（进度）难以控制</p>
+</li>
+<li><p>软件（质量）差</p>
+</li>
+<li><p>软件（维护）困难</p>
+</li>
+</ol>
+<h4 id="1-1-2-软件危机的原因"><a href="#1-1-2-软件危机的原因" class="headerlink" title="1.1.2 软件危机的原因"></a>1.1.2 软件危机的原因</h4><ol>
+<li><p>用户需求不明确</p>
+<p> 用户在软件开发出来之前，自己也不清楚需求</p>
+<p> 用户对需求描述不清晰</p>
+<p> 在开发软件得过程中，用户修改需求</p>
+<p> 开发人员对需求得理解和用户的不一致</p>
+</li>
+<li><p>缺乏正确的理论指导</p>
+</li>
+<li><p>软件规模越来越大</p>
+</li>
+<li><p>软件复杂度越来越高</p>
+</li>
+</ol>
+<h4 id="1-1-3-如何克服软件危机"><a href="#1-1-3-如何克服软件危机" class="headerlink" title="1.1.3 如何克服软件危机"></a>1.1.3 如何克服软件危机</h4><ul>
+<li><p>技术问题、管理问题</p>
+</li>
+<li><p>软件工程包括三个要素：<u>方法</u>、<u>工具</u>和<u>过程</u></p>
+<p> 方法指导软件技术怎么做</p>
+<p> 工具为软件方法提供自动或者半自动的软件支撑环境</p>
+<p> 过程将软件工程方法和软件工程工具合理结合</p>
+</li>
+</ul>
+<h3 id="1-2-构件与软件重用"><a href="#1-2-构件与软件重用" class="headerlink" title="1.2 构件与软件重用"></a>1.2 构件与软件重用</h3><ul>
+<li><p>软件重用是指在两次或多次不同的软件开发过程中重复使用相同或相近软件元素的过程。</p>
+</li>
+<li><p>软件元素包括<u>程序代码</u>、<u>测试用例</u>、<u>设计文档</u>、<u>设计过程</u>、<u>需求分析文档</u>甚至<u>领域知识</u></p>
+</li>
+<li><p>可重用的软件元素越大，称重用的粒度越大</p>
+</li>
+</ul>
+<h4 id="1-2-1-构件模型及实现"><a href="#1-2-1-构件模型及实现" class="headerlink" title="1.2.1 构件模型及实现"></a>1.2.1 构件模型及实现</h4><ul>
+<li><p>构件：语义完整、语法正确和有可重用价值的单位软件，是可以明确辨识的系统；结构上，它是语义描述、通信接口和实现代码的复合体。</p>
+</li>
+<li><p>构件模型</p>
+<ol>
+<li>CORBA：通用对象请求代理结构</li>
+<li>EJB：Enterprise Java Bean</li>
+<li>DCOM：分布式构件对象模型</li>
+</ol>
+</li>
+</ul>
+<h4 id="1-2-2-构件获取"><a href="#1-2-2-构件获取" class="headerlink" title="1.2.2 构件获取"></a>1.2.2 构件获取</h4><ul>
+<li>建立基于构件的软件开发中，构件的获取途径<ol>
+<li>现有构件<u>适应性修改</u></li>
+<li>从<u>遗留工程</u>中获取</li>
+<li><u>购买现成</u>的商业构件</li>
+<li><u>开发</u>新的符合要求的构件</li>
+</ol>
+</li>
+</ul>
+<h4 id="1-2-3-构件管理"><a href="#1-2-3-构件管理" class="headerlink" title="1.2.3 构件管理"></a>1.2.3 构件管理</h4><ul>
+<li><p>构建分类方法</p>
+<ol>
+<li>关键字分类法</li>
+<li>刻面分类法</li>
+<li>超文本组织方法</li>
+</ol>
+</li>
+<li><p>构件有哪几种</p>
+<ol>
+<li>独立成熟的构件</li>
+<li>有限制的构件</li>
+<li>适应性构件</li>
+<li>装配的构件</li>
+<li>可修改的构件</li>
+</ol>
+</li>
+<li><p>构件库系统的5类用户</p>
+<ol>
+<li>注册用户</li>
+<li>公共用户</li>
+<li>构建提交者</li>
+<li>一般系统管理员</li>
+<li>超级系统管理员</li>
+</ol>
+</li>
+</ul>
+<h4 id="1-2-4-构件重用"><a href="#1-2-4-构件重用" class="headerlink" title="1.2.4 构件重用"></a>1.2.4 构件重用</h4><ul>
+<li><p>什么是构件组装<br> 将构件库中的构件做适应性修改并连接起来或者和当前开发项目的软件元素相连</p>
+</li>
+<li><p>构建组装</p>
+<ol>
+<li>基于<u>功能</u>的组装技术</li>
+<li>基于<u>数据</u>的组装技术</li>
+<li>基于<u>对象</u>的组装技术</li>
+</ol>
+</li>
+</ul>
+<h4 id="1-2-5-软件重用实例"><a href="#1-2-5-软件重用实例" class="headerlink" title="1.2.5 软件重用实例"></a>1.2.5 软件重用实例</h4><ul>
+<li><p>软件重用分为哪几种重用</p>
+<ol>
+<li>需求重用</li>
+<li>设计重用</li>
+<li>代码重新</li>
+<li>组织结构重用</li>
+</ol>
+</li>
+<li><p>设计重用</p>
+<ol>
+<li>系统构建层：Java JDK类库</li>
+<li>通用类构件层：工作流平台核心模块、组织管理模块、系统管理模块、页面风格函数、JSP的CSS JS等字符串处理、数据库连接、通用打印和查询、权限验证和日期处理等与业务逻辑无关的类</li>
+<li>业务构件层：满足不同业务需求而设计的软件包（明确接口、大粒度构建重用）</li>
+<li>表现层：JSP、Serverlet页面（只调用来展现业务流程界面）</li>
+</ol>
+</li>
+<li><p>组织重用中包含了什么组织，各组织的功能是什么</p>
+<ol>
+<li>构建开发组：负责接受并分析来自协调层的构件设计规格说明</li>
+<li>构建应用组：负责设计和实现构件逻辑</li>
+<li>协调组：负责协调构件开发层和构件应用层，接受并分析来自构件应用层的构件需求</li>
+</ol>
+</li>
+</ul>
+<h3 id="1-3-软件体系结构的兴起和发展"><a href="#1-3-软件体系结构的兴起和发展" class="headerlink" title="1.3 软件体系结构的兴起和发展"></a>1.3 软件体系结构的兴起和发展</h3><h4 id="1-3-1-软件体系结构的定义"><a href="#1-3-1-软件体系结构的定义" class="headerlink" title="1.3.1 软件体系结构的定义"></a>1.3.1 软件体系结构的定义</h4><ul>
+<li><p>软件体系结构为软件系统提供了一个<u>结构</u>、<u>行为</u>和<u>属性</u>的<u>高级抽象</u>，由构成系统的元素的<u>描述</u>、这些元素的<u>相互作用</u>、指导元素集成的<u>模式</u>以及这些模式的<u>约束</u>组成。</p>
+</li>
+<li><p>软件体系结构不仅指定了系统的<u>组织结构</u>和<u>拓扑结构</u>，并且显示了系统需求和构成系统的元素之间的对应关系，提供了一些<u>设计决策</u>的基本原理。</p>
+</li>
+</ul>
+<h4 id="1-3-2-软件体系结构的意义"><a href="#1-3-2-软件体系结构的意义" class="headerlink" title="1.3.2 软件体系结构的意义"></a>1.3.2 软件体系结构的意义</h4><ol>
+<li><p>体系结构是风险承担者进行交流的手段</p>
+</li>
+<li><p>体系结构是早期设计决策的体现</p>
+<p> 软件体系结构明确了对系统实现的约束条件</p>
+<p> 软件体系结构决定了开发和维护组织的组织结构</p>
+<p> 软件体系结构制约着系统的质量属性</p>
+<p> 通过研究软件体系结构可能预测软件的质量</p>
+<p> 软件体系机构使推理和控制更改更简单</p>
+<p> 软件体系结构有助于循序渐进的原型设计</p>
+<p> 软件体系结构可以作为培训的基础</p>
+</li>
+<li><p>软件体系结构是可传递和可重用的模型</p>
+</li>
+</ol>
+<h4 id="1-3-3-软件体系结构的发展史"><a href="#1-3-3-软件体系结构的发展史" class="headerlink" title="1.3.3 软件体系结构的发展史"></a>1.3.3 软件体系结构的发展史</h4><ul>
+<li>软件体系结构的发展经历了哪几个阶段<ol>
+<li>无体系设计阶段：以汇编语言进行小规模开发为特征</li>
+<li>萌芽阶段：出现程序结构设计主题，以控制流图和数据流图构成软件结构为特征</li>
+<li>初期阶段：出现从不同侧面描述系统的结构模型，以UML为典型代表</li>
+<li>高级阶段：以描述系统的高层抽象结构为中心，不关心具体建模细节，划分了体系结构模型和传统软件结构的界限，以“4+1”模型为标志</li>
+</ol>
+</li>
+</ul>
+<h2 id="第2章-软件体系结构建模"><a href="#第2章-软件体系结构建模" class="headerlink" title="*第2章 软件体系结构建模"></a>*第2章 软件体系结构建模</h2><ul>
+<li><p>软件体系结构模型有哪几种</p>
+<ol>
+<li><p>结构模型</p>
+</li>
+<li><p>过程模型</p>
+</li>
+<li><p>框架模型</p>
+</li>
+<li><p>功能模型</p>
+</li>
+<li><p>动态模型</p>
+<p>最常用的是结构模型和动态模型</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-1-“4-1”视图模型"><a href="#2-1-“4-1”视图模型" class="headerlink" title="2.1 “4+1”视图模型"></a>2.1 “4+1”视图模型</h3><ul>
+<li><p>“4+1”视图模型有哪几个视图，功能分别是什么</p>
+<ol>
+<li><p>逻辑视图（静态）：支持系统的服务</p>
+</li>
+<li><p>开发视图（静态）：对软件模块进行组织和管理</p>
+</li>
+<li><p>进程视图（动态）：关注系统的运行特性，支持系统的非功能性</p>
+</li>
+<li><p>物理视图（动态）：考虑如何将软件映射到硬件上</p>
+</li>
+<li><p>场景视图</p>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="2-1-1-逻辑视图"><a href="#2-1-1-逻辑视图" class="headerlink" title="2.1.1 逻辑视图"></a>2.1.1 逻辑视图</h4><ul>
+<li>通过抽象、封装和继承，可以用对象模型来代表逻辑视图</li>
+</ul>
+<h4 id="2-1-2-开发视图"><a href="#2-1-2-开发视图" class="headerlink" title="2.1.2 开发视图"></a>2.1.2 开发视图</h4><h4 id="2-1-3-进程视图"><a href="#2-1-3-进程视图" class="headerlink" title="2.1.3 进程视图"></a>2.1.3 进程视图</h4><h4 id="2-1-4-物理视图"><a href="#2-1-4-物理视图" class="headerlink" title="2.1.4 物理视图"></a>2.1.4 物理视图</h4><h4 id="2-1-5-场景"><a href="#2-1-5-场景" class="headerlink" title="2.1.5 场景"></a>2.1.5 场景</h4><ul>
+<li>场景的定义：重要的系统活动的抽象</li>
+</ul>
+<h3 id="2-2-软件体系结构的核心模型"><a href="#2-2-软件体系结构的核心模型" class="headerlink" title="2.2 软件体系结构的核心模型"></a>2.2 软件体系结构的核心模型</h3><ul>
+<li><p>体系结构的核心模型有哪五种元素，基本元素是什么</p>
+<ol>
+<li><p>构件：是具有某种功能的可重用的软件模板单元，表示了系统中的计算元素和数据储存</p>
+</li>
+<li><p>配置：表示构件和连接件之间的拓扑逻辑和约束</p>
+</li>
+<li><p>连接件：表示了构件之间的交互</p>
+</li>
+<li><p>端口</p>
+</li>
+<li><p>角色</p>
+<p>基本元素是：构件、配置、连接件</p>
+</li>
+</ol>
+</li>
+<li><p>构件分为哪两种</p>
+<p> 原子构件和复合构件。复合构件由原子构件和其他复合构件组成</p>
+</li>
+</ul>
+<h3 id="2-3-软件体系结构的生命周期模型"><a href="#2-3-软件体系结构的生命周期模型" class="headerlink" title="2.3 软件体系结构的生命周期模型"></a>2.3 软件体系结构的生命周期模型</h3><ul>
+<li><p>软件体系结构建立在什么时候</p>
+<p> 建立在需求分析之后，软件设计之前</p>
+</li>
+</ul>
+<h4 id="2-3-1-各阶段之间的关系"><a href="#2-3-1-各阶段之间的关系" class="headerlink" title="2.3.1 各阶段之间的关系"></a>2.3.1 各阶段之间的关系</h4><ol>
+<li>需求分析阶段</li>
+<li>建立软件体系结构阶段</li>
+<li>设计阶段</li>
+<li>实现阶段</li>
+</ol>
+<h4 id="2-3-2-软件体系结构的生命周期"><a href="#2-3-2-软件体系结构的生命周期" class="headerlink" title="2.3.2 软件体系结构的生命周期"></a>2.3.2 软件体系结构的生命周期</h4><ol>
+<li>软件体系结构的非形式描述</li>
+<li>软件体系结构的规范描述和设计</li>
+<li>软件体系结构的精化及其验证</li>
+<li>软件体系结构的实施</li>
+<li>软件体系结构的演化和扩展</li>
+<li>软件体系结构的提供，评估和度量</li>
+<li>软件体系结构的终结</li>
+</ol>
+<h2 id="第3章-软件体系结构风格"><a href="#第3章-软件体系结构风格" class="headerlink" title="*第3章 软件体系结构风格"></a>*第3章 软件体系结构风格</h2><ul>
+<li><p>什么是软件体系结构风格</p>
+<p> 描述在一种特定应用领域中系统设计的惯用模式</p>
+</li>
+</ul>
+<h3 id="3-1-经典软件体系结构风格"><a href="#3-1-经典软件体系结构风格" class="headerlink" title="3.1 经典软件体系结构风格"></a>3.1 经典软件体系结构风格</h3><ol>
+<li>数据流风格：批处理序列、管道与过滤器</li>
+<li>调用返回风格：主程序与子程序、面向对象风格、层次结构</li>
+<li>独立构件风格：进程通信、事件系统</li>
+<li>虚拟机风格：解释器、基于规则的系统</li>
+<li>仓库风格：数据库系统、超文本系统、黑板系统</li>
+</ol>
+<h4 id="3-1-1-管道与过滤器"><a href="#3-1-1-管道与过滤器" class="headerlink" title="3.1.1 管道与过滤器"></a>3.1.1 管道与过滤器</h4><ul>
+<li><p>优点</p>
+<ol>
+<li>软件具有很高的隐蔽性和具有高内聚，低耦合的特点</li>
+<li>方便设计师将整个系统的输入或输出看成是多个过滤器的行为的简单合成</li>
+<li>支持重用</li>
+<li>系统维护和增强系统性能简单</li>
+<li>允许对一些属性分析</li>
+<li>支持并行执行</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>使进程成为批处理的结构</li>
+<li>不适合处理交互的应用</li>
+<li>没有统一的数据传输标准，过滤器需要增加数据分析和合成的工作，降低了系统的性能，增加了编写过滤器的复杂度</li>
+</ol>
+</li>
+</ul>
+<h4 id="3-1-2-数据抽象和面向对象系统"><a href="#3-1-2-数据抽象和面向对象系统" class="headerlink" title="3.1.2 数据抽象和面向对象系统"></a>3.1.2 数据抽象和面向对象系统</h4><ul>
+<li><p>优点</p>
+<ol>
+<li>对象对于其他对象的表示是隐藏的，一个对象的表示的改变不影响其他对象</li>
+<li>设计师可以将一些数据的存取问题拆解为一些交互的代理程序的集合</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>一个对象和另外一个对象通过过程调用等进行交互，必须知道对象的标识</li>
+<li>必须修改所有显式调用它的其他对象，并消除由此带来的副作用</li>
+</ol>
+</li>
+</ul>
+<h4 id="3-1-3-基于事件的系统（隐式调用）"><a href="#3-1-3-基于事件的系统（隐式调用）" class="headerlink" title="3.1.3 基于事件的系统（隐式调用）"></a>3.1.3 基于事件的系统（隐式调用）</h4><ul>
+<li><p>优点</p>
+<ol>
+<li>为软件重用带来强大的支持</li>
+<li>方便改进系统</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>构件放弃了系统计算的控制</li>
+<li>数据交换存在问题</li>
+<li>对于正确性的推理存在问题</li>
+</ol>
+</li>
+</ul>
+<h4 id="3-1-4-分层系统（层次系统风格）"><a href="#3-1-4-分层系统（层次系统风格）" class="headerlink" title="3.1.4 分层系统（层次系统风格）"></a>3.1.4 分层系统（层次系统风格）</h4><ul>
+<li><p>优点</p>
+<ol>
+<li>支持软件重用</li>
+<li>支持基于抽象程度递增的系统设计</li>
+<li>支持功能增强</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>不是所有系统都能轻易划分为分层的模式</li>
+<li>难以找到合适，正确的层次抽象方法</li>
+</ol>
+</li>
+</ul>
+<h4 id="3-1-5-仓库系统及知识库（黑板系统）"><a href="#3-1-5-仓库系统及知识库（黑板系统）" class="headerlink" title="3.1.5 仓库系统及知识库（黑板系统）"></a>3.1.5 仓库系统及知识库（黑板系统）</h4><ul>
+<li>黑板系统的组成：知识源、黑板数据结构、控制</li>
+</ul>
+<h4 id="3-1-6-C2风格"><a href="#3-1-6-C2风格" class="headerlink" title="3.1.6 C2风格"></a>3.1.6 C2风格</h4><ul>
+<li>C2风格的特点<ol>
+<li>构件都可以实现需求应用，能将任意复杂度的功能封装</li>
+<li>构件较为独立，构件之间依赖性少</li>
+<li>构件之间的通信是通过以连接件作为中介的异步消息交换机制来实现的</li>
+</ol>
+</li>
+</ul>
+<h3 id="3-2-客户-服务器风格"><a href="#3-2-客户-服务器风格" class="headerlink" title="3.2 客户/服务器风格"></a>3.2 客户/服务器风格</h3><ul>
+<li><p>服务器的任务</p>
+<ol>
+<li>数据库的安全性要求</li>
+<li>数据库访问并发性的控制</li>
+<li>数据库前端的客户应用程序的全局数据完整规则</li>
+<li>数据库的备份与恢复</li>
+</ol>
+</li>
+<li><p>客户应用程序的任务</p>
+<ol>
+<li>提供数据库与用户交互的界面</li>
+<li>向数据库服务器提交用户请求和接收数据库服务器的信息</li>
+<li>利用客户应用程序来对存于客户端的数据执行应用逻辑</li>
+</ol>
+</li>
+<li><p>C/S体系结构的优缺点</p>
+<p> 优点</p>
+<ol>
+<li><p>前后端分离</p>
+</li>
+<li><p>将大量的处理任务分布在客户机上，减少了花费</p>
+<p>缺点</p>
+</li>
+<li><p>开发成本高</p>
+</li>
+<li><p>消息内容和形式单一</p>
+</li>
+<li><p>客户端程序设计复杂</p>
+</li>
+<li><p>界面风格不一，使用繁杂，难以推广</p>
+</li>
+<li><p>软件维护和升级困难</p>
+</li>
+<li><p>软件移植困难</p>
+</li>
+<li><p>不能轻易使用新技术</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="3-3-三层C-S结构风格"><a href="#3-3-三层C-S结构风格" class="headerlink" title="3.3 三层C/S结构风格"></a>3.3 三层C/S结构风格</h3><ul>
+<li>2层cs体系结构的局限性<ol>
+<li>只有一个服务器和以局域网为核心，难以扩展至大型企业广域网和internet</li>
+<li>软硬件的组合和集成能力有限</li>
+<li>数据安全性不好</li>
+<li>客户机负荷太重，难以管理大量的客户机，系统的性能容易变坏</li>
+</ol>
+</li>
+</ul>
+<h4 id="3-3-1-各层的功能"><a href="#3-3-1-各层的功能" class="headerlink" title="3.3.1 各层的功能"></a>3.3.1 各层的功能</h4><ol>
+<li><p>表示层</p>
+<p>功能：提供应用中的用户接口，负担用户和应用的对话功能</p>
+</li>
+<li><p>功能层</p>
+<p>功能：将具体的业务处理逻辑编写到程序中</p>
+</li>
+<li><p>数据层</p>
+<p>功能：管理数据库数据的读写</p>
+</li>
+</ol>
+<h4 id="3-3-2-三层C-S结构应用实例"><a href="#3-3-2-三层C-S结构应用实例" class="headerlink" title="3.3.2 三层C/S结构应用实例"></a>3.3.2 三层C/S结构应用实例</h4><h4 id="3-3-3-三层C-S结构的优点"><a href="#3-3-3-三层C-S结构的优点" class="headerlink" title="3.3.3 三层C/S结构的优点"></a>3.3.3 三层C/S结构的优点</h4><ol>
+<li>允许合理得划分三层结构的功能，使各层的逻辑相对独立</li>
+<li>允许合理有效地选取相应地平台和硬件系统，使之在处理负荷能力和处理特性上适应划分的三层结构</li>
+<li>各层可以并行开发，各层可以选自各自最适合的开发语言</li>
+<li>利用功能层有效地隔离表示层和数据层，为严格的安全管理奠定基础。使整个系统层次更加合理和可控制</li>
+</ol>
+<h3 id="3-4-浏览-服务器风格"><a href="#3-4-浏览-服务器风格" class="headerlink" title="3.4 浏览/服务器风格"></a>3.4 浏览/服务器风格</h3><ul>
+<li><p>优点：同三层C/S结构的优点</p>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>对动态页面缺乏强力支持，没有集成的数据库处理功能</li>
+<li>系统扩展能力差，安全性难以控制</li>
+<li>采用bs结构，响应速度远低于采用cs结构</li>
+<li>bs结构数据提交一般以页面为单位，缺乏数据动态交互性，不利已在线处理事务应用</li>
+</ol>
+</li>
+</ul>
+<h3 id="3-8-异构结构风格"><a href="#3-8-异构结构风格" class="headerlink" title="3.8 异构结构风格"></a>3.8 异构结构风格</h3><ul>
+<li>C/S与B/S混合软件体系结构</li>
+</ul>
+<h4 id="3-8-1-异构结构的实例分析"><a href="#3-8-1-异构结构的实例分析" class="headerlink" title="3.8.1 异构结构的实例分析"></a>3.8.1 异构结构的实例分析</h4><ol>
+<li>“内外有别”模型</li>
+<li>“查改有别”模型</li>
+</ol>
+<h4 id="3-8-2-异构组合匹配问题"><a href="#3-8-2-异构组合匹配问题" class="headerlink" title="3.8.2 异构组合匹配问题"></a>3.8.2 异构组合匹配问题</h4><h2 id="第4章-软件体系结构描述"><a href="#第4章-软件体系结构描述" class="headerlink" title="第4章 软件体系结构描述"></a>第4章 软件体系结构描述</h2><h3 id="4-1-软件体系结构描述方法"><a href="#4-1-软件体系结构描述方法" class="headerlink" title="4.1 软件体系结构描述方法"></a>4.1 软件体系结构描述方法</h3><ul>
+<li><p>软件体系结构的描述方法分为哪几种，学术界和产业界分别常用哪种</p>
+<ol>
+<li><p>图形表示工具</p>
+</li>
+<li><p>数学表示工具</p>
+</li>
+<li><p>文字表示工具</p>
+<p>产业界常用图形表示工具，学术界常用数学表示工具</p>
+</li>
+</ol>
+</li>
+<li><p>软件体系结构的描述和表达方法有哪几种</p>
+<ol>
+<li>图形表示工具</li>
+<li>模块内连接语言</li>
+<li>基于软构件的系统描述语言</li>
+<li>软件体系结构描述语言</li>
+</ol>
+</li>
+</ul>
+<h3 id="4-3-体系结构描述语言"><a href="#4-3-体系结构描述语言" class="headerlink" title="4.3 体系结构描述语言"></a>4.3 体系结构描述语言</h3><ul>
+<li><p>体系结构描述语言ADL三个字母分别代表什么意思</p>
+<p> A:体系结构，D:描述，L:语言</p>
+</li>
+<li><p>ADL中的三个基本要素是什么</p>
+<ol>
+<li>构件：计算或数据存储单元</li>
+<li>连接件：用于构件之间交互建模的体系结构构造块及其支配这些交互的规则</li>
+<li>体系结构配置：描述体系结构的构件与连接件的连接图</li>
+</ol>
+</li>
+</ul>
+<h4 id="4-3-1-ADL与其他语言的比较"><a href="#4-3-1-ADL与其他语言的比较" class="headerlink" title="4.3.1 ADL与其他语言的比较"></a>4.3.1 ADL与其他语言的比较</h4><ul>
+<li>ADL的能力<ol>
+<li>构造能力</li>
+<li>抽象能力</li>
+<li>重用能力</li>
+<li>组合能力</li>
+<li>异构能力</li>
+<li>分析和推理能力</li>
+</ol>
+</li>
+</ul>
+<h4 id="4-3-2-ADL的构成要素"><a href="#4-3-2-ADL的构成要素" class="headerlink" title="4.3.2 ADL的构成要素"></a>4.3.2 ADL的构成要素</h4><ol>
+<li>构件</li>
+<li>连接件</li>
+<li>体系结构配置</li>
+</ol>
+<h3 id="4-4-典型的软件体系结构描述语言"><a href="#4-4-典型的软件体系结构描述语言" class="headerlink" title="4.4 典型的软件体系结构描述语言"></a>4.4 典型的软件体系结构描述语言</h3><h4 id="4-4-3-C2"><a href="#4-4-3-C2" class="headerlink" title="4.4.3 C2"></a>4.4.3 C2</h4><h2 id="第6章-可扩展标记语言"><a href="#第6章-可扩展标记语言" class="headerlink" title="第6章 可扩展标记语言"></a>第6章 可扩展标记语言</h2><ul>
+<li><p>XML的定义和全称</p>
+<p> 定义：XML是一套定义语义标记的规则</p>
+<p> 全称：可扩展标记语言</p>
+</li>
+</ul>
+<h3 id="6-1-XML概述"><a href="#6-1-XML概述" class="headerlink" title="6.1 XML概述"></a>6.1 XML概述</h3><ol>
+<li>能直接应用在Internet上</li>
+<li>能被各式应用软件使用</li>
+<li>能与SGML兼容</li>
+<li>能轻易发展XML相关软件</li>
+<li>能简化SGML</li>
+<li>XML文件可读性高</li>
+<li>XML规范能尽快完成</li>
+<li>XML规范必须简洁</li>
+<li>XML文件易于建立</li>
+<li>语法不可模糊不清</li>
+</ol>
+<h4 id="6-1-1-XML的特点"><a href="#6-1-1-XML的特点" class="headerlink" title="6.1.1 XML的特点"></a>6.1.1 XML的特点</h4><ol>
+<li>简介有效</li>
+<li>易学易用</li>
+<li>开放的国际标准</li>
+<li>高效且可扩充</li>
+</ol>
+<h4 id="6-1-2-XML的作用"><a href="#6-1-2-XML的作用" class="headerlink" title="6.1.2 XML的作用"></a>6.1.2 XML的作用</h4><ol>
+<li>使得搜索更加有意义</li>
+<li>开发灵活的Web应用软件</li>
+<li>实现不同数据的集成</li>
+<li>使用于多种应用环境</li>
+<li>客户端数据处理与计算</li>
+<li>数据显示多样化</li>
+<li>局部数据更新</li>
+<li>与现有Web发布机制相兼容</li>
+<li>可升级性</li>
+<li>压缩性能高</li>
+</ol>
+<h4 id="6-1-3-XML的应用"><a href="#6-1-3-XML的应用" class="headerlink" title="6.1.3 XML的应用"></a>6.1.3 XML的应用</h4><ol>
+<li>应用于客户需要与不同的数据源进行交互时</li>
+<li>应用于将大量运算负荷分布在客户端</li>
+<li>应用于将同一数据以不同的面貌展现给不同的用户</li>
+<li>应用于网络代理对所取得的信息进行编辑、增减以适应个人用户的需要</li>
+</ol>
+<h3 id="6-2-解析XML"><a href="#6-2-解析XML" class="headerlink" title="6.2 解析XML"></a>6.2 解析XML</h3><h4 id="6-2-1-XML与HTML的区别"><a href="#6-2-1-XML与HTML的区别" class="headerlink" title="6.2.1 XML与HTML的区别"></a>6.2.1 XML与HTML的区别</h4><ol>
+<li>和HTML的区别：XML是元标记语言可以用于定义其他标记语言。XML是“纯”数据。</li>
+<li>XSL是专门用于XML文档的样式单语言</li>
+</ol>
+<h4 id="6-2-2-XML文档"><a href="#6-2-2-XML文档" class="headerlink" title="6.2.2 XML文档"></a>6.2.2 XML文档</h4><h4 id="6-2-3-CSS与XML"><a href="#6-2-3-CSS与XML" class="headerlink" title="6.2.3 CSS与XML"></a>6.2.3 CSS与XML</h4><h2 id="第8章-基于服务的体系结构"><a href="#第8章-基于服务的体系结构" class="headerlink" title="*第8章 基于服务的体系结构"></a>*第8章 基于服务的体系结构</h2><ul>
+<li>SOA全称：面向服务的体系结构(Service-Oriented Architecture)</li>
+</ul>
+<h3 id="8-1-SOA概述"><a href="#8-1-SOA概述" class="headerlink" title="8.1 SOA概述"></a>8.1 SOA概述</h3><ul>
+<li><p>SOA定义：是一种在计算环境中设计，开发，部署和管理离散逻辑单元模型的方法</p>
+</li>
+<li><p>SOA的特征</p>
+<ol>
+<li>松散耦合</li>
+<li>粗粒度服务</li>
+<li>标准化接口</li>
+</ol>
+</li>
+</ul>
+<h3 id="8-2-面向服务的分析与设计"><a href="#8-2-面向服务的分析与设计" class="headerlink" title="8.2 面向服务的分析与设计"></a>8.2 面向服务的分析与设计</h3><ol>
+<li>基础设计层</li>
+<li>体系结构层</li>
+<li>业务层</li>
+</ol>
+<ul>
+<li>三个抽象级别：操作，服务和业务流程</li>
+</ul>
+<h3 id="8-3-SOA的关键技术"><a href="#8-3-SOA的关键技术" class="headerlink" title="8.3 SOA的关键技术"></a>8.3 SOA的关键技术</h3><ul>
+<li><p>SOA的服务栈中包含哪几层，功能分别是</p>
+<ol>
+<li><p>发现服务层</p>
+<p> 主要用来帮助客户端应用程序解析远程服务的位置</p>
+</li>
+<li><p>描述服务层</p>
+<p> 为客户端应用程序提供正确地与远程服务交互的描述信息</p>
+</li>
+<li><p>消息格式层</p>
+<p> 保证客户端应用程序和服务器端在格式设置上保持一致</p>
+</li>
+<li><p>编码格式层</p>
+<p> 为客户端和服务器之间提供一个标准的、独立于平台的数据交换编码格式</p>
+</li>
+<li><p>传输协议层</p>
+<p> 为客户端和服务器之间提供网络通信协议</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="8-4-SOA的实现方法"><a href="#8-4-SOA的实现方法" class="headerlink" title="8.4 SOA的实现方法"></a>8.4 SOA的实现方法</h3><ol>
+<li><p>Web Service</p>
+<p> 三种工作角色：服务提供者、服务请求者和服务注册中心（可选）</p>
+<p> Web Service模型中的操作包括发布、查找和绑定</p>
+<ul>
+<li>使用webservice方法时，应用系统分为哪几个层次<ol>
+<li>底层传输层</li>
+<li>服务通信层</li>
+<li>服务描述层</li>
+<li>服务层</li>
+<li>业务流程层</li>
+<li>服务注册层</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>服务注册表</p>
+</li>
+<li><p>ESB</p>
+</li>
+</ol>
+<h3 id="8-5-服务描述语言"><a href="#8-5-服务描述语言" class="headerlink" title="8.5 服务描述语言"></a>8.5 服务描述语言</h3><h4 id="8-5-1-WSDL概述"><a href="#8-5-1-WSDL概述" class="headerlink" title="8.5.1 WSDL概述"></a>8.5.1 WSDL概述</h4><ul>
+<li><p>WSDL(Web Services Description Language)是对服务进行描述的语言，它有一套基于XML的语法定义</p>
+</li>
+<li><p>WSDL子元素：types,message,operation,portType,binding,port,service</p>
+</li>
+</ul>
+<h4 id="8-5-2-使用WSDL文档"><a href="#8-5-2-使用WSDL文档" class="headerlink" title="8.5.2 使用WSDL文档"></a>8.5.2 使用WSDL文档</h4><h4 id="8-5-3-WSDL文档结构"><a href="#8-5-3-WSDL文档结构" class="headerlink" title="8.5.3 WSDL文档结构"></a>8.5.3 WSDL文档结构</h4><h3 id="8-6-统一描述、发现和集成协议"><a href="#8-6-统一描述、发现和集成协议" class="headerlink" title="8.6 统一描述、发现和集成协议"></a>8.6 统一描述、发现和集成协议</h3><ul>
+<li><p>UDDI(Universal Description Discovery and Integration*)是一种用户描述，发现，集成Web服务的技术，他是Web服务协议栈的一个重要部分。</p>
+</li>
+<li><p>UDDI技术规范中，包含的三个部分内容</p>
+<ol>
+<li>UDDI数据模型</li>
+<li>UDDI API</li>
+<li>UDDI注册服务</li>
+</ol>
+</li>
+</ul>
+<h4 id="8-6-1-UDDI数据模型"><a href="#8-6-1-UDDI数据模型" class="headerlink" title="8.6.1 UDDI数据模型"></a>8.6.1 UDDI数据模型</h4><ul>
+<li>数据结构：businessEntity ,businessService ,bindingTemplate , tModel</li>
+</ul>
+<h4 id="8-6-2-注册Web服务"><a href="#8-6-2-注册Web服务" class="headerlink" title="8.6.2 注册Web服务"></a>8.6.2 注册Web服务</h4><h4 id="8-6-3-调用Web服务"><a href="#8-6-3-调用Web服务" class="headerlink" title="8.6.3 调用Web服务"></a>8.6.3 调用Web服务</h4><h3 id="8-7-消息封装协议"><a href="#8-7-消息封装协议" class="headerlink" title="8.7 消息封装协议"></a>8.7 消息封装协议</h3><ul>
+<li>SOAP的定义</li>
+</ul>
+<p>​   SOAP（Simple Object Access Protocol）以XML形式提供一个简单，轻量的用于在分散或分布环境中交换结构化和类型信息的机制</p>
+<ul>
+<li>SOAP主要包括哪几个部分<ol>
+<li>SOAP封装结构</li>
+<li>SOAP编码规则</li>
+<li>SOAP PRC表示</li>
+<li>SOAP绑定</li>
+</ol>
+</li>
+</ul>
+<h4 id="8-7-1-消息封装和编码规则"><a href="#8-7-1-消息封装和编码规则" class="headerlink" title="8.7.1 消息封装和编码规则"></a>8.7.1 消息封装和编码规则</h4><ul>
+<li><p>SOAP消息包括哪几个部分</p>
+<ol>
+<li>封装</li>
+<li>SOAP头</li>
+<li>SOAP体</li>
+</ol>
+</li>
+<li><p>SOAP的编码规则</p>
+<ol>
+<li>值</li>
+<li>简单值</li>
+<li>复合值</li>
+<li>数组</li>
+<li>结构</li>
+<li>简单类型</li>
+<li>复合类型</li>
+</ol>
+</li>
+</ul>
+<h4 id="8-7-2-SOAP应用"><a href="#8-7-2-SOAP应用" class="headerlink" title="8.7.2 SOAP应用"></a>8.7.2 SOAP应用</h4><h4 id="8-7-3-REST"><a href="#8-7-3-REST" class="headerlink" title="8.7.3 REST"></a>8.7.3 REST</h4><h2 id="第9章-富互联网应用体系结构"><a href="#第9章-富互联网应用体系结构" class="headerlink" title="第9章 富互联网应用体系结构"></a>第9章 富互联网应用体系结构</h2><h3 id="9-1-RIA的概念"><a href="#9-1-RIA的概念" class="headerlink" title="9.1 RIA的概念"></a>9.1 RIA的概念</h3><ul>
+<li>RIA的概念：RIA（Rich Internet Application）富互联网应用体系结构</li>
+</ul>
+<h4 id="9-1-1-RIA的提出"><a href="#9-1-1-RIA的提出" class="headerlink" title="9.1.1 RIA的提出"></a>9.1.1 RIA的提出</h4><ul>
+<li>富：丰富的数据模型、丰富的用户界面</li>
+</ul>
+<h4 id="9-1-2-丰富的含义"><a href="#9-1-2-丰富的含义" class="headerlink" title="9.1.2 丰富的含义"></a>9.1.2 丰富的含义</h4><h4 id="9-1-3-RIA的优点"><a href="#9-1-3-RIA的优点" class="headerlink" title="9.1.3 RIA的优点"></a>9.1.3 RIA的优点</h4><h2 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h2><ul>
+<li><p>ADL：软件体系结构描述语言</p>
+</li>
+<li><p>软件重用：指在两次或多次不同的软件开发过程中重复使用相同或相近软件元素的过程</p>
+</li>
+<li><p>场景：重要的系统活动的抽象</p>
+</li>
+<li><p>构件组装：将构件库中的构件做适应性修改并连接起来或者和当前开发项目的软件元素相连</p>
+</li>
+<li><p>XML：可扩展标记语言，是一套定义语义标记的规则</p>
+</li>
+<li><p>XSL：可扩展样式语言，是XML的应用</p>
+</li>
+<li><p>SOA：面向服务的体系结构,是一种在计算环境中设计，开发，部署和管理离散逻辑单元模型的方法</p>
+</li>
+<li><p>WSDL：对服务进行描述的语言，它有一套基于XML的语法定义</p>
+</li>
+<li><p>UDDI：是一种用户描述、发现、集成Web服务的技术，他是Web服务协议栈的一个重要部分</p>
+</li>
+<li><p>SOAP：消息封装协议，以XML形式提供一个简单，轻量的用于在分散或分布环境中交换结构化和类型信息的机制</p>
+</li>
+</ul>
+]]></content>
   </entry>
 </search>

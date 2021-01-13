@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>计算机操作系统 课后习题 - 逢坂葵的个人技术博客</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="第一章 操作系统引论1. 设计现代OS的主要目标是什么？
+有效性、方便性、可扩充性、开放性
+
+2. OS的作用可表现在哪几个方面？
+OS作为用户与计算机硬件系统之间的接口
+
+OS作为计算机系统资源的,"> 
+    <meta name="author" content="Aisaka Aoi"> 
+    <link rel="alternative" href="atom.xml" title="逢坂葵的个人技术博客" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">逢坂葵的个人技术博客</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">计算机操作系统 课后习题</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">计算机操作系统 课后习题</h1>
+        <div class="stuff">
+            <span>十二月 23, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="第一章-操作系统引论"><a href="#第一章-操作系统引论" class="headerlink" title="第一章 操作系统引论"></a>第一章 操作系统引论</h2><h4 id="1-设计现代OS的主要目标是什么？"><a href="#1-设计现代OS的主要目标是什么？" class="headerlink" title="1. 设计现代OS的主要目标是什么？"></a>1. 设计现代OS的主要目标是什么？</h4><ul>
+<li>有效性、方便性、可扩充性、开放性</li>
+</ul>
+<h4 id="2-OS的作用可表现在哪几个方面？"><a href="#2-OS的作用可表现在哪几个方面？" class="headerlink" title="2. OS的作用可表现在哪几个方面？"></a>2. OS的作用可表现在哪几个方面？</h4><ul>
+<li><p>OS作为用户与计算机硬件系统之间的接口</p>
+</li>
+<li><p>OS作为计算机系统资源的管理者</p>
+</li>
+<li><p>OS实现了对计算机资源的抽象</p>
+</li>
+</ul>
+<h4 id="3-为什么说操作系统实现了对计算机资源的抽象？"><a href="#3-为什么说操作系统实现了对计算机资源的抽象？" class="headerlink" title="3. 为什么说操作系统实现了对计算机资源的抽象？"></a>3. 为什么说操作系统实现了对计算机资源的抽象？</h4><ul>
+<li><p>OS首先在裸机上覆盖一层I/O设备管理软件，实现了对计算机硬件操作的第一层次抽象。</p>
+</li>
+<li><p>在第一层软件上再覆盖文件管理软件，实现了对硬件资源操作的第二层次抽象。</p>
+</li>
+<li><p>OS通过在计算机硬件上安装多层系统软件，增强了系统功能，隐藏了对硬件操作的细节，由它们共同实现了对计算机资源的抽象。</p>
+</li>
+</ul>
+<h4 id="5-何谓脱机I-O和联机I-O？"><a href="#5-何谓脱机I-O和联机I-O？" class="headerlink" title="5. 何谓脱机I/O和联机I/O？"></a>5. 何谓脱机I/O和联机I/O？</h4><ul>
+<li><p>脱机I/O是指事先将装有用户程序和数据的纸带或卡片装入纸带输入机或卡片机，在外围机的控制下，把纸带或卡片上的数据或程序输入到磁带上。该方式下的输入输出由外围机控制完成，是在脱离主机的情况下进行的。</p>
+</li>
+<li><p>联机I/O方式是指程序和数据的输入输出都是在主机的直接控制下进行的。</p>
+</li>
+</ul>
+<h4 id="9-什么是硬实时任务和软实时任务？试举例说明。"><a href="#9-什么是硬实时任务和软实时任务？试举例说明。" class="headerlink" title="9. 什么是硬实时任务和软实时任务？试举例说明。"></a>9. 什么是硬实时任务和软实时任务？试举例说明。</h4><ul>
+<li><p>硬实时任务是指系统必须满足任务对截止时间的要求，否则可能出现难以预测的结果。举例来说，运载火箭的控制等。</p>
+</li>
+<li><p>软实时任务是指它的截止时间并不严格，偶尔错过了任务的截止时间，对系统产生的影 响不大。举例：网页内容的更新、火车售票系统。</p>
+</li>
+</ul>
+<h4 id="10-试从交互性、及时性以及可靠性方面，将分时系统与实时系统进行比较。"><a href="#10-试从交互性、及时性以及可靠性方面，将分时系统与实时系统进行比较。" class="headerlink" title="10. 试从交互性、及时性以及可靠性方面，将分时系统与实时系统进行比较。"></a>10. 试从交互性、及时性以及可靠性方面，将分时系统与实时系统进行比较。</h4><ul>
+<li><p>及时性<br>实时信息处理系统对实时性的要求与分时系统类似，都是以人所能接受的等待时间来确定；而实时控制系统的及时性，是以控制对象所要求的开始截止时间或完成截止时间来确定的，一般为秒级到毫秒级，甚至有的要低于100微秒。</p>
+</li>
+<li><p>交互性<br>实时信息处理系统具有交互性，但人与系统的交互仅限于访问系统中某些特定的专用服务程序。不像分时系统那样能向终端用户提供数据和资源共享等服务。</p>
+</li>
+<li><p>可靠性<br>分时系统也要求系统可靠，但相比之下，实时系统则要求系统具有高度的可靠性。因为任何差错都可能带来巨大的经济损失，甚至是灾难性后果，所以在实时系统中，往往都采取了多级容错措施保障系统的安全性及数据的安全性。</p>
+</li>
+</ul>
+<h4 id="11-OS有哪几大特征？其最基本的特征是什么？"><a href="#11-OS有哪几大特征？其最基本的特征是什么？" class="headerlink" title="*11. OS有哪几大特征？其最基本的特征是什么？"></a>*11. OS有哪几大特征？其最基本的特征是什么？</h4><ul>
+<li><p>OS四个基本特征：并发性、共享性、虚拟性和异步性</p>
+</li>
+<li><p>最基本的特征：并发性</p>
+</li>
+</ul>
+<h4 id="13-什么是时分复用技术？举例说明它能提高资源利用率的根本原因是什么？"><a href="#13-什么是时分复用技术？举例说明它能提高资源利用率的根本原因是什么？" class="headerlink" title="13. 什么是时分复用技术？举例说明它能提高资源利用率的根本原因是什么？"></a>13. 什么是时分复用技术？举例说明它能提高资源利用率的根本原因是什么？</h4><ul>
+<li><p>时分复用技术：将资源在不同的时间片内分配给各进程以使该资源被重复利用，从而提高资源的利用率。</p>
+</li>
+<li><p>如采用时分复用技术的虚拟处理机，能够在不同的时间片内处理多个用户的请求，从而使得用户感觉自己独占主机，而处理机在这期间也被充分的利用。</p>
+</li>
+</ul>
+<h4 id="14-是什么原因使操作系统具有异步性特征？"><a href="#14-是什么原因使操作系统具有异步性特征？" class="headerlink" title="14. 是什么原因使操作系统具有异步性特征？"></a>14. 是什么原因使操作系统具有异步性特征？</h4><ul>
+<li><p>操作系统的异步性体现在三个方面：</p>
+</li>
+<li><p>一是进程的异步性，进程以人们不可预知的速度向前推进；</p>
+</li>
+<li><p>二是程序的不可再现性，即程序执行的结果有时是不确定的；</p>
+</li>
+<li><p>三是程序执行时间的不可预知性，即每个程序何时执行，执行顺序以及完成时间是不确定的。</p>
+</li>
+</ul>
+<h4 id="15-处理机管理有哪些主要功能？它们的主要任务是什么？"><a href="#15-处理机管理有哪些主要功能？它们的主要任务是什么？" class="headerlink" title="15. 处理机管理有哪些主要功能？它们的主要任务是什么？"></a>15. 处理机管理有哪些主要功能？它们的主要任务是什么？</h4><ul>
+<li><p>处理机管理的主要功能是：进程管理、进程同步、进程通信和处理机调度。</p>
+</li>
+<li><p>进程管理：为作业创建进程，撤销已结束进程，控制进程在运行过程中的状态转换。</p>
+</li>
+<li><p>进程同步：为多个进程（含线程）的运行进行协调。</p>
+</li>
+<li><p>进程通信：用来实现在相互合作的进程之间的信息交换。</p>
+</li>
+<li><p>处理机调度：<br>（1）作业调度：从后备队里按照一定的算法，选出若干个作业，为他们分配运行所需的资源（首选是分配内存）。<br>（2）进程调度：从进程的就绪队列中，按照一定算法选出一个进程，把处理机分配给它，并设臵运行现场，使进程投入执行。</p>
+</li>
+</ul>
+<h4 id="16-内存管理有哪些主要功能？他们的主要任务是什么？"><a href="#16-内存管理有哪些主要功能？他们的主要任务是什么？" class="headerlink" title="16. 内存管理有哪些主要功能？他们的主要任务是什么？"></a>16. 内存管理有哪些主要功能？他们的主要任务是什么？</h4><ul>
+<li><p>内存管理的主要功能有：内存分配、内存保护、地址映射和内存扩充。</p>
+</li>
+<li><p>内存分配：为每道程序分配内存。</p>
+</li>
+<li><p>内存保护：确保每道用户程序都只在自己的内存空间运行，彼此互不干扰。</p>
+</li>
+<li><p>地址映射：将地址空间的逻辑地址转换为内存空间与对应的物理地址。</p>
+</li>
+<li><p>内存扩充：用于实现请求调用功能，置换功能等。</p>
+</li>
+</ul>
+<h4 id="17-设备管理有哪些主要功能？其主要任务是什么？"><a href="#17-设备管理有哪些主要功能？其主要任务是什么？" class="headerlink" title="17. 设备管理有哪些主要功能？其主要任务是什么？"></a>17. 设备管理有哪些主要功能？其主要任务是什么？</h4><ul>
+<li><p>主要功能有:缓冲管理、设备分配和设备处理以及虚拟设备等。</p>
+</li>
+<li><p>主要任务:完成用户提出的I/O请求，为用户分配I/O+设备，提高CPU和I/O设备的利用率，提高I/O速度，以及方便用户使用I/O设备。</p>
+</li>
+</ul>
+<h4 id="18-文件管理有哪些主要功能？其主要任务是什么？"><a href="#18-文件管理有哪些主要功能？其主要任务是什么？" class="headerlink" title="18. 文件管理有哪些主要功能？其主要任务是什么？"></a>18. 文件管理有哪些主要功能？其主要任务是什么？</h4><ul>
+<li><p>文件管理主要功能：文件存储空间的管理、目录管理、文件的读写管理和保护。</p>
+</li>
+<li><p>文件管理的主要任务：管理用户文件和系统文件，方便用户使用，保证文件安全性。</p>
+</li>
+</ul>
+<hr>
+<h2 id="第二章-进程的描述与控制"><a href="#第二章-进程的描述与控制" class="headerlink" title="第二章 进程的描述与控制"></a>第二章 进程的描述与控制</h2><h4 id="2-画出下面四条语句的前趋图"><a href="#2-画出下面四条语句的前趋图" class="headerlink" title="2. 画出下面四条语句的前趋图"></a>2. 画出下面四条语句的前趋图</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">S1：a &#x3D; x + y;</span><br><span class="line">S2：b &#x3D; z + 1;</span><br><span class="line">S3：c &#x3D; a – b;</span><br><span class="line">S4：w &#x3D; c + 1;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>S1、S2 -&gt; S3 -&gt; S4</li>
+</ul>
+<h4 id="3-为什么程序并发执行会产生间断性特征？"><a href="#3-为什么程序并发执行会产生间断性特征？" class="headerlink" title="3. 为什么程序并发执行会产生间断性特征？"></a>3. 为什么程序并发执行会产生间断性特征？</h4><ul>
+<li>程序在并发执行时，由于它们共享系统资源，为完成同一项任务需要相互合作，致使这些并发执行的进程之间，形成了相互制约关系，从而使得进程在执行期间出现间断性。</li>
+</ul>
+<h4 id="6-试从动态性，并发性和独立性上比较进程和程序？"><a href="#6-试从动态性，并发性和独立性上比较进程和程序？" class="headerlink" title="6. 试从动态性，并发性和独立性上比较进程和程序？"></a>6. 试从动态性，并发性和独立性上比较进程和程序？</h4><ul>
+<li><p>动态性是进程最基本的特性，表现为由创建而产生，由调度而执行，因得不到资源而暂停执行，由撤销而消亡。进程有一定的生命期，而程序只是一组有序的指令集合，是静态实体。</p>
+</li>
+<li><p>并发性是进程的重要特征，同时也是OS的重要特征。引入进程的目的正是为了使其程序能和其它进程的程序并发执行，而程序是不能并发执行的。</p>
+</li>
+<li><p>独立性是指进程实体是一个能独立运行的基本单位，也是系统中独立获得资源和独立调度的基本单位。对于未建立任何进程的程序，不能作为独立单位参加运行。</p>
+</li>
+</ul>
+<h4 id="7-试说明PCB的作用具体表现在哪几个方面？为什么说PCB是进程存在的惟一标志？"><a href="#7-试说明PCB的作用具体表现在哪几个方面？为什么说PCB是进程存在的惟一标志？" class="headerlink" title="7. 试说明PCB的作用具体表现在哪几个方面？为什么说PCB是进程存在的惟一标志？"></a>7. 试说明PCB的作用具体表现在哪几个方面？为什么说PCB是进程存在的惟一标志？</h4><ul>
+<li>PCB是进程实体的一部分，是操作系统中最重要的记录型数据结构。作用是使一个在多道程序环境下不能独立运行的程序，成为一个能独立运行的基本单位，成为能与其它进程并发执行的进程。OS是根据PCB对并发执行的进程进行控制和管理的。</li>
+</ul>
+<h4 id="9-进程控制块的组织方式有哪几种？"><a href="#9-进程控制块的组织方式有哪几种？" class="headerlink" title="9. 进程控制块的组织方式有哪几种？"></a>9. 进程控制块的组织方式有哪几种？</h4><ul>
+<li><p>进程控制块PCB的组织方式有：线性表方式、索引表方式、链接表方式。</p>
+</li>
+<li><p>线性表方式：不论进程的状态如何，将所有的PCB连续地存放在内存的系统区。这种方式适用于系统中进程数目不多的情况。</p>
+</li>
+<li><p>索引表方式：该方式是线性表方式的改进，系统按照进程的状态分别建立就绪索引表、阻塞索引表等。</p>
+</li>
+<li><p>链接表方式：系统按照进程的状态将进程的PCB组成队列，从而形成就绪队列、阻塞队列、运行队列等。</p>
+</li>
+</ul>
+<h4 id="10-何谓操作系统内核？内核的主要功能是什么？"><a href="#10-何谓操作系统内核？内核的主要功能是什么？" class="headerlink" title="10. 何谓操作系统内核？内核的主要功能是什么？"></a>10. 何谓操作系统内核？内核的主要功能是什么？</h4><ul>
+<li><p>操作系统内核是指大多数操作系统的核心部分。它由操作系统中用于管理存储器、文件、外设和系统资源的那些部分组成。</p>
+</li>
+<li><p>操作系统内核通常运行进程，并提供进程间的通信。</p>
+</li>
+</ul>
+<h4 id="11-试说明进程在三个基本状态之间转换的典型原因。"><a href="#11-试说明进程在三个基本状态之间转换的典型原因。" class="headerlink" title="11. 试说明进程在三个基本状态之间转换的典型原因。"></a>11. 试说明进程在三个基本状态之间转换的典型原因。</h4><ul>
+<li><p>就绪状态 -&gt; 执行状态：进程分配到CPU资源</p>
+</li>
+<li><p>执行状态 -&gt; 就绪状态：时间片用完</p>
+</li>
+<li><p>执行状态 -&gt; 阻塞状态：I/O请求</p>
+</li>
+<li><p>阻塞状态 -&gt; 就绪状态：I/O完成</p>
+</li>
+</ul>
+<h4 id="21-试从调度性、并发性、拥有资源及系统开销方面对进程和线程进行比较。"><a href="#21-试从调度性、并发性、拥有资源及系统开销方面对进程和线程进行比较。" class="headerlink" title="21. 试从调度性、并发性、拥有资源及系统开销方面对进程和线程进行比较。"></a>21. 试从调度性、并发性、拥有资源及系统开销方面对进程和线程进行比较。</h4><ul>
+<li><p>（1）调度性。<br>在传统的操作系统中，拥有资源的基本单位和独立调度、分派的基本单位都是进程，在引入线程的OS中，则把线程作为调度和分派的基本单位，而把进程作为资源拥有的基本单位；</p>
+</li>
+<li><p>（2）并发性。<br>在引入线程的OS中，不仅进程之间可以并发执行，而且在一个进程中的多个线程之间，亦可并发执行，因而使OS具有更好的并发性；</p>
+</li>
+<li><p>（3）拥有资源。<br>无论是传统的操作系统，还是引入了线程的操作系统，进程始终是拥有资源的一个基本单位，而线程除了拥有一点在运行时必不可少的资源外，本身基本不拥有系统资源，但它可以访问其隶属进程的资源；</p>
+</li>
+<li><p>（4）开销。<br>由于创建或撤销进程时，系统都要为之分配和回收资源，如内存空间等，进程切换时所要保存和设置的现场信息也要明显地多于线程，因此，操作系统在创建、撤消和切换进程时所付出的开销将显著地大于线程。</p>
+</li>
+</ul>
+<h4 id="22-线程控制块TCB中包含了哪些内容？"><a href="#22-线程控制块TCB中包含了哪些内容？" class="headerlink" title="22. 线程控制块TCB中包含了哪些内容？"></a>22. 线程控制块TCB中包含了哪些内容？</h4><ul>
+<li><p>（1）进程标识符（内部，外部）。</p>
+</li>
+<li><p>（2）处理机的信息：通用寄存器，指令计数器，PSW，用户的栈指针。</p>
+</li>
+<li><p>（3）进程调度信息：进程状态，进程的优先级，进程调度所需的其它信息，事件。</p>
+</li>
+<li><p>（4）进程控制信息：程序的数据的地址，资源清单，进程同步和通信机制，链接指针。</p>
+</li>
+</ul>
+<hr>
+<h2 id="第三章-处理机调度与死锁"><a href="#第三章-处理机调度与死锁" class="headerlink" title="第三章 处理机调度与死锁"></a>第三章 处理机调度与死锁</h2><h4 id="1-高级调度与低级调度的主要任务是什么？为什么要引入中级调度？"><a href="#1-高级调度与低级调度的主要任务是什么？为什么要引入中级调度？" class="headerlink" title="1. 高级调度与低级调度的主要任务是什么？为什么要引入中级调度？"></a>1. 高级调度与低级调度的主要任务是什么？为什么要引入中级调度？</h4><ul>
+<li><p>高级调度的主要任务是根据某种算法，把外存上处于后备队列中的那些作业调入内存。</p>
+</li>
+<li><p>低级调度是保存处理机的现场信息，按某种算法选取进程，再把处理器分配给进程。</p>
+</li>
+<li><p>引入中级调度的主要目的是为了提高内存利用率和系统吞吐量。使那些暂时不能运行的进程不再占用内存资源，将它们调至外存等待，把进程状态改为就绪驻外存状态或挂起状态。</p>
+</li>
+</ul>
+<h4 id="2-处理机调度算法的共同目标是什么？批处理系统的调度目标又是什么？"><a href="#2-处理机调度算法的共同目标是什么？批处理系统的调度目标又是什么？" class="headerlink" title="2. 处理机调度算法的共同目标是什么？批处理系统的调度目标又是什么？"></a>2. 处理机调度算法的共同目标是什么？批处理系统的调度目标又是什么？</h4><ul>
+<li><p>共同目标：资源利用率，公平性，平衡性，策略强制执行。</p>
+</li>
+<li><p>批处理系统的调度目标：平均周转时间短，系统吞吐量高，处理机利用率高。</p>
+</li>
+</ul>
+<h4 id="8-在抢占调度方式中，抢占的原则是什么？"><a href="#8-在抢占调度方式中，抢占的原则是什么？" class="headerlink" title="8. 在抢占调度方式中，抢占的原则是什么？"></a>8. 在抢占调度方式中，抢占的原则是什么？</h4><ul>
+<li>抢占的原则有：时间片原则、优先权原则、短作业优先权原则等。</li>
+</ul>
+<h4 id="9-在选择调度方式和调度算法时，应遵循的准则是什么？"><a href="#9-在选择调度方式和调度算法时，应遵循的准则是什么？" class="headerlink" title="9. 在选择调度方式和调度算法时，应遵循的准则是什么？"></a>9. 在选择调度方式和调度算法时，应遵循的准则是什么？</h4><ul>
+<li><p>面向用户的准则：周转时间短、响应时间快、截止时间的保证、优先权准则。</p>
+</li>
+<li><p>面向系统的准则：系统吞吐量高、处理机利用率好、各类资源的平衡利用。</p>
+</li>
+</ul>
+<h4 id="11-何谓静态和动态优先级？确定静态优先级的依据是什么？"><a href="#11-何谓静态和动态优先级？确定静态优先级的依据是什么？" class="headerlink" title="11. 何谓静态和动态优先级？确定静态优先级的依据是什么？"></a>11. 何谓静态和动态优先级？确定静态优先级的依据是什么？</h4><ul>
+<li><p>静态优先级是指在创建进程时确定且在进程的整个运行期间保持不变的优先级。</p>
+</li>
+<li><p>动态优先级是指在创建进程时赋予的优先权，可以随进程推进或随其等待时间增加而改变的优先级，可以获得更好的调度性能。</p>
+</li>
+<li><p>确定进程优先级的依据：进程类型、进程对资源的需求和用户要求。</p>
+</li>
+</ul>
+<h4 id="12-试比较FCFS和SPF两种进程调度算法。"><a href="#12-试比较FCFS和SPF两种进程调度算法。" class="headerlink" title="12. 试比较FCFS和SPF两种进程调度算法。"></a>12. 试比较FCFS和SPF两种进程调度算法。</h4><ul>
+<li><p>相同点：两种调度算法都可以用于作业调度和进程调度。</p>
+</li>
+<li><p>不同点：FCFS调度算法每次都从后备队列中选择一个或多个最先进入该队列的作业，将它们调入内存、分配资源、创建进程、插入到就绪队列。该算法有利于长作业/进程，不利于短作业/进程。SPF算法每次调度都从后备队列中选择一个或若干个估计运行时间最短的作业，调入内存中运行。该算法有利于短作业/进程，不利于长作业/进程。</p>
+</li>
+</ul>
+<h4 id="13-在时间片轮转法中，应如何确定时间片的大小？"><a href="#13-在时间片轮转法中，应如何确定时间片的大小？" class="headerlink" title="*13. 在时间片轮转法中，应如何确定时间片的大小？"></a>*13. 在时间片轮转法中，应如何确定时间片的大小？</h4><ul>
+<li>时间片应略大于一次典型的交互需要的时间。一般应考虑三个因素：系统对相应时间的要求、就绪队列中进程的数目和系统的处理能力。</li>
+</ul>
+<h4 id="16-为什么说传统的几种调度算法都不能算是公平的调度算法？"><a href="#16-为什么说传统的几种调度算法都不能算是公平的调度算法？" class="headerlink" title="16. 为什么说传统的几种调度算法都不能算是公平的调度算法？"></a>16. 为什么说传统的几种调度算法都不能算是公平的调度算法？</h4><ul>
+<li><p>传统的几种调度算法，都只能满足单条调度需求，对其他则不满足。</p>
+</li>
+<li><p>如FCFS不利于短作业和IO型作业，SJF则不利于长作业和紧迫作业的运行，PSA不利于优先权低的作业，RR不利于紧迫作业。</p>
+</li>
+</ul>
+<h4 id="17-保证调度算法是如何做到调度的公平性的？"><a href="#17-保证调度算法是如何做到调度的公平性的？" class="headerlink" title="17. 保证调度算法是如何做到调度的公平性的？"></a>17. 保证调度算法是如何做到调度的公平性的？</h4><ul>
+<li><p>保证调度算法是另外一种类型的调度算法，它向用户所做出的保证并不是优先运行，而是明确的性能保证，该算法可以做到调度的公平性。</p>
+</li>
+<li><p>一种比较容易实现的性能保证是处理机分配的公平性。如果在系统中有n个相同类型的进程同时运行，为公平起见，须保证每个进程都获得相同的处理机时间1/n。</p>
+</li>
+</ul>
+<h4 id="20-按调度方式可将实时调度算法分为哪几种？"><a href="#20-按调度方式可将实时调度算法分为哪几种？" class="headerlink" title="20. 按调度方式可将实时调度算法分为哪几种？"></a>20. 按调度方式可将实时调度算法分为哪几种？</h4><ul>
+<li><p>非抢占式和抢占式。</p>
+</li>
+<li><p>非抢占式又分为非抢占式轮转调度算法和非抢占式优先调度算法。</p>
+</li>
+<li><p>抢占式又分为基于时钟中断的抢占式优先级调度算法和立即抢占的优先级调度算法。</p>
+</li>
+</ul>
+<h4 id="21-什么是最早截止时间优先调度算法？举例说明之。"><a href="#21-什么是最早截止时间优先调度算法？举例说明之。" class="headerlink" title="21. 什么是最早截止时间优先调度算法？举例说明之。"></a>21. 什么是最早截止时间优先调度算法？举例说明之。</h4><ul>
+<li><p>根据任务的开始截止时间确定的任务优先级调度算法。</p>
+</li>
+<li><p>截止时间越早则优先级越高。该算法要求在系统中保持一个实时任务就绪队列，该队列按各任务截止时间的先后排序。</p>
+</li>
+</ul>
+<h4 id="22-什么是最低松弛度优先调度算法？举例说明之。"><a href="#22-什么是最低松弛度优先调度算法？举例说明之。" class="headerlink" title="22. 什么是最低松弛度优先调度算法？举例说明之。"></a>22. 什么是最低松弛度优先调度算法？举例说明之。</h4><ul>
+<li><p>该算法是根据任务的紧急(或松弛)程度，来确定任务的优先级。任务的紧急程度越高，为该任务所赋予的优先级就越高，以使之优先执行。</p>
+</li>
+<li><p>例如，一个任务在200ms时必须完成，而它本身所需的运行时间就有100ms，因此，调度程序必须在100ms之前调度执行，该任务的紧急程度(松弛程度)为100ms。</p>
+</li>
+<li><p>又如，另一任务在400ms时必须完成，它本身需要运行150ms，则其松弛程度为250ms。</p>
+</li>
+</ul>
+<h4 id="23-何谓“优先级倒置”现象，可采取什么方法来解决？"><a href="#23-何谓“优先级倒置”现象，可采取什么方法来解决？" class="headerlink" title="*23. 何谓“优先级倒置”现象，可采取什么方法来解决？"></a>*23. 何谓“优先级倒置”现象，可采取什么方法来解决？</h4><ul>
+<li>当前OS广泛采用优先级调度算法和抢占方式，然而在系统中存在着影响进程运行的资源而可能产生“优先级倒置”的现象，即高优先级进程(或线程)被低优先级进程(或线程)延迟或阻塞。</li>
+</ul>
+<h4 id="25-试举例说明竞争不可抢占资源所引起的死锁。"><a href="#25-试举例说明竞争不可抢占资源所引起的死锁。" class="headerlink" title="25. 试举例说明竞争不可抢占资源所引起的死锁。"></a>25. 试举例说明竞争不可抢占资源所引起的死锁。</h4><ul>
+<li><p>例如，系统中有两个进程P1和P2，它们都准备写两个文件F1和F2，而这两者都属于可重用和不可抢占性资源。进程P1先打开F1，然后再打开文件F2；进程P2先打开文件F2，后打开F1，下面示出了这段代码。</p>
+</li>
+<li><p>Open(f1,w);Open(f2,w);<br>Open(f2,w);Open(f1,w);</p>
+</li>
+<li><p>两个进程P1和P2在并发执行时，如果P1先打开F1和F2，然后P2才去打开F1(或F2)，由于文件F1(F2)已被P1打开，故P2会被阻塞。当P1写完文件F1(或F2)而关闭F1(F2)时，P2会由阻塞状态转为就绪状态，被调度执行后重新打开文件F1(或F2)。在这种情况下，P1和P2都能正常运行下去。若P2先打开F1和F2，然后P1才去打开F1(或F2)，P1和P2同样也可以正常运行下去。但如果在P1打开F1的同时，P2去打开F2，每个进程都占有一个打开的文件，此时就可能出现问题。因为当P1试图去打开F2，而P2试图去打开F1时，这两个进程都会因文件已被打开而阻塞，它们希望对方关闭自己所需要的文件，但谁也无法运行，因此这两个进程将会无限期地等待下去，而形成死锁。</p>
+</li>
+</ul>
+<h4 id="26-为了破坏“请求和保持”条件而提出了两种协议，试比较这两种协议。"><a href="#26-为了破坏“请求和保持”条件而提出了两种协议，试比较这两种协议。" class="headerlink" title="26. 为了破坏“请求和保持”条件而提出了两种协议，试比较这两种协议。"></a>26. 为了破坏“请求和保持”条件而提出了两种协议，试比较这两种协议。</h4><ul>
+<li><p>第一种协议在所有进程开始运行之前，必须一次性地申请其在整个运行过程中所需的全部资源，并且在分配资源时，只要有一种资源不能满足进程的要求，即使其它所需的各种资源都空闲也不分配给该进程，而让该进程等待。因此有资源被严重浪费、进程经常会发生饥饿现象等缺点。</p>
+</li>
+<li><p>第二种协议是对第一种协议的改进，它允许一个进程只获得运行初期所需的资源后，便开始运行。进程运行过程中再逐步释放已分配给自己的，且已用毕的全部资源，然后再请求新的所需资源。如此便可提高设备的利用率，还可减少进程发生饥饿的概率。</p>
+</li>
+</ul>
+<h4 id="27-何谓死锁？产生死锁的原因和必要条件是什么？"><a href="#27-何谓死锁？产生死锁的原因和必要条件是什么？" class="headerlink" title="27. 何谓死锁？产生死锁的原因和必要条件是什么？"></a>27. 何谓死锁？产生死锁的原因和必要条件是什么？</h4><ul>
+<li><p>死锁是指多个进程在运行过程中因争夺资源而造成的一种僵局，当进程处于这种僵持状态时，若无外力作用，它们都将无法再向前推进。</p>
+</li>
+<li><p>产生死锁的原因为竞争资源和进程间推进顺序非法。</p>
+</li>
+<li><p>其必要条件是：互斥条件、请求和保持条件、不剥夺条件、环路等待条件。</p>
+</li>
+</ul>
+<h4 id="29-请详细说明可通过哪些途径预防死锁。"><a href="#29-请详细说明可通过哪些途径预防死锁。" class="headerlink" title="*29. 请详细说明可通过哪些途径预防死锁。"></a>*29. 请详细说明可通过哪些途径预防死锁。</h4><ul>
+<li><p>摈弃“请求和保持”条件，就是如果系统有足够资源，便一次性把进程需要的所有资源分配给它。</p>
+</li>
+<li><p>摈弃“不剥夺”条件，就是已经拥有资源的进程，当它提出新资源请求而不能立即满足时，必须释放它已保持的所有资源，待以后需要时再重新申请。</p>
+</li>
+<li><p>摈弃“环路等待”条件，就是将所有资源按类型排序标号，所有进程对资源的请求必须严格按序号递增的次序提出。</p>
+</li>
+</ul>
+<h2 id="第四章-存储器管理"><a href="#第四章-存储器管理" class="headerlink" title="第四章 存储器管理"></a>第四章 存储器管理</h2><h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><ul>
+<li><h4 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h4></li>
+<li></li>
+</ul>
+<h4 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h4><ul>
+<li><h4 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h4></li>
+<li></li>
+</ul>
+<h4 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h4><ul>
+<li><h4 id="9"><a href="#9" class="headerlink" title="9."></a>9.</h4></li>
+<li></li>
+</ul>
+<h4 id="10"><a href="#10" class="headerlink" title="10."></a>10.</h4><ul>
+<li><h4 id="11"><a href="#11" class="headerlink" title="*11."></a>*11.</h4></li>
+<li></li>
+</ul>
+<h4 id="14"><a href="#14" class="headerlink" title="14."></a>14.</h4><ul>
+<li><h4 id="16"><a href="#16" class="headerlink" title="*16."></a>*16.</h4></li>
+<li></li>
+</ul>
+<h4 id="18"><a href="#18" class="headerlink" title="18."></a>18.</h4><ul>
+<li><h4 id="19"><a href="#19" class="headerlink" title="19."></a>19.</h4></li>
+<li></li>
+</ul>
+<h4 id="20"><a href="#20" class="headerlink" title="*20."></a>*20.</h4><ul>
+<li><h4 id="22"><a href="#22" class="headerlink" title="*22."></a>*22.</h4></li>
+<li></li>
+</ul>
+<h4 id="26"><a href="#26" class="headerlink" title="26."></a>26.</h4><ul>
+<li><h4 id="27"><a href="#27" class="headerlink" title="27."></a>27.</h4></li>
+<li></li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://music.163.com/song/media/outer/url?id=1492276426.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru02.model.json"},"display":{"position":"right","width":300,"height":600},"mobile":{"show":false},"log":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

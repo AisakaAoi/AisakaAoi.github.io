@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>计算机操作系统 知识点快速复习 - 逢坂葵的个人技术博客</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="一、章节导学1.1 操作系统的演进
+无操作系统人工操作、用户独占、CPU等待人工操作、资源利用率很低
+
+批处理系统无需等待人工操作、批量输入任务、资源利用率提升、多道程序设计
+
+分时系统人-机交互
+,"> 
+    <meta name="author" content="Aisaka Aoi"> 
+    <link rel="alternative" href="atom.xml" title="逢坂葵的个人技术博客" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">逢坂葵的个人技术博客</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">计算机操作系统 知识点快速复习</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">计算机操作系统 知识点快速复习</h1>
+        <div class="stuff">
+            <span>十二月 27, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="一、章节导学"><a href="#一、章节导学" class="headerlink" title="一、章节导学"></a>一、章节导学</h2><h3 id="1-1-操作系统的演进"><a href="#1-1-操作系统的演进" class="headerlink" title="1.1 操作系统的演进"></a>1.1 操作系统的演进</h3><ul>
+<li><p>无操作系统<br>人工操作、用户独占、CPU等待人工操作、<font style="color:red">资源利用率很低</font></p>
+</li>
+<li><p>批处理系统<br>无需等待人工操作、批量输入任务、<font style="color:red">资源利用率提升、多道程序设计</font></p>
+</li>
+<li><p>分时系统<br>人-机交互</p>
+</li>
+</ul>
+<h3 id="1-2-多道程序设计"><a href="#1-2-多道程序设计" class="headerlink" title="1.2 多道程序设计"></a>1.2 多道程序设计</h3><ul>
+<li><p>早期批处理系统只能一次处理一个任务</p>
+</li>
+<li><p><font style="color:red">多道程序设计</font>使得批处理系统可以一次处理多个任务</p>
+</li>
+<li><p>多道程序设计是指在计算机内存中同时存放多个程序</p>
+</li>
+<li><p>多道程序在计算机的管理程序之下相互穿插运行</p>
+</li>
+<li><p><font style="color:red">对多道程序的管理是操作系统的重要功能</font></p>
+</li>
+</ul>
+<h3 id="1-3-操作系统五大功能"><a href="#1-3-操作系统五大功能" class="headerlink" title="1.3 操作系统五大功能"></a>1.3 操作系统五大功能</h3><h4 id="1-3-1-进程管理"><a href="#1-3-1-进程管理" class="headerlink" title="1.3.1 进程管理"></a>1.3.1 进程管理</h4><ul>
+<li><p>-</p>
+<h5 id="1-3-1-1-进程管理之进程实体"><a href="#1-3-1-1-进程管理之进程实体" class="headerlink" title="1.3.1.1 进程管理之进程实体"></a>1.3.1.1 进程管理之进程实体</h5><ul>
+<li><p>为什么需要进程<br>没有配置OS之前，资源属于当前运行的程序<br>配置OS之后，引入<font style="color:red">多道程序设计</font>的概念<br>合理地隔离资源、运行环境，提升资源利用率</p>
+<p><font style="color:red">进程是系统进行资源分配和调度的基本单位</font></p>
+<p><font style="color:red">进程作为程序独立运行的载体保障程序正常执行</font></p>
+<p><font style="color:red">进程的存在使得操作系统资源的利用率大幅提升</font></p>
+</li>
+<li><p>进程的实体</p>
+<ul>
+<li><p>主存中的进程形态（进程标识符、处理机状态、进程调度信息、进程控制信息）<br>PCB储存着以下：<br>标识符：标识符唯一标记一个进程，用于区别其它进程<br>状态：标记进程的进程状态，如：运行态<br>程序计数器：进程即将被执行的下一条指令的地址<br>内存指针：程序代码、进程数据相关指针<br>上下文数据：<font style="color:red">进程执行时处理器存储的数据</font><br>IO状态信息：被进程IO操作所占用的文件列表<br>记账信息：使用处理器时间、时钟数总和等  </p>
+<ul>
+<li>进程控制块（PCB）<br>用于描述和控制进程运行的通用数据结构<br>记录进程当前状态和控制进程运行的全部信息<br>PCB使得进程是能够独立运行的基本单位<br>PCB是操作系统进行调度经常会被读取的信息<br>PCB是常驻内存的，存放在系统专门开辟的PCB区域内  </li>
+</ul>
+</li>
+<li><p>进程（Process）与线程（Thread）<br>线程是操作系统进行运行调度的最小单位<br>包含在进程之中，是进程中实际运行工作的单位<br>一个进程可以并发多个线程，每个线程执行不同的任务  </p>
+<p><font style="color:red">进程的线程共享进程资源</font></p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">进程</th>
+<th align="center">线程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">资源</td>
+<td align="center">资源分配的基本单位</td>
+<td align="center">不拥有资源</td>
+</tr>
+<tr>
+<td align="center">调度</td>
+<td align="center">独立调度的基本单位</td>
+<td align="center">独立调度的最小单位</td>
+</tr>
+<tr>
+<td align="center">系统开销</td>
+<td align="center">进程系统开销大</td>
+<td align="center">线程系统开销小</td>
+</tr>
+<tr>
+<td align="center">通信</td>
+<td align="center">进程IPC</td>
+<td align="center">读写同一进程数据通信</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h5 id="1-3-1-2-进程管理之五状态模型"><a href="#1-3-1-2-进程管理之五状态模型" class="headerlink" title="1.3.1.2 进程管理之五状态模型"></a>1.3.1.2 进程管理之五状态模型</h5></li>
+<li><p>就绪状态<br>当进程被分配到除CPU以外所有必要的资源后<br>只要再获得CPU的使用权，就可以立即运行<br>其它资源都准备好、只差CPU资源的状态为<font style="color:red">就绪状态</font><br>在一个系统中多个处于就绪状态的进程通常排成一个队列（<font style="color:red">就绪队列</font>）  </p>
+</li>
+<li><p>执行状态<br>进程获得CPU，其程序正在执行称为执行状态<br>在单处理机中，在某个时刻只能有一个进程是处于执行状态  </p>
+</li>
+<li><p>阻塞状态<br>进程因某种原因，如：其它设备未就绪而无法继续执行<br>从而放弃CPU的状态称为阻塞状态<br>在一个系统中多个处于阻塞状态的进程通常排成一个队列（<font style="color:red">阻塞队列</font>）  </p>
+</li>
+<li><p>创建状态<br><font style="color:red">分配PCB -&gt; 插入就绪队列</font><br>创建进程时拥有PCB但<font style="color:red">其它资源尚未就绪</font>的状态称为创建状态<br><font style="color:red">操作系统提供fork函数接口创建进程</font>  </p>
+</li>
+<li><p>终止状态<br><font style="color:red">系统清理 -&gt; PCB归还</font><br>进程结束由系统清理或者归还PCB的状态称为终止状态  </p>
+<h5 id="1-3-1-3-进程管理之进程同步"><a href="#1-3-1-3-进程管理之进程同步" class="headerlink" title="1.3.1.3 进程管理之进程同步"></a>1.3.1.3 进程管理之进程同步</h5></li>
+<li><p>为什么需要进程间同步<br>生产者-消费者问题、哲学家进餐问题<br><font style="color:red">对竞争资源在多进程间进行使用次序的协调</font><br><font style="color:red">使得并发执行的多个进程之间可以有效使用资源和相互合作</font>  </p>
+</li>
+<li><p>进程间同步的原则<br>空闲让进：资源无占用，允许使用<br>忙则等待：资源有占用，请求进程等待<br>有限等待：保证有限等待时间能够使用资源<br>让权等待：等待时，进程需要让出CPU  </p>
+<ul>
+<li><p>临界资源<br>临界资源指的是一些虽作为共享资源却又无法同时被多个线程共同访问的共享资源。当有进程在使用临界资源时，其它进程必须依据操作系统的同步机制等待占用进程释放该共享资源才可重新竞争使用共享资源。</p>
+</li>
+<li><p>进程同步的方法<br>消息队列、共享存储、信号量</p>
+</li>
+</ul>
+</li>
+<li><p>线程同步<br><font style="color:red">进程的线程共享进程资源，所以进程内多线程也需要同步</font>  </p>
+<ul>
+<li>线程同步的方法<br>互斥量、读写锁、自旋锁、条件变量</li>
+</ul>
+<h5 id="1-3-1-4-Linux的进程管理"><a href="#1-3-1-4-Linux的进程管理" class="headerlink" title="1.3.1.4 Linux的进程管理"></a>1.3.1.4 Linux的进程管理</h5></li>
+<li><p>Linux进程的相关概念</p>
+<ul>
+<li><p>进程的类型</p>
+<ul>
+<li><p>前台进程<br>前台进程就是具有终端，可以和用户交互的进程  </p>
+</li>
+<li><p>后台进程<br>与前台进程相对，没有占用终端的就是后台进程<br>后台程序基本上不和用户交互，优先级比前台程序低<br><font style="color:red">将需要执行的命令以“&amp;”符号结束</font>  </p>
+</li>
+<li><p>守护进程<br>守护（deamon）进程是特殊的后台进程<br>很多守护进程在系统引导的时候启动，一直运行直到系统关闭<br>Linux有很多典型的守护进程<br><font style="color:red">进程名字以“d”结尾的一般都是守护进程（crond, httpd, sshd, mysqld）</font>  </p>
+</li>
+</ul>
+</li>
+<li><p>进程的标记</p>
+<ul>
+<li><p>进程ID<br>进程ID是进程的唯一标记，每个进程拥有不同的ID<br>进程ID表现为一个非负整数，最大值由操作系统限定<br><font style="color:red">操作系统提供fork函数接口创建进程（父子进程关系）</font><br>父子进程关系可以通过pstree命令查看<br><font style="color:red">ID为0的进程为idle进程，是系统创建的第一个进程</font><br><font style="color:red">ID为1的进程为init进程，是0号进程的子进程，完成系统初始化</font><br><font style="color:red">init进程是所有用户进程的祖先进程</font>  </p>
+</li>
+<li><p>进程的状态标记<br><font style="color:red">R：(TASK_RUNNING)，进程正处于运行状态</font><br><font style="color:red">S：(TASK_INTERRUPTIBLE)，进程正处于睡眠状态</font><br>D：(TASK_UNINTERRUPTIBLE)，进程正处于IO等待的睡眠状态<br>T：(TASK_STOPPED)，进程正处于暂停状态<br>Z：(TASK_DEAD or EXIT_ZOMBIE)，进程正处于退出状态或僵尸进程  </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>操作Linux进程的相关命令</p>
+<ul>
+<li><p>ps命令<br>ps命令常用于显示当前进程的状态<br>ps命令常配合aux参数或ef参数和grep命令检索特定进程  </p>
+</li>
+<li><p>top命令</p>
+</li>
+<li><p>kill命令<br>kill命令发送指定信号给进程<br>kill -l可以查看操作系统支持的信号<br><font style="color:red">只有（SIGKILL 9）信号可以无条件终止进程，其它信号进程有权忽略</font>  </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-2-存储管理"><a href="#1-3-2-存储管理" class="headerlink" title="1.3.2 存储管理"></a>1.3.2 存储管理</h4><ul>
+<li><p>-</p>
+<h5 id="1-3-2-1-存储管理之内存分配与回收"><a href="#1-3-2-1-存储管理之内存分配与回收" class="headerlink" title="1.3.2.1 存储管理之内存分配与回收"></a>1.3.2.1 存储管理之内存分配与回收</h5></li>
+</ul>
+<h4 id="1-3-3-作业管理"><a href="#1-3-3-作业管理" class="headerlink" title="1.3.3 作业管理"></a>1.3.3 作业管理</h4><ul>
+<li><p>-</p>
+<h5 id="1-3-3-1-作业管理之进程调度"><a href="#1-3-3-1-作业管理之进程调度" class="headerlink" title="1.3.3.1 作业管理之进程调度"></a>1.3.3.1 作业管理之进程调度</h5><ul>
+<li><p>进程调度概述<br><font style="color:red">进程调度是指计算机通过决策决定哪个就绪进程可以获得CPU使用权</font><br><font style="color:red">多道程序设计</font><br>保留旧进程的运行信息，清除旧进程（收拾包袱）<br>选择新进程，准备运行环境并分配CPU（新进驻）  </p>
+<ul>
+<li><p>就绪队列的排队机制  </p>
+</li>
+<li><p>选择运行进程的委派机制<br><font style="color:red">调度程序以一定的策略选择就绪进程，将CPU资源分配给它</font>  </p>
+</li>
+<li><p>新老进程的上下文切换机制<br><font style="color:red">保存当前进程的上下文信息，装入被委派执行进程的运行上下文</font>  </p>
+</li>
+<li><p>非抢占式的调度<br>处理器一旦分配给某个进程，就让该进程一直使用下去<br>调度程序不以任何原因抢占正在被使用的处理器<br>直到进程完成工作或因为IO阻塞才会让出处理器  </p>
+</li>
+<li><p>抢占式的调度<br>允许调度程序以一定的策略暂停当前运行的进程<br>保存好旧进程的上下文信息，分配处理器给新进程  </p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">抢占式调度</th>
+<th align="center">非抢占式调度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">系统开销</td>
+<td align="center">频繁切换，开销大</td>
+<td align="center">切换次数少，开销小</td>
+</tr>
+<tr>
+<td align="center">公平性</td>
+<td align="center">相对公平</td>
+<td align="center">不公平</td>
+</tr>
+<tr>
+<td align="center">应用</td>
+<td align="center">通用系统</td>
+<td align="center">专用系统</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>进程调度算法</p>
+<ul>
+<li><p>先来先服务调度算法  </p>
+</li>
+<li><p>短进程优先调度算法<br>调度程序优先选择就绪队列中估计运算时间最短的进程<br>短进程优先调度算法不利于长作业进程的执行  </p>
+</li>
+<li><p>高优先权优先调度算法<br>进程附带优先权，调度程序优先选择权重高的进程<br>高优先权优先调度算法使得紧迫的任务可以优先处理  </p>
+</li>
+<li><p>时间片轮转调度算法<br>按先来先服务的原则排列就绪进程<br>每次从队列头部取出待执行进程，分配一个时间片执行<br>是相对公平的调度算法，但不能保证及时响应用户  </p>
+</li>
+</ul>
+<h5 id="1-3-3-2-作业管理之死锁"><a href="#1-3-3-2-作业管理之死锁" class="headerlink" title="1.3.3.2 作业管理之死锁"></a>1.3.3.2 作业管理之死锁</h5></li>
+<li><p>什么是死锁<br>死锁是指两个或两个以上的进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，它们都将无法推进下去。此时称系统处于死锁状态或系统产生了死锁，这些永远在互相等待的进程称为死锁进程。</p>
+</li>
+<li><p>死锁的产生  </p>
+<ul>
+<li><p>竞争资源<br>共享资源数量不满足各个进程需求<br>各个进程之间发生资源进程导致死锁<br>（等待请求的资源被释放、自身占用资源不释放）  </p>
+</li>
+<li><p>进程调度顺序不当  </p>
+</li>
+<li><p>死锁的四个必要条件  </p>
+<ul>
+<li><p>互斥条件<br>进程对资源的使用是<font style="color:red">排他性的使用</font><br>某资源只能由一个进程使用，其他进程需要使用只能等待  </p>
+</li>
+<li><p>请求保持条件<br>进程至少保持一个资源，又提出新的资源请求<br>新资源被占用，请求被阻塞<br>被阻塞的进程不释放自己保持的资源  </p>
+</li>
+<li><p>不可剥夺条件<br>进程获得的资源在未完成使用前不能被剥夺<br>获得的资源只能由进程自身释放  </p>
+</li>
+<li><p>环路等待条件<br>发生死锁时，必然存在资源-进程环形链  </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>死锁的处理  </p>
+<ul>
+<li><p>预防死锁的方法  </p>
+<ul>
+<li><p>摒弃请求保持条件<br>系统规定进程运行之前，一次性申请所有需要的资源<br>进程在运行期间不会提出资源请求，从而摒弃请求保持条件  </p>
+</li>
+<li><p>摒弃不可剥夺条件<br>当一个进程请求新的资源得不到满足时，必须释放占有的资源<br>进程运行时占有的资源可以被释放，意味着可以被剥夺  </p>
+</li>
+<li><p>摒弃环路等待条件<br>可用资源线性排序，申请必须按照递增申请<br>线性申请不再形成环路，从而摒弃了环路等待条件  </p>
+</li>
+</ul>
+</li>
+<li><p>银行家算法<br>是一个可操作的著名的避免死锁的算法<br>以银行借贷系统分配策略为基础的算法<br>客户申请的贷款时有限的，每次申请需声明最大资金量<br>银行家在能够满足贷款时，都应该给用户贷款<br>客户在使用贷款后，能够及时归还贷款  </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-4-文件管理"><a href="#1-3-4-文件管理" class="headerlink" title="1.3.4 文件管理"></a>1.3.4 文件管理</h4><h4 id="1-3-5-设备管理"><a href="#1-3-5-设备管理" class="headerlink" title="1.3.5 设备管理"></a>1.3.5 设备管理</h4><hr>
+<h2 id="二、操作系统概览"><a href="#二、操作系统概览" class="headerlink" title="二、操作系统概览"></a>二、操作系统概览</h2><h3 id="2-1-什么是操作系统"><a href="#2-1-什么是操作系统" class="headerlink" title="2.1 什么是操作系统"></a>2.1 什么是操作系统</h3><ul>
+<li><p>操作系统是管理计算机硬件和软件资源的<font style="color:red">计算机程序</font></p>
+</li>
+<li><p><font style="color:red">管理硬件、提供用户交互的软件系统</font></p>
+</li>
+<li><p>管理配置内存、决定资源供需顺序、控制输入输出设备等</p>
+</li>
+<li><p>操作系统提供让用户和系统交互的<font style="color:red">操作界面</font></p>
+</li>
+<li><p>操作系统的种类是多种多样的，不局限于计算机</p>
+</li>
+<li><p>从手机到超级计算机，操作系统可简单也可复杂</p>
+</li>
+<li><p>在不同的设备上，操作系统可向用户呈现多种操作手段</p>
+</li>
+</ul>
+<h3 id="2-2-为什么要使用操作系统"><a href="#2-2-为什么要使用操作系统" class="headerlink" title="2.2 为什么要使用操作系统"></a>2.2 为什么要使用操作系统</h3><ul>
+<li><p>我们不可能直接操作计算机硬件</p>
+</li>
+<li><p>设备种类繁多复杂，需要统一界面</p>
+</li>
+<li><p>操作系统的简易性使得更多人能够使用计算机</p>
+</li>
+</ul>
+<h3 id="2-3-操作系统的基本功能"><a href="#2-3-操作系统的基本功能" class="headerlink" title="2.3 操作系统的基本功能"></a>2.3 操作系统的基本功能</h3><h4 id="2-3-1-操作系统统一管理着计算机资源"><a href="#2-3-1-操作系统统一管理着计算机资源" class="headerlink" title="2.3.1 操作系统统一管理着计算机资源"></a>2.3.1 操作系统统一管理着计算机资源</h4><ul>
+<li>处理器资源、存储器资源、IO设备资源、文件资源</li>
+</ul>
+<h4 id="2-3-2-操作系统实现了对计算机资源的抽象"><a href="#2-3-2-操作系统实现了对计算机资源的抽象" class="headerlink" title="2.3.2 操作系统实现了对计算机资源的抽象"></a>2.3.2 操作系统实现了对计算机资源的抽象</h4><ul>
+<li>用户无需面向硬件接口编程（IO设备管理软件提供读写接口，文件管理软件提供操作文件接口）</li>
+</ul>
+<h4 id="2-3-3-操作系统提供了用户于计算机之间的接口"><a href="#2-3-3-操作系统提供了用户于计算机之间的接口" class="headerlink" title="2.3.3 操作系统提供了用户于计算机之间的接口"></a>2.3.3 操作系统提供了用户于计算机之间的接口</h4><ul>
+<li>图像窗口形式、命令形式、系统调用形式</li>
+</ul>
+<h3 id="2-4-操作系统的相关概念"><a href="#2-4-操作系统的相关概念" class="headerlink" title="2.4 操作系统的相关概念"></a>2.4 操作系统的相关概念</h3><h4 id="2-4-1-并发性（是其它特性的前提）"><a href="#2-4-1-并发性（是其它特性的前提）" class="headerlink" title="2.4.1 并发性（是其它特性的前提）"></a>2.4.1 并发性（是其它特性的前提）</h4><ul>
+<li><p><font style="color:red">并行</font>是指两个或多个事件可以在<font style="color:red">同一个时刻</font>发生</p>
+</li>
+<li><p><font style="color:red">并发</font>是指两个或多个事件可以在<font style="color:red">同一个时间间隔</font>发生</p>
+</li>
+</ul>
+<h4 id="2-4-2-共享性"><a href="#2-4-2-共享性" class="headerlink" title="2.4.2 共享性"></a>2.4.2 共享性</h4><ul>
+<li><p>共享性表现为操作系统中的资源可供多个并发的程序共同使用，这种共同使用的形式称之为资源共享<br>多个程序可以同时使用主存资源</p>
+</li>
+<li><p>资源共享根据属性可分为两种方式：互斥共享形式、同时访问形式</p>
+<h5 id="2-4-2-1-互斥共享形式"><a href="#2-4-2-1-互斥共享形式" class="headerlink" title="2.4.2.1 互斥共享形式"></a>2.4.2.1 互斥共享形式</h5><ul>
+<li><p>当资源被程序A占用时，其它想使用的话只能等待</p>
+</li>
+<li><p>只有进程A使用完以后，其它进程才可以使用该资源</p>
+</li>
+</ul>
+<h5 id="2-4-2-2-同时访问形式"><a href="#2-4-2-2-同时访问形式" class="headerlink" title="2.4.2.2 同时访问形式"></a>2.4.2.2 同时访问形式</h5><ul>
+<li><p>某种资源在一段时间内<font style="color:red">并发地</font>被多个程序访问</p>
+</li>
+<li><p>这种“同时”是宏观的，从宏观去看该资源可以被同时访问</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-4-3-虚拟性"><a href="#2-4-3-虚拟性" class="headerlink" title="2.4.3 虚拟性"></a>2.4.3 虚拟性</h4><ul>
+<li><p>虚拟性表现为把一个<font style="color:red">物理实体</font>转变为若干个<font style="color:red">逻辑实体</font></p>
+</li>
+<li><p>物理实体是真实存在的，逻辑实体是虚拟的</p>
+</li>
+<li><p>虚拟的技术主要有<font style="color:red">时分复用技术</font>和<font style="color:red">空分复用技术</font></p>
+<h5 id="2-4-3-1-时分复用技术"><a href="#2-4-3-1-时分复用技术" class="headerlink" title="2.4.3.1 时分复用技术"></a>2.4.3.1 时分复用技术</h5><ul>
+<li><p>资源在时间上进行复用，不同程序<font style="color:red">并发</font>使用，多道程序分时使用计算机的硬件资源</p>
+</li>
+<li><p>虚拟处理器技术<br>借助多道程序设计技术，为每个程序建立进程，多个程序分时复用处理器</p>
+</li>
+<li><p>虚拟设备技术<br>物理设备虚拟为多个逻辑设备，每个程序占用一个逻辑设备，多个程序通过逻辑设备并发访问</p>
+<h5 id="2-4-3-2-空分复用技术"><a href="#2-4-3-2-空分复用技术" class="headerlink" title="2.4.3.2 空分复用技术"></a>2.4.3.2 空分复用技术</h5></li>
+<li><p>空分复用技术用来实现虚拟磁盘、虚拟内存等，提高资源的利用率，提升编程效率</p>
+</li>
+<li><p>虚拟磁盘技术<br>物理磁盘虚拟为逻辑磁盘，C、D、E等逻辑盘，使用起来更加安全、方便</p>
+</li>
+<li><p>虚拟内存技术<br>在逻辑上扩大程序的存储容量，使用比实际内存更大的容量，大大提升编程效率</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-4-4-异步性"><a href="#2-4-4-异步性" class="headerlink" title="2.4.4 异步性"></a>2.4.4 异步性</h4><ul>
+<li><p>在多道程序环境下，允许多个进程并发执行</p>
+</li>
+<li><p>进程在使用资源时可能需要等待或放弃</p>
+</li>
+<li><p>进程的执行并不是一气呵成的，而是以走走停停的形式推进</p>
+</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://music.163.com/song/media/outer/url?id=1492276426.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru02.model.json"},"display":{"position":"right","width":300,"height":600},"mobile":{"show":false},"log":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
