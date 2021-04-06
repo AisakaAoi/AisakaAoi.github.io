@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2021-04-04 面试-计算机网络 - 逢坂葵的个人技术博客</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="说说拥塞控制TCP的四种拥塞控制算法：慢开始、拥塞控制、快重传、快恢复
+
+一开始窗口大小是1，然后进行慢开始算法，就是指数的增长。到达阈值之后，进行拥塞避免算法，就是线性的增长
+
+如果遇到了超时，就,"> 
+    <meta name="author" content="Aisaka Aoi"> 
+    <link rel="alternative" href="atom.xml" title="逢坂葵的个人技术博客" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">逢坂葵的个人技术博客</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">2021-04-04 面试-计算机网络</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">2021-04-04 面试-计算机网络</h1>
+        <div class="stuff">
+            <span>四月 04, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="说说拥塞控制"><a href="#说说拥塞控制" class="headerlink" title="说说拥塞控制"></a>说说拥塞控制</h2><p>TCP的四种拥塞控制算法：慢开始、拥塞控制、快重传、快恢复</p>
+<ol>
+<li><p>一开始窗口大小是1，然后进行慢开始算法，就是指数的增长。到达阈值之后，进行拥塞避免算法，就是线性的增长</p>
+</li>
+<li><p>如果遇到了超时，就会重置窗口大小为1，修改阈值为一半，并且重新开始慢开始算法</p>
+</li>
+<li><p>如果收到了同一个报文段的3次确认，就执行快重传算法、快恢复算法。快重传就是要求对方直接立即发送确认，一般是发送报文段的时候才捎带确认的嘛，现在就直接发送确认，即使不按照顺序发送确认也可以。快恢复就是增大阈值，然后继续执行拥塞避免算法</p>
+</li>
+</ol>
+<hr>
+<h2 id="说说TCP三次握手"><a href="#说说TCP三次握手" class="headerlink" title="说说TCP三次握手"></a>说说TCP三次握手</h2><ol>
+<li><p>一开始，服务器是在LISTEN（收听）状态，客户请求建立连接，此时处于SYN-SENT（同步发送）状态。发送的SYN报文段：<code>SYN，seq=x</code></p>
+</li>
+<li><p>服务器收到请求该报文段后，进入SYN-RVCD（同步接收）状态，并发送ACK报文段给客户：<code>SYN, seq=y, ACK, ack=x+1</code></p>
+</li>
+<li><p>客户收到该报文段后，发送给服务器ACK报文段：<code>seq=x+1, ACK, ack=y+1</code>。客户进入ESTABLISHED（连接建立）状态。服务器在收到该报文段之后也进入ESTABLISHED（状态）</p>
+</li>
+<li><p>然后开始数据传输</p>
+</li>
+</ol>
+<hr>
+<h2 id="为什么要三次握手"><a href="#为什么要三次握手" class="headerlink" title="为什么要三次握手"></a>为什么要三次握手</h2><p>考虑这么一个场景，客户发送了一个请求连接，他滞留在某个网络结点，超时重传，客户又发了一个请求连接，服务器对后一个请求连接响应。经过一段时间后，第一个请求连接到了服务器，服务器也对该连接请求响应，并发送给客户SYN报文段。如果没有第三次握手的确认，那么服务器就会建立2次连接。多余的1次连接是冗余的</p>
+<hr>
+<h2 id="说说TCP四次挥手"><a href="#说说TCP四次挥手" class="headerlink" title="说说TCP四次挥手"></a>说说TCP四次挥手</h2><ol>
+<li><p>客户发送FIN报文段（<code>FIN, seq=u</code>）给服务器，客户进入FIN-WAIT-1（终止等待-1）状态。这时，客户不会发送消息给服务器</p>
+</li>
+<li><p>服务器收到该报文段，进入 CLOSED-WAIT（关闭等待）状态，并发送ACK报文段（<code>ACK ack=u+1, seq=v</code>）给客户</p>
+</li>
+<li><p>客户收到该报文段后，就进入FIN-WAIT-2（终止等待-2）状态</p>
+</li>
+<li><p>此时服务器会发送一些结束时会发送的消息给客户。发送完后，服务器会发送FIN报文段（<code>FIN, seq=w, ACK, ack=u+1</code>）给客户。服务器进入 LACK-WAIT（延迟等待）状态。客户进入 TIME-WAIT（时间等待）状态。TIME-WAIT状态保持 2 个 MST 时间</p>
+</li>
+<li><p>客户收到该报文段后，会发送 ACK 报文段（<code>ACK ack=w+1, seq=u+1</code>）给服务器。服务器收到后就进入CLOSED 状态了。客户在 2 个 MST 时间后也 CLOSED</p>
+</li>
+</ol>
+<hr>
+<p>怎么防止别人篡改数据？</p>
+<p>检验码</p>
+<hr>
+<p>HTTPS</p>
+<hr>
+<p>网址访问过程</p>
+<blockquote>
+<p>网址 = 协议 + 主机名 + 域名 + 文件名</p>
+</blockquote>
+<ol>
+<li><p>域名解析（DNS解析）</p>
+</li>
+<li><p>TCP 连接</p>
+</li>
+<li><p>浏览器发送 HTTP 请求</p>
+</li>
+<li><p>服务器处理 HTTP 请求，并返回响应报文</p>
+</li>
+<li><p>浏览器页面渲染</p>
+</li>
+<li><p>断开 TCP 连接</p>
+</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://music.163.com/song/media/outer/url?id=1492276426.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru02.model.json"},"display":{"position":"right","width":300,"height":600},"mobile":{"show":false},"log":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2021-04-03 面试-数据库 - 逢坂葵的个人技术博客</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="假设有两个事务 A、B
+脏读：A 读到了 B 修改但回滚的数据
+
+不可重复读：A 读了 1 次。B 修改某些数据。A 又读了 1 次，发现不一样。【侧重某一行发生变化】
+
+幻读：A 读了 1 次，B,"> 
+    <meta name="author" content="Aisaka Aoi"> 
+    <link rel="alternative" href="atom.xml" title="逢坂葵的个人技术博客" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">逢坂葵的个人技术博客</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">2021-04-03 面试-数据库</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">2021-04-03 面试-数据库</h1>
+        <div class="stuff">
+            <span>四月 03, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="假设有两个事务-A、B"><a href="#假设有两个事务-A、B" class="headerlink" title="假设有两个事务 A、B"></a>假设有两个事务 A、B</h2><ul>
+<li><p>脏读：A 读到了 B 修改但回滚的数据</p>
+</li>
+<li><p>不可重复读：A 读了 1 次。B <strong>修改</strong>某些数据。A 又读了 1 次，发现不一样。【侧重某一行发生变化】</p>
+</li>
+<li><p>幻读：A 读了 1 次，B <strong>增删</strong>了某些数据，A 又读了 1 次。 A 读的 2 次不一样。称为幻读。【侧重行数量发生变化】</p>
+</li>
+</ul>
+<hr>
+<h2 id="事务隔离、四个隔离级别"><a href="#事务隔离、四个隔离级别" class="headerlink" title="事务隔离、四个隔离级别"></a>事务隔离、四个隔离级别</h2><p>不同事务之间没有互相干扰。</p>
+<ol>
+<li><p>读未提交（Read uncommitted）：读脏。</p>
+</li>
+<li><p>读已提交（Read committed）：<strong>避免脏读</strong>；只可以读取已经提交的数据。</p>
+</li>
+<li><p>可重复读（Repeatable read）：<strong>避免脏读、不可重复读</strong>；多次读取同一个数据，其值都和事务开始时刻是一致的。</p>
+</li>
+<li><p>串行化（Serializable）：<strong>避免脏读、不可重复度、幻读</strong>；一个接一个执行</p>
+</li>
+</ol>
+<hr>
+<h2 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h2><ol>
+<li><p>原子性（Atomicity）：事务要么全部提交，要么全部失败。</p>
+</li>
+<li><p>一致性（Consistency）：数据库在执行前和执行后都处于一致性，不会陷入某个不正确的状态，比如有些事务还没完成就中断了，但部分事务却写入了数据库导致数据库处于不正确的状态。</p>
+</li>
+<li><p>隔离性（Isolation）：并发环境下，事务相互隔离。一个事务不能被其他事务干扰。</p>
+</li>
+<li><p>持久性（Durability）：事务一旦提交就永久保存在数据库中。</p>
+</li>
+</ol>
+<hr>
+<h2 id="数据库索引"><a href="#数据库索引" class="headerlink" title="数据库索引"></a>数据库索引</h2><p>对表中的一列或多列的值进行排序的一种结构，使用索引可快速访问表中的信息。</p>
+<p>B树结构：二叉搜索树衍生而来的多叉树，为了磁盘调度次数少</p>
+<p>B+树结构：全部信息都在叶子。叶子连成一条链，适合范围查询</p>
+<hr>
+<h2 id="数据库事务"><a href="#数据库事务" class="headerlink" title="数据库事务"></a>数据库事务</h2><p>是指单个逻辑工作单元执行的<strong>一系列操作</strong>，要么完全执行，要么完全不执行。</p>
+<p>满足ACID</p>
+<hr>
+<h2 id="聚簇索引、非聚簇索引"><a href="#聚簇索引、非聚簇索引" class="headerlink" title="聚簇索引、非聚簇索引"></a>聚簇索引、非聚簇索引</h2><p>聚簇索引：将索引和数据放到一起，找到索引就找到了数据。B+树。</p>
+<p>非聚簇索引：将数据和索引分开，查找时需要先查找到索引，然后通过索引回表找到相应的数据。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://music.163.com/song/media/outer/url?id=1492276426.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru02.model.json"},"display":{"position":"right","width":300,"height":600},"mobile":{"show":false},"log":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
