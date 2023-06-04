@@ -23,37 +23,27 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本文提出了迈向通用 CNN 架构：CCNN，可以用于任意分辨率、长度和维度的数据。 选自arXiv，作者：David W. Romero等，机器之心编译。 在 VGG、U-Net、TCN 网络中… CNN 虽然功能强大，但必须针对特定问题、数据类型、长度和分辨率进行定制，才能发挥其作用。我们不禁会问，可以设计出一个在所有这些网络中都运行良好的单一 CNN 吗？ 本文中，来自阿姆斯特丹自由大学、阿姆">
+  <meta name="description" content="论文信息 论文标题：《Image Inpainting for Irregular Holes Using Partial Convolutions》 论文链接：ECCV 2018 Open Access Repository">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习-解决CNN固有缺陷，CCNN凭借单一架构，实现多项SOTA">
-<meta property="og:url" content="http://example.com/314096c1.html">
+<meta property="og:title" content="图像修复-详解Partial Convolution （一） | 图像修复领域经典之作 | 运算机制及模型结构">
+<meta property="og:url" content="http://example.com/16681d4d.html">
 <meta property="og:site_name" content="逢坂葵的个人博客">
-<meta property="og:description" content="本文提出了迈向通用 CNN 架构：CCNN，可以用于任意分辨率、长度和维度的数据。 选自arXiv，作者：David W. Romero等，机器之心编译。 在 VGG、U-Net、TCN 网络中… CNN 虽然功能强大，但必须针对特定问题、数据类型、长度和分辨率进行定制，才能发挥其作用。我们不禁会问，可以设计出一个在所有这些网络中都运行良好的单一 CNN 吗？ 本文中，来自阿姆斯特丹自由大学、阿姆">
+<meta property="og:description" content="论文信息 论文标题：《Image Inpainting for Irregular Holes Using Partial Convolutions》 论文链接：ECCV 2018 Open Access Repository">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/314096c1/1.jpg">
-<meta property="og:image" content="http://example.com/314096c1/2.jpg">
-<meta property="og:image" content="http://example.com/314096c1/3.png">
-<meta property="og:image" content="http://example.com/314096c1/4.png">
-<meta property="og:image" content="http://example.com/314096c1/5.png">
-<meta property="og:image" content="http://example.com/314096c1/6.png">
-<meta property="og:image" content="http://example.com/314096c1/7.png">
-<meta property="og:image" content="http://example.com/314096c1/8.png">
-<meta property="og:image" content="http://example.com/314096c1/9.png">
-<meta property="og:image" content="http://example.com/314096c1/10.png">
-<meta property="og:image" content="http://example.com/314096c1/11.png">
-<meta property="og:image" content="http://example.com/314096c1/12.jpg">
-<meta property="og:image" content="http://example.com/314096c1/13.png">
-<meta property="og:image" content="http://example.com/314096c1/14.jpg">
-<meta property="og:image" content="http://example.com/314096c1/15.png">
-<meta property="og:image" content="http://example.com/314096c1/16.jpg">
-<meta property="og:image" content="http://example.com/314096c1/17.jpg">
-<meta property="article:published_time" content="2022-09-16T12:59:26.000Z">
-<meta property="article:modified_time" content="2023-03-15T18:48:32.190Z">
+<meta property="og:image" content="http://example.com/16681d4d/1.webp">
+<meta property="og:image" content="http://example.com/16681d4d/2.webp">
+<meta property="og:image" content="http://example.com/16681d4d/3.png">
+<meta property="og:image" content="http://example.com/16681d4d/4.webp">
+<meta property="og:image" content="http://example.com/16681d4d/5.png">
+<meta property="og:image" content="http://example.com/16681d4d/6.webp">
+<meta property="og:image" content="http://example.com/16681d4d/7.webp">
+<meta property="article:published_time" content="2022-06-04T21:07:59.000Z">
+<meta property="article:modified_time" content="2023-06-04T21:16:02.831Z">
 <meta property="article:author" content="Aisaka Aoi">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/314096c1/1.jpg">
+<meta name="twitter:image" content="http://example.com/16681d4d/1.webp">
 
-<link rel="canonical" href="http://example.com/314096c1.html">
+<link rel="canonical" href="http://example.com/16681d4d.html">
 
 
 <script id="page-configurations">
@@ -66,7 +56,7 @@
   };
 </script>
 
-  <title>深度学习-解决CNN固有缺陷，CCNN凭借单一架构，实现多项SOTA | 逢坂葵的个人博客</title>
+  <title>图像修复-详解Partial Convolution （一） | 图像修复领域经典之作 | 运算机制及模型结构 | 逢坂葵的个人博客</title>
   
 
 
@@ -142,12 +132,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">41</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">42</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">484</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">488</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +194,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/314096c1.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/16681d4d.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/manatsu.jpg">
@@ -217,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          深度学习-解决CNN固有缺陷，CCNN凭借单一架构，实现多项SOTA
+          图像修复-详解Partial Convolution （一） | 图像修复领域经典之作 | 运算机制及模型结构
         </h1>
 
         <div class="post-meta">
@@ -227,7 +217,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-09-16 20:59:26" itemprop="dateCreated datePublished" datetime="2022-09-16T20:59:26+08:00">2022-09-16</time>
+              <time title="创建时间：2022-06-05 05:07:59" itemprop="dateCreated datePublished" datetime="2022-06-05T05:07:59+08:00">2022-06-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,12 +233,12 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-Deep-Learning/" itemprop="url" rel="index"><span itemprop="name">💫深度学习 Deep Learning</span></a>
+                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E5%9B%BE%E5%83%8F%E4%BF%AE%E5%A4%8D-Image-Inpainting/" itemprop="url" rel="index"><span itemprop="name">💫图像修复 Image Inpainting</span></a>
                 </span>
             </span>
 
           
-            <span id="/314096c1.html" class="post-meta-item leancloud_visitors" data-flag-title="深度学习-解决CNN固有缺陷，CCNN凭借单一架构，实现多项SOTA" title="阅读次数">
+            <span id="/16681d4d.html" class="post-meta-item leancloud_visitors" data-flag-title="图像修复-详解Partial Convolution （一） | 图像修复领域经典之作 | 运算机制及模型结构" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -263,8 +253,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/314096c1.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/314096c1.html" itemprop="commentCount"></span>
+    <a title="valine" href="/16681d4d.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/16681d4d.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -274,14 +264,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -293,90 +283,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>本文提出了迈向通用 CNN 架构：CCNN，可以用于任意分辨率、长度和维度的数据。</strong></p>
-<p>选自arXiv，作者：David W. Romero等，机器之心编译。</p>
-<p>在 VGG、U-Net、TCN 网络中… CNN 虽然功能强大，但必须针对特定问题、数据类型、长度和分辨率进行定制，才能发挥其作用。我们不禁会问，可以设计出一个在所有这些网络中都运行良好的单一 CNN 吗？</p>
-<p>本文中，来自阿姆斯特丹自由大学、阿姆斯特丹大学、斯坦福大学的研究者提出了 CCNN，单个 CNN 就能够在多个数据集（例如 LRA）上实现 SOTA ！</p>
+        <h3 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h3><ul>
+<li>论文标题：《Image Inpainting for Irregular Holes Using Partial Convolutions》</li>
+<li>论文链接：<a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_ECCV_2018/html/Guilin_Liu_Image_Inpainting_for_ECCV_2018_paper.html">ECCV 2018 Open Access Repository</a></li>
+</ul>
 <span id="more"></span>
 
-<img src="/314096c1/1.jpg" class>
+<hr>
+<h3 id="图像修复简介"><a href="#图像修复简介" class="headerlink" title="图像修复简介"></a>图像修复简介</h3><p>图像修复(Image Inpainting)，顾名思义，就是将图像中损坏的部分修复起来。该技术可以应用在图像编辑上，例如移除物体(remove unwanted object), 图像补全，修复老照片等。传统的图像修复方法有diffusion-based和patch-based两种，而近些年来的方法多数都是基于深度学习来做的。</p>
+<img src="/16681d4d/1.webp" class>
 
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>1998 年 LeCun 等人提出卷积神经网络 (CNN)，这是一类广泛用于机器学习的深度学习模型。由于 CNN 具有高性能和高效率等特点，使其在跨序列、视觉和高维数据的多个应用程序中实现 SOTA 性能。然而，CNN（以及一般的神经网络）存在一个严重缺陷，这些架构必须针对特定应用进行定制，以便处理不同的数据长度、分辨率和维度。这反过来又导致大量特定于任务的 CNN 架构出现。</p>
-<p>数据可以有许多不同的长度，例如图像可以是 32x32 或 1024x1024。标准 CNN 存在的问题是，它们的卷积核是局部的，这需要为每个长度定制一个精心选择的步长和池化层来捕获整个上下文自定义架构。此外，许多数据本质上是连续的，在不同的分辨率下具有相同的语义，例如图像可以在任意分辨率下捕获，并具有相同的语义内容，音频可以在 16kHz 或 44.1kHz 采样，但人耳听起来仍然是相同的。</p>
-<p>然而，由于卷积核的离散性，传统的 CNN 不能跨分辨率使用。当考虑具有相同 CNN 的不同维度数据时，这两个问题会进一步加剧，例如序列（1D）、视觉（2D）和高维数据（3D、4D），因为不同的维度以不同的特征长度和分辨率运行，例如一秒音频的长度很容易达到 16000，这与基准数据集中的图像大小形成强烈对比。</p>
-<p>在本文中，研究者提出了迈向通用 CNN 架构。其目标是构建一个单一的 CNN 架构，可以用于任意分辨率、长度和维度的数据。标准 CNN 需要特定于任务的架构，因为其卷积核的离散性将内核绑定到特定的数据分辨率，并且由于构建大型离散卷积核所需的大量参数，它们不适合对全局上下文进行建模。</p>
-<p>因此，为了构建一个通用的 CNN 架构，关键是开发一个分辨率不可知的卷积层，该卷积层能够以参数有效的方式对远程依赖关系进行建模。该研究入选 ICML 2022 。</p>
-<img src="/314096c1/2.jpg" class>
+<img src="/16681d4d/2.webp" class>
 
-<ul>
-<li>论文地址：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2206.03398.pdf">https://arxiv.org/pdf/2206.03398.pdf</a></li>
-<li>代码地址：<a target="_blank" rel="noopener" href="https://github.com/david-knigge/ccnn">https://github.com/david-knigge/ccnn</a></li>
+<hr>
+<h3 id="Partial-Convolution详解"><a href="#Partial-Convolution详解" class="headerlink" title="Partial Convolution详解"></a>Partial Convolution详解</h3><p>基于深度学习的图像修复方法在之前基本都是使用卷积神经网络（CNN）来做的，也就是将损坏图片作为输入，完整图片作为标签进行学习。而普通的卷积作用在图片的损坏区域时，大多数的计算都被浪费了，因为损坏区域的像素值为0。同时，卷积核在做计算时不能区分损坏和未损坏的区域，对两部分的信息差并不敏感。</p>
+<p>在ECCV2018中，来自NVIDIA的Guilin Liu等人提出了Partial Convolution (PConv)。PConv通过加入mask掩码参与到卷积运算中，大大提升了运算效率，且将损坏与非损坏区域的像素区别开来，提升了其敏感性。</p>
+<hr>
+<h4 id="PConv运算"><a href="#PConv运算" class="headerlink" title="PConv运算"></a>PConv运算</h4><p>每一层PConv的运算可以用以下公式来表达：</p>
+<img src="/16681d4d/3.png" class>
+
+<img src="/16681d4d/4.webp" class>
+
+<hr>
+<h4 id="Mask更新"><a href="#Mask更新" class="headerlink" title="Mask更新"></a>Mask更新</h4><img src="/16681d4d/5.png" class>
+
+<hr>
+<h4 id="Padding填充"><a href="#Padding填充" class="headerlink" title="Padding填充"></a>Padding填充</h4><p>运算过程中还有一个细节：在进行部分卷积操作之前，需要对图像和Mask的边界进行值为0的填充，进行0的填充目的是为了修补的内容不受图像外部无效值的影响。</p>
+<hr>
+<h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><ul>
+<li>网络的输入大小均为：image 512×512 mask 512×512</li>
+<li>采用与《Globally and locally consistent image completion》相同的类似U-net的网络结构，将所有的卷积层替换为部分卷积层( partial convolutional layers ),同时在解码器中上采样使用 nearest neighbor up-sampling，同时采用Skips links连接编码器中的feature map。在最后一个部分卷积层将输入图像（带缺失部分）和网络生成的图像结合，将网络生成的图像非缺失部分全部替换为输入图像的非缺失部分。具体网络结构如下：</li>
 </ul>
-<hr>
-<h3 id="贡献"><a href="#贡献" class="headerlink" title="贡献"></a>贡献</h3><p>本文的贡献如下：</p>
-<ul>
-<li>该研究提出 Continuous CNN（CCNN）：一个简单、通用的 CNN，可以跨数据分辨率和维度使用，而不需要结构修改。CCNN 在序列 (1D)、视觉 (2D) 任务、以及不规则采样数据和测试时间分辨率变化的任务上超过 SOTA；</li>
-<li>该研究对现有的 CCNN 方法提供了几种改进，使它们能够匹配当前 SOTA 方法，例如 S4。主要改进包括核生成器网络的初始化、卷积层修改以及 CNN 的整体结构。</li>
-</ul>
-<h4 id="连续核卷积"><a href="#连续核卷积" class="headerlink" title="连续核卷积"></a>连续核卷积</h4><p>连续核卷积将小型神经网络</p>
-<img src="/314096c1/3.png" class>
+<img src="/16681d4d/6.webp" class>
+<div align="center">Partial Convolutional U-Net 网络结构</div>
 
-<p>作为核生成器网络，同时将卷积核参数化为连续函数。该网络将坐标</p>
-<img src="/314096c1/4.png" class>
-
-<p>映射到该位置的卷积核值：</p>
-<img src="/314096c1/5.png" class>
-
-<p>（图 1a）。通过将 K 个坐标</p>
-<img src="/314096c1/6.png" class>
-
-<p>的向量通过 G_Kernel，可以构造一个大小相等的卷积核 K，即</p>
-<img src="/314096c1/7.png" class>
-
-<p>随后，在输入信号</p>
-<img src="/314096c1/8.png" class>
-
-<p>和生成的卷积核</p>
-<img src="/314096c1/9.png" class>
-
-<p>之间进行卷积运算，以构造输出特征表示</p>
-<img src="/314096c1/10.png" class>
-
-<p>即</p>
-<img src="/314096c1/11.png" class>
-
-<img src="/314096c1/12.jpg" class>
-
-<p>任意数据维度的一般操作。通过改变输入坐标 c_i 的维数 D，核生成器网络 G_Kernel 可用于构造任意维数的卷积核。因此可以使用相同的操作来处理序列 D&#x3D;1、视觉 D&#x3D;2 和更高维数据 D≥3。</p>
-<p>不同输入分辨率的等效响应。如果输入信号 x 有分辨率变化，例如最初在 8KHz 观察到的音频现在在 16KHz 观察到，则与离散卷积核进行卷积以产生不同的响应，因为核将在每个分辨率下覆盖不同的输入子集。另一方面，连续核是分辨率无关的，因此无论输入的分辨率如何，它都能够识别输入。</p>
-<p>当以不同的分辨率（例如更高的分辨率）呈现输入时，通过核生成器网络传递更精细的坐标网格就足够了，以便以相应的分辨率构造相同的核。对于以分辨率 r (1) 和 r (2) 采样的信号 x 和连续卷积核 K，两种分辨率下的卷积大约等于与分辨率变化成比例的因子：</p>
-<img src="/314096c1/13.png" class>
+<img src="/16681d4d/7.webp" class>
+<div align="center">Partial Convolutional U-Net 网络结构图</div>
 
 <hr>
-<h4 id="CCNN：在-ND-中建模远程依赖关系"><a href="#CCNN：在-ND-中建模远程依赖关系" class="headerlink" title="CCNN：在 ND 中建模远程依赖关系"></a>CCNN：在 ND 中建模远程依赖关系</h4><p>具有连续核卷积的残差块改进。该研究对 FlexNet 架构进行了修改 ，其残差网络由类似于 S4 网络的块组成。CCNN 架构如下图 2 所示。</p>
-<img src="/314096c1/14.jpg" class>
-
-<p>基于这些观察，该研究构建了 FlexConv 的深度（depth-wise）可分离版本，其中通道（channel-wise）卷积是使用核生成器网络</p>
-<img src="/314096c1/15.png" class>
-
-<p>生成的核计算的，之后是从 N_in 到 N_out 进行逐点卷积。这种变化允许构建更广泛的 CCNN—— 从 30 到 110 个隐藏通道，而不会增加网络参数或计算复杂度。</p>
-<p>正确初始化核生成器网络 G_Kernel。该研究观察到，在以前的研究中核生成器网络没有正确初始化。在初始化前，人们希望卷积层的输入和输出的方差保持相等，以避免梯度爆炸和消失，即 Var (x)&#x3D;Var (y)。因此，卷积核被初始化为具有方差 Var (K)&#x3D;gain^2 &#x2F;(in channels ⋅ kernel size) 的形式，其增益取决于所使用的非线性。</p>
-<p>然而，神经网络的初始化使输入的 unitary 方差保留在输出。因此，当用作核生成器网络时，标准初始化方法导致核具有 unitary 方差，即 Var (K)&#x3D;1。结果，使用神经网络作为核生成器网络的 CNN 经历了与通道⋅内核大小成比例的特征表示方差的逐层增长。例如，研究者观察到 CKCNNs 和 FlexNets 在初始化时的 logits 大约为 1e^19。这是不可取的，这可能导致训练不稳定和需要低学习率。</p>
-<p>为了解决这个问题，该研究要求 G_Kernel 输出方差等于 gain^2 &#x2F; (in_channels⋅kernel_size) 而不是 1。他们通过 gain &#x2F; sqrt(in_channels⋅kernel_size) 重新加权核生成器网络的最后一层。因此，核生成器网络输出的方差遵循传统卷积核的初始化，而 CCNN 的 logits 在初始化时呈现单一方差。</p>
-<hr>
-<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p>如下表 1-4 所示，CCNN 模型在所有任务中都表现良好。</p>
-<p>首先是 1D 图像分类 CCNN 在多个连续基准上获得 SOTA，例如 Long Range Arena、语音识别、1D 图像分类，所有这些都在单一架构中实现的。CCNN 通常比其他方法模型更小架构更简单。</p>
-<p>然后是 2D 图像分类：通过单一架构，CCNN 可以匹配并超越更深的 CNN。</p>
-<img src="/314096c1/16.jpg" class>
-
-<p>对 ND 进行远程依赖建模的重要性。原则上可以将所有任务视为不考虑 2D 结构的序列任务，该研究只需改变进入核生成器网络的坐标维数，就可以在多维空间上轻松定义 CCNN。有趣的是，该研究观察到，通过在 LRA 基准测试中考虑图像和 Pathfinder 任务的 2D 特性，可以获得更好的结果（上表 3）。</p>
-<p>在具有 2D 图像的 PathFinder 中，最大的 CCNN 获得了 96.00% 的准确率，比之前 SOTA 高出近 10 个点，并在扁平图像上的表现明显优于 CCNN。</p>
-<p>此外，在原始 2D 数据上训练的模型显示出比它们的序列对应物更快的收敛（图 3）。具有小卷积核的 2D CNN，例如 ResNet-18，由于中间池化层缺乏细粒度的全局上下文建模，无法解决 Pathfinder。</p>
-<img src="/314096c1/17.jpg" class>
-
-<hr>
-<h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/544030197">https://zhuanlan.zhihu.com/p/544030197</a></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/519446359">https://zhuanlan.zhihu.com/p/519446359</a><br>[1] Image Inpainting for Irregular Holes Using Partial Convolutions<br>[2] High-Fidelity Pluralistic Image Completion with Transformers<br>[3] Bringing Old Photos Back to Life<br>[4] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/139405565">李文鑫：Partial Convolutions for Image Inpainting</a></p>
 </blockquote>
 
     </div>
@@ -393,12 +339,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/21278805.html" rel="prev" title="微表情-微表情数据集简介">
-      <i class="fa fa-chevron-left"></i> 微表情-微表情数据集简介
+    <a href="/b87a48d6.html" rel="prev" title="跟李沐学AI-读论文-Megatron LM 论文精读">
+      <i class="fa fa-chevron-left"></i> 跟李沐学AI-读论文-Megatron LM 论文精读
     </a></div>
       <div class="post-nav-item">
-    <a href="/ac4e1c0f.html" rel="next" title="软件硬件-局域网内Windows建立共享硬盘服务器">
-      软件硬件-局域网内Windows建立共享硬盘服务器 <i class="fa fa-chevron-right"></i>
+    <a href="/9d77de93.html" rel="next" title="图像修复-详解Partial Convolution （二） | 图像修复领域经典之作 | PyTorch模型搭建，训练细节及实验效果">
+      图像修复-详解Partial Convolution （二） | 图像修复领域经典之作 | PyTorch模型搭建，训练细节及实验效果 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -459,7 +405,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%A1%E7%8C%AE"><span class="nav-number">2.</span> <span class="nav-text">贡献</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E6%A0%B8%E5%8D%B7%E7%A7%AF"><span class="nav-number">2.1.</span> <span class="nav-text">连续核卷积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CCNN%EF%BC%9A%E5%9C%A8-ND-%E4%B8%AD%E5%BB%BA%E6%A8%A1%E8%BF%9C%E7%A8%8B%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB"><span class="nav-number">2.2.</span> <span class="nav-text">CCNN：在 ND 中建模远程依赖关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">3.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text">原文链接</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">论文信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E4%BF%AE%E5%A4%8D%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">图像修复简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Partial-Convolution%E8%AF%A6%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">Partial Convolution详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PConv%E8%BF%90%E7%AE%97"><span class="nav-number">3.1.</span> <span class="nav-text">PConv运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mask%E6%9B%B4%E6%96%B0"><span class="nav-number">3.2.</span> <span class="nav-text">Mask更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Padding%E5%A1%AB%E5%85%85"><span class="nav-number">3.3.</span> <span class="nav-text">Padding填充</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">网络结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -475,14 +421,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">484</span>
+          <span class="site-state-item-count">488</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -552,7 +498,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">56:53</span>
+    <span title="站点阅读时长">57:37</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

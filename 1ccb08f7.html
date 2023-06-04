@@ -25,32 +25,32 @@
 
   <meta name="description" content="导读相比于之前，在图像修复网络结构中增加了残差块，并对每个局部区域都进行了真假的判别。 今天，我想给我们到目前为止讨论过的深度图像修复做一个回顾。另外，我想再复习一篇图像修复的论文，巩固深度图像修复的知识。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习-深度图像修复的回顾和改进：使用生成对抗网络基于Patch的图像修复">
-<meta property="og:url" content="http://example.com/607c14e8.html">
+<meta property="og:title" content="图像修复-深度图像修复的回顾和改进：使用生成对抗网络基于Patch的图像修复">
+<meta property="og:url" content="http://example.com/1ccb08f7.html">
 <meta property="og:site_name" content="逢坂葵的个人博客">
 <meta property="og:description" content="导读相比于之前，在图像修复网络结构中增加了残差块，并对每个局部区域都进行了真假的判别。 今天，我想给我们到目前为止讨论过的深度图像修复做一个回顾。另外，我想再复习一篇图像修复的论文，巩固深度图像修复的知识。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/607c14e8/1.png">
-<meta property="og:image" content="http://example.com/607c14e8/2.png">
-<meta property="og:image" content="http://example.com/607c14e8/3.png">
-<meta property="og:image" content="http://example.com/607c14e8/4.png">
-<meta property="og:image" content="http://example.com/607c14e8/5.png">
-<meta property="og:image" content="http://example.com/607c14e8/6.png">
-<meta property="og:image" content="http://example.com/607c14e8/7.png">
-<meta property="og:image" content="http://example.com/607c14e8/8.png">
-<meta property="og:image" content="http://example.com/607c14e8/9.png">
-<meta property="og:image" content="http://example.com/607c14e8/10.png">
-<meta property="og:image" content="http://example.com/607c14e8/11.png">
-<meta property="og:image" content="http://example.com/607c14e8/12.png">
-<meta property="og:image" content="http://example.com/607c14e8/13.png">
-<meta property="og:image" content="http://example.com/607c14e8/14.png">
+<meta property="og:image" content="http://example.com/1ccb08f7/1.png">
+<meta property="og:image" content="http://example.com/1ccb08f7/2.png">
+<meta property="og:image" content="http://example.com/1ccb08f7/3.png">
+<meta property="og:image" content="http://example.com/1ccb08f7/4.png">
+<meta property="og:image" content="http://example.com/1ccb08f7/5.png">
+<meta property="og:image" content="http://example.com/1ccb08f7/6.png">
+<meta property="og:image" content="http://example.com/1ccb08f7/7.png">
+<meta property="og:image" content="http://example.com/1ccb08f7/8.png">
+<meta property="og:image" content="http://example.com/1ccb08f7/9.png">
+<meta property="og:image" content="http://example.com/1ccb08f7/10.png">
+<meta property="og:image" content="http://example.com/1ccb08f7/11.png">
+<meta property="og:image" content="http://example.com/1ccb08f7/12.png">
+<meta property="og:image" content="http://example.com/1ccb08f7/13.png">
+<meta property="og:image" content="http://example.com/1ccb08f7/14.png">
 <meta property="article:published_time" content="2022-10-19T10:40:31.000Z">
-<meta property="article:modified_time" content="2023-03-15T18:48:32.449Z">
+<meta property="article:modified_time" content="2023-06-04T20:09:41.311Z">
 <meta property="article:author" content="Aisaka Aoi">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/607c14e8/1.png">
+<meta name="twitter:image" content="http://example.com/1ccb08f7/1.png">
 
-<link rel="canonical" href="http://example.com/607c14e8.html">
+<link rel="canonical" href="http://example.com/1ccb08f7.html">
 
 
 <script id="page-configurations">
@@ -63,7 +63,7 @@
   };
 </script>
 
-  <title>深度学习-深度图像修复的回顾和改进：使用生成对抗网络基于Patch的图像修复 | 逢坂葵的个人博客</title>
+  <title>图像修复-深度图像修复的回顾和改进：使用生成对抗网络基于Patch的图像修复 | 逢坂葵的个人博客</title>
   
 
 
@@ -139,12 +139,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">41</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">42</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">484</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">488</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -201,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/607c14e8.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/1ccb08f7.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/manatsu.jpg">
@@ -214,7 +214,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          深度学习-深度图像修复的回顾和改进：使用生成对抗网络基于Patch的图像修复
+          图像修复-深度图像修复的回顾和改进：使用生成对抗网络基于Patch的图像修复
         </h1>
 
         <div class="post-meta">
@@ -240,12 +240,12 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-Deep-Learning/" itemprop="url" rel="index"><span itemprop="name">💫深度学习 Deep Learning</span></a>
+                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E5%9B%BE%E5%83%8F%E4%BF%AE%E5%A4%8D-Image-Inpainting/" itemprop="url" rel="index"><span itemprop="name">💫图像修复 Image Inpainting</span></a>
                 </span>
             </span>
 
           
-            <span id="/607c14e8.html" class="post-meta-item leancloud_visitors" data-flag-title="深度学习-深度图像修复的回顾和改进：使用生成对抗网络基于Patch的图像修复" title="阅读次数">
+            <span id="/1ccb08f7.html" class="post-meta-item leancloud_visitors" data-flag-title="图像修复-深度图像修复的回顾和改进：使用生成对抗网络基于Patch的图像修复" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -260,8 +260,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/607c14e8.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/607c14e8.html" itemprop="commentCount"></span>
+    <a title="valine" href="/1ccb08f7.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/1ccb08f7.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -271,14 +271,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.2k</span>
+              <span>5.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>16 分钟</span>
+              <span>14 分钟</span>
             </span>
 
         </div>
@@ -295,15 +295,15 @@
 <span id="more"></span>
 
 <hr>
-<h3 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h3><p><strong>Context Encoder (CE)是第一个基于GAN的修复算法。</strong>它强调了在修复任务中理解整个图像的上下文的重要性，并使用(channel-wise)全连接层来实现这一功能。文章链接：(用生成模型来做图像恢复的介绍和回顾：上下文编码器)[<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg5ODAzMTkyMg==&chksm=c06a62fef71debe8414ef6d0a5653ec546f1953e3905a7fbdfcf7d1a3bc5720828673ded9dff&idx=1&mid=2247494307&scene=21&sn=6259effaf115c4255be3827beb890fa1#wechat_redirect]">https://mp.weixin.qq.com/s?__biz=Mzg5ODAzMTkyMg%3D%3D&amp;chksm=c06a62fef71debe8414ef6d0a5653ec546f1953e3905a7fbdfcf7d1a3bc5720828673ded9dff&amp;idx=1&amp;mid=2247494307&amp;scene=21&amp;sn=6259effaf115c4255be3827beb890fa1#wechat_redirect]</a></p>
-<p>**Multi-scale Neural Patch Synthesis (MNPS)**可以看作是CE的改进版本。它由两个网络组成，即内容网络和纹理网络。内容网络是CE，纹理网络是预先训练好的用于分类任务的VGG-19。使用纹理网络的想法来自于最近成功的神经风格迁移。简单地说，对于高级视觉任务(如对象分类)，预训练网络的神经响应包含有关图像模式的信息。通过鼓励在缺失区域内外产生相似的神经响应，我们可以进一步增强生成像素的纹理细节，因此完成的图像将更真实。文章链接：(使用多尺度patch合成来做高分辨率的图像复原)[<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg5ODAzMTkyMg==&chksm=c06a62e3f71debf50f82afafc8e5739568ce4f11b327c6c09ffdb5c05658c032e02b9b00b371&idx=2&mid=2247494334&scene=21&sn=7954763a1e6b53fe384eb17d97a0ecb8#wechat_redirect]">https://mp.weixin.qq.com/s?__biz=Mzg5ODAzMTkyMg%3D%3D&amp;chksm=c06a62e3f71debf50f82afafc8e5739568ce4f11b327c6c09ffdb5c05658c032e02b9b00b371&amp;idx=2&amp;mid=2247494334&amp;scene=21&amp;sn=7954763a1e6b53fe384eb17d97a0ecb8#wechat_redirect]</a></p>
-<p>**Globally and Locally Consistent Image Completion (GLCIC)**是深度图像修复任务中的一个里程碑。作者采用完全卷积网络(FCN)与扩张卷积(DilatedConv)作为他们提出的模型的框架。FCN允许不同的输入大小和带膨胀的conv来替换通道全连接层，用于理解整个图像上下文。在此基础上，采用两种鉴别器对两种尺度下的完整图像和真实图像进行区分。一个全局判别器着眼于整个图像，而一个局部判别器着眼于局部填充后的图像patch。文章链接：(图像修复中的一个里程碑：全局和局部一致性的图像补全)[<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg5ODAzMTkyMg==&chksm=c06a6283f71deb954cee27dd70d6342f783d5712c3ba7668ff28dd9e417af40d33bfcbbf0099&idx=1&mid=2247494366&scene=21&sn=19cb9e7f28898655c0ee604db5112fd3#wechat_redirect]">https://mp.weixin.qq.com/s?__biz=Mzg5ODAzMTkyMg%3D%3D&amp;chksm=c06a6283f71deb954cee27dd70d6342f783d5712c3ba7668ff28dd9e417af40d33bfcbbf0099&amp;idx=1&amp;mid=2247494366&amp;scene=21&amp;sn=19cb9e7f28898655c0ee604db5112fd3#wechat_redirect]</a></p>
+<h3 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h3><p><strong>Context Encoder (CE)是第一个基于GAN的修复算法。</strong>它强调了在修复任务中理解整个图像的上下文的重要性，并使用(channel-wise)全连接层来实现这一功能。文章链接：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg5ODAzMTkyMg==&chksm=c06a62fef71debe8414ef6d0a5653ec546f1953e3905a7fbdfcf7d1a3bc5720828673ded9dff&idx=1&mid=2247494307&scene=21&sn=6259effaf115c4255be3827beb890fa1#wechat_redirect">用生成模型来做图像恢复的介绍和回顾：上下文编码器</a></p>
+<p><strong>Multi-scale Neural Patch Synthesis</strong> (MNPS)可以看作是CE的改进版本。它由两个网络组成，即内容网络和纹理网络。内容网络是CE，纹理网络是预先训练好的用于分类任务的VGG-19。使用纹理网络的想法来自于最近成功的神经风格迁移。简单地说，对于高级视觉任务(如对象分类)，预训练网络的神经响应包含有关图像模式的信息。通过鼓励在缺失区域内外产生相似的神经响应，我们可以进一步增强生成像素的纹理细节，因此完成的图像将更真实。文章链接：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg5ODAzMTkyMg==&chksm=c06a62e3f71debf50f82afafc8e5739568ce4f11b327c6c09ffdb5c05658c032e02b9b00b371&idx=2&mid=2247494334&scene=21&sn=7954763a1e6b53fe384eb17d97a0ecb8#wechat_redirect">使用多尺度patch合成来做高分辨率的图像复原</a></p>
+<p><strong>Globally and Locally Consistent Image Completion</strong> (GLCIC)是深度图像修复任务中的一个里程碑。作者采用完全卷积网络(FCN)与扩张卷积(DilatedConv)作为他们提出的模型的框架。FCN允许不同的输入大小和带膨胀的conv来替换通道全连接层，用于理解整个图像上下文。在此基础上，采用两种鉴别器对两种尺度下的完整图像和真实图像进行区分。一个全局判别器着眼于整个图像，而一个局部判别器着眼于局部填充后的图像patch。文章链接：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg5ODAzMTkyMg==&chksm=c06a6283f71deb954cee27dd70d6342f783d5712c3ba7668ff28dd9e417af40d33bfcbbf0099&idx=1&mid=2247494366&scene=21&sn=19cb9e7f28898655c0ee604db5112fd3#wechat_redirect">图像修复中的一个里程碑：全局和局部一致性的图像补全</a></p>
 <p>今天，我们将回顾这篇论文，<strong>《Patch-Based Image Inpainting with Generative Adversarial Networks》</strong>。这可以看作是GLCIC的一种变体，因此我们可以对这种典型的网络结构做了一些修改。</p>
 <hr>
 <h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p>本文作者希望利用残差链接和PatchGAN鉴别器的优势，进一步提高其修复效果。图像识别的深度残差学习(Deep Residual Learning for Image Recognition， ResNet)在深度学习方面取得了显著的成就。</p>
 <p>通过使用残差块(残差连接)，我们能够训练非常深的网络，许多论文表明残差学习对于获得更好的结果是有用的。</p>
 <p>PatchGAN在图像对图像的转换方面也取得了巨大的成功。与典型GAN中的鉴别器相比，PatchGAN鉴别器(参见下面的图1)输出的是一个矩阵(2d-array)，而不是单个值。简单来说，典型GAN鉴别器的输出是0 ~ 1的单个值。这意味着鉴别器会看整个图像，判断这幅图像是真的还是假的。如果图像是真实的，它应该等于1。如果图像是假的(即生成的图像)，它应该给出0。该式子关注的是整个图像，因此可能忽略图像的局部纹理细节。另一方面，PatchGAN判别器的输出是一个矩阵，这个矩阵中的每个元素都在0到1之间。注意，每个元素代表输入图像中的一个局部区域，如图1所示。因此，这一次，判别器需要查看多个局部图像patch，并判断每个patch的真伪。通过这样做，生成的图像的局部纹理细节可以得到增强。这就是为什么PatchGAN被广泛应用于图像生成任务。</p>
-<img src="/607c14e8/1.png" class>
+<img src="/1ccb08f7/1.png" class>
 
 <p>图1，PatchGAN 判别器，输出是一个矩阵，矩阵中的每个元素表示输入图像的一个局部区域，如果局部区域是真实的，我们会得到1，否则是0</p>
 <hr>
@@ -317,23 +317,23 @@
 <h3 id="贡献"><a href="#贡献" class="headerlink" title="贡献"></a>贡献</h3><p><strong>PatchGAN和G-GAN discriminator (PGGAN)的组合</strong>其中早期的卷积层是共享的。实验结果表明，该方法可以进一步增强生成像素的局部纹理细节。</p>
 <p>生成网络中使用了<strong>膨胀和插值卷积</strong>。通过使用<strong>膨胀残差块</strong>，改善了修补效果。</p>
 <hr>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><img src="/607c14e8/2.png" class>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><img src="/1ccb08f7/2.png" class>
 <p>图2，提出的ResNet结构的生成网络和PGGAN判别器</p>
-<img src="/607c14e8/3.png" class>
+<img src="/1ccb08f7/3.png" class>
 <p>图3，提出的GLCIC的结构</p>
 <p>图2和3分别给出本文和GLCIC所提出的网络结构。很明显，他们是相似的。两个主要区别是 i) 在生成器中使用了膨胀残差块，ii) 修改了GLCIC中的全局和局部判别器。</p>
 <p>在GLCIC中，全局判别器以整个图像作为输入，而局部识别器以填充区域周围的一个子图像作为输入。将两个判别器的输出连接起来，然后返回一个值来显示输入是真还是假(<strong>一个对抗损失</strong>)。从这个角度来看，局部判别器会聚焦在局部填充的图像patch上，从而增强填充的图像patch的局部纹理细节。一个主要缺点是<strong>局部判别器的输入依赖于缺失区域</strong>，作者在训练期间假设一个单一的矩形缺失区域。</p>
 <p>对于PGGAN判别器，我们几乎没有<strong>早期共享卷积层</strong>，如图2所示。然后，我们有<strong>两个分支</strong>，一个给出一个输出值(G-GAN)，一个给出一个输出矩阵(PatchGAN)。请注意1×256是16×16矩阵的reshape形式。如上所述，这也是一种让判别器在区分完整图像和真实图像时同时关注全局(整幅图像)和局部(局部图像patch)信息的方法。请注意，在这种情况下，我们有两个对抗损失，因为我们有两个分支。</p>
 <hr>
 <h4 id="膨胀残差块"><a href="#膨胀残差块" class="headerlink" title="膨胀残差块"></a>膨胀残差块</h4><p>在之前的文章中，我已经介绍过CNN的膨胀卷积。简单回忆一下，<strong>膨胀卷积通过跳过连续的空间位置增加感受野，而不添加额外的参数。</strong></p>
-<img src="/607c14e8/4.png" class>
+<img src="/1ccb08f7/4.png" class>
 <p>图4，残差块类型，从上到下依次为：标准残差块、扩张卷积在前的残差块、扩张卷积在后的剩余块<br>简单地说，残差块可以写成Y &#x3D; X + F(X)，其中Y是输出，X是输入，F是几个层次的序列。在图4的基本残差块中，F为conv - norm - relu - conv。这意味着我们将X输入一个卷积层，然后是一个归一化层，一个ReLU激活层，最后是另一个卷积层得到F(X)。一个要点是，输入X是直接添加到输出Y上的，这就是我们称之为跳跃连接的原因。由于在这条路径上没有任何可训练的参数，我们可以确保在反向传播过程中必须有足够的梯度传递到早期的层。因此，我们可以训练一个非常深度的网络而不会遇到梯度消失的问题。</p>
 <hr>
 <h4 id="为什么要用残差块？"><a href="#为什么要用残差块？" class="headerlink" title="为什么要用残差块？"></a>为什么要用残差块？</h4><p>你可能想知道使用残差块的好处。你们中的一些人可能已经知道答案了。以下是我的看法。让我们比较一下Y &#x3D; X + F(X)和Y &#x3D; F(X)，对于Y &#x3D; X + F(X)，我们学习的实际上是F(X) &#x3D; Y - X, Y和X的差值。这就是所谓的残差学习，X可以作为残差学习的参考。另一方面，对于Y &#x3D; F(X)，我们直接学习在没有参考的情况下将输入X映射到输出Y。所以，人们认为残差学习是比较容易的。更重要的是，很多论文已经证明了残差学习可以带来更好的效果！</p>
 <p>由于膨胀卷积有助于增加感受野，这对修复任务很重要，作者用膨胀卷积层替换了两个标准卷积层中的一个，如图4所示。膨胀残差块有两种类型，i) 以膨胀卷积在前，ii) 膨胀卷积在后。在本文中，根据膨胀残差块的数量，膨胀率从1开始每次增加2倍，例如，如果有4膨胀残差块，膨胀率为1,2,4,8。</p>
 <hr>
 <h4 id="插值卷积"><a href="#插值卷积" class="headerlink" title="插值卷积"></a>插值卷积</h4><p>为了解决标准反卷积(即转置卷积)造成的伪影，作者在这项工作中采用了插值卷积。对于插值卷积，首先使用典型的插值方法，如双线性和双三次插值，将输入调整到所需的大小。然后，应用标准卷积。下面的图5显示了转置卷积和插值卷积的区别。</p>
-<img src="/607c14e8/5.png" class>
+<img src="/1ccb08f7/5.png" class>
 <p>图5，使用转置卷积核插值卷积的可视化比较</p>
 <p>在我看来，这两种类型的卷积具有相似的性能。有时转置卷积更好，有时插值插卷积更好。</p>
 <hr>
@@ -342,35 +342,35 @@
 <hr>
 <h4 id="目标函数"><a href="#目标函数" class="headerlink" title="目标函数"></a>目标函数</h4><p>实际上，本文中使用的损失函数(即目标函数)与我们之前讨论过的论文或多或少是相同的。</p>
 <p><strong>重构损失</strong>：这种损失是为了保证逐像素的重构精度。我们通常使用L1或L2(欧几里得)距离来计算这个损失。本文采用<strong>L1损失</strong>作为它们的重构损耗。</p>
-<img src="/607c14e8/6.png" class>
+<img src="/1ccb08f7/6.png" class>
 
 <p>N为训练批中的图像数量。W、H、C分别是训练图像的宽度、高度和通道。x和y分别为ground truth和模型给出的完整图像。</p>
 <p><strong>对抗损失</strong>：我想你们大多数人现在都熟悉这种典型的对抗损失。</p>
-<img src="/607c14e8/7.png" class>
+<img src="/1ccb08f7/7.png" class>
 
 <p>x是ground truth，所以我们希望D(x)返回1，否则返回0。注意，D只是鉴别器的函数形式。</p>
 <p><strong>联合损失</strong>：</p>
-<img src="/607c14e8/8.png" class>
+<img src="/1ccb08f7/8.png" class>
 
 <p>式3为其联合损失函数。Lambda 1, 2, 3用来平衡每个损失的重要性。g_adv表示全局分支给出的输出，而p_adv表示PatchGAN分支给出的输出。需要注意的是，在他们的实验中，λ 1,2,3分别设置为0.995,0.0025和0.0025。</p>
 <hr>
 <h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p>在他们的实验中使用了三个数据集。<strong>i) Paris StreetView</strong>包含14900张训练图像和100张测试图像。<strong>ii) 谷歌StreetView</strong>拥有62058张高分辨率图像，分为10个部分。第一部分和第10部分用于测试，第9部分用于验证，其余部分用于训练。总共有46200张训练图像。<strong>iii) Places</strong>包含超过800万的训练图像。该数据集仅用于测试，以显示其通用性。</p>
 <p>为了比较典型残差块和膨胀残差块的性能，训练了<strong>PGGAN-Res</strong>和<strong>PGGAN-DRes</strong>两个模型。对于PGGAN-Res，使用基本残差块和3个子采样块。这意味着输入被向下采样了2倍3次。对于PGGAN-DRes，使用膨胀残余块和2个子采样块。这意味着输入被下采样2倍。</p>
-<img src="/607c14e8/9.png" class>
+<img src="/1ccb08f7/9.png" class>
 <p>图6，用不同的判别器训练同一生成器网络的结果。</p>
 <p>图6显示了用不同判别器训练同一生成器网络的修复结果。从图6的最后一列来看，如果只使用G-GAN鉴别器，则会观察到窗口的局部纹理细节很差。与G-GAN相比，PatchGAN提供了更好的窗口局部纹理细节，但窗口的角落看起来与全局结构不一致。总之，PGGAN可以提供最好的视觉效果。</p>
-<img src="/607c14e8/10.png" class>
+<img src="/1ccb08f7/10.png" class>
 <p>表1，巴黎街景256x256图像的定量比较</p>
-<img src="/607c14e8/11.png" class>
+<img src="/1ccb08f7/11.png" class>
 <p>表2，来自巴黎街景数据集中512x512图像的定量比较</p>
 <p>表1和2给出了在256×256和512×512两种分辨率下，不同方法在Paris StreetView数据集上的定量比较。需要注意的是，CE是Context Encoder， NPS是Multi-scale Neural Patch Synthesis (MNPS) ， GLGAN是global and local Consistent Image Completion (GLCIC)。我们已经在前面的文章中讨论了所有这些方法。</p>
 <p>从表1和表2可以明显看出，PGGAN对所有这些措施都有改进。但是，请记住，视觉质量比这些客观的评价指标更重要。</p>
-<img src="/607c14e8/12.png" class>
+<img src="/1ccb08f7/12.png" class>
 <p>图7，用不同的方法对完整图像进行感知比较。</p>
 <p>作者对这些方法进行了感知评估，如图7所示。12名投票者被要求对原始图像的自然程度和各种方法的修复结果进行评分。每个选民从巴黎街景数据集中随机分配了500张图像。注意CE是在128×128图像上训练的，因此它在256×256测试图像上的性能很差。其他方法在这种感知评价上也有类似的表现。</p>
-<img src="/607c14e8/13.png" class>
+<img src="/1ccb08f7/13.png" class>
 <p>图8，256x256巴黎街景数据集的量化比较</p>
-<img src="/607c14e8/14.png" class>
+<img src="/1ccb08f7/14.png" class>
 <p>图9，512x512巴黎街景数据集的量化比较</p>
 <p>图8和图9分别显示了大小为256×256和512×512的图像的修复结果。我建议读者放大以更好地查看结果。在我看来，PGGAN-DRes和PGGAN-Res通常会给出更好的局部纹理细节，例如，图8中的第4行和图9中的第3行。</p>
 <hr>
@@ -481,14 +481,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">484</span>
+          <span class="site-state-item-count">488</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -558,7 +558,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">56:53</span>
+    <span title="站点阅读时长">57:37</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
