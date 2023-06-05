@@ -122,12 +122,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">42</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">43</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">488</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">491</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -179,6 +179,355 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/a4821881.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/manatsu.jpg">
+      <meta itemprop="name" content="Aisaka Aoi">
+      <meta itemprop="description" content="Aisaka's Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逢坂葵的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/a4821881.html" class="post-title-link" itemprop="url">CS231n: Convolutional Neural Networks for Visual Recognition [2017] 简介</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-14 18:06:57" itemprop="dateCreated datePublished" datetime="2022-02-14T18:06:57+08:00">2022-02-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%F0%9F%8C%99%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">🌙学习资源</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%F0%9F%8C%99%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E2%AD%90Stanford-CS231n-2017/" itemprop="url" rel="index"><span itemprop="name">⭐Stanford CS231n [2017]</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/a4821881.html" class="post-meta-item leancloud_visitors" data-flag-title="CS231n: Convolutional Neural Networks for Visual Recognition [2017] 简介" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/a4821881.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/a4821881.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="CS231n简介"><a href="#CS231n简介" class="headerlink" title="CS231n简介"></a>CS231n简介</h3><p>CS231n的全称是<a target="_blank" rel="noopener" href="http://vision.stanford.edu/teaching/cs231n/index.html">CS231n: Convolutional Neural Networks for Visual Recognition</a>，即面向视觉识别的卷积神经网络。该课程是<a target="_blank" rel="noopener" href="http://vision.stanford.edu/index.html">斯坦福大学计算机视觉实验室</a>推出的课程。</p>
+<p><strong>课程描述：</strong>请允许我们引用课程主页上的官方描述如下。</p>
+<p>计算机视觉在社会中已经逐渐普及，并广泛运用于搜索检索、图像理解、手机应用、地图导航、医疗制药、无人机和无人驾驶汽车等领域。而这些应用的核心技术就是图像分类、图像定位和图像探测等视觉识别任务。近期神经网络（也就是“深度学习”）方法上的进展极大地提升了这些代表当前发展水平的视觉识别系统的性能。</p>
+<p>本课程将深入讲解深度学习框架的细节问题，聚焦面向视觉识别任务（尤其是图像分类任务）的端到端学习模型。在10周的课程中，学生们将会学习如何实现、训练和调试他们自己的神经网络，并建立起对计算机视觉领域的前沿研究方向的细节理解。最终的作业将包括训练一个有几百万参数的卷积神经网络，并将其应用到最大的图像分类数据库（ImageNet）上。我们将会聚焦于教授如何确定图像识别问题，学习算法（比如反向传播算法），对网络的训练和精细调整（fine-tuning）中的工程实践技巧，指导学生动手完成课程作业和最终的课程项目。本课程的大部分背景知识和素材都来源于<a target="_blank" rel="noopener" href="https://image-net.org/challenges/LSVRC/2014/index">ImageNet Challenge</a>竞赛。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/a4821881.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/94487b5.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/manatsu.jpg">
+      <meta itemprop="name" content="Aisaka Aoi">
+      <meta itemprop="description" content="Aisaka's Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逢坂葵的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/94487b5.html" class="post-title-link" itemprop="url">深度学习-CS231n Lecture 11~15 [2017版]</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-13 02:16:15" itemprop="dateCreated datePublished" datetime="2022-02-13T02:16:15+08:00">2022-02-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">⭐课程</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AF%BE%E7%A8%8B/%F0%9F%92%ABCS231n/" itemprop="url" rel="index"><span itemprop="name">💫CS231n</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/94487b5.html" class="post-meta-item leancloud_visitors" data-flag-title="深度学习-CS231n Lecture 11~15 [2017版]" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/94487b5.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/94487b5.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>11 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="物体检测和分割"><a href="#物体检测和分割" class="headerlink" title="物体检测和分割"></a>物体检测和分割</h3><p>物体检测模型可以分为<strong>单步模型</strong>和<strong>两步模型</strong>，其中<strong>单步模型</strong>指没有独立地、显示地提取候选区域，直接由输入图像得到其中存在的物体的类别和位置信息的模型，在计算效率上有优势，典型的<strong>单步模型</strong>有：OverFeat、SSD（Single Shot multibox-Detector ）、YOLO（You Only Look Once）等；<strong>两步模型</strong>指有独立的，显示的候选区域提取过程，即先在输入图像上筛选出一些可能存在物体的候选区域，然后针对每个候选区域，判断其是否存在物体，如果存在，就给出物体的类别和位置修正信息，在检测精度上有优势，典型的<strong>两步模型</strong>有：R-CNN、SPPNet、Fast R-CNN、Faster R-CNN、R-FCN、Mask R-CNN等</p>
+<p><strong>R-CNN：</strong>主要思路是使用无监督的选择性搜索方法将输入图像中具有相似的颜色直方图特征的区域进行递归合并，产生大量的候选区域，然后从输入图像中截取这些候选区域对应的图像，将其裁剪缩放至合适的尺寸，并送入一个CNN提取的网络中提取特征，最后再送入一个SVM分类器中进行分类和非极大值抑制操作即可得到最终结果，如下图所示可以概括R-CNN的整个过程：</p>
+<img src="/94487b5/1.png" class>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/94487b5.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/15e1ff32.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/manatsu.jpg">
+      <meta itemprop="name" content="Aisaka Aoi">
+      <meta itemprop="description" content="Aisaka's Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逢坂葵的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/15e1ff32.html" class="post-title-link" itemprop="url">CS231n: Convolutional Neural Networks for Visual Recognition - Lecture 11 CNNs in Practice</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-11 19:59:19" itemprop="dateCreated datePublished" datetime="2022-02-11T19:59:19+08:00">2022-02-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%F0%9F%8C%99%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">🌙学习资源</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%F0%9F%8C%99%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E2%AD%90Stanford-CS231n-2019%E4%B8%AD%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">⭐Stanford CS231n [2019中文]</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/15e1ff32.html" class="post-meta-item leancloud_visitors" data-flag-title="CS231n: Convolutional Neural Networks for Visual Recognition - Lecture 11 CNNs in Practice" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/15e1ff32.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/15e1ff32.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>36</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Lecture-11-CNNs-in-Practice"><a href="#Lecture-11-CNNs-in-Practice" class="headerlink" title="Lecture 11 : CNNs in Practice"></a>Lecture 11 : CNNs in Practice</h3><p>卷积神经网络工程实践技巧</p>
+<iframe src="//player.bilibili.com/player.html?aid=86713932&bvid=BV1K7411W7So&cid=154771787&page=9" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/15e1ff32.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1019,377 +1368,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2d746095.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/manatsu.jpg">
-      <meta itemprop="name" content="Aisaka Aoi">
-      <meta itemprop="description" content="Aisaka's Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="逢坂葵的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2d746095.html" class="post-title-link" itemprop="url">CS231n: Convolutional Neural Networks for Visual Recognition - Lecture 7 Training Neural Networks, Part 1</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-02-07 19:59:19" itemprop="dateCreated datePublished" datetime="2022-02-07T19:59:19+08:00">2022-02-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">🌙学习资源</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E2%AD%90Stanford-CS231n-2019%E4%B8%AD%E6%96%87/" itemprop="url" rel="index"><span itemprop="name">⭐Stanford CS231n [2019中文]</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2d746095.html" class="post-meta-item leancloud_visitors" data-flag-title="CS231n: Convolutional Neural Networks for Visual Recognition - Lecture 7 Training Neural Networks, Part 1" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2d746095.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2d746095.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>49</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Lecture-7-Training-Neural-Networks-Part-1"><a href="#Lecture-7-Training-Neural-Networks-Part-1" class="headerlink" title="Lecture 7 : Training Neural Networks, Part 1"></a>Lecture 7 : Training Neural Networks, Part 1</h3><h4 id="训练神经网络（第一部分）"><a href="#训练神经网络（第一部分）" class="headerlink" title="训练神经网络（第一部分）"></a>训练神经网络（第一部分）</h4><iframe src="//player.bilibili.com/player.html?aid=86713932&bvid=BV1K7411W7So&cid=150361601&page=7" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2d746095.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/3d624300.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/manatsu.jpg">
-      <meta itemprop="name" content="Aisaka Aoi">
-      <meta itemprop="description" content="Aisaka's Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="逢坂葵的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/3d624300.html" class="post-title-link" itemprop="url">深度学习-CS231n Lecture 7 [2017版]</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-02-07 05:30:45" itemprop="dateCreated datePublished" datetime="2022-02-07T05:30:45+08:00">2022-02-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">⭐课程</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AF%BE%E7%A8%8B/%F0%9F%92%ABCS231n/" itemprop="url" rel="index"><span itemprop="name">💫CS231n</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/3d624300.html" class="post-meta-item leancloud_visitors" data-flag-title="深度学习-CS231n Lecture 7 [2017版]" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/3d624300.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/3d624300.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li><strong>CS231n - Convolutional Neural Networks</strong></li>
-</ul>
-<h3 id="卷积神经网络历史-略过"><a href="#卷积神经网络历史-略过" class="headerlink" title="卷积神经网络历史-略过"></a>卷积神经网络历史-略过</h3><ul>
-<li><p>具体参照Lecture5已经总结</p>
-</li>
-<li><p>CNN适用于分类、恢复、探测、分割，随着GPU的兴起和互联网数据的增大，CNN现在是无处不在。以风格迁移为例。</p>
-</li>
-</ul>
-<img src="/3d624300/1.png" class>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/3d624300.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/fcec9cc0.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/manatsu.jpg">
-      <meta itemprop="name" content="Aisaka Aoi">
-      <meta itemprop="description" content="Aisaka's Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="逢坂葵的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/fcec9cc0.html" class="post-title-link" itemprop="url">深度学习-CS231n Lecture 6 [2017版]</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-02-07 03:47:55" itemprop="dateCreated datePublished" datetime="2022-02-07T03:47:55+08:00">2022-02-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">⭐课程</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AF%BE%E7%A8%8B/%F0%9F%92%ABCS231n/" itemprop="url" rel="index"><span itemprop="name">💫CS231n</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/fcec9cc0.html" class="post-meta-item leancloud_visitors" data-flag-title="深度学习-CS231n Lecture 6 [2017版]" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/fcec9cc0.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/fcec9cc0.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li><strong>CS231n - Training Neural Networks II</strong></li>
-</ul>
-<h3 id="精细优化"><a href="#精细优化" class="headerlink" title="精细优化"></a>精细优化</h3><h4 id="SGD的优化问题"><a href="#SGD的优化问题" class="headerlink" title="SGD的优化问题"></a>SGD的优化问题</h4><ol>
-<li><p>不同维度梯度问题</p>
- <img src="/fcec9cc0/1.png" class>
-
-<ul>
-<li>比如在趋近最优解的维度，梯度下降的慢，而在垂直方式梯度下降的快，梯度下降的和方向在偏离正确方向太远，这样优化过程中逼近最优解速度慢，这也是SGD速度最慢的原因</li>
-</ul>
-</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/fcec9cc0.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/24/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/26/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/24/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/26/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1457,14 +1439,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">488</span>
+          <span class="site-state-item-count">491</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -1534,7 +1516,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">57:37</span>
+    <span title="站点阅读时长">58:37</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

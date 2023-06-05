@@ -122,12 +122,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">42</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">43</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">488</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">491</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -179,6 +179,352 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/4fab8125.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/manatsu.jpg">
+      <meta itemprop="name" content="Aisaka Aoi">
+      <meta itemprop="description" content="Aisaka's Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逢坂葵的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/4fab8125.html" class="post-title-link" itemprop="url">Android-runOnUiThread()和handler的区别</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-11 14:53:32" itemprop="dateCreated datePublished" datetime="2021-08-11T14:53:32+08:00">2021-08-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙基础学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Android/" itemprop="url" rel="index"><span itemprop="name">⭐Android</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/4fab8125.html" class="post-meta-item leancloud_visitors" data-flag-title="Android-runOnUiThread()和handler的区别" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/4fab8125.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/4fab8125.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在Android开发过程中，常需要更新界面的UI，而更新UI是要主线程来更新的，即UI线程更新。Android中的View不是线程安全的，如果在主线程之外的线程中直接更新页面显示会报错。runOnUithread(Runnale)和Handler.post(Runnable)都是将更新UI的操作提交到主线程&#x2F;UI线程中执行。</p>
+<p>非主UI线程更新视图的两种方法：一种是Handler，一种是Activity中的runOnUiThread(Runnable)方法。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/4fab8125.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/6f0911e6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/manatsu.jpg">
+      <meta itemprop="name" content="Aisaka Aoi">
+      <meta itemprop="description" content="Aisaka's Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逢坂葵的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/6f0911e6.html" class="post-title-link" itemprop="url">Android-onTouch()和onTouchEvent()的区别</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-10 20:14:17" itemprop="dateCreated datePublished" datetime="2021-08-10T20:14:17+08:00">2021-08-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙基础学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Android/" itemprop="url" rel="index"><span itemprop="name">⭐Android</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/6f0911e6.html" class="post-meta-item leancloud_visitors" data-flag-title="Android-onTouch()和onTouchEvent()的区别" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/6f0911e6.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/6f0911e6.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="onTouch-方法"><a href="#onTouch-方法" class="headerlink" title="onTouch()方法"></a>onTouch()方法</h3><p>当把手放到View上后，onTouch方法被一遍一遍的调用</p>
+<p>onTouch方式是View的onTouchListener接口中定义的方法。当一个View绑定了onTouchListener后，当有Touch事件触发时，就会调用onTouch方法。</p>
+<hr>
+<h3 id="onTouchEvent-方法"><a href="#onTouchEvent-方法" class="headerlink" title="onTouchEvent()方法"></a>onTouchEvent()方法</h3><p>当把手放到Activity上时，onTouchEvent方法会一遍一遍的被调用</p>
+<p>onTouchEvent方法时重载的Activity的方法。重写了Acitivity的onTouchEvent方法后，当屏幕有Touch事件时，此方法就会被调用。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/6f0911e6.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/ec4d6003.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/manatsu.jpg">
+      <meta itemprop="name" content="Aisaka Aoi">
+      <meta itemprop="description" content="Aisaka's Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逢坂葵的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/ec4d6003.html" class="post-title-link" itemprop="url">跟李沐学AI-动手学深度学习 PyTorch版-63 束搜索</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-10 15:35:16" itemprop="dateCreated datePublished" datetime="2021-08-10T15:35:16+08:00">2021-08-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%F0%9F%8C%99%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">🌙学习资源</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%F0%9F%8C%99%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E2%AD%90%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-PyTorch%E7%89%88/" itemprop="url" rel="index"><span itemprop="name">⭐动手学深度学习 PyTorch版</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/ec4d6003.html" class="post-meta-item leancloud_visitors" data-flag-title="跟李沐学AI-动手学深度学习 PyTorch版-63 束搜索" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/ec4d6003.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/ec4d6003.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>31</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="《动手学深度学习》v2-课本"><a href="#《动手学深度学习》v2-课本" class="headerlink" title="《动手学深度学习》v2 课本"></a>《动手学深度学习》v2 课本</h3><p><a target="_blank" rel="noopener" href="http://zh.d2l.ai/">《动手学深度学习》v2 课本</a></p>
+<hr>
+<h3 id="63-束搜索"><a href="#63-束搜索" class="headerlink" title="63 束搜索"></a>63 束搜索</h3><iframe src="//player.bilibili.com/player.html?aid=974667399&bvid=BV1B44y1C7m1&cid=385254837&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/ec4d6003.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -987,363 +1333,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/8c27d4dd.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/manatsu.jpg">
-      <meta itemprop="name" content="Aisaka Aoi">
-      <meta itemprop="description" content="Aisaka's Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="逢坂葵的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/8c27d4dd.html" class="post-title-link" itemprop="url">Android-性能优化-内存泄漏</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-08-02 11:45:46" itemprop="dateCreated datePublished" datetime="2021-08-02T11:45:46+08:00">2021-08-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙基础学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Android/" itemprop="url" rel="index"><span itemprop="name">⭐Android</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/8c27d4dd.html" class="post-meta-item leancloud_visitors" data-flag-title="Android-性能优化-内存泄漏" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/8c27d4dd.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/8c27d4dd.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>7.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>19 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Android内存泄漏原因"><a href="#Android内存泄漏原因" class="headerlink" title="Android内存泄漏原因"></a>Android内存泄漏原因</h2><p>从Java上看，主要有3个原因：</p>
-<ol>
-<li><p>listener：设置监听，在一个类中设置成员变量并把另一个类作为listener给set进去：mListener &#x3D; setListener(listener);，但在不需要时没有set为null，导致一直持有该对象强引用无法被回收。外部的类没有被回收，所以内部的listener也没有被回收。</p>
-</li>
-<li><p>inner-class：内部类持有外部的引用，例如持有Acticity的this，解决方法是对应的需要什么就传什么，避免持有外部引用无法被销毁。</p>
-</li>
-<li><p>thread：无论是内部类的thread还是外部的thread，根本原因还是由1、2造成，例如等待网络回调等，导致持有对象无法被销毁。</p>
-</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/8c27d4dd.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/17879999.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/manatsu.jpg">
-      <meta itemprop="name" content="Aisaka Aoi">
-      <meta itemprop="description" content="Aisaka's Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="逢坂葵的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/17879999.html" class="post-title-link" itemprop="url">脑机接口与混合智能-新闻-快速眼动睡眠调控模型进展和两种相关典型疾病治疗的可能应对策略</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-08-01 20:40:21" itemprop="dateCreated datePublished" datetime="2021-08-01T20:40:21+08:00">2021-08-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/" itemprop="url" rel="index"><span itemprop="name">⭐脑机接口与混合智能研究团队（BCI团队）</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/" itemprop="url" rel="index"><span itemprop="name">💫新闻</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/17879999.html" class="post-meta-item leancloud_visitors" data-flag-title="脑机接口与混合智能-新闻-快速眼动睡眠调控模型进展和两种相关典型疾病治疗的可能应对策略" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/17879999.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/17879999.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>人一生将近三分之一的时间都在睡觉，人的睡眠可分为快速眼动(REM)睡眠和非快速眼动(NREM)睡眠两大部分。REM和NREM组成一个睡眠周期，大约为90分钟，人们每晚的睡眠通常经历4<del>6个睡眠周期。REM和NREM在脑活动方面极不相同。REM在睡眠时候的表现为：脑电波频率变快，振幅变低，同时还表现出心率加快、血压升高、肌肉松弛，最奇怪的是眼球不停地左右摆动，该阶段约占总睡眠时间的20</del>25%，为此科学家们把这一阶段的睡眠，称为快速眼动睡眠。把快速眼动以外的其它睡眠，称为慢波睡眠。慢波睡眠时的一般表现为：各种感觉功能减退，骨骼肌反射活动和肌紧张减退、自主神经功能普遍下降，但胃液分泌和发汗功能增强，生长激素分泌明显增多。慢波睡眠有利于促进生长和恢复体力。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/17879999.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/b53a7cb1.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/manatsu.jpg">
-      <meta itemprop="name" content="Aisaka Aoi">
-      <meta itemprop="description" content="Aisaka's Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="逢坂葵的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/b53a7cb1.html" class="post-title-link" itemprop="url">跟李沐学AI-动手学深度学习 PyTorch版-59 双向循环神经网络</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-07-28 15:35:16" itemprop="dateCreated datePublished" datetime="2021-07-28T15:35:16+08:00">2021-07-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">🌙学习资源</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%F0%9F%8C%99%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E2%AD%90%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-PyTorch%E7%89%88/" itemprop="url" rel="index"><span itemprop="name">⭐动手学深度学习 PyTorch版</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/b53a7cb1.html" class="post-meta-item leancloud_visitors" data-flag-title="跟李沐学AI-动手学深度学习 PyTorch版-59 双向循环神经网络" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/b53a7cb1.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/b53a7cb1.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>48</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="《动手学深度学习》v2-课本"><a href="#《动手学深度学习》v2-课本" class="headerlink" title="《动手学深度学习》v2 课本"></a>《动手学深度学习》v2 课本</h3><p><a target="_blank" rel="noopener" href="http://zh.d2l.ai/">《动手学深度学习》v2 课本</a></p>
-<hr>
-<h3 id="59-双向循环神经网络"><a href="#59-双向循环神经网络" class="headerlink" title="59 双向循环神经网络"></a>59 双向循环神经网络</h3><h4 id="双向循环神经网络"><a href="#双向循环神经网络" class="headerlink" title="双向循环神经网络"></a>双向循环神经网络</h4><iframe src="//player.bilibili.com/player.html?aid=716963264&bvid=BV12X4y1c71W&cid=376279969&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/b53a7cb1.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/36/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><span class="page-number current">37</span><a class="page-number" href="/page/38/">38</a><span class="space">&hellip;</span><a class="page-number" href="/page/49/">49</a><a class="extend next" rel="next" href="/page/38/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/36/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><span class="page-number current">37</span><a class="page-number" href="/page/38/">38</a><span class="space">&hellip;</span><a class="page-number" href="/page/50/">50</a><a class="extend next" rel="next" href="/page/38/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1411,14 +1404,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">488</span>
+          <span class="site-state-item-count">491</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -1488,7 +1481,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">57:37</span>
+    <span title="站点阅读时长">58:37</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
