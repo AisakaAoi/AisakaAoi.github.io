@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-06-06T23:20:35.679Z</updated>
+  <updated>2023-06-10T22:16:54.770Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,160 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>人脸识别-DeepID2+解析(港中文 2014)</title>
+    <link href="http://example.com/6c847d77.html"/>
+    <id>http://example.com/6c847d77.html</id>
+    <published>2023-06-10T22:07:47.000Z</published>
+    <updated>2023-06-10T22:16:54.770Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;DeepID2+是Yi Sun,Xiaogang Wang,Xiaoou Tang于2014.12发表，改进了网络结构，增加了隐藏表示的维度和对早期卷积层的监督，展示了深度网络的3个特性，&lt;a href=&quot;https://arxiv.org/abs/1412.1265&quot;&gt;Deeply learned face representations are sparse, selective, and robust&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    
+    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
+    
+    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>人脸识别-DeepID2解析(港中文 NIPS2014)</title>
+    <link href="http://example.com/b2238355.html"/>
+    <id>http://example.com/b2238355.html</id>
+    <published>2023-06-10T18:20:37.000Z</published>
+    <updated>2023-06-10T22:17:37.103Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;DeepID2（Deep IDentification-verification features, 深度身份验证特征）是Yi Sun,Xiaoou Tang等在NIPS 2014.06发表，提出联合识别信号和验证信号的深度学习人脸表示方法，&lt;a href=&quot;https://arxiv.org/abs/1406.4773&quot;&gt;Deep Learning Face Representation by Joint Identification-Verification&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    
+    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
+    
+    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>人脸识别-DeepID解析(港中文 CVPR2014)</title>
+    <link href="http://example.com/54bb0e60.html"/>
+    <id>http://example.com/54bb0e60.html</id>
+    <published>2023-06-09T18:52:26.000Z</published>
+    <updated>2023-06-09T19:14:39.310Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;DeepID（Deep hidden IDentity features, 深度隐藏的身份特征）是港中文孙祎、汤晓鸥于CVPR2014年发表，通过深度学习得到了高度紧凑和有判别度的特征DeepID，&lt;a href=&quot;http://mmlab.ie.cuhk.edu.hk/pdf/YiSun_CVPR14.pdf&quot;&gt;Deep Learning Face Representation from Predicting 10,000 Classes&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    
+    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
+    
+    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>人脸识别-DeepFace解析(Facebook CVPR2014)</title>
+    <link href="http://example.com/7ac7b951.html"/>
+    <id>http://example.com/7ac7b951.html</id>
+    <published>2023-06-07T23:13:47.000Z</published>
+    <updated>2023-06-07T23:41:44.304Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;DeepFace是Facebook CVPR2014年发表，主要用于人脸验证，是深度学习人脸识别的奠基之作，超过了非深度学习方法Tom-vs-Pete classifiers、high-dim LBP、TL Joint Bayesian等&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf&quot;&gt;DeepFace: Closing the Gap to Human-Level Performance in Face Verification&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    
+    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
+    
+    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>人脸识别-人脸识别概述</title>
+    <link href="http://example.com/14c46a12.html"/>
+    <id>http://example.com/14c46a12.html</id>
+    <published>2023-06-07T02:25:55.000Z</published>
+    <updated>2023-06-07T23:41:38.910Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;FR的任务、结构、特征发展、损失函数发展、骨干网发展&quot;&gt;&lt;a href=&quot;#FR的任务、结构、特征发展、损失函数发展、骨干网发展&quot; class=&quot;headerlink&quot; title=&quot;FR的任务、结构、特征发展、损失函数发展、骨干网发展&quot;&gt;&lt;/a&gt;FR的任务、结构、特征发展、损失函数发展、骨干网发展&lt;/h3&gt;&lt;h4 id=&quot;人脸识别任务分类（FR，Face-Recognition）&quot;&gt;&lt;a href=&quot;#人脸识别任务分类（FR，Face-Recognition）&quot; class=&quot;headerlink&quot; title=&quot;人脸识别任务分类（FR，Face Recognition）&quot;&gt;&lt;/a&gt;人脸识别任务分类（FR，Face Recognition）&lt;/h4&gt;&lt;p&gt;（1）1:1（人脸验证）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1:1一般叫face verification任务，是二分类（e.g., comparing one face to another）&lt;/li&gt;
+&lt;li&gt;Face Verification（人脸验证；人脸确认；人脸校验） &amp;#x3D; 验证你是不是你? (1:1 matching)&lt;/li&gt;
+&lt;li&gt;在互联网买机票、车票，医院挂号，政府惠民工程项目，以及各种证券开户、电信开户、互联网金融开户都会用到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（2）1:N（人脸识别）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1:n一般叫face identification任务，是多分类 (e.g., searching for a face in a database of many faces)&lt;/li&gt;
+&lt;li&gt;Face Identification（人脸识别） &amp;#x3D; 找出你是谁? (1:n matching)&lt;/li&gt;
+&lt;li&gt;跟1：1的A&amp;#x2F;B两张照片比对最大的区别是A&amp;#x2F;B A&amp;#x2F;C A&amp;#x2F;D……多个1：1计算，这个最大的问题是一旦BCD总和数量越大计算速度越慢，而总和超过20万，就回出现多个相似结果（20万人这个大数会导致有不少人长相相似），需要人工辅助定位。&lt;/li&gt;
+&lt;li&gt;主要用于人脸检索、排查犯罪嫌疑人、失踪人口的全库搜寻、一人多证的重复排查，以此相似度列出相应的结果，可以大大提高排查效率。&lt;/li&gt;
+&lt;li&gt;1:1的实际使用场景是更加受限而单一的，而1:n的实际使用场景更加wild、更加不可控。因此要到达较高的可用性，1:1会更加容易，而1:n会更难一些。&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    
+    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
+    
+    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>人脸识别-基于深度学习的人脸识别发展历史</title>
+    <link href="http://example.com/2fb60bd8.html"/>
+    <id>http://example.com/2fb60bd8.html</id>
+    <published>2023-06-06T19:08:12.000Z</published>
+    <updated>2023-06-10T19:13:08.327Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/2fb60bd8/1.png&quot; class&gt;
+
+&lt;p&gt;从2014年DeepFace开始到2019年的算法，还有一些用于人脸识别的损失函数：基于欧几里得距离的损失函数（Contrastive Loss、Triplet Loss、Center Loss）；基于Angular Margin相关的损失函数（L-Softmax Loss、A-Softmax Loss、COCO Loss、CosFace Loss、ArcFace Loss）等。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    
+    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
+    
+    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>软件硬件-2023年6月4TB廉价高速SSD怎么选？市面常见的两种方案，简单分析一波</title>
@@ -40,7 +194,7 @@
     <link href="http://example.com/a3cf2476.html"/>
     <id>http://example.com/a3cf2476.html</id>
     <published>2023-06-05T21:57:38.000Z</published>
-    <updated>2023-06-05T22:10:16.473Z</updated>
+    <updated>2023-06-07T23:41:35.130Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文为人脸识别算法系列专题的综述文章，人脸识别是一个被广泛研究着的热门问题，大量的研究论文层出不穷，文中将为大家总结近些年出现的具有代表性的人脸识别算法。(至2018年，原文2018年所作)&lt;/p&gt;
@@ -50,9 +204,11 @@
     
     <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
+    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
+    
+    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
     
     
   </entry>
@@ -62,7 +218,7 @@
     <link href="http://example.com/bbd5e096.html"/>
     <id>http://example.com/bbd5e096.html</id>
     <published>2023-06-05T20:26:38.000Z</published>
-    <updated>2023-06-05T21:08:11.731Z</updated>
+    <updated>2023-06-07T23:41:29.403Z</updated>
     
     
     <summary type="html">&lt;p&gt;人脸识别，是基于人的脸部特征信息进行身份识别的一种生物识别技术。用摄像机或摄像头采集含有人脸的图像或视频流，并自动在图像中检测和跟踪人脸，进而对检测到的人脸进行脸部识别的一系列相关技术，通常也叫做人像识别、面部识别。&lt;/p&gt;
@@ -79,9 +235,11 @@
     
     <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
+    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
+    
+    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
     
     
   </entry>
@@ -91,7 +249,7 @@
     <link href="http://example.com/6d96441.html"/>
     <id>http://example.com/6d96441.html</id>
     <published>2023-06-03T20:49:52.000Z</published>
-    <updated>2023-06-04T19:09:21.060Z</updated>
+    <updated>2023-06-07T23:45:33.051Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/6d96441/1.png&quot; class&gt;</summary>
@@ -100,9 +258,9 @@
     
     <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
+    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
     
     
   </entry>
@@ -112,7 +270,7 @@
     <link href="http://example.com/1f9c90df.html"/>
     <id>http://example.com/1f9c90df.html</id>
     <published>2023-06-03T20:28:16.000Z</published>
-    <updated>2023-06-03T20:51:24.760Z</updated>
+    <updated>2023-06-07T23:45:35.079Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/1f9c90df/1.png&quot; class&gt;</summary>
@@ -121,9 +279,9 @@
     
     <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
+    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
     
     
   </entry>
@@ -133,7 +291,7 @@
     <link href="http://example.com/27c49b54.html"/>
     <id>http://example.com/27c49b54.html</id>
     <published>2023-06-02T19:49:32.000Z</published>
-    <updated>2023-06-03T20:27:22.031Z</updated>
+    <updated>2023-06-07T23:45:29.446Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/27c49b54/1.png&quot; class&gt;</summary>
@@ -142,9 +300,9 @@
     
     <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
+    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
     
     
   </entry>
@@ -154,7 +312,7 @@
     <link href="http://example.com/fc667301.html"/>
     <id>http://example.com/fc667301.html</id>
     <published>2023-06-02T17:01:44.000Z</published>
-    <updated>2023-06-02T17:12:01.304Z</updated>
+    <updated>2023-06-09T20:47:04.908Z</updated>
     
     
     <summary type="html">&lt;p&gt;很多同学谈数学色变，但数学是机器学习绕不开的基础知识。今天我们来谈谈这个话题：学好机器学习究竟需要哪些数学知识？&lt;/p&gt;
@@ -174,9 +332,9 @@
     
     <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫机器学习 Machine Learning" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-Machine-Learning/"/>
+    <category term="💫机器学习基本概念 Machine Learning Basic Concepts" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-Machine-Learning-Basic-Concepts/"/>
     
     
   </entry>
@@ -186,7 +344,7 @@
     <link href="http://example.com/a2c3cb6.html"/>
     <id>http://example.com/a2c3cb6.html</id>
     <published>2023-06-01T20:32:20.000Z</published>
-    <updated>2023-06-01T21:00:17.169Z</updated>
+    <updated>2023-06-07T23:45:23.477Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/a2c3cb6/1.png&quot; class&gt;
@@ -197,9 +355,9 @@
     
     <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
+    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
     
     
   </entry>
@@ -228,7 +386,7 @@
     <link href="http://example.com/fcc496a5.html"/>
     <id>http://example.com/fcc496a5.html</id>
     <published>2023-05-30T20:21:47.000Z</published>
-    <updated>2023-05-30T20:37:01.939Z</updated>
+    <updated>2023-06-07T23:45:21.910Z</updated>
     
     
     <summary type="html">&lt;p&gt;本工作是由上海交通大学宋利教授带领的Medialab实验室与新加坡管理大学、南安普顿大学合作产出，并被CVPR 2023录用。本文提出了一个基于diffusion model的框架，即FreestyleNet，其可以从给定的布局（layout）生成包含丰富语义的图像。传统的布局到图像生成（Layout-to-Image Synthesis，LIS）方法只能生成训练数据集中固有的语义，如COCO-Stuff中的182类物体。有没有可能在指定的布局上填入训练集外的语义（例如新的类别，属性以及风格）呢？针对这一全新的任务——自由式布局到图像生成（Freestyle Layout-to-Image Synthesis，FLIS），本文基于预训练的文生图大模型Stable Diffusion [1]构建了FreestyleNet。Stable Diffusion能够为我们提供丰富的语义，但是其只支持文本作为输入，如何将这些语义填入指定的布局是一个巨大的挑战。为此，本文引入了修正交叉注意力（Rectified Cross-Attention，RCA）层，并将其插入到Stable Diffusion的U-Net当中。通过限制文本token只在特定的区域与图像token产生交互，RCA实现了将语义自由放置在指定布局上的功能。实验表明，FreestyleNet能够结合文本和布局生成逼真的结果，进一步增强了图像生成的可控性。&lt;/p&gt;
@@ -244,9 +402,9 @@
     
     <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
+    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
     
     
   </entry>
@@ -273,7 +431,7 @@
     <link href="http://example.com/f6181c9b.html"/>
     <id>http://example.com/f6181c9b.html</id>
     <published>2023-05-29T17:06:29.000Z</published>
-    <updated>2023-05-29T17:30:18.429Z</updated>
+    <updated>2023-06-07T23:45:20.151Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/f6181c9b/1.png&quot; class&gt;
@@ -288,9 +446,9 @@
     
     <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
+    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
     
     
   </entry>
@@ -300,7 +458,7 @@
     <link href="http://example.com/9643da0c.html"/>
     <id>http://example.com/9643da0c.html</id>
     <published>2023-05-28T18:39:43.000Z</published>
-    <updated>2023-05-29T17:06:18.300Z</updated>
+    <updated>2023-06-07T23:45:18.224Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/9643da0c/1.png&quot; class&gt;
@@ -316,9 +474,9 @@
     
     <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
+    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
     
     
   </entry>
@@ -338,138 +496,6 @@
     
     
     <category term="🌙兴趣杂谈" scheme="http://example.com/categories/%F0%9F%8C%99%E5%85%B4%E8%B6%A3%E6%9D%82%E8%B0%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习-波澜壮阔40年</title>
-    <link href="http://example.com/f7ef067e.html"/>
-    <id>http://example.com/f7ef067e.html</id>
-    <published>2023-05-18T19:02:31.000Z</published>
-    <updated>2023-06-02T17:11:58.639Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;什么是机器学习？&quot;&gt;&lt;a href=&quot;#什么是机器学习？&quot; class=&quot;headerlink&quot; title=&quot;什么是机器学习？&quot;&gt;&lt;/a&gt;什么是机器学习？&lt;/h3&gt;&lt;p&gt;人工智能的再次兴起让机器学习（Machine Learning）这个名词进入了公众的视野，它成为当前解决很多人工智能问题的核心基石。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;机器学习是什么？&lt;/li&gt;
-&lt;li&gt;如果只用一句话解释这个概念，最简单直观的答案是：机器学习用计算机程序模拟人的学习能力，从实际例子中学习得到知识和经验。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;机器学习是人工智能的一个分支，也是人工智能的一种实现方法。它从样本数据中学习得到知识和规律，然后用于实际的推断和决策。它和普通程序的一个显著区别是需要样本数据，是一种数据驱动的方法。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="💫机器学习 Machine Learning" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-Machine-Learning/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习-理解牛顿法</title>
-    <link href="http://example.com/4b39956b.html"/>
-    <id>http://example.com/4b39956b.html</id>
-    <published>2023-04-28T18:44:31.000Z</published>
-    <updated>2023-04-30T20:11:31.362Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;导言&quot;&gt;&lt;a href=&quot;#导言&quot; class=&quot;headerlink&quot; title=&quot;导言&quot;&gt;&lt;/a&gt;导言&lt;/h3&gt;&lt;p&gt;牛顿法是数值优化算法中的大家族，它和它的改进型在很多实际问题中得到了应用。在机器学习中，牛顿法是和梯度下降法地位相当的的主要优化算法。在本文中，将为大家深入浅出的系统讲述牛顿法的原理与应用。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="💫机器学习 Machine Learning" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-Machine-Learning/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习-理解凸优化</title>
-    <link href="http://example.com/548a9e6b.html"/>
-    <id>http://example.com/548a9e6b.html</id>
-    <published>2023-04-26T17:23:08.000Z</published>
-    <updated>2023-04-30T18:42:13.589Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;导言&quot;&gt;&lt;a href=&quot;#导言&quot; class=&quot;headerlink&quot; title=&quot;导言&quot;&gt;&lt;/a&gt;导言&lt;/h3&gt;&lt;p&gt;凸优化（convex optimization）是最优化问题中非常重要的一类，也是被研究的很透彻的一类。对于机器学习来说，如果要优化的问题被证明是凸优化问题，则说明此问题可以被比较好的解决。在本文中，将为大家深入浅出的介绍凸优化的概念以及在机器学习中的应用。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="💫机器学习 Machine Learning" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-Machine-Learning/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习-理解梯度下降法</title>
-    <link href="http://example.com/c00b1c34.html"/>
-    <id>http://example.com/c00b1c34.html</id>
-    <published>2023-04-24T16:55:19.000Z</published>
-    <updated>2023-04-29T18:39:50.346Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;导言&quot;&gt;&lt;a href=&quot;#导言&quot; class=&quot;headerlink&quot; title=&quot;导言&quot;&gt;&lt;/a&gt;导言&lt;/h3&gt;&lt;p&gt;最优化问题在机器学习中有非常重要的地位，很多机器学习算法最后都归结为求解最优化问题。在各种最优化算法中，梯度下降法是最简单、最常见的一种，在深度学习的训练中被广为使用。在本文中，将为大家系统的讲述梯度下降法的原理和实现细节问题。&lt;/p&gt;
-&lt;img src=&quot;/c00b1c34/1.jpg&quot; class&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="💫机器学习 Machine Learning" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%F0%9F%92%AB%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-Machine-Learning/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读-SCI常用英文表达（长期更新）</title>
-    <link href="http://example.com/a3bedb96.html"/>
-    <id>http://example.com/a3bedb96.html</id>
-    <published>2023-04-22T19:07:58.000Z</published>
-    <updated>2023-04-22T19:35:28.579Z</updated>
-    
-    
-    <summary type="html">&lt;h5 id=&quot;表示探索、挖掘&quot;&gt;&lt;a href=&quot;#表示探索、挖掘&quot; class=&quot;headerlink&quot; title=&quot;表示探索、挖掘&quot;&gt;&lt;/a&gt;表示探索、挖掘&lt;/h5&gt;&lt;p&gt;explore, probe, investigate, illustrate&lt;/p&gt;
-&lt;h5 id=&quot;表示提出&quot;&gt;&lt;a href=&quot;#表示提出&quot; class=&quot;headerlink&quot; title=&quot;表示提出&quot;&gt;&lt;/a&gt;表示提出&lt;/h5&gt;&lt;p&gt;propose, point out, claim, state&lt;/p&gt;
-&lt;h5 id=&quot;表示做了…实验&quot;&gt;&lt;a href=&quot;#表示做了…实验&quot; class=&quot;headerlink&quot; title=&quot;表示做了…实验&quot;&gt;&lt;/a&gt;表示做了…实验&lt;/h5&gt;&lt;p&gt;perform, carry out, conduct, undertake, adopt&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐论文阅读" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
-    
-    <category term="💫方法技巧" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%F0%9F%92%AB%E6%96%B9%E6%B3%95%E6%8A%80%E5%B7%A7/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习-机器学习课程分享</title>
-    <link href="http://example.com/904cb172.html"/>
-    <id>http://example.com/904cb172.html</id>
-    <published>2023-04-20T22:46:46.000Z</published>
-    <updated>2023-04-22T22:48:14.649Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/904cb172/%E5%B9%BB%E7%81%AF%E7%89%871.JPG&quot; class&gt;</summary>
-    
-    
-    
-    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐机器学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
