@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-06-11T19:00:14.245Z</updated>
+  <updated>2023-06-14T14:04:13.110Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第九艺术-XCB农场牧场建设</title>
+    <link href="http://example.com/265ee293.html"/>
+    <id>http://example.com/265ee293.html</id>
+    <published>2023-06-14T13:26:33.000Z</published>
+    <updated>2023-06-14T14:04:13.110Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今天收到软院楼下101门口黑土地的影响，突然很想玩玩童年的QQ农场，于是把以前本地的农场包部署到了华为云服务器上，XCB的米娜桑速进！&lt;/p&gt;
+&lt;p&gt;下面是注册与游玩指南：&lt;/p&gt;
+&lt;img src=&quot;/265ee293/1.png&quot; class&gt;</summary>
+    
+    
+    
+    <category term="🌙兴趣杂谈" scheme="http://example.com/categories/%F0%9F%8C%99%E5%85%B4%E8%B6%A3%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>人脸识别-VGGFace解析(牛津大学 2015)</title>
+    <link href="http://example.com/f8a6a518.html"/>
+    <id>http://example.com/f8a6a518.html</id>
+    <published>2023-06-12T19:44:12.000Z</published>
+    <updated>2023-06-12T19:54:43.834Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;VGGFace是牛津大学视觉组于2015年发表，VGGNet也是他们提出的，基于VGGNet的人脸识别，&lt;a href=&quot;http://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf&quot;&gt;Deep Face Recognition&lt;/a&gt;，&lt;a href=&quot;https://www.robots.ox.ac.uk/~vgg/software/vgg_face/&quot;&gt;官网&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    
+    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
+    
+    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>人脸识别-FaceNet解析(谷歌 CVPR2015)</title>
@@ -442,50 +484,6 @@
 &lt;li&gt;作者：Han Xue, Zhiwu Huang, Qianru Sun, Li Song, and Wenjun Zhang&lt;/li&gt;
 &lt;li&gt;论文链接：&lt;a href=&quot;https://arxiv.org/abs/2303.14412&quot;&gt;https://arxiv.org/abs/2303.14412&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;项目地址：&lt;a href=&quot;https://essunny310.github.io/FreestyleNet/&quot;&gt;https://essunny310.github.io/FreestyleNet/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>经验分享-2023年保研经验分享</title>
-    <link href="http://example.com/1144b614.html"/>
-    <id>http://example.com/1144b614.html</id>
-    <published>2023-05-30T16:28:05.000Z</published>
-    <updated>2023-06-01T16:34:28.215Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/1144b614/%E5%B9%BB%E7%81%AF%E7%89%871.JPG&quot; class&gt;</summary>
-    
-    
-    
-    <category term="🌙兴趣杂谈" scheme="http://example.com/categories/%F0%9F%8C%99%E5%85%B4%E8%B6%A3%E6%9D%82%E8%B0%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>前沿改进-CVPR 2023 | LoGoNet：优于所有最先进的 3D 目标检测方法！</title>
-    <link href="http://example.com/f6181c9b.html"/>
-    <id>http://example.com/f6181c9b.html</id>
-    <published>2023-05-29T17:06:29.000Z</published>
-    <updated>2023-06-07T23:45:20.151Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/f6181c9b/1.png&quot; class&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Title: LoGoNet: Towards Accurate 3D Object Detection with Local-to-Global Cross-Modal Fusion&lt;/li&gt;
-&lt;li&gt;Paper: &lt;a href=&quot;https://arxiv.org/pdf/2303.03595.pdf&quot;&gt;https://arxiv.org/pdf/2303.03595.pdf&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Code: &lt;a href=&quot;https://github.com/sankin97/LoGoNet&quot;&gt;https://github.com/sankin97/LoGoNet&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</summary>
     
     
