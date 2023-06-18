@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-06-17T18:50:37.059Z</updated>
+  <updated>2023-06-18T22:28:09.072Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>人脸识别-CosFace解析(腾讯AI Lab CVPR2018)</title>
-    <link href="http://example.com/82a4379d.html"/>
-    <id>http://example.com/82a4379d.html</id>
+    <title>人脸识别-人脸识别合集 | 10 ArcFace解析(伦敦帝国理工学院)</title>
+    <link href="http://example.com/5a116c56.html"/>
+    <id>http://example.com/5a116c56.html</id>
+    <published>2023-06-18T13:32:14.000Z</published>
+    <updated>2023-06-18T22:28:09.072Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;ArcFace&amp;#x2F;InsightFace（弧度）是伦敦帝国理工学院邓建康等在2018.01发表，在SphereFace基础上改进了对特征向量归一化和加性角度间隔，提高了类间可分性同时加强类内紧度和类间差异，&lt;a href=&quot;https://arxiv.org/abs/1801.07698&quot;&gt;ArcFace: Additive Angular Margin Loss for Deep Face Recognition&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    
+    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
+    
+    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>人脸识别-人脸识别合集 | 9 CosFace解析(腾讯AI Lab CVPR2018)</title>
+    <link href="http://example.com/8b9c602d.html"/>
+    <id>http://example.com/8b9c602d.html</id>
     <published>2023-06-17T18:29:44.000Z</published>
-    <updated>2023-06-17T18:50:37.059Z</updated>
+    <updated>2023-06-18T22:27:39.928Z</updated>
     
     
     <summary type="html">&lt;p&gt;CosFace是腾讯AI Lab的Hao Wang等在CVPR2018.01发表，在SphereFace基础上改进了对特征向量归一化和additive cosine margin。由此，通过归一化和余弦决策边界的最大化，可实现类间差异的最大化和类内差异的最小化。&lt;a href=&quot;https://arxiv.org/abs/1801.09414&quot;&gt;CosFace: Large Margin Cosine Loss for Deep Face Recognition&lt;/a&gt;&lt;/p&gt;</summary>
@@ -40,11 +63,11 @@
   </entry>
   
   <entry>
-    <title>人脸识别-SphereFace解析(佐治亚理工学院 CVPR2017)</title>
-    <link href="http://example.com/98eecb51.html"/>
-    <id>http://example.com/98eecb51.html</id>
+    <title>人脸识别-人脸识别合集 | 8 SphereFace解析(佐治亚理工学院 CVPR2017)</title>
+    <link href="http://example.com/ee333774.html"/>
+    <id>http://example.com/ee333774.html</id>
     <published>2023-06-17T17:36:45.000Z</published>
-    <updated>2023-06-17T18:26:12.749Z</updated>
+    <updated>2023-06-18T22:27:09.700Z</updated>
     
     
     <summary type="html">&lt;p&gt;SphereFace（超球面）是佐治亚理工学院Weiyang Liu等在CVPR2017.04发表，提出了将Softmax loss从欧几里得距离转换到角度间隔，增加决策余量m，限制||W||&amp;#x3D;1和b&amp;#x3D;0，&lt;a href=&quot;https://arxiv.org/abs/1704.08063&quot;&gt;SphereFace: Deep Hypersphere Embedding for Face Recognition&lt;/a&gt;&lt;/p&gt;</summary>
@@ -67,12 +90,12 @@
     <link href="http://example.com/265ee293.html"/>
     <id>http://example.com/265ee293.html</id>
     <published>2023-06-14T13:26:33.000Z</published>
-    <updated>2023-06-14T14:24:41.490Z</updated>
+    <updated>2023-06-18T22:26:33.104Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天受到软院楼下101门口黑土地的影响，突然很想玩玩童年的QQ农场，于是把以前本地的农场包部署到了华为云服务器上，XCB的米娜桑速进！&lt;/p&gt;
 &lt;p&gt;下面是注册与游玩指南：&lt;/p&gt;
-&lt;img src=&quot;/265ee293/1.png&quot; class&gt;</summary>
+&lt;img src=&quot;/265ee293/1.webp&quot; class&gt;</summary>
     
     
     
@@ -86,10 +109,10 @@
     <link href="http://example.com/3e7ecf95.html"/>
     <id>http://example.com/3e7ecf95.html</id>
     <published>2023-06-13T07:09:28.000Z</published>
-    <updated>2023-06-16T07:15:20.781Z</updated>
+    <updated>2023-06-18T22:24:24.794Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/3e7ecf95/2023_06_13_20_00_IMG_1786.jpg&quot; class&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/3e7ecf95/2023_06_13_20_00_IMG_1786.webp&quot; class&gt;</summary>
     
     
     
@@ -101,11 +124,11 @@
   </entry>
   
   <entry>
-    <title>人脸识别-VGGFace解析(牛津大学 2015)</title>
-    <link href="http://example.com/f8a6a518.html"/>
-    <id>http://example.com/f8a6a518.html</id>
+    <title>人脸识别-人脸识别合集 | 7 VGGFace解析(牛津大学 2015)</title>
+    <link href="http://example.com/2d425650.html"/>
+    <id>http://example.com/2d425650.html</id>
     <published>2023-06-12T19:44:12.000Z</published>
-    <updated>2023-06-12T19:54:43.834Z</updated>
+    <updated>2023-06-18T22:23:44.092Z</updated>
     
     
     <summary type="html">&lt;p&gt;VGGFace是牛津大学视觉组于2015年发表，VGGNet也是他们提出的，基于VGGNet的人脸识别，&lt;a href=&quot;http://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf&quot;&gt;Deep Face Recognition&lt;/a&gt;，&lt;a href=&quot;https://www.robots.ox.ac.uk/~vgg/software/vgg_face/&quot;&gt;官网&lt;/a&gt;&lt;/p&gt;</summary>
@@ -124,11 +147,11 @@
   </entry>
   
   <entry>
-    <title>人脸识别-FaceNet解析(谷歌 CVPR2015)</title>
-    <link href="http://example.com/528fceca.html"/>
-    <id>http://example.com/528fceca.html</id>
+    <title>人脸识别-人脸识别合集 | 6 FaceNet解析(谷歌 CVPR2015)</title>
+    <link href="http://example.com/afb83773.html"/>
+    <id>http://example.com/afb83773.html</id>
     <published>2023-06-11T18:45:32.000Z</published>
-    <updated>2023-06-11T19:00:14.245Z</updated>
+    <updated>2023-06-18T22:23:18.151Z</updated>
     
     
     <summary type="html">&lt;p&gt;FaceNet是谷歌于CVPR2015.02发表，提出了一个对识别、验证、聚类等问题的统一解决框架，即它们都可以放到特征空间里做，需要专注解决的仅仅是如何将人脸更好的映射到特征空间，&lt;a href=&quot;https://arxiv.org/abs/1503.03832&quot;&gt;FaceNet: A Unified Embedding for Face Recognition and Clustering&lt;/a&gt;&lt;/p&gt;</summary>
@@ -147,11 +170,11 @@
   </entry>
   
   <entry>
-    <title>人脸识别-DeepID3解析(港中文 2015)</title>
-    <link href="http://example.com/53c5bc21.html"/>
-    <id>http://example.com/53c5bc21.html</id>
+    <title>人脸识别-人脸识别合集 | 5 DeepID3解析(港中文 2015)</title>
+    <link href="http://example.com/15ed4648.html"/>
+    <id>http://example.com/15ed4648.html</id>
     <published>2023-06-11T18:34:46.000Z</published>
-    <updated>2023-06-11T18:52:31.591Z</updated>
+    <updated>2023-06-18T13:21:14.859Z</updated>
     
     
     <summary type="html">&lt;p&gt;DeepID3是Yi Sun, Ding Liang, Xiaogang Wang, Xiaoou Tang在2015.02发表，提出基于VGGNet和GoogLeNet的人脸表示，&lt;a href=&quot;https://arxiv.org/abs/1502.00873&quot;&gt;DeepID3: Face Recognition with Very Deep Neural Networks&lt;/a&gt;&lt;/p&gt;</summary>
@@ -170,11 +193,11 @@
   </entry>
   
   <entry>
-    <title>人脸识别-DeepID2+解析(港中文 2014)</title>
-    <link href="http://example.com/6c847d77.html"/>
-    <id>http://example.com/6c847d77.html</id>
+    <title>人脸识别-人脸识别合集 | 4 DeepID2+解析(港中文 2014)</title>
+    <link href="http://example.com/a97689db.html"/>
+    <id>http://example.com/a97689db.html</id>
     <published>2023-06-10T22:07:47.000Z</published>
-    <updated>2023-06-10T22:16:54.770Z</updated>
+    <updated>2023-06-18T22:22:24.022Z</updated>
     
     
     <summary type="html">&lt;p&gt;DeepID2+是Yi Sun,Xiaogang Wang,Xiaoou Tang于2014.12发表，改进了网络结构，增加了隐藏表示的维度和对早期卷积层的监督，展示了深度网络的3个特性，&lt;a href=&quot;https://arxiv.org/abs/1412.1265&quot;&gt;Deeply learned face representations are sparse, selective, and robust&lt;/a&gt;&lt;/p&gt;</summary>
@@ -193,11 +216,11 @@
   </entry>
   
   <entry>
-    <title>人脸识别-DeepID2解析(港中文 NIPS2014)</title>
-    <link href="http://example.com/b2238355.html"/>
-    <id>http://example.com/b2238355.html</id>
+    <title>人脸识别-人脸识别合集 | 3 DeepID2解析(港中文 NIPS2014)</title>
+    <link href="http://example.com/426bfda6.html"/>
+    <id>http://example.com/426bfda6.html</id>
     <published>2023-06-10T18:20:37.000Z</published>
-    <updated>2023-06-10T22:17:37.103Z</updated>
+    <updated>2023-06-18T22:00:38.863Z</updated>
     
     
     <summary type="html">&lt;p&gt;DeepID2（Deep IDentification-verification features, 深度身份验证特征）是Yi Sun,Xiaoou Tang等在NIPS 2014.06发表，提出联合识别信号和验证信号的深度学习人脸表示方法，&lt;a href=&quot;https://arxiv.org/abs/1406.4773&quot;&gt;Deep Learning Face Representation by Joint Identification-Verification&lt;/a&gt;&lt;/p&gt;</summary>
@@ -216,11 +239,11 @@
   </entry>
   
   <entry>
-    <title>人脸识别-DeepID解析(港中文 CVPR2014)</title>
-    <link href="http://example.com/54bb0e60.html"/>
-    <id>http://example.com/54bb0e60.html</id>
+    <title>人脸识别-人脸识别合集 | 2 DeepID解析(港中文 CVPR2014)</title>
+    <link href="http://example.com/37d4e8c6.html"/>
+    <id>http://example.com/37d4e8c6.html</id>
     <published>2023-06-09T18:52:26.000Z</published>
-    <updated>2023-06-09T19:14:39.310Z</updated>
+    <updated>2023-06-18T22:00:14.406Z</updated>
     
     
     <summary type="html">&lt;p&gt;DeepID（Deep hidden IDentity features, 深度隐藏的身份特征）是港中文孙祎、汤晓鸥于CVPR2014年发表，通过深度学习得到了高度紧凑和有判别度的特征DeepID，&lt;a href=&quot;http://mmlab.ie.cuhk.edu.hk/pdf/YiSun_CVPR14.pdf&quot;&gt;Deep Learning Face Representation from Predicting 10,000 Classes&lt;/a&gt;&lt;/p&gt;</summary>
@@ -239,11 +262,11 @@
   </entry>
   
   <entry>
-    <title>人脸识别-DeepFace解析(Facebook CVPR2014)</title>
-    <link href="http://example.com/7ac7b951.html"/>
-    <id>http://example.com/7ac7b951.html</id>
+    <title>人脸识别-人脸识别合集 | 1 DeepFace解析(Facebook CVPR2014)</title>
+    <link href="http://example.com/cec2ee73.html"/>
+    <id>http://example.com/cec2ee73.html</id>
     <published>2023-06-07T23:13:47.000Z</published>
-    <updated>2023-06-07T23:41:44.304Z</updated>
+    <updated>2023-06-18T21:59:49.062Z</updated>
     
     
     <summary type="html">&lt;p&gt;DeepFace是Facebook CVPR2014年发表，主要用于人脸验证，是深度学习人脸识别的奠基之作，超过了非深度学习方法Tom-vs-Pete classifiers、high-dim LBP、TL Joint Bayesian等&lt;/p&gt;
@@ -263,11 +286,11 @@
   </entry>
   
   <entry>
-    <title>人脸识别-人脸识别概述</title>
-    <link href="http://example.com/14c46a12.html"/>
-    <id>http://example.com/14c46a12.html</id>
+    <title>人脸识别-人脸识别合集 | 0 人脸识别概述</title>
+    <link href="http://example.com/725172e0.html"/>
+    <id>http://example.com/725172e0.html</id>
     <published>2023-06-07T02:25:55.000Z</published>
-    <updated>2023-06-07T23:41:38.910Z</updated>
+    <updated>2023-06-18T21:59:23.426Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;FR的任务、结构、特征发展、损失函数发展、骨干网发展&quot;&gt;&lt;a href=&quot;#FR的任务、结构、特征发展、损失函数发展、骨干网发展&quot; class=&quot;headerlink&quot; title=&quot;FR的任务、结构、特征发展、损失函数发展、骨干网发展&quot;&gt;&lt;/a&gt;FR的任务、结构、特征发展、损失函数发展、骨干网发展&lt;/h3&gt;&lt;h4 id=&quot;人脸识别任务分类（FR，Face-Recognition）&quot;&gt;&lt;a href=&quot;#人脸识别任务分类（FR，Face-Recognition）&quot; class=&quot;headerlink&quot; title=&quot;人脸识别任务分类（FR，Face Recognition）&quot;&gt;&lt;/a&gt;人脸识别任务分类（FR，Face Recognition）&lt;/h4&gt;&lt;p&gt;（1）1:1（人脸验证）&lt;/p&gt;
@@ -303,10 +326,10 @@
     <link href="http://example.com/2fb60bd8.html"/>
     <id>http://example.com/2fb60bd8.html</id>
     <published>2023-06-06T19:08:12.000Z</published>
-    <updated>2023-06-10T19:13:08.327Z</updated>
+    <updated>2023-06-18T21:58:41.366Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/2fb60bd8/1.png&quot; class&gt;
+    <summary type="html">&lt;img src=&quot;/2fb60bd8/1.webp&quot; class&gt;
 
 &lt;p&gt;从2014年DeepFace开始到2019年的算法，还有一些用于人脸识别的损失函数：基于欧几里得距离的损失函数（Contrastive Loss、Triplet Loss、Center Loss）；基于Angular Margin相关的损失函数（L-Softmax Loss、A-Softmax Loss、COCO Loss、CosFace Loss、ArcFace Loss）等。&lt;/p&gt;</summary>
     
@@ -328,10 +351,10 @@
     <link href="http://example.com/dbe264fb.html"/>
     <id>http://example.com/dbe264fb.html</id>
     <published>2023-06-06T11:20:06.000Z</published>
-    <updated>2023-06-06T23:20:35.679Z</updated>
+    <updated>2023-06-18T21:58:25.760Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/dbe264fb/1.png&quot; class&gt;
+    <summary type="html">&lt;img src=&quot;/dbe264fb/1.webp&quot; class&gt;
 
 &lt;p&gt;进入6月之后，各大电商平台的618活动已经开启，而之前一直降价的SSD也来到了价格的最低谷。甚至4TB的SSD都已经降到了千元以下。很多用户也想在这个时候购入一款4TB的高速SSD，通常来说按照最低价买就是了，不过现在品牌乱七八糟，方案也多种多样，价格方面差异也不算特别大，所以买哪一款总是会有一些犹豫。&lt;/p&gt;</summary>
     
@@ -347,7 +370,7 @@
     <link href="http://example.com/a3cf2476.html"/>
     <id>http://example.com/a3cf2476.html</id>
     <published>2023-06-05T21:57:38.000Z</published>
-    <updated>2023-06-07T23:41:35.130Z</updated>
+    <updated>2023-06-18T21:58:10.398Z</updated>
     
     
     <summary type="html">&lt;p&gt;本文为人脸识别算法系列专题的综述文章，人脸识别是一个被广泛研究着的热门问题，大量的研究论文层出不穷，文中将为大家总结近些年出现的具有代表性的人脸识别算法。(至2018年，原文2018年所作)&lt;/p&gt;
@@ -371,7 +394,7 @@
     <link href="http://example.com/bbd5e096.html"/>
     <id>http://example.com/bbd5e096.html</id>
     <published>2023-06-05T20:26:38.000Z</published>
-    <updated>2023-06-07T23:41:29.403Z</updated>
+    <updated>2023-06-18T21:57:48.440Z</updated>
     
     
     <summary type="html">&lt;p&gt;人脸识别，是基于人的脸部特征信息进行身份识别的一种生物识别技术。用摄像机或摄像头采集含有人脸的图像或视频流，并自动在图像中检测和跟踪人脸，进而对检测到的人脸进行脸部识别的一系列相关技术，通常也叫做人像识别、面部识别。&lt;/p&gt;
@@ -402,10 +425,10 @@
     <link href="http://example.com/1b1a8060.html"/>
     <id>http://example.com/1b1a8060.html</id>
     <published>2023-06-05T07:04:30.000Z</published>
-    <updated>2023-06-16T07:07:57.303Z</updated>
+    <updated>2023-06-18T21:57:30.493Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/1b1a8060/2023_06_05_14_07_IMG_1752.jpg&quot; class&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/1b1a8060/2023_06_05_14_07_IMG_1752.webp&quot; class&gt;</summary>
     
     
     
@@ -421,10 +444,10 @@
     <link href="http://example.com/6d96441.html"/>
     <id>http://example.com/6d96441.html</id>
     <published>2023-06-03T20:49:52.000Z</published>
-    <updated>2023-06-07T23:45:33.051Z</updated>
+    <updated>2023-06-18T21:56:30.182Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/6d96441/1.png&quot; class&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/6d96441/1.webp&quot; class&gt;</summary>
     
     
     
@@ -442,31 +465,10 @@
     <link href="http://example.com/1f9c90df.html"/>
     <id>http://example.com/1f9c90df.html</id>
     <published>2023-06-03T20:28:16.000Z</published>
-    <updated>2023-06-07T23:45:35.079Z</updated>
+    <updated>2023-06-18T21:56:49.088Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/1f9c90df/1.png&quot; class&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>前沿改进-高效卷积神经网络设计，AugShuffleNet: Communicate More, Compute Less</title>
-    <link href="http://example.com/27c49b54.html"/>
-    <id>http://example.com/27c49b54.html</id>
-    <published>2023-06-02T19:49:32.000Z</published>
-    <updated>2023-06-07T23:45:29.446Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/27c49b54/1.png&quot; class&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/1f9c90df/1.webp&quot; class&gt;</summary>
     
     
     

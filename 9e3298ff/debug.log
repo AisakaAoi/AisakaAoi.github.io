@@ -1,7 +1,0 @@
-[1028/091342.286:INFO:crash_reporting.cc(219)] Crash reporting enabled for process: browser
-[1028/091345.121:INFO:crash_reporting.cc(219)] Crash reporting enabled for process: browser
-[1028/091346.678:INFO:crash_reporting.cc(219)] Crash reporting enabled for process: gpu-process
-[1028/091347.327:INFO:crash_reporting.cc(219)] Crash reporting enabled for process: utility
-[1028/091546.281:INFO:crash_reporting.cc(219)] Crash reporting enabled for process: gpu-process
-[1029/091814.355:WARNING:dns_config_service_win.cc(672)] Failed to read DnsConfig.
-[1029/091820.802:WARNING:dns_config_service_win.cc(672)] Failed to read DnsConfig.
