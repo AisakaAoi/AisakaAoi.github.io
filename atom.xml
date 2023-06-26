@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-06-19T21:36:06.332Z</updated>
+  <updated>2023-06-26T21:20:56.401Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深度学习-MoCo v1、V2和V3对比</title>
+    <link href="http://example.com/561b83dd.html"/>
+    <id>http://example.com/561b83dd.html</id>
+    <published>2023-06-26T21:15:30.000Z</published>
+    <updated>2023-06-26T21:20:56.401Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;MoCoV1&quot;&gt;&lt;a href=&quot;#MoCoV1&quot; class=&quot;headerlink&quot; title=&quot;MoCoV1&quot;&gt;&lt;/a&gt;MoCoV1&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Momentum Contrast for Unsupervised Visual Representation Learning&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;（特征相似性方式计算：当前batch与当前batch为正样本，与特征库中的所有样本为负样本）&lt;/p&gt;
+&lt;p&gt;如果没有label约束，每epoch网络参数不同，同一个样本提取的特征分布有差异，会出现退化解现象，作者使用EMA防止该问题，使用内存存储（作者约束特征库最大存储65536个样本）key-value形式保证正样本对之间的相似性，正负样本之间的差异。&lt;/p&gt;
+&lt;p&gt;每batch 特征库以队列的形式出队和入队，将保存最久的batch特征出队，当前batch（最新）的特征入队。将当前batch的两个不同数据增强方式作为正样本对，其中一个正样本batch与更新前的特征库concat。具体：&lt;/p&gt;
+&lt;p&gt;每个图片两种不同数据增强方式作为key-value 对，用可bp的编码器（student）提取value的特征q，同时用teacher（由student ema所得）提取key的特征k；&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;将特征q(N * C)与特征k(N * C)进行矩阵求和得到N * 1，将特征q(N * C)与特征库(C * K)矩阵乘法得到N * K特征（得到当前样本与特征库所有样本特征的相似性）。将N * 1和N * K特征进行concat（以最后一个维度进行融合）为N * （1+K）作为prediction。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x3D;&amp;gt; 此时，N个target都为0，即为当前batch样本的最新特征。&lt;/p&gt;
+&lt;img src=&quot;/561b83dd/1.webp&quot; class&gt;
+&lt;p style=&quot;text-align:center&quot;&gt;moco-v1&lt;/p&gt;
+
+&lt;p&gt;EMA防止退化解。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    
+    <category term="💫网络模型 Networks Model" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B-Networks-Model/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>图像知识-关于JPEG、PNG、GIF、WEBP图片格式的理解与使用场景</title>
@@ -111,7 +142,7 @@
     <link href="http://example.com/265ee293.html"/>
     <id>http://example.com/265ee293.html</id>
     <published>2023-06-14T13:26:33.000Z</published>
-    <updated>2023-06-20T01:00:14.167Z</updated>
+    <updated>2023-06-26T15:00:38.657Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天受到软院楼下101门口黑土地的影响，突然很想玩玩童年的QQ农场，于是把以前本地的农场包部署到了华为云服务器上，XCB的米娜桑速进！&lt;/p&gt;
@@ -456,27 +487,6 @@
     <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="⭐讲座" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%B2%E5%BA%A7/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>前沿改进-ReduceNet：逐步与VanillaNet和DepthShrinker脱钩，桥接知识蒸馏和神经架构搜索</title>
-    <link href="http://example.com/6d96441.html"/>
-    <id>http://example.com/6d96441.html</id>
-    <published>2023-06-03T20:49:52.000Z</published>
-    <updated>2023-06-18T21:56:30.182Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/6d96441/1.webp&quot; class&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫前沿改进 Frontier Improvement" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E5%89%8D%E6%B2%BF%E6%94%B9%E8%BF%9B-Frontier-Improvement/"/>
     
     
   </entry>
