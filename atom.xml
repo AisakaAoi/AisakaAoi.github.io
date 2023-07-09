@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-06-26T21:20:56.401Z</updated>
+  <updated>2023-07-04T21:46:49.462Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,53 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>论文阅读-对比学习Contrastive Learning综述</title>
+    <link href="http://example.com/6c9427d0.html"/>
+    <id>http://example.com/6c9427d0.html</id>
+    <published>2023-07-04T21:28:04.000Z</published>
+    <updated>2023-07-04T21:46:49.462Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;自监督学习有生成式学习和对比学习，对比学习需要从无标注的数据中学习特征表示，并用于下游任务中。指导原则是: 通过构造相似实例和不相似实例，学习一个表示学习模型，使得相似的实例在投影空间中较接近，不相似的实例在投影空间中距离较远。对比学习有三个关键问题: 1. 正负样本的构造 2. 编码器的设计 3. Loss函数的选取。&lt;/p&gt;
+&lt;p&gt;过去几年，尤其是18年开始到现在，对比学习在计算机视觉领域的发展历程，总结一下可以规划成四个阶段:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;2018~2019年中，Inst Disc、CPC、CMC等方法和模型都还没有统一，目标函数和代理任务也还没有统一;&lt;/li&gt;
+&lt;li&gt;2019~2020年中，SimCLR 、 Moco、 CPC&amp;#x2F;CMC的延伸工作、SwAV，这个阶段发展非常迅速;&lt;/li&gt;
+&lt;li&gt;不用负样本也可以做对比学习，如BYOL和后续改进，SimSiam把所有方法总结归纳融入SimSiam框架，是用CNN做对比学习的一个总结;&lt;/li&gt;
+&lt;li&gt;Transformer时代，MoCo-v3和DINO。随着Vision Transformer的爆火，对于自监督学习，不论是对比学习还是最新的掩码学习，都是用VIT做的。&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐论文带读" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%BA%E6%96%87%E5%B8%A6%E8%AF%BB/"/>
+    
+    <category term="💫精读经典" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%BA%E6%96%87%E5%B8%A6%E8%AF%BB/%F0%9F%92%AB%E7%B2%BE%E8%AF%BB%E7%BB%8F%E5%85%B8/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>脑机团队研究生科研能力提升计划2023-第一讲-研究生的学习、研究与职业生涯规划</title>
+    <link href="http://example.com/cd14bc05.html"/>
+    <id>http://example.com/cd14bc05.html</id>
+    <published>2023-07-02T16:50:52.000Z</published>
+    <updated>2023-07-06T16:51:56.053Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/cd14bc05/1.webp&quot; class&gt;</summary>
+    
+    
+    
+    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐研究生科研提升计划" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90%E7%A0%94%E7%A9%B6%E7%94%9F%E7%A7%91%E7%A0%94%E6%8F%90%E5%8D%87%E8%AE%A1%E5%88%92/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>深度学习-MoCo v1、V2和V3对比</title>
@@ -161,10 +208,10 @@
     <link href="http://example.com/3e7ecf95.html"/>
     <id>http://example.com/3e7ecf95.html</id>
     <published>2023-06-13T07:09:28.000Z</published>
-    <updated>2023-06-18T22:24:24.794Z</updated>
+    <updated>2023-07-05T22:19:28.642Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/3e7ecf95/2023_06_13_20_00_IMG_1786.webp&quot; class&gt;</summary>
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=530200570&amp;bvid=BV1fu411876U&amp;cid=1175991937&amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
     
     
     
@@ -437,56 +484,6 @@
     <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
     
     <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>人脸识别-人脸识别：基于人的脸部特征信息进行身份识别的技术</title>
-    <link href="http://example.com/bbd5e096.html"/>
-    <id>http://example.com/bbd5e096.html</id>
-    <published>2023-06-05T20:26:38.000Z</published>
-    <updated>2023-06-18T21:57:48.440Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;人脸识别，是基于人的脸部特征信息进行身份识别的一种生物识别技术。用摄像机或摄像头采集含有人脸的图像或视频流，并自动在图像中检测和跟踪人脸，进而对检测到的人脸进行脸部识别的一系列相关技术，通常也叫做人像识别、面部识别。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;中文名：人脸识别&lt;/li&gt;
-&lt;li&gt;别名：人像识别、面部识别&lt;/li&gt;
-&lt;li&gt;工具：摄像机或摄像头&lt;/li&gt;
-&lt;li&gt;传统技术：可见光图像的人脸识别&lt;/li&gt;
-&lt;li&gt;处理方法：人脸识别算法&lt;/li&gt;
-&lt;li&gt;用途：身份识别&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
-    
-    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>世界机器人大赛BCI脑控机器人大赛情绪脑机-使用MATLAB进行脑机接口中的AI开发</title>
-    <link href="http://example.com/1b1a8060.html"/>
-    <id>http://example.com/1b1a8060.html</id>
-    <published>2023-06-05T07:04:30.000Z</published>
-    <updated>2023-06-18T21:57:30.493Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/1b1a8060/2023_06_05_14_07_IMG_1752.webp&quot; class&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐讲座" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%B2%E5%BA%A7/"/>
     
     
   </entry>
