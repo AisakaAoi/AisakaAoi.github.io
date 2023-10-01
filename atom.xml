@@ -280,7 +280,7 @@
     <link href="http://example.com/5a116c56.html"/>
     <id>http://example.com/5a116c56.html</id>
     <published>2023-06-18T13:32:14.000Z</published>
-    <updated>2023-07-18T13:37:50.505Z</updated>
+    <updated>2023-09-10T08:18:33.882Z</updated>
     
     
     <summary type="html">&lt;p&gt;ArcFace&amp;#x2F;InsightFace（弧度）是伦敦帝国理工学院邓建康等在2018.01发表，在SphereFace基础上改进了对特征向量归一化和加性角度间隔，提高了类间可分性同时加强类内紧度和类间差异，&lt;a href=&quot;https://arxiv.org/abs/1801.07698&quot;&gt;ArcFace: Additive Angular Margin Loss for Deep Face Recognition&lt;/a&gt;&lt;/p&gt;</summary>
