@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-07-04T21:46:49.462Z</updated>
+  <updated>2023-10-20T19:37:00.606Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,76 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>论文阅读-意识障碍-2023_IEEE T BIO-MED ENG_JCR Q2_IF4.756-The Characteristics of Electroencephalogram Signatures in Minimally Conscious State Patients Induced by General Anesthesia</title>
+    <link href="http://example.com/62719f03.html"/>
+    <id>http://example.com/62719f03.html</id>
+    <published>2023-09-19T17:48:53.000Z</published>
+    <updated>2023-10-20T19:37:00.606Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;原文&quot;&gt;&lt;a href=&quot;#原文&quot; class=&quot;headerlink&quot; title=&quot;原文&quot;&gt;&lt;/a&gt;原文&lt;/h3&gt;&lt;div class=&quot;pdfobject-container&quot; data-target=&quot;./file/paper/2023-The_Characteristics_of_Electroencephalogram_Signatures_in_Minimally_Conscious_State_Patients_Induced_by_General_Anesthesia.pdf&quot; data-height=&quot;500px&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;JCR Q2，中科院2区，IF：4.6&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    
+    <category term="💫脑机接口 Brain-computer Interface" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3-Brain-computer-Interface/"/>
+    
+    <category term="🛰️医学应用 Medical Applications" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3-Brain-computer-Interface/%F0%9F%9B%B0%EF%B8%8F%E5%8C%BB%E5%AD%A6%E5%BA%94%E7%94%A8-Medical-Applications/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>脑机接口与混合智能-新闻-通过脑机接口将大脑连上了GPT-4</title>
+    <link href="http://example.com/f97565a.html"/>
+    <id>http://example.com/f97565a.html</id>
+    <published>2023-08-06T15:32:50.000Z</published>
+    <updated>2023-10-02T00:00:41.725Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;你能想象只需要用脑电波即可与GPT-4等先进AI进行沟通吗？这不是什么科幻电影或者游戏，这正逐渐成为现实。&lt;/p&gt;
+&lt;p&gt;最近，有一位名为Fireship的独立开发者发布了一个令人震惊的视频：他成功地通过 Neurosity公司推出的的设备The Crown将自己的大脑连接到 GPT-4。简而言之，他通过脑机接口公司Neurosity提供的设备以及相应的Javascript SDK和一个控制面板，实现了与GPT-4的脑机通讯连接。也就是说，他只要意念一动就能连接到GPT-4，从而获得最强大AI的协助。这是一项令人兴奋的结果，大大加速了脑机接口+AI新领域的应用。&lt;/p&gt;
+&lt;img src=&quot;/f97565a/1.webp&quot; class&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫新闻" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>脑机接口与混合智能-新闻-Neuralink取得突破性研究成果，脑机接口技术进入新纪元</title>
+    <link href="http://example.com/b1da7a2.html"/>
+    <id>http://example.com/b1da7a2.html</id>
+    <published>2023-07-20T15:22:49.000Z</published>
+    <updated>2023-10-02T00:00:41.714Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;5月26日消息，由伊隆·马斯克（Elon Musk）共同创立的神经科技初创公司Neuralink周四宣布，它已获得美国食品和药物管理局的批准，可以进行首次人体临床研究，Neuralink正在构建一种名为Link的大脑植入物，旨在帮助严重瘫痪患者仅使用神经信号控制外部技术。“这意味着患有ALS等严重退行性疾病的患者最终可以通过移动光标和用思想打字来恢复与亲人交流的能力，这是Neuralink团队与FDA密切合作的令人难以置信的工作的结果，代表了重要的第一步，有一天我们的技术将帮助许多人。”该公司在一条推文里写道。&lt;/p&gt;
+&lt;p&gt;在最新公布的消息中，Neuralink宣布取得了令人振奋的突破性研究成果，推动了脑机接口（BMI）技术迈入了新的里程碑。这些重要的研究进展将为未来的医疗和科技领域带来革命性的变革，有望改变人类与计算机以及其他智能设备之间的交互方式。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫新闻" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>论文阅读-对比学习Contrastive Learning综述</title>
@@ -40,6 +110,30 @@
     <category term="⭐论文带读" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%BA%E6%96%87%E5%B8%A6%E8%AF%BB/"/>
     
     <category term="💫精读经典" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%BA%E6%96%87%E5%B8%A6%E8%AF%BB/%F0%9F%92%AB%E7%B2%BE%E8%AF%BB%E7%BB%8F%E5%85%B8/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习-LeViT-UNet：transformer 编码器和CNN解码器的有效整合</title>
+    <link href="http://example.com/db846f02.html"/>
+    <id>http://example.com/db846f02.html</id>
+    <published>2023-07-03T17:18:32.000Z</published>
+    <updated>2023-10-01T23:55:02.992Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;levi - unet[2]是一种新的医学图像分割架构，它使用transformer 作为编码器，这使得它能够更有效地学习远程依赖关系。levi - unet[2]比传统的U-Nets更快，同时仍然实现了最先进的分割性能。&lt;/p&gt;
+&lt;p&gt;levi - unet[2]在几个具有挑战性的医学图像分割基准上取得了比其他法更好的性能，包括Synapse多器官分割数据集(Synapse)和自动心脏诊断挑战数据集(ACDC)。&lt;/p&gt;
+&lt;h3 id=&quot;LeViT-UNet架构&quot;&gt;&lt;a href=&quot;#LeViT-UNet架构&quot; class=&quot;headerlink&quot; title=&quot;LeViT-UNet架构&quot;&gt;&lt;/a&gt;LeViT-UNet架构&lt;/h3&gt;&lt;p&gt;levi - unet的编码器使用LeViT块构建，设计用于高效和有效地学习全局特征。解码器是使用卷积块构建的。&lt;/p&gt;
+&lt;img src=&quot;/db846f02/1.webp&quot; class&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    
+    <category term="💫网络模型 Networks Model" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B-Networks-Model/"/>
     
     
   </entry>
@@ -95,6 +189,74 @@
   </entry>
   
   <entry>
+    <title>Hexo-用hexo-neat压缩文件</title>
+    <link href="http://example.com/47f39781.html"/>
+    <id>http://example.com/47f39781.html</id>
+    <published>2023-06-22T19:35:53.000Z</published>
+    <updated>2023-10-01T23:55:02.991Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;hexo-neat作为一个hexo插件出现，他支持压缩html、css和js文件，可以消除hexo生成网页过程中留下大大片空白，压缩输出文件的体积。使用方法如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用npm安装hexo-neat插件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight cmd&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-neat --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐Git&amp;Hexo" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-添加搜索功能</title>
+    <link href="http://example.com/7c64eff2.html"/>
+    <id>http://example.com/7c64eff2.html</id>
+    <published>2023-06-21T19:31:56.000Z</published>
+    <updated>2023-10-01T23:55:02.986Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在网站内部提供搜索功能，可以进行全文搜索。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装&lt;a href=&quot;https://github.com/flashlab/hexo-generator-search&quot;&gt;hexo-generator-searchdb&lt;/a&gt;插件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight cmd&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-generator-searchdb --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐Git&amp;Hexo" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-给网站设置RSS订阅</title>
+    <link href="http://example.com/f56926fe.html"/>
+    <id>http://example.com/f56926fe.html</id>
+    <published>2023-06-20T19:28:49.000Z</published>
+    <updated>2023-10-01T23:55:02.985Z</updated>
+    
+    
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;先安装 &lt;a href=&quot;https://github.com/hexojs/hexo-generator-feed&quot;&gt;hexo-generator-feed&lt;/a&gt; 插件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight cmd&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-generator-feed --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐Git&amp;Hexo" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>图像知识-关于JPEG、PNG、GIF、WEBP图片格式的理解与使用场景</title>
     <link href="http://example.com/5de3d65f.html"/>
     <id>http://example.com/5de3d65f.html</id>
@@ -111,6 +273,29 @@
     
     
     <category term="🌙兴趣杂谈" scheme="http://example.com/categories/%F0%9F%8C%99%E5%85%B4%E8%B6%A3%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-给博客添加网站地图</title>
+    <link href="http://example.com/b8206fa9.html"/>
+    <id>http://example.com/b8206fa9.html</id>
+    <published>2023-06-18T19:27:26.000Z</published>
+    <updated>2023-10-01T23:55:02.983Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;搜索引擎每天让蜘蛛在网站爬行来抓取页面，网站地图的作用就是给主动给蜘蛛喂数据，网站地图位于网站根目录下，有sitemap.html和sitemap.xml两种格式。百度搜索引擎及多数搜索引擎使用html格式，谷歌使用xml格式。&lt;br&gt;两步完成网站地图自动生成功能。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装网站地图生成插件&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight cmd&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-generator-sitemap --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;重新启动hexo，系统会在public根目录下生成sitemap.xml文件。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐Git&amp;Hexo" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
     
     
   </entry>
@@ -185,6 +370,71 @@
   </entry>
   
   <entry>
+    <title>Hexo-用leancloud记录访问次数</title>
+    <link href="http://example.com/52f4fc4f.html"/>
+    <id>http://example.com/52f4fc4f.html</id>
+    <published>2023-06-16T19:21:38.000Z</published>
+    <updated>2023-10-01T23:55:02.979Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;NexT也集成了leancloud，在&lt;a href=&quot;https://leancloud.cn/&quot;&gt;leancloud官网&lt;/a&gt;中注册账号，获得app_key和app_id，然后在主题配置文件中进行如下配置。&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# Show number of visitors to each article.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# You can visit https://leancloud.cn get AppID and AppKey.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;leancloud_visitors:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  enable: true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  app_id: leanapp_id&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  app_key: leanapp_key&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐Git&amp;Hexo" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-利用插件实现字符统计及阅读时长估计</title>
+    <link href="http://example.com/6f2f6e89.html"/>
+    <id>http://example.com/6f2f6e89.html</id>
+    <published>2023-06-16T13:29:01.000Z</published>
+    <updated>2023-10-01T23:55:02.975Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;统计文章中的字符，根据字数估算阅读时间，这个功能是通过插件hexo-wordcount来实现的。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装插件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight cmd&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-wordcount --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐Git&amp;Hexo" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-Hexo+NexT：增加百度统计分析功能</title>
+    <link href="http://example.com/424ebcb2.html"/>
+    <id>http://example.com/424ebcb2.html</id>
+    <published>2023-06-15T09:15:54.000Z</published>
+    <updated>2023-10-01T23:55:02.973Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;增加百度统计分析功能&quot;&gt;&lt;a href=&quot;#增加百度统计分析功能&quot; class=&quot;headerlink&quot; title=&quot;增加百度统计分析功能&quot;&gt;&lt;/a&gt;增加百度统计分析功能&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;访问百度统计&lt;a href=&quot;http://tongji.baidu.com/&quot;&gt;http://tongji.baidu.com&lt;/a&gt;网站，注册。进入管理菜单，在网站列表下面注册网站并获得访问代码如下。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; _hmt = _hmt || [];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; hm = &lt;span class=&quot;variable language_&quot;&gt;document&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;createElement&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;script&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  hm.&lt;span class=&quot;property&quot;&gt;src&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&amp;quot;https://hm.baidu.com/hm.js?ce33112f521e07dfe453757625e4XXXX&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; s = &lt;span class=&quot;variable language_&quot;&gt;document&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;getElementsByTagName&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;script&amp;quot;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  s.&lt;span class=&quot;property&quot;&gt;parentNode&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;insertBefore&lt;/span&gt;(hm, s);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐Git&amp;Hexo" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>第九艺术-XCB农场牧场建设</title>
     <link href="http://example.com/265ee293.html"/>
     <id>http://example.com/265ee293.html</id>
@@ -218,272 +468,6 @@
     <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="⭐讲座" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%B2%E5%BA%A7/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>人脸识别-人脸识别合集 | 7 VGGFace解析(牛津大学 2015)</title>
-    <link href="http://example.com/2d425650.html"/>
-    <id>http://example.com/2d425650.html</id>
-    <published>2023-06-12T19:44:12.000Z</published>
-    <updated>2023-06-18T22:23:44.092Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;VGGFace是牛津大学视觉组于2015年发表，VGGNet也是他们提出的，基于VGGNet的人脸识别，&lt;a href=&quot;http://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf&quot;&gt;Deep Face Recognition&lt;/a&gt;，&lt;a href=&quot;https://www.robots.ox.ac.uk/~vgg/software/vgg_face/&quot;&gt;官网&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
-    
-    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>人脸识别-人脸识别合集 | 6 FaceNet解析(谷歌 CVPR2015)</title>
-    <link href="http://example.com/afb83773.html"/>
-    <id>http://example.com/afb83773.html</id>
-    <published>2023-06-11T18:45:32.000Z</published>
-    <updated>2023-06-18T22:23:18.151Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;FaceNet是谷歌于CVPR2015.02发表，提出了一个对识别、验证、聚类等问题的统一解决框架，即它们都可以放到特征空间里做，需要专注解决的仅仅是如何将人脸更好的映射到特征空间，&lt;a href=&quot;https://arxiv.org/abs/1503.03832&quot;&gt;FaceNet: A Unified Embedding for Face Recognition and Clustering&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
-    
-    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>人脸识别-人脸识别合集 | 5 DeepID3解析(港中文 2015)</title>
-    <link href="http://example.com/15ed4648.html"/>
-    <id>http://example.com/15ed4648.html</id>
-    <published>2023-06-11T18:34:46.000Z</published>
-    <updated>2023-06-18T13:21:14.859Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;DeepID3是Yi Sun, Ding Liang, Xiaogang Wang, Xiaoou Tang在2015.02发表，提出基于VGGNet和GoogLeNet的人脸表示，&lt;a href=&quot;https://arxiv.org/abs/1502.00873&quot;&gt;DeepID3: Face Recognition with Very Deep Neural Networks&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
-    
-    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>人脸识别-人脸识别合集 | 4 DeepID2+解析(港中文 2014)</title>
-    <link href="http://example.com/a97689db.html"/>
-    <id>http://example.com/a97689db.html</id>
-    <published>2023-06-10T22:07:47.000Z</published>
-    <updated>2023-06-18T22:22:24.022Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;DeepID2+是Yi Sun,Xiaogang Wang,Xiaoou Tang于2014.12发表，改进了网络结构，增加了隐藏表示的维度和对早期卷积层的监督，展示了深度网络的3个特性，&lt;a href=&quot;https://arxiv.org/abs/1412.1265&quot;&gt;Deeply learned face representations are sparse, selective, and robust&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
-    
-    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>人脸识别-人脸识别合集 | 3 DeepID2解析(港中文 NIPS2014)</title>
-    <link href="http://example.com/426bfda6.html"/>
-    <id>http://example.com/426bfda6.html</id>
-    <published>2023-06-10T18:20:37.000Z</published>
-    <updated>2023-06-18T22:00:38.863Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;DeepID2（Deep IDentification-verification features, 深度身份验证特征）是Yi Sun,Xiaoou Tang等在NIPS 2014.06发表，提出联合识别信号和验证信号的深度学习人脸表示方法，&lt;a href=&quot;https://arxiv.org/abs/1406.4773&quot;&gt;Deep Learning Face Representation by Joint Identification-Verification&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
-    
-    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>人脸识别-人脸识别合集 | 2 DeepID解析(港中文 CVPR2014)</title>
-    <link href="http://example.com/37d4e8c6.html"/>
-    <id>http://example.com/37d4e8c6.html</id>
-    <published>2023-06-09T18:52:26.000Z</published>
-    <updated>2023-06-18T22:00:14.406Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;DeepID（Deep hidden IDentity features, 深度隐藏的身份特征）是港中文孙祎、汤晓鸥于CVPR2014年发表，通过深度学习得到了高度紧凑和有判别度的特征DeepID，&lt;a href=&quot;http://mmlab.ie.cuhk.edu.hk/pdf/YiSun_CVPR14.pdf&quot;&gt;Deep Learning Face Representation from Predicting 10,000 Classes&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
-    
-    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>人脸识别-人脸识别合集 | 1 DeepFace解析(Facebook CVPR2014)</title>
-    <link href="http://example.com/cec2ee73.html"/>
-    <id>http://example.com/cec2ee73.html</id>
-    <published>2023-06-07T23:13:47.000Z</published>
-    <updated>2023-06-18T21:59:49.062Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;DeepFace是Facebook CVPR2014年发表，主要用于人脸验证，是深度学习人脸识别的奠基之作，超过了非深度学习方法Tom-vs-Pete classifiers、high-dim LBP、TL Joint Bayesian等&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.cs.toronto.edu/~ranzato/publications/taigman_cvpr14.pdf&quot;&gt;DeepFace: Closing the Gap to Human-Level Performance in Face Verification&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
-    
-    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>人脸识别-人脸识别合集 | 0 人脸识别概述</title>
-    <link href="http://example.com/725172e0.html"/>
-    <id>http://example.com/725172e0.html</id>
-    <published>2023-06-07T02:25:55.000Z</published>
-    <updated>2023-06-18T21:59:23.426Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;FR的任务、结构、特征发展、损失函数发展、骨干网发展&quot;&gt;&lt;a href=&quot;#FR的任务、结构、特征发展、损失函数发展、骨干网发展&quot; class=&quot;headerlink&quot; title=&quot;FR的任务、结构、特征发展、损失函数发展、骨干网发展&quot;&gt;&lt;/a&gt;FR的任务、结构、特征发展、损失函数发展、骨干网发展&lt;/h3&gt;&lt;h4 id=&quot;人脸识别任务分类（FR，Face-Recognition）&quot;&gt;&lt;a href=&quot;#人脸识别任务分类（FR，Face-Recognition）&quot; class=&quot;headerlink&quot; title=&quot;人脸识别任务分类（FR，Face Recognition）&quot;&gt;&lt;/a&gt;人脸识别任务分类（FR，Face Recognition）&lt;/h4&gt;&lt;p&gt;（1）1:1（人脸验证）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;1:1一般叫face verification任务，是二分类（e.g., comparing one face to another）&lt;/li&gt;
-&lt;li&gt;Face Verification（人脸验证；人脸确认；人脸校验） &amp;#x3D; 验证你是不是你? (1:1 matching)&lt;/li&gt;
-&lt;li&gt;在互联网买机票、车票，医院挂号，政府惠民工程项目，以及各种证券开户、电信开户、互联网金融开户都会用到&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;（2）1:N（人脸识别）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;1:n一般叫face identification任务，是多分类 (e.g., searching for a face in a database of many faces)&lt;/li&gt;
-&lt;li&gt;Face Identification（人脸识别） &amp;#x3D; 找出你是谁? (1:n matching)&lt;/li&gt;
-&lt;li&gt;跟1：1的A&amp;#x2F;B两张照片比对最大的区别是A&amp;#x2F;B A&amp;#x2F;C A&amp;#x2F;D……多个1：1计算，这个最大的问题是一旦BCD总和数量越大计算速度越慢，而总和超过20万，就回出现多个相似结果（20万人这个大数会导致有不少人长相相似），需要人工辅助定位。&lt;/li&gt;
-&lt;li&gt;主要用于人脸检索、排查犯罪嫌疑人、失踪人口的全库搜寻、一人多证的重复排查，以此相似度列出相应的结果，可以大大提高排查效率。&lt;/li&gt;
-&lt;li&gt;1:1的实际使用场景是更加受限而单一的，而1:n的实际使用场景更加wild、更加不可控。因此要到达较高的可用性，1:1会更加容易，而1:n会更难一些。&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
-    
-    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>人脸识别-基于深度学习的人脸识别发展历史</title>
-    <link href="http://example.com/2fb60bd8.html"/>
-    <id>http://example.com/2fb60bd8.html</id>
-    <published>2023-06-06T19:08:12.000Z</published>
-    <updated>2023-06-18T21:58:41.366Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/2fb60bd8/1.webp&quot; class&gt;
-
-&lt;p&gt;从2014年DeepFace开始到2019年的算法，还有一些用于人脸识别的损失函数：基于欧几里得距离的损失函数（Contrastive Loss、Triplet Loss、Center Loss）；基于Angular Margin相关的损失函数（L-Softmax Loss、A-Softmax Loss、COCO Loss、CosFace Loss、ArcFace Loss）等。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
-    
-    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>软件硬件-2023年6月4TB廉价高速SSD怎么选？市面常见的两种方案，简单分析一波</title>
-    <link href="http://example.com/dbe264fb.html"/>
-    <id>http://example.com/dbe264fb.html</id>
-    <published>2023-06-06T11:20:06.000Z</published>
-    <updated>2023-06-18T21:58:25.760Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/dbe264fb/1.webp&quot; class&gt;
-
-&lt;p&gt;进入6月之后，各大电商平台的618活动已经开启，而之前一直降价的SSD也来到了价格的最低谷。甚至4TB的SSD都已经降到了千元以下。很多用户也想在这个时候购入一款4TB的高速SSD，通常来说按照最低价买就是了，不过现在品牌乱七八糟，方案也多种多样，价格方面差异也不算特别大，所以买哪一款总是会有一些犹豫。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙兴趣杂谈" scheme="http://example.com/categories/%F0%9F%8C%99%E5%85%B4%E8%B6%A3%E6%9D%82%E8%B0%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>人脸识别-人脸识别算法演化史</title>
-    <link href="http://example.com/a3cf2476.html"/>
-    <id>http://example.com/a3cf2476.html</id>
-    <published>2023-06-05T21:57:38.000Z</published>
-    <updated>2023-06-18T21:58:10.398Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;本文为人脸识别算法系列专题的综述文章，人脸识别是一个被广泛研究着的热门问题，大量的研究论文层出不穷，文中将为大家总结近些年出现的具有代表性的人脸识别算法。(至2018年，原文2018年所作)&lt;/p&gt;
-&lt;h3 id=&quot;人脸识别有什么用？&quot;&gt;&lt;a href=&quot;#人脸识别有什么用？&quot; class=&quot;headerlink&quot; title=&quot;人脸识别有什么用？&quot;&gt;&lt;/a&gt;人脸识别有什么用？&lt;/h3&gt;&lt;p&gt;人脸识别的目标是确定一张人脸图像的身份，即这个人是谁，这是机器学习和模式识别中的分类问题。它主要应用在身份识别和身份验证中。其中身份识别包括失踪人口和嫌疑人追踪、智能交互场景中识别用户身份等场景；而身份验证包括身份证等证件查询、出入考勤查验、身份验证解锁、支付等场景，应用场景丰富。就在前不久，北京多家医院借助“黑科技”人脸识别技术阻击“熟脸”的号贩子，降低其挂号率；目前人脸识别还用到了治理闯红灯问题，改善中国式过马路现象。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
-    
-    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
     
     
   </entry>
