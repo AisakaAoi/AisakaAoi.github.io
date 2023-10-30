@@ -3,11 +3,11 @@
   <title>逢坂葵的个人博客</title>
   
   <subtitle>逢坂葵葵</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://aisakaaoi.top/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://aisakaaoi.top/"/>
   <updated>2023-10-20T19:37:00.606Z</updated>
-  <id>http://example.com/</id>
+  <id>https://aisakaaoi.top/</id>
   
   <author>
     <name>Aisaka Aoi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>论文阅读-意识障碍-2023_IEEE T BIO-MED ENG_JCR Q2_IF4.756-The Characteristics of Electroencephalogram Signatures in Minimally Conscious State Patients Induced by General Anesthesia</title>
-    <link href="http://example.com/62719f03.html"/>
-    <id>http://example.com/62719f03.html</id>
+    <link href="https://aisakaaoi.top/62719f03.html"/>
+    <id>https://aisakaaoi.top/62719f03.html</id>
     <published>2023-09-19T17:48:53.000Z</published>
     <updated>2023-10-20T19:37:00.606Z</updated>
     
@@ -30,21 +30,21 @@
     
     
     
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫脑机接口 Brain-computer Interface" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3-Brain-computer-Interface/"/>
+    <category term="💫脑机接口 Brain-computer Interface" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3-Brain-computer-Interface/"/>
     
-    <category term="🛰️医学应用 Medical Applications" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3-Brain-computer-Interface/%F0%9F%9B%B0%EF%B8%8F%E5%8C%BB%E5%AD%A6%E5%BA%94%E7%94%A8-Medical-Applications/"/>
+    <category term="🛰️医学应用 Medical Applications" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3-Brain-computer-Interface/%F0%9F%9B%B0%EF%B8%8F%E5%8C%BB%E5%AD%A6%E5%BA%94%E7%94%A8-Medical-Applications/"/>
     
     
   </entry>
   
   <entry>
     <title>脑机接口与混合智能-新闻-通过脑机接口将大脑连上了GPT-4</title>
-    <link href="http://example.com/f97565a.html"/>
-    <id>http://example.com/f97565a.html</id>
+    <link href="https://aisakaaoi.top/f97565a.html"/>
+    <id>https://aisakaaoi.top/f97565a.html</id>
     <published>2023-08-06T15:32:50.000Z</published>
     <updated>2023-10-02T00:00:41.725Z</updated>
     
@@ -55,19 +55,19 @@
     
     
     
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
     
-    <category term="💫新闻" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
+    <category term="💫新闻" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
     
     
   </entry>
   
   <entry>
     <title>脑机接口与混合智能-新闻-Neuralink取得突破性研究成果，脑机接口技术进入新纪元</title>
-    <link href="http://example.com/b1da7a2.html"/>
-    <id>http://example.com/b1da7a2.html</id>
+    <link href="https://aisakaaoi.top/b1da7a2.html"/>
+    <id>https://aisakaaoi.top/b1da7a2.html</id>
     <published>2023-07-20T15:22:49.000Z</published>
     <updated>2023-10-02T00:00:41.714Z</updated>
     
@@ -77,19 +77,19 @@
     
     
     
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
     
-    <category term="💫新闻" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
+    <category term="💫新闻" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
     
     
   </entry>
   
   <entry>
     <title>论文阅读-对比学习Contrastive Learning综述</title>
-    <link href="http://example.com/6c9427d0.html"/>
-    <id>http://example.com/6c9427d0.html</id>
+    <link href="https://aisakaaoi.top/6c9427d0.html"/>
+    <id>https://aisakaaoi.top/6c9427d0.html</id>
     <published>2023-07-04T21:28:04.000Z</published>
     <updated>2023-07-04T21:46:49.462Z</updated>
     
@@ -105,19 +105,19 @@
     
     
     
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐论文带读" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%BA%E6%96%87%E5%B8%A6%E8%AF%BB/"/>
+    <category term="⭐论文带读" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%BA%E6%96%87%E5%B8%A6%E8%AF%BB/"/>
     
-    <category term="💫精读经典" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%BA%E6%96%87%E5%B8%A6%E8%AF%BB/%F0%9F%92%AB%E7%B2%BE%E8%AF%BB%E7%BB%8F%E5%85%B8/"/>
+    <category term="💫精读经典" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%BA%E6%96%87%E5%B8%A6%E8%AF%BB/%F0%9F%92%AB%E7%B2%BE%E8%AF%BB%E7%BB%8F%E5%85%B8/"/>
     
     
   </entry>
   
   <entry>
     <title>深度学习-LeViT-UNet：transformer 编码器和CNN解码器的有效整合</title>
-    <link href="http://example.com/db846f02.html"/>
-    <id>http://example.com/db846f02.html</id>
+    <link href="https://aisakaaoi.top/db846f02.html"/>
+    <id>https://aisakaaoi.top/db846f02.html</id>
     <published>2023-07-03T17:18:32.000Z</published>
     <updated>2023-10-01T23:55:02.992Z</updated>
     
@@ -129,19 +129,19 @@
     
     
     
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫网络模型 Networks Model" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B-Networks-Model/"/>
+    <category term="💫网络模型 Networks Model" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B-Networks-Model/"/>
     
     
   </entry>
   
   <entry>
     <title>脑机团队研究生科研能力提升计划2023-第一讲-研究生的学习、研究与职业生涯规划</title>
-    <link href="http://example.com/cd14bc05.html"/>
-    <id>http://example.com/cd14bc05.html</id>
+    <link href="https://aisakaaoi.top/cd14bc05.html"/>
+    <id>https://aisakaaoi.top/cd14bc05.html</id>
     <published>2023-07-02T16:50:52.000Z</published>
     <updated>2023-07-06T16:51:56.053Z</updated>
     
@@ -150,17 +150,17 @@
     
     
     
-    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐研究生科研提升计划" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90%E7%A0%94%E7%A9%B6%E7%94%9F%E7%A7%91%E7%A0%94%E6%8F%90%E5%8D%87%E8%AE%A1%E5%88%92/"/>
+    <category term="⭐研究生科研提升计划" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90%E7%A0%94%E7%A9%B6%E7%94%9F%E7%A7%91%E7%A0%94%E6%8F%90%E5%8D%87%E8%AE%A1%E5%88%92/"/>
     
     
   </entry>
   
   <entry>
     <title>深度学习-MoCo v1、V2和V3对比</title>
-    <link href="http://example.com/561b83dd.html"/>
-    <id>http://example.com/561b83dd.html</id>
+    <link href="https://aisakaaoi.top/561b83dd.html"/>
+    <id>https://aisakaaoi.top/561b83dd.html</id>
     <published>2023-06-26T21:15:30.000Z</published>
     <updated>2023-06-26T21:20:56.401Z</updated>
     
@@ -179,19 +179,19 @@
     
     
     
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫网络模型 Networks Model" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B-Networks-Model/"/>
+    <category term="💫网络模型 Networks Model" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B-Networks-Model/"/>
     
     
   </entry>
   
   <entry>
     <title>Hexo-用hexo-neat压缩文件</title>
-    <link href="http://example.com/47f39781.html"/>
-    <id>http://example.com/47f39781.html</id>
+    <link href="https://aisakaaoi.top/47f39781.html"/>
+    <id>https://aisakaaoi.top/47f39781.html</id>
     <published>2023-06-22T19:35:53.000Z</published>
     <updated>2023-10-01T23:55:02.991Z</updated>
     
@@ -204,17 +204,17 @@
     
     
     
-    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐Git&amp;Hexo" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
+    <category term="⭐Git&amp;Hexo" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
     
     
   </entry>
   
   <entry>
     <title>Hexo-添加搜索功能</title>
-    <link href="http://example.com/7c64eff2.html"/>
-    <id>http://example.com/7c64eff2.html</id>
+    <link href="https://aisakaaoi.top/7c64eff2.html"/>
+    <id>https://aisakaaoi.top/7c64eff2.html</id>
     <published>2023-06-21T19:31:56.000Z</published>
     <updated>2023-10-01T23:55:02.986Z</updated>
     
@@ -227,17 +227,17 @@
     
     
     
-    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐Git&amp;Hexo" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
+    <category term="⭐Git&amp;Hexo" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
     
     
   </entry>
   
   <entry>
     <title>Hexo-给网站设置RSS订阅</title>
-    <link href="http://example.com/f56926fe.html"/>
-    <id>http://example.com/f56926fe.html</id>
+    <link href="https://aisakaaoi.top/f56926fe.html"/>
+    <id>https://aisakaaoi.top/f56926fe.html</id>
     <published>2023-06-20T19:28:49.000Z</published>
     <updated>2023-10-01T23:55:02.985Z</updated>
     
@@ -249,17 +249,17 @@
     
     
     
-    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐Git&amp;Hexo" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
+    <category term="⭐Git&amp;Hexo" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
     
     
   </entry>
   
   <entry>
     <title>图像知识-关于JPEG、PNG、GIF、WEBP图片格式的理解与使用场景</title>
-    <link href="http://example.com/5de3d65f.html"/>
-    <id>http://example.com/5de3d65f.html</id>
+    <link href="https://aisakaaoi.top/5de3d65f.html"/>
+    <id>https://aisakaaoi.top/5de3d65f.html</id>
     <published>2023-06-19T21:15:13.000Z</published>
     <updated>2023-06-19T21:36:06.332Z</updated>
     
@@ -272,15 +272,15 @@
     
     
     
-    <category term="🌙兴趣杂谈" scheme="http://example.com/categories/%F0%9F%8C%99%E5%85%B4%E8%B6%A3%E6%9D%82%E8%B0%88/"/>
+    <category term="🌙兴趣杂谈" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%85%B4%E8%B6%A3%E6%9D%82%E8%B0%88/"/>
     
     
   </entry>
   
   <entry>
     <title>Hexo-给博客添加网站地图</title>
-    <link href="http://example.com/b8206fa9.html"/>
-    <id>http://example.com/b8206fa9.html</id>
+    <link href="https://aisakaaoi.top/b8206fa9.html"/>
+    <id>https://aisakaaoi.top/b8206fa9.html</id>
     <published>2023-06-18T19:27:26.000Z</published>
     <updated>2023-10-01T23:55:02.983Z</updated>
     
@@ -293,17 +293,17 @@
     
     
     
-    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐Git&amp;Hexo" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
+    <category term="⭐Git&amp;Hexo" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
     
     
   </entry>
   
   <entry>
     <title>人脸识别-人脸识别合集 | 10 ArcFace解析(伦敦帝国理工学院)</title>
-    <link href="http://example.com/5a116c56.html"/>
-    <id>http://example.com/5a116c56.html</id>
+    <link href="https://aisakaaoi.top/5a116c56.html"/>
+    <id>https://aisakaaoi.top/5a116c56.html</id>
     <published>2023-06-18T13:32:14.000Z</published>
     <updated>2023-06-18T22:28:09.072Z</updated>
     
@@ -312,21 +312,21 @@
     
     
     
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
+    <category term="💫计算机视觉 Computer Vision" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
     
-    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
+    <category term="🛰️人脸识别 Face Recognition" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
     
     
   </entry>
   
   <entry>
     <title>人脸识别-人脸识别合集 | 9 CosFace解析(腾讯AI Lab CVPR2018)</title>
-    <link href="http://example.com/8b9c602d.html"/>
-    <id>http://example.com/8b9c602d.html</id>
+    <link href="https://aisakaaoi.top/8b9c602d.html"/>
+    <id>https://aisakaaoi.top/8b9c602d.html</id>
     <published>2023-06-17T18:29:44.000Z</published>
     <updated>2023-06-18T22:27:39.928Z</updated>
     
@@ -335,21 +335,21 @@
     
     
     
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
+    <category term="💫计算机视觉 Computer Vision" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
     
-    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
+    <category term="🛰️人脸识别 Face Recognition" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
     
     
   </entry>
   
   <entry>
     <title>人脸识别-人脸识别合集 | 8 SphereFace解析(佐治亚理工学院 CVPR2017)</title>
-    <link href="http://example.com/ee333774.html"/>
-    <id>http://example.com/ee333774.html</id>
+    <link href="https://aisakaaoi.top/ee333774.html"/>
+    <id>https://aisakaaoi.top/ee333774.html</id>
     <published>2023-06-17T17:36:45.000Z</published>
     <updated>2023-06-18T22:27:09.700Z</updated>
     
@@ -358,21 +358,21 @@
     
     
     
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐人工智能 Artificial Intelligence" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
     
-    <category term="💫计算机视觉 Computer Vision" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
+    <category term="💫计算机视觉 Computer Vision" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
     
-    <category term="🛰️人脸识别 Face Recognition" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
+    <category term="🛰️人脸识别 Face Recognition" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
     
     
   </entry>
   
   <entry>
     <title>Hexo-用leancloud记录访问次数</title>
-    <link href="http://example.com/52f4fc4f.html"/>
-    <id>http://example.com/52f4fc4f.html</id>
+    <link href="https://aisakaaoi.top/52f4fc4f.html"/>
+    <id>https://aisakaaoi.top/52f4fc4f.html</id>
     <published>2023-06-16T19:21:38.000Z</published>
     <updated>2023-10-01T23:55:02.979Z</updated>
     
@@ -382,17 +382,17 @@
     
     
     
-    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐Git&amp;Hexo" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
+    <category term="⭐Git&amp;Hexo" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
     
     
   </entry>
   
   <entry>
     <title>Hexo-利用插件实现字符统计及阅读时长估计</title>
-    <link href="http://example.com/6f2f6e89.html"/>
-    <id>http://example.com/6f2f6e89.html</id>
+    <link href="https://aisakaaoi.top/6f2f6e89.html"/>
+    <id>https://aisakaaoi.top/6f2f6e89.html</id>
     <published>2023-06-16T13:29:01.000Z</published>
     <updated>2023-10-01T23:55:02.975Z</updated>
     
@@ -405,17 +405,17 @@
     
     
     
-    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐Git&amp;Hexo" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
+    <category term="⭐Git&amp;Hexo" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
     
     
   </entry>
   
   <entry>
     <title>Hexo-Hexo+NexT：增加百度统计分析功能</title>
-    <link href="http://example.com/424ebcb2.html"/>
-    <id>http://example.com/424ebcb2.html</id>
+    <link href="https://aisakaaoi.top/424ebcb2.html"/>
+    <id>https://aisakaaoi.top/424ebcb2.html</id>
     <published>2023-06-15T09:15:54.000Z</published>
     <updated>2023-10-01T23:55:02.973Z</updated>
     
@@ -427,17 +427,17 @@
     
     
     
-    <category term="🌙基础学习" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐Git&amp;Hexo" scheme="http://example.com/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
+    <category term="⭐Git&amp;Hexo" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
     
     
   </entry>
   
   <entry>
     <title>第九艺术-XCB农场牧场建设</title>
-    <link href="http://example.com/265ee293.html"/>
-    <id>http://example.com/265ee293.html</id>
+    <link href="https://aisakaaoi.top/265ee293.html"/>
+    <id>https://aisakaaoi.top/265ee293.html</id>
     <published>2023-06-14T13:26:33.000Z</published>
     <updated>2023-06-26T15:00:38.657Z</updated>
     
@@ -448,15 +448,15 @@
     
     
     
-    <category term="🌙兴趣杂谈" scheme="http://example.com/categories/%F0%9F%8C%99%E5%85%B4%E8%B6%A3%E6%9D%82%E8%B0%88/"/>
+    <category term="🌙兴趣杂谈" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%85%B4%E8%B6%A3%E6%9D%82%E8%B0%88/"/>
     
     
   </entry>
   
   <entry>
     <title>世界机器人大赛BCI脑控机器人大赛情绪脑机-情绪脑机（青年组）竞赛赛题解析与样例教学</title>
-    <link href="http://example.com/3e7ecf95.html"/>
-    <id>http://example.com/3e7ecf95.html</id>
+    <link href="https://aisakaaoi.top/3e7ecf95.html"/>
+    <id>https://aisakaaoi.top/3e7ecf95.html</id>
     <published>2023-06-13T07:09:28.000Z</published>
     <updated>2023-07-05T22:19:28.642Z</updated>
     
@@ -465,9 +465,9 @@
     
     
     
-    <category term="🌙进阶学习" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐讲座" scheme="http://example.com/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%B2%E5%BA%A7/"/>
+    <category term="⭐讲座" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%B2%E5%BA%A7/"/>
     
     
   </entry>
