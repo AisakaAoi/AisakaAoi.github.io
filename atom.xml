@@ -42,6 +42,58 @@
   </entry>
   
   <entry>
+    <title>脑机团队研究生科研能力提升计划2023-第七讲-如何撰写科研申报书</title>
+    <link href="https://aisakaaoi.top/7ff55c7b.html"/>
+    <id>https://aisakaaoi.top/7ff55c7b.html</id>
+    <published>2023-08-19T19:07:46.000Z</published>
+    <updated>2023-11-01T19:09:19.408Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/7ff55c7b/1.webp&quot; class&gt;</summary>
+    
+    
+    
+    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐研究生科研提升计划" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90%E7%A0%94%E7%A9%B6%E7%94%9F%E7%A7%91%E7%A0%94%E6%8F%90%E5%8D%87%E8%AE%A1%E5%88%92/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读-可解释性：通过量化知识来解释知识蒸馏-《Explaining Knowledge Distillation by Quantifying the Knowledge》in CVPR2020</title>
+    <link href="https://aisakaaoi.top/c6bf908a.html"/>
+    <id>https://aisakaaoi.top/c6bf908a.html</id>
+    <published>2023-08-09T22:03:15.000Z</published>
+    <updated>2023-11-03T22:09:59.302Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;“Explaining Knowledge Distillation by Quantifying the Knowledge” in CVPR2020&lt;/p&gt;
+&lt;p&gt;论文链接：&lt;a href=&quot;https://arxiv.org/abs/2003.03622&quot;&gt;https://arxiv.org/abs/2003.03622&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;研究介绍&quot;&gt;&lt;a href=&quot;#研究介绍&quot; class=&quot;headerlink&quot; title=&quot;研究介绍&quot;&gt;&lt;/a&gt;研究介绍&lt;/h3&gt;&lt;p&gt;本研究旨在从一个新的角度解释知识蒸馏算法，即通过量化神经网络所建模的“知识量”分析神经网络的性能。目前，神经网络可解释性的研究主要分为两个流派：一是从语义层面解释神经网络所建模的特征，譬如可视化中层特征，或是提取对结果影响显著的关键性像素；二是从数学层面分析神经网络的表达能力，例如评测神经网络的泛化能力或鲁棒性。但是学界尚未有理论工具打通神经网络语义解释与表达能力分析的连通壁垒，实现对二者的统一建模。&lt;/p&gt;
+&lt;p&gt;本研究核心在于通过定义并量化神经网络中层特征的“知识量”，从神经网络表达能力的角度来解释知识蒸馏算法的成功机理。我们提出并验证以下三个Hypotheses:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hypothesis 1：比起直接从数据学习，蒸馏算法往往使得深度神经网络（DNN）学到更多的知识；&lt;/li&gt;
+&lt;li&gt;Hypothesis 2：比起直接从数据学习，蒸馏算法往往使得DNN更倾向于同时学到不同知识；&lt;/li&gt;
+&lt;li&gt;Hypothesis 3：比起直接从数据学习，蒸馏算法往往使得DNN的优化方向更为稳定。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src=&quot;/c6bf908a/1.webp&quot; class&gt;
+&lt;div align=&quot;center&quot;&gt;Fig.1. Explanation of knowledge distillation by quantifying visual concepts&lt;/div&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐人工智能 Artificial Intelligence" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    
+    <category term="💫网络模型 Networks Model" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B-Networks-Model/"/>
+    
+    <category term="🛰️蒸馏学习 Knowledge Distillation" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B-Networks-Model/%F0%9F%9B%B0%EF%B8%8F%E8%92%B8%E9%A6%8F%E5%AD%A6%E4%B9%A0-Knowledge-Distillation/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>脑机接口与混合智能-新闻-通过脑机接口将大脑连上了GPT-4</title>
     <link href="https://aisakaaoi.top/f97565a.html"/>
     <id>https://aisakaaoi.top/f97565a.html</id>
@@ -65,6 +117,54 @@
   </entry>
   
   <entry>
+    <title>脑机团队研究生科研能力提升计划2023-第六讲-如何制作科研PPT</title>
+    <link href="https://aisakaaoi.top/8734ca0.html"/>
+    <id>https://aisakaaoi.top/8734ca0.html</id>
+    <published>2023-08-02T19:03:14.000Z</published>
+    <updated>2023-11-01T19:07:20.685Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/8734ca0/1.webp&quot; class&gt;
+
+&lt;p&gt;&lt;strong&gt;任务：&lt;/strong&gt;根据已读论文，为研一的项目申请做准备：完成PPT的“研究背景和目标”部分的介绍，并于8.31前交给自己的导师。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐研究生科研提升计划" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90%E7%A0%94%E7%A9%B6%E7%94%9F%E7%A7%91%E7%A0%94%E6%8F%90%E5%8D%87%E8%AE%A1%E5%88%92/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>脑机团队研究生科研能力提升计划2023-第五讲-LaTeX论文排版方法与规范</title>
+    <link href="https://aisakaaoi.top/61682f6b.html"/>
+    <id>https://aisakaaoi.top/61682f6b.html</id>
+    <published>2023-07-26T18:42:36.000Z</published>
+    <updated>2023-11-01T18:52:15.185Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/61682f6b/1.webp&quot; class&gt;
+
+&lt;p&gt;&lt;strong&gt;任务：&lt;/strong&gt;&lt;br&gt;使用 LaTeX 编辑自己的论文；或在所提供的论文中选取 2 页，使用 LaTeX 重新排版。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;要求：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;必须包含论文的基本要素（标题、作者信息、摘要、关键词、章节、图表、公式、参考文献等）；&lt;/li&gt;
+&lt;li&gt;格式规范，图表大小合适，公式字体正确；&lt;/li&gt;
+&lt;li&gt;基本美观。&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐研究生科研提升计划" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90%E7%A0%94%E7%A9%B6%E7%94%9F%E7%A7%91%E7%A0%94%E6%8F%90%E5%8D%87%E8%AE%A1%E5%88%92/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>脑机接口与混合智能-新闻-Neuralink取得突破性研究成果，脑机接口技术进入新纪元</title>
     <link href="https://aisakaaoi.top/b1da7a2.html"/>
     <id>https://aisakaaoi.top/b1da7a2.html</id>
@@ -82,6 +182,87 @@
     <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
     
     <category term="💫新闻" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>脑机团队研究生科研能力提升计划2023-第四讲-如何撰写一篇学术论文？</title>
+    <link href="https://aisakaaoi.top/f1ead5d4.html"/>
+    <id>https://aisakaaoi.top/f1ead5d4.html</id>
+    <published>2023-07-18T18:17:47.000Z</published>
+    <updated>2023-11-01T18:41:41.825Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/f1ead5d4/1.webp&quot; class&gt;</summary>
+    
+    
+    
+    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐研究生科研提升计划" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90%E7%A0%94%E7%A9%B6%E7%94%9F%E7%A7%91%E7%A0%94%E6%8F%90%E5%8D%87%E8%AE%A1%E5%88%92/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>第九艺术-aoi酱一二三四五六号的头像</title>
+    <link href="https://aisakaaoi.top/878f6a78.html"/>
+    <id>https://aisakaaoi.top/878f6a78.html</id>
+    <published>2023-07-15T19:34:05.000Z</published>
+    <updated>2023-10-30T19:36:24.601Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/878f6a78/aoi%E9%85%B11%E5%8F%B7%E5%A7%AC.webp&quot; class&gt;
+&lt;p style=&quot;text-align:center&quot;&gt;aoi酱1号姬&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙兴趣杂谈" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%85%B4%E8%B6%A3%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>脑机团队研究生科研能力提升计划2023-第三讲-如何阅读一篇学术论文？</title>
+    <link href="https://aisakaaoi.top/7c7f77db.html"/>
+    <id>https://aisakaaoi.top/7c7f77db.html</id>
+    <published>2023-07-14T18:14:52.000Z</published>
+    <updated>2023-11-01T18:28:31.490Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/7c7f77db/1.webp&quot; class&gt;
+
+&lt;p&gt;&lt;strong&gt;任务：&lt;/strong&gt;用“三遍论”方法阅读一篇学术论文&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;要求：&lt;/strong&gt;由导师指定或者根据自己的研究方向选定一篇学术论文，用三段式摘要的格式重写论文摘要，通过“泛读、详读、重构”的三遍论方法弄懂该论文的主要内容，总结论文的贡献点和存在的局限。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐研究生科研提升计划" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90%E7%A0%94%E7%A9%B6%E7%94%9F%E7%A7%91%E7%A0%94%E6%8F%90%E5%8D%87%E8%AE%A1%E5%88%92/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>脑机团队研究生科研能力提升计划2023-第二讲-如何查找和管理科研文献？</title>
+    <link href="https://aisakaaoi.top/5269fd36.html"/>
+    <id>https://aisakaaoi.top/5269fd36.html</id>
+    <published>2023-07-08T18:04:41.000Z</published>
+    <updated>2023-11-01T18:12:05.677Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/5269fd36/1.webp&quot; class&gt;
+
+&lt;p&gt;&lt;strong&gt;任务：&lt;/strong&gt;查找和引用参考文献&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;要求：&lt;/strong&gt;查找10-15篇自己相关领域的论文，按某种参考文献的格式列出，并标明是否是SCI期刊以及期刊的影响因子和分区等信息（其中至少5篇近3年的二区以上SCI论文），发给自己导师检查。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐研究生科研提升计划" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90%E7%A0%94%E7%A9%B6%E7%94%9F%E7%A7%91%E7%A0%94%E6%8F%90%E5%8D%87%E8%AE%A1%E5%88%92/"/>
     
     
   </entry>
@@ -143,10 +324,13 @@
     <link href="https://aisakaaoi.top/cd14bc05.html"/>
     <id>https://aisakaaoi.top/cd14bc05.html</id>
     <published>2023-07-02T16:50:52.000Z</published>
-    <updated>2023-07-06T16:51:56.053Z</updated>
+    <updated>2023-11-01T18:07:08.310Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/cd14bc05/1.webp&quot; class&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/cd14bc05/1.webp&quot; class&gt;
+
+&lt;p&gt;&lt;strong&gt;任务：&lt;/strong&gt;撰写阅读心得&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;要求：&lt;/strong&gt;根据导师给定的研究主题，阅读相关的5-8篇中英文论文（论文可以通过导师指定或自行下载的方式获得），对研究主题有一个基本的认识。围绕研究主题的背景、应用、研究意义、国内外研究现状等内容，撰写一份阅读心得，字数不限，8月31日前提交给导师进行审核。&lt;/p&gt;</summary>
     
     
     
@@ -296,178 +480,6 @@
     <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="⭐Git&amp;Hexo" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>人脸识别-人脸识别合集 | 10 ArcFace解析(伦敦帝国理工学院)</title>
-    <link href="https://aisakaaoi.top/5a116c56.html"/>
-    <id>https://aisakaaoi.top/5a116c56.html</id>
-    <published>2023-06-18T13:32:14.000Z</published>
-    <updated>2023-06-18T22:28:09.072Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;ArcFace&amp;#x2F;InsightFace（弧度）是伦敦帝国理工学院邓建康等在2018.01发表，在SphereFace基础上改进了对特征向量归一化和加性角度间隔，提高了类间可分性同时加强类内紧度和类间差异，&lt;a href=&quot;https://arxiv.org/abs/1801.07698&quot;&gt;ArcFace: Additive Angular Margin Loss for Deep Face Recognition&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫计算机视觉 Computer Vision" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
-    
-    <category term="🛰️人脸识别 Face Recognition" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>人脸识别-人脸识别合集 | 9 CosFace解析(腾讯AI Lab CVPR2018)</title>
-    <link href="https://aisakaaoi.top/8b9c602d.html"/>
-    <id>https://aisakaaoi.top/8b9c602d.html</id>
-    <published>2023-06-17T18:29:44.000Z</published>
-    <updated>2023-06-18T22:27:39.928Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;CosFace是腾讯AI Lab的Hao Wang等在CVPR2018.01发表，在SphereFace基础上改进了对特征向量归一化和additive cosine margin。由此，通过归一化和余弦决策边界的最大化，可实现类间差异的最大化和类内差异的最小化。&lt;a href=&quot;https://arxiv.org/abs/1801.09414&quot;&gt;CosFace: Large Margin Cosine Loss for Deep Face Recognition&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫计算机视觉 Computer Vision" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
-    
-    <category term="🛰️人脸识别 Face Recognition" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>人脸识别-人脸识别合集 | 8 SphereFace解析(佐治亚理工学院 CVPR2017)</title>
-    <link href="https://aisakaaoi.top/ee333774.html"/>
-    <id>https://aisakaaoi.top/ee333774.html</id>
-    <published>2023-06-17T17:36:45.000Z</published>
-    <updated>2023-06-18T22:27:09.700Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;SphereFace（超球面）是佐治亚理工学院Weiyang Liu等在CVPR2017.04发表，提出了将Softmax loss从欧几里得距离转换到角度间隔，增加决策余量m，限制||W||&amp;#x3D;1和b&amp;#x3D;0，&lt;a href=&quot;https://arxiv.org/abs/1704.08063&quot;&gt;SphereFace: Deep Hypersphere Embedding for Face Recognition&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫计算机视觉 Computer Vision" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/"/>
-    
-    <category term="🛰️人脸识别 Face Recognition" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89-Computer-Vision/%F0%9F%9B%B0%EF%B8%8F%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-Face-Recognition/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo-用leancloud记录访问次数</title>
-    <link href="https://aisakaaoi.top/52f4fc4f.html"/>
-    <id>https://aisakaaoi.top/52f4fc4f.html</id>
-    <published>2023-06-16T19:21:38.000Z</published>
-    <updated>2023-10-01T23:55:02.979Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;NexT也集成了leancloud，在&lt;a href=&quot;https://leancloud.cn/&quot;&gt;leancloud官网&lt;/a&gt;中注册账号，获得app_key和app_id，然后在主题配置文件中进行如下配置。&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# Show number of visitors to each article.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# You can visit https://leancloud.cn get AppID and AppKey.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;leancloud_visitors:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  enable: true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  app_id: leanapp_id&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  app_key: leanapp_key&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐Git&amp;Hexo" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo-利用插件实现字符统计及阅读时长估计</title>
-    <link href="https://aisakaaoi.top/6f2f6e89.html"/>
-    <id>https://aisakaaoi.top/6f2f6e89.html</id>
-    <published>2023-06-16T13:29:01.000Z</published>
-    <updated>2023-10-01T23:55:02.975Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;统计文章中的字符，根据字数估算阅读时间，这个功能是通过插件hexo-wordcount来实现的。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;安装插件&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight cmd&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-wordcount --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐Git&amp;Hexo" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo-Hexo+NexT：增加百度统计分析功能</title>
-    <link href="https://aisakaaoi.top/424ebcb2.html"/>
-    <id>https://aisakaaoi.top/424ebcb2.html</id>
-    <published>2023-06-15T09:15:54.000Z</published>
-    <updated>2023-10-01T23:55:02.973Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;增加百度统计分析功能&quot;&gt;&lt;a href=&quot;#增加百度统计分析功能&quot; class=&quot;headerlink&quot; title=&quot;增加百度统计分析功能&quot;&gt;&lt;/a&gt;增加百度统计分析功能&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;访问百度统计&lt;a href=&quot;http://tongji.baidu.com/&quot;&gt;http://tongji.baidu.com&lt;/a&gt;网站，注册。进入管理菜单，在网站列表下面注册网站并获得访问代码如下。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; _hmt = _hmt || [];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; hm = &lt;span class=&quot;variable language_&quot;&gt;document&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;createElement&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;script&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  hm.&lt;span class=&quot;property&quot;&gt;src&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&amp;quot;https://hm.baidu.com/hm.js?ce33112f521e07dfe453757625e4XXXX&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; s = &lt;span class=&quot;variable language_&quot;&gt;document&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;getElementsByTagName&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;script&amp;quot;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  s.&lt;span class=&quot;property&quot;&gt;parentNode&lt;/span&gt;.&lt;span class=&quot;title function_&quot;&gt;insertBefore&lt;/span&gt;(hm, s);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐Git&amp;Hexo" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>第九艺术-XCB农场牧场建设</title>
-    <link href="https://aisakaaoi.top/265ee293.html"/>
-    <id>https://aisakaaoi.top/265ee293.html</id>
-    <published>2023-06-14T13:26:33.000Z</published>
-    <updated>2023-06-26T15:00:38.657Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;今天受到软院楼下101门口黑土地的影响，突然很想玩玩童年的QQ农场，于是把以前本地的农场包部署到了华为云服务器上，XCB的米娜桑速进！&lt;/p&gt;
-&lt;p&gt;下面是注册与游玩指南：&lt;/p&gt;
-&lt;img src=&quot;/265ee293/1.webp&quot; class&gt;</summary>
-    
-    
-    
-    <category term="🌙兴趣杂谈" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%85%B4%E8%B6%A3%E6%9D%82%E8%B0%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>世界机器人大赛BCI脑控机器人大赛情绪脑机-情绪脑机（青年组）竞赛赛题解析与样例教学</title>
-    <link href="https://aisakaaoi.top/3e7ecf95.html"/>
-    <id>https://aisakaaoi.top/3e7ecf95.html</id>
-    <published>2023-06-13T07:09:28.000Z</published>
-    <updated>2023-07-05T22:19:28.642Z</updated>
-    
-    
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=530200570&amp;bvid=BV1fu411876U&amp;cid=1175991937&amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐讲座" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%B2%E5%BA%A7/"/>
     
     
   </entry>
