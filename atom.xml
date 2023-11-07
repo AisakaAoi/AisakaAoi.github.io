@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.top/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.top/"/>
-  <updated>2023-10-20T19:37:00.606Z</updated>
+  <updated>2023-11-07T18:02:54.636Z</updated>
   <id>https://aisakaaoi.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【现代炼丹基础】手动梯度下降 一窥反向传播真容</title>
+    <link href="https://aisakaaoi.top/77c41666.html"/>
+    <id>https://aisakaaoi.top/77c41666.html</id>
+    <published>2023-11-04T17:51:50.000Z</published>
+    <updated>2023-11-07T18:02:54.636Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=663118130&amp;bvid=BV1ua4y1Q7La&amp;cid=1321619998&amp;p=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    <category term="🌙学习资源" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="⭐好看的视频" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E2%AD%90%E5%A5%BD%E7%9C%8B%E7%9A%84%E8%A7%86%E9%A2%91/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>论文阅读-意识障碍-2023_IEEE T BIO-MED ENG_JCR Q2_IF4.756-The Characteristics of Electroencephalogram Signatures in Minimally Conscious State Patients Induced by General Anesthesia</title>
@@ -206,17 +225,21 @@
   </entry>
   
   <entry>
-    <title>第九艺术-aoi酱一二三四五六号的头像 - 🌙逢坂杂谈 - ⭐游戏区</title>
+    <title>第九艺术-aoi酱一二三四五六号的头像</title>
     <link href="https://aisakaaoi.top/878f6a78.html"/>
     <id>https://aisakaaoi.top/878f6a78.html</id>
     <published>2023-07-15T19:34:05.000Z</published>
-    <updated>2023-11-06T20:52:46.278Z</updated>
+    <updated>2023-11-07T18:10:01.553Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/878f6a78/aoi%E9%85%B11%E5%8F%B7%E5%A7%AC.webp&quot; class&gt;
 &lt;p style=&quot;text-align:center&quot;&gt;aoi酱1号姬&lt;/p&gt;</summary>
     
     
+    
+    <category term="🌙逢坂杂谈" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88/"/>
+    
+    <category term="⭐游戏区" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88/%E2%AD%90%E6%B8%B8%E6%88%8F%E5%8C%BA/"/>
     
     
   </entry>
@@ -439,11 +462,11 @@
   </entry>
   
   <entry>
-    <title>图像知识-关于JPEG、PNG、GIF、WEBP图片格式的理解与使用场景 - 🌙逢坂杂谈 - ⭐科技区</title>
+    <title>图像知识-关于JPEG、PNG、GIF、WEBP图片格式的理解与使用场景</title>
     <link href="https://aisakaaoi.top/5de3d65f.html"/>
     <id>https://aisakaaoi.top/5de3d65f.html</id>
     <published>2023-06-19T21:15:13.000Z</published>
-    <updated>2023-11-06T20:52:40.231Z</updated>
+    <updated>2023-11-07T18:14:08.849Z</updated>
     
     
     <summary type="html">&lt;p&gt;在了解这三种图片格式之前，先来了解几个和图片格式相关的概念&lt;/p&gt;
@@ -454,28 +477,9 @@
     
     
     
+    <category term="🌙逢坂杂谈" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Hexo-给博客添加网站地图</title>
-    <link href="https://aisakaaoi.top/b8206fa9.html"/>
-    <id>https://aisakaaoi.top/b8206fa9.html</id>
-    <published>2023-06-18T19:27:26.000Z</published>
-    <updated>2023-10-01T23:55:02.983Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;搜索引擎每天让蜘蛛在网站爬行来抓取页面，网站地图的作用就是给主动给蜘蛛喂数据，网站地图位于网站根目录下，有sitemap.html和sitemap.xml两种格式。百度搜索引擎及多数搜索引擎使用html格式，谷歌使用xml格式。&lt;br&gt;两步完成网站地图自动生成功能。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;安装网站地图生成插件&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight cmd&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-generator-sitemap --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;重新启动hexo，系统会在public根目录下生成sitemap.xml文件。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐Git&amp;Hexo" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90Git-Hexo/"/>
+    <category term="⭐科技区" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88/%E2%AD%90%E7%A7%91%E6%8A%80%E5%8C%BA/"/>
     
     
   </entry>
