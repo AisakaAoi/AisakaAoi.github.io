@@ -443,23 +443,32 @@
   </entry>
   
   <entry>
-    <title>脑机团队研究生科研能力提升计划2023-第二讲-如何查找和管理科研文献？</title>
-    <link href="https://aisakaaoi.top/5269fd36.html"/>
-    <id>https://aisakaaoi.top/5269fd36.html</id>
-    <published>2023-07-08T18:04:41.000Z</published>
-    <updated>2023-11-01T18:12:05.677Z</updated>
+    <title>Pytorch设置随机种子Seed来保证训练结果可复现性</title>
+    <link href="https://aisakaaoi.top/552b9941.html"/>
+    <id>https://aisakaaoi.top/552b9941.html</id>
+    <published>2023-07-09T19:43:39.000Z</published>
+    <updated>2023-11-12T20:05:05.571Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/5269fd36/1.webp&quot; class&gt;
+    <summary type="html">&lt;h3 id=&quot;什么是随机种子&quot;&gt;&lt;a href=&quot;#什么是随机种子&quot; class=&quot;headerlink&quot; title=&quot;什么是随机种子&quot;&gt;&lt;/a&gt;什么是随机种子&lt;/h3&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=358179189&amp;bvid=BV13X4y1e7cS&amp;cid=1190965930&amp;p=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;
 
-&lt;p&gt;&lt;strong&gt;任务：&lt;/strong&gt;查找和引用参考文献&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;要求：&lt;/strong&gt;查找10-15篇自己相关领域的论文，按某种参考文献的格式列出，并标明是否是SCI期刊以及期刊的影响因子和分区等信息（其中至少5篇近3年的二区以上SCI论文），发给自己导师检查。&lt;/p&gt;</summary>
+&lt;p&gt;如何保证实验结果的可复现性。实验中的随机值主要来自网络的初始化、数据增强和数据读取等方面,而随机种子则可以固定这些随机值,从而实现网络训练结果的可复现性。通过设置随机种子可以固定生成值的序列,避免每次实验结果的差异。在下一个视频中,我们将详细介绍如何在训练过程中设置随机种子&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如何保证实验结果的可复现性，包括随机权重网络、随机数据增强和随机数据读取等因素，以及如何使用随机种子来固定这些随机情况。&lt;ul&gt;
+&lt;li&gt;00:01 了解如何在多次实验中保证实验结果的可复现性&lt;/li&gt;
+&lt;li&gt;00:30 网络训练结果的不同原因&lt;/li&gt;
+&lt;li&gt;01:50 如何通过设置随机种子来固定随机情况，保证网络可复现性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
-    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐研究生科研提升计划" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90%E7%A0%94%E7%A9%B6%E7%94%9F%E7%A7%91%E7%A0%94%E6%8F%90%E5%8D%87%E8%AE%A1%E5%88%92/"/>
+    <category term="⭐人工智能 Artificial Intelligence" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    
+    <category term="💫深度学习基本概念 Deep Learning Basic Concepts" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-Deep-Learning-Basic-Concepts/"/>
     
     
   </entry>
