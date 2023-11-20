@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>逢坂葵的个人博客</title>
   
-  <subtitle>逢坂葵葵</subtitle>
+  <subtitle>aoi学院</subtitle>
   <link href="https://aisakaaoi.top/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.top/"/>
-  <updated>2023-11-07T18:02:54.636Z</updated>
+  <updated>2023-11-20T03:24:53.049Z</updated>
   <id>https://aisakaaoi.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>出国英语杂谈</title>
+    <link href="https://aisakaaoi.top/ddef6c9e.html"/>
+    <id>https://aisakaaoi.top/ddef6c9e.html</id>
+    <published>2023-11-20T03:07:58.000Z</published>
+    <updated>2023-11-20T03:24:53.049Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;机场&quot;&gt;&lt;a href=&quot;#机场&quot; class=&quot;headerlink&quot; title=&quot;机场&quot;&gt;&lt;/a&gt;机场&lt;/h3&gt;&lt;h4 id=&quot;Session-1&quot;&gt;&lt;a href=&quot;#Session-1&quot; class=&quot;headerlink&quot; title=&quot;Session 1&quot;&gt;&lt;/a&gt;Session 1&lt;/h4&gt;&lt;img src=&quot;/ddef6c9e/1.webp&quot; class&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88/"/>
+    
+    <category term="⭐生活区" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88/%E2%AD%90%E7%94%9F%E6%B4%BB%E5%8C%BA/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>【现代炼丹基础】手动梯度下降 一窥反向传播真容</title>
@@ -74,6 +93,25 @@
     <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
     
     <category term="💫知识分享" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E7%9F%A5%E8%AF%86%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何寻找顶会潜质的论文创新点，论文筛选、论文阅读、论文创新点</title>
+    <link href="https://aisakaaoi.top/c83de857.html"/>
+    <id>https://aisakaaoi.top/c83de857.html</id>
+    <published>2023-10-22T23:09:53.000Z</published>
+    <updated>2023-11-12T23:30:34.407Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=962536889&amp;bvid=BV1SH4y197Zv&amp;cid=1308472917&amp;p=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐讲座" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%B2%E5%BA%A7/"/>
     
     
   </entry>
@@ -144,6 +182,25 @@
   </entry>
   
   <entry>
+    <title>论文写作——研究性论文＆综述-中山大学某组会汇报</title>
+    <link href="https://aisakaaoi.top/a04a71b8.html"/>
+    <id>https://aisakaaoi.top/a04a71b8.html</id>
+    <published>2023-09-21T19:54:51.000Z</published>
+    <updated>2023-11-14T20:03:46.422Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=234564212&amp;bvid=BV1X8411k7Eo&amp;cid=1296872225&amp;p=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐讲座" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%B2%E5%BA%A7/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>论文阅读-意识障碍-2023_IEEE T BIO-MED ENG_JCR Q2_IF4.756-The Characteristics of Electroencephalogram Signatures in Minimally Conscious State Patients Induced by General Anesthesia</title>
     <link href="https://aisakaaoi.top/62719f03.html"/>
     <id>https://aisakaaoi.top/62719f03.html</id>
@@ -209,6 +266,25 @@
     <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
     
     <category term="💫新闻" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>即将开学的研0准研一请看！少走三年弯路</title>
+    <link href="https://aisakaaoi.top/544aff9c.html"/>
+    <id>https://aisakaaoi.top/544aff9c.html</id>
+    <published>2023-08-29T18:52:30.000Z</published>
+    <updated>2023-11-18T18:59:14.174Z</updated>
+    
+    
+    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=830461590&amp;bvid=BV1Lu4y1Q7co&amp;cid=1251149235&amp;p=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐讲座" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%B2%E5%BA%A7/"/>
     
     
   </entry>
@@ -377,98 +453,6 @@
     <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
     
     <category term="💫新闻" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>脑机团队研究生科研能力提升计划2023-第四讲-如何撰写一篇学术论文？</title>
-    <link href="https://aisakaaoi.top/f1ead5d4.html"/>
-    <id>https://aisakaaoi.top/f1ead5d4.html</id>
-    <published>2023-07-18T18:17:47.000Z</published>
-    <updated>2023-11-01T18:41:41.825Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/f1ead5d4/1.webp&quot; class&gt;</summary>
-    
-    
-    
-    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐研究生科研提升计划" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90%E7%A0%94%E7%A9%B6%E7%94%9F%E7%A7%91%E7%A0%94%E6%8F%90%E5%8D%87%E8%AE%A1%E5%88%92/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>第九艺术-aoi酱一二三四五六号的头像</title>
-    <link href="https://aisakaaoi.top/878f6a78.html"/>
-    <id>https://aisakaaoi.top/878f6a78.html</id>
-    <published>2023-07-15T19:34:05.000Z</published>
-    <updated>2023-11-07T18:10:01.553Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/878f6a78/aoi%E9%85%B11%E5%8F%B7%E5%A7%AC.webp&quot; class&gt;
-&lt;p style=&quot;text-align:center&quot;&gt;aoi酱1号姬&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88/"/>
-    
-    <category term="⭐游戏区" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88/%E2%AD%90%E6%B8%B8%E6%88%8F%E5%8C%BA/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>脑机团队研究生科研能力提升计划2023-第三讲-如何阅读一篇学术论文？</title>
-    <link href="https://aisakaaoi.top/7c7f77db.html"/>
-    <id>https://aisakaaoi.top/7c7f77db.html</id>
-    <published>2023-07-14T18:14:52.000Z</published>
-    <updated>2023-11-01T18:28:31.490Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/7c7f77db/1.webp&quot; class&gt;
-
-&lt;p&gt;&lt;strong&gt;任务：&lt;/strong&gt;用“三遍论”方法阅读一篇学术论文&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;要求：&lt;/strong&gt;由导师指定或者根据自己的研究方向选定一篇学术论文，用三段式摘要的格式重写论文摘要，通过“泛读、详读、重构”的三遍论方法弄懂该论文的主要内容，总结论文的贡献点和存在的局限。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙基础学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐研究生科研提升计划" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E2%AD%90%E7%A0%94%E7%A9%B6%E7%94%9F%E7%A7%91%E7%A0%94%E6%8F%90%E5%8D%87%E8%AE%A1%E5%88%92/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Pytorch设置随机种子Seed来保证训练结果可复现性</title>
-    <link href="https://aisakaaoi.top/552b9941.html"/>
-    <id>https://aisakaaoi.top/552b9941.html</id>
-    <published>2023-07-09T19:43:39.000Z</published>
-    <updated>2023-11-12T20:05:05.571Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;什么是随机种子&quot;&gt;&lt;a href=&quot;#什么是随机种子&quot; class=&quot;headerlink&quot; title=&quot;什么是随机种子&quot;&gt;&lt;/a&gt;什么是随机种子&lt;/h3&gt;&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=358179189&amp;bvid=BV13X4y1e7cS&amp;cid=1190965930&amp;p=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;
-
-&lt;p&gt;如何保证实验结果的可复现性。实验中的随机值主要来自网络的初始化、数据增强和数据读取等方面,而随机种子则可以固定这些随机值,从而实现网络训练结果的可复现性。通过设置随机种子可以固定生成值的序列,避免每次实验结果的差异。在下一个视频中,我们将详细介绍如何在训练过程中设置随机种子&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;如何保证实验结果的可复现性，包括随机权重网络、随机数据增强和随机数据读取等因素，以及如何使用随机种子来固定这些随机情况。&lt;ul&gt;
-&lt;li&gt;00:01 了解如何在多次实验中保证实验结果的可复现性&lt;/li&gt;
-&lt;li&gt;00:30 网络训练结果的不同原因&lt;/li&gt;
-&lt;li&gt;01:50 如何通过设置随机种子来固定随机情况，保证网络可复现性&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐人工智能 Artificial Intelligence" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫深度学习基本概念 Deep Learning Basic Concepts" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-Deep-Learning-Basic-Concepts/"/>
     
     
   </entry>
