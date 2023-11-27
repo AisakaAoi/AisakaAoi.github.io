@@ -261,7 +261,8 @@
     <updated>2023-11-27T08:52:41.880Z</updated>
     
     
-    <summary type="html">&lt;h3 id=&quot;SEED&quot;&gt;&lt;a href=&quot;#SEED&quot; class=&quot;headerlink&quot; title=&quot;SEED&quot;&gt;&lt;/a&gt;SEED&lt;/h3&gt;&lt;p&gt;SEED数据集是由上海交大类脑计算与机器智能研究中心(BCMI)开发的。该数据集是基于脑电的情绪分类任务而设计的数据集。该数据集记录了15名被试在观看积极、中性和消极情绪电影片段时的EEG信号，每个视频片段的时间为3-5分钟。每个参与者重复采集三天， 每次间隔天数大约一个星期。SEED数据集使用62通道的ESI NeuroScan设备以1 kHz的采样率进行记录，然后降采样至200Hz，并使用0-75Hz的带通滤波器去除EEG信号数据中的伪迹。&lt;/p&gt;</summary>
+    <summary type="html">&lt;h3 id=&quot;SEED&quot;&gt;&lt;a href=&quot;#SEED&quot; class=&quot;headerlink&quot; title=&quot;SEED&quot;&gt;&lt;/a&gt;SEED&lt;/h3&gt;&lt;p&gt;SEED数据集是由上海交大类脑计算与机器智能研究中心(BCMI)开发的。该数据集是基于脑电的情绪分类任务而设计的数据集。该数据集记录了15名被试在观看积极、中性和消极情绪电影片段时的EEG信号，每个视频片段的时间为3-5分钟。每个参与者重复采集三天， 每次间隔天数大约一个星期。SEED数据集使用62通道的ESI NeuroScan设备以1 kHz的采样率进行记录，然后降采样至200Hz，并使用0-75Hz的带通滤波器去除EEG信号数据中的伪迹。&lt;/p&gt;
+&lt;img src=&quot;/8fdd1c7d/1.webp&quot; class&gt;</summary>
     
     
     
