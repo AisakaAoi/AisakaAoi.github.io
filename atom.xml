@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.top/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.top/"/>
-  <updated>2024-05-26T17:28:33.320Z</updated>
+  <updated>2024-06-08T17:41:40.750Z</updated>
   <id>https://aisakaaoi.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>经验分享-2024年保研经验分享</title>
+    <link href="https://aisakaaoi.top/749d8854.html"/>
+    <id>https://aisakaaoi.top/749d8854.html</id>
+    <published>2024-06-05T17:37:06.000Z</published>
+    <updated>2024-06-08T17:41:40.750Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/749d8854/%E5%B9%BB%E7%81%AF%E7%89%871.webp&quot; class&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐分享区" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E5%88%86%E4%BA%AB%E5%8C%BA/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Kubernetes(k8s)是什么？架构是怎么样的？6分钟快速入门</title>
@@ -440,29 +459,6 @@
     <category term="🛰️脑机接口 Brain-computer Interface" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F-Research-Area/%F0%9F%9B%B0%EF%B8%8F%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3-Brain-computer-Interface/"/>
     
     <category term="☄️医学应用 Medical Applications" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F-Research-Area/%F0%9F%9B%B0%EF%B8%8F%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3-Brain-computer-Interface/%E2%98%84%EF%B8%8F%E5%8C%BB%E5%AD%A6%E5%BA%94%E7%94%A8-Medical-Applications/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>新闻：脑机接口里程碑进展！全身瘫痪者交流速度大幅接近自然水平，甚至还能做表情</title>
-    <link href="https://aisakaaoi.top/63eff98a.html"/>
-    <id>https://aisakaaoi.top/63eff98a.html</id>
-    <published>2023-09-11T17:25:20.000Z</published>
-    <updated>2023-11-12T17:29:28.397Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;2023年8月23日，《Nature》杂志同时发表了两篇脑机接口技术（BCI）的重磅文章，为帮助那些因脑损伤和疾病而失去语言能力的人恢复语言能力迈出了重要一步，为我们带来了前沿领域的最新进展。&lt;/p&gt;
-&lt;p&gt;一篇名为《A high-performance speech neuroprosthesis》的文章研究使用了植入的微电极阵列（MEA）识别受试者说话时口面动作相关的脑区神经信号，经机器学习模型解码，最终令受试者可以以每分钟62词的速度与人交流，这是以往同类技术最高速度的3倍，已经大大接近了无语言障碍者的自然交流速度（160词&amp;#x2F;分钟）。&lt;/p&gt;
-&lt;p&gt;另一篇名为《A high-performance neuroprosthesis for speech decoding and avatar control》的文章研究利用了皮层电描记术（ECoG）来记录控制口腔和面部肌肉的运动皮层神经活动，同样以机器学习解码，其交流速度达到每分钟78词，而且该技术还允许虚拟形象根据神经活动模拟出说话者的口型和面部表情，提供了交流中的视觉反馈，大大丰富了受试者的交流能力。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫新闻" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
     
     
   </entry>
