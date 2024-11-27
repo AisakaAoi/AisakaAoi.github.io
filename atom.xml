@@ -202,6 +202,75 @@
   </entry>
   
   <entry>
+    <title>学习报告：TIP | 用于半监督小样本学习的以样本为中心的特征生成方法</title>
+    <link href="https://aisakaaoi.top/a27eb4cf.html"/>
+    <id>https://aisakaaoi.top/a27eb4cf.html</id>
+    <published>2024-02-03T03:10:50.000Z</published>
+    <updated>2024-10-02T03:22:02.977Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/a27eb4cf/1.webp&quot; class&gt;
+
+&lt;p&gt;该论文发表于IEEE Transactions on Image Processing (TIP)（中科院一区，IF&amp;#x3D;10.6），题目为《Sample-Centric Feature Generation for Semi-Supervised Few-Shot Learning》。&lt;/p&gt;
+&lt;p&gt;复旦大学的Bo Zhang为此文第一作者。复旦大学的Tao Chen为此文的通讯作者。&lt;/p&gt;
+&lt;p&gt;论文链接：&lt;a href=&quot;https://ieeexplore.ieee.org/abstract/document/9729102&quot;&gt;Sample-Centric Feature Generation for Semi-Supervised Few-Shot Learning | IEEE Journals &amp;amp; Magazine | IEEE Xplore&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>学习报告：基于几何放大的注意力图卷积网络用于基于骨架的微手势识别</title>
+    <link href="https://aisakaaoi.top/95a52ba.html"/>
+    <id>https://aisakaaoi.top/95a52ba.html</id>
+    <published>2024-02-02T03:05:24.000Z</published>
+    <updated>2024-10-02T03:10:24.480Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;论文概要&quot;&gt;&lt;a href=&quot;#论文概要&quot; class=&quot;headerlink&quot; title=&quot;论文概要&quot;&gt;&lt;/a&gt;论文概要&lt;/h3&gt;&lt;p&gt;微姿势（MG）识别是一项新兴且具有挑战性的任务，由于关节的持续时间短且幅度小所以比常规手势更难识别。为了解决上述问题，针对微姿势骨架数据建模，该论文提出了一种基于几何放大的注意力图卷积网络（MA-GCN）来放大和选择特征。该网络主要由两个模块组成：几何放大模块（GM模块）控制不同关节的放大倍数，空间时间注意力图卷积模块（STA模块）通过对不同关节和帧进行加权选择有效信息，以专注于微妙的运动。作者在两个MG数据集上进行了大量实验证明，其提出的方法取得了显著的性能。&lt;/p&gt;
+&lt;p&gt;该论文被2023 IEEE International Conference on Image Processing (ICIP)接收，题目为《Geometric Magnification-based Attention Graph Convolutional Network for Skeleton-based Micro-Gesture Recognition》，东南大学的Haolin Jiang为此文的第一作者，东南大学的Wenming Zheng为此文的通讯作者。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>学习报告：基于动作理解的统一多模态无监督表示学习</title>
+    <link href="https://aisakaaoi.top/4f9a7f5.html"/>
+    <id>https://aisakaaoi.top/4f9a7f5.html</id>
+    <published>2024-02-02T03:01:04.000Z</published>
+    <updated>2024-10-02T03:25:56.664Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;论文概要&quot;&gt;&lt;a href=&quot;#论文概要&quot; class=&quot;headerlink&quot; title=&quot;论文概要&quot;&gt;&lt;/a&gt;论文概要&lt;/h3&gt;&lt;p&gt;近年来，无监督预训练在基于骨架的动作识别中取得了巨大的成功。现有的研究通常都是采用训练单独的模态特定模型（如关节、骨骼和运动），然后通过后期融合策略集成多模态信息的方法进行动作识别。然而这样的方法在模型设计方面存在复杂冗余的问题，并且受限于固定的骨架输入模态。这篇论文提出了一个统一的多模态无监督表示学习框架，称为UmURL，通过利用高效的早期融合策略联合编码多模态特征以降低模型复杂性，并且进一步提出了模态内一致性学习和模态间一致性学习，以确保多模态特征包含每个模态的完整语义。为了评估所提出的方法的性能，在三个大规模数据集（NTU-60、NTU-120和PKU-MMD II）上进行了广泛的实验，证明了UmURL不仅和单模态方法复杂度相当，而且在骨架动作表示学习的各种下游任务场景中取得了新的最先进性能。&lt;/p&gt;
+&lt;p&gt;该论文被第 31 届国际多媒体会议（ACM International Conference on Multimedia，ACMMM）接收，题目为《Unified Multi-modal Unsupervised Representation Learning for Skeleton-based Action Understanding》，浙江工商大学的Shengkai Sun和北京大学的Daizong Liu为此文的共同第一作者，浙江工商大学的Jianfeng Dong为此文的通讯作者。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>新闻：脑机接口技术迈入新纪元：创新突破与市场前景展望</title>
     <link href="https://aisakaaoi.top/10d8d432.html"/>
     <id>https://aisakaaoi.top/10d8d432.html</id>
@@ -397,69 +466,6 @@
     <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
     
     <category term="💫新闻" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>学习报告：脑机接口中缩短或取消校准时间的信号处理方法</title>
-    <link href="https://aisakaaoi.top/e10f5487.html"/>
-    <id>https://aisakaaoi.top/e10f5487.html</id>
-    <published>2023-12-12T19:59:17.000Z</published>
-    <updated>2024-09-11T20:06:35.059Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;本篇学习报告基于2015年5月发表于中科院一区期刊Proceedings of the IEEE的论文“Signal processing approaches to minimize or suppress calibration time in oscillatory activity-based brain computer interfaces”。该论文全面考察且总结了现有的用于减少或者抑制BCI校准时间的方法。然后，该论文提出了一个利用少量原始EEG试次人工生成新的EEG试次，以扩大训练集来减少BCI校准时间的想法，并且提出了三种不同的方法来实现该想法。此外，该论文还提出了一种新型、快速、简单的方法来实现用户间的BCI迁移。最后，该论文在三个不同的BCI数据集上研究和比较了新方法和旧方法，并由此确定了关于如何减少或抑制BCI校准时间的指导方针。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫学习报告" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>学习报告：聆听音乐对脑电功能连接的影响</title>
-    <link href="https://aisakaaoi.top/4e42dc7b.html"/>
-    <id>https://aisakaaoi.top/4e42dc7b.html</id>
-    <published>2023-12-03T17:36:46.000Z</published>
-    <updated>2024-09-11T17:42:49.106Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;本篇学习报告基于期刊MATHEMATICS在2022年1月刊登的文章《The Effect of Music Listening on EEG Functional Connectivity of Brain: A Short-Duration and Long-Duration Study》，这篇论文研究以音乐作为刺激时大脑功能连接（FC）的变化，从音乐类型和聆听音乐持续时间两个方面来进行探讨。短时间聆听音乐的研究验证了喜爱或偏好的音乐都能影响受试者的功能连接，并诱发放松状态; 长时间聆听音乐的研究验证了放松音乐可以帮助受试者实现放松、活跃和警觉的假设。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫学习报告" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>学习报告：BIOT：结合多源数据预训练模型的跨任务生理信号学习</title>
-    <link href="https://aisakaaoi.top/7fb11d3.html"/>
-    <id>https://aisakaaoi.top/7fb11d3.html</id>
-    <published>2023-11-26T09:50:31.000Z</published>
-    <updated>2024-09-09T23:13:52.716Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;本篇学习报告基于Arxiv 2023的《BIOT: Cross-data Biosignal Learning in the Wild》，作者是来自伊利诺伊大学厄巴纳-香槟分校和哈佛医学院的Chaoqi Yang, M. Brandon Westover, Jimeng Sun等研究人员。这篇论文所提出的BIOT模型可以使具有不匹配通道、可变长度和缺失值的跨数据学习通过词法分析将不同的生理电信号转化为统一的”biosignal sentences”。具体来说，我们将每个通道tokenize分成固定长度的包含局部信号特征的片段，并将其拉平，形成一致的”sentences”。加入通道嵌入和相对位置嵌入来保留时空特征。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫学习报告" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     
     
   </entry>
