@@ -37,6 +37,37 @@
   </entry>
   
   <entry>
+    <title>GMSS Graph-Based Multi-Task Self-Supervised Learning for EEG Emotion Recognition</title>
+    <link href="https://aisakaaoi.top/30c3a1aa.html"/>
+    <id>https://aisakaaoi.top/30c3a1aa.html</id>
+    <published>2024-09-11T00:35:07.000Z</published>
+    <updated>2025-06-26T00:55:54.680Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;提出的方法&lt;/strong&gt;：一个基于图的多任务自监督模型&lt;br&gt;&lt;strong&gt;对比方法&lt;/strong&gt;：RGNN、BiHDM、A-LSTM、BiDANN、DANN、DGCNN、SeqCLR、SSL-EEG&lt;br&gt;&lt;strong&gt;实验使用数据集&lt;/str</summary>
+        
+      
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐人工智能 Artificial Intelligence" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
+    
+    <category term="💫研究领域 Research Area" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F-Research-Area/"/>
+    
+    <category term="🛰️脑机接口 Brain-computer Interface" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F-Research-Area/%F0%9F%9B%B0%EF%B8%8F%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3-Brain-computer-Interface/"/>
+    
+    
+    <category term="☄️情绪识别 Emotion Recognition" scheme="https://aisakaaoi.top/tags/%E2%98%84%EF%B8%8F%E6%83%85%E7%BB%AA%E8%AF%86%E5%88%AB-Emotion-Recognition/"/>
+    
+  </entry>
+  
+  <entry>
     <title>经验分享-2024年保研经验分享</title>
     <link href="https://aisakaaoi.top/749d8854.html"/>
     <id>https://aisakaaoi.top/749d8854.html</id>
@@ -440,30 +471,6 @@
     <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="⭐讲座" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%B2%E5%BA%A7/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>学习报告：基于少样本对抗域自适应的跨被试情绪分类</title>
-    <link href="https://aisakaaoi.top/5143005.html"/>
-    <id>https://aisakaaoi.top/5143005.html</id>
-    <published>2023-12-18T20:07:31.000Z</published>
-    <updated>2024-09-11T20:15:24.625Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;论文概要&quot;&gt;&lt;a href=&quot;#论文概要&quot; class=&quot;headerlink&quot; title=&quot;论文概要&quot;&gt;&lt;/a&gt;论文概要&lt;/h3&gt;&lt;p&gt;基于脑电信号（EEG）的情绪分类是健康大数据的重要组成部分。在这方面的主要挑战之一是不同的被试之间的脑电数据不适应的问题。域自适应是减少源域和目标域之间数据差异的有效方法。这篇论文研究通过对抗域适应的方法，通过一个鉴别器将一个小样本的目标域数据转换到源域，从而在用源域数据训练的分类器上快速适应目标域数据。在本研究中，提出了一种新的方法称为“少标签对抗域自适应”（FLADA）的跨被试的情绪分类。为了评估所提出的方法的性能，在公共数据集DEAP数据集进行测试。结果发现，在少量的目标数据下，所提出的FLADA模型在准确性方面优于现有的方法。&lt;/p&gt;
-&lt;p&gt;厦门大学信息学院的Yingdong Wang为此文第一作者。厦门大学信息学院的Chen Wang为此文的通讯作者。&lt;/p&gt;
-&lt;p&gt;该论文已被Expert Systems With Applications（中科院一区，IF&amp;#x3D;8.5）接收，题目为《Cross-subject EEG emotion classification based on few-label adversarial domain adaption》&lt;/p&gt;
-&lt;img src=&quot;/5143005/1.webp&quot; class&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫学习报告" scheme="https://aisakaaoi.top/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     
     
   </entry>
