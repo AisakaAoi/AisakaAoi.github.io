@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.github.io/"/>
-  <updated>2025-11-08T00:39:03.546Z</updated>
+  <updated>2025-11-11T00:08:54.116Z</updated>
   <id>https://aisakaaoi.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>研究方向相关工作整理</title>
+    <link href="https://aisakaaoi.github.io/ac0c1e15.html"/>
+    <id>https://aisakaaoi.github.io/ac0c1e15.html</id>
+    <published>2025-11-11T00:05:58.000Z</published>
+    <updated>2025-11-11T00:08:54.116Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;情绪识别&quot;&gt;&lt;a href=&quot;#情绪识别&quot; class=&quot;headerlink&quot; title=&quot;情绪识别&quot;&gt;&lt;/a&gt;情绪识别&lt;/h3&gt;&lt;h3 id=&quot;意识障碍辅助检测&quot;&gt;&lt;a href=&quot;#意识障碍辅助检测&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐一些论文" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E4%B8%80%E4%BA%9B%E8%AE%BA%E6%96%87/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>融合脑电和人脸表情的多模态情感脑机接口（脑电+微表情过渡）</title>
@@ -40,7 +65,7 @@
     <link href="https://aisakaaoi.github.io/8eadb4f2.html"/>
     <id>https://aisakaaoi.github.io/8eadb4f2.html</id>
     <published>2025-10-26T08:06:09.000Z</published>
-    <updated>2025-11-07T19:27:53.149Z</updated>
+    <updated>2025-11-10T17:06:09.582Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -93,11 +118,11 @@
   </entry>
   
   <entry>
-    <title>博士生研讨会</title>
-    <link href="https://aisakaaoi.github.io/14ef6180.html"/>
-    <id>https://aisakaaoi.github.io/14ef6180.html</id>
+    <title>潘院组博士生与硕士新生研讨会</title>
+    <link href="https://aisakaaoi.github.io/651cd826.html"/>
+    <id>https://aisakaaoi.github.io/651cd826.html</id>
     <published>2025-06-11T00:45:56.000Z</published>
-    <updated>2025-11-08T00:49:51.143Z</updated>
+    <updated>2025-11-10T09:33:13.967Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -116,7 +141,7 @@
     <link href="https://aisakaaoi.github.io/96834198.html"/>
     <id>https://aisakaaoi.github.io/96834198.html</id>
     <published>2025-02-26T15:26:55.000Z</published>
-    <updated>2025-09-09T12:50:28.820Z</updated>
+    <updated>2025-11-08T17:41:18.009Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;报告时间：&lt;/strong&gt;2025年2月26日 (星期三) 晚上20:00 (北京时间)&lt;br&gt;&lt;strong&gt;主题：&lt;/strong&gt;AI方向投稿Nature&amp;#x2F;Science系期刊的经验及相关工作分享&lt;br&gt;&lt;strong&gt;主持人：&lt;/strong&gt;余肇飞 (北京大学)&lt;br&gt;&lt;strong&gt;直播地址：&lt;/strong&gt;&lt;a href=&quot;https://live.bilibili.com/22300737&quot;&gt;https://live.bilibili.com/22300737&lt;/a&gt;&lt;/p&gt;
@@ -124,9 +149,9 @@
     
     
     
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
     
-    <category term="⭐讲座" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%AE%B2%E5%BA%A7/"/>
+    <category term="⭐一些讲座" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E4%B8%80%E4%BA%9B%E8%AE%B2%E5%BA%A7/"/>
     
     
   </entry>
@@ -155,7 +180,7 @@
     <link href="https://aisakaaoi.github.io/30c3a1aa.html"/>
     <id>https://aisakaaoi.github.io/30c3a1aa.html</id>
     <published>2024-09-11T00:35:07.000Z</published>
-    <updated>2025-06-26T00:55:54.680Z</updated>
+    <updated>2025-11-08T20:37:50.090Z</updated>
     
     
       
@@ -177,16 +202,14 @@
     <category term="🛰️脑机接口 Brain-computer Interface" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F-Research-Area/%F0%9F%9B%B0%EF%B8%8F%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3-Brain-computer-Interface/"/>
     
     
-    <category term="☄️情绪识别 Emotion Recognition" scheme="https://aisakaaoi.github.io/tags/%E2%98%84%EF%B8%8F%E6%83%85%E7%BB%AA%E8%AF%86%E5%88%AB-Emotion-Recognition/"/>
-    
   </entry>
   
   <entry>
-    <title>2024年保研经验分享</title>
-    <link href="https://aisakaaoi.github.io/826440e5.html"/>
-    <id>https://aisakaaoi.github.io/826440e5.html</id>
-    <published>2024-06-05T17:37:06.000Z</published>
-    <updated>2025-11-07T19:28:23.585Z</updated>
+    <title>华南师范大学软件学院研究生中期考核</title>
+    <link href="https://aisakaaoi.github.io/d3a4d932.html"/>
+    <id>https://aisakaaoi.github.io/d3a4d932.html</id>
+    <published>2024-06-18T16:04:27.000Z</published>
+    <updated>2025-11-08T16:12:01.006Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
@@ -201,15 +224,34 @@
   </entry>
   
   <entry>
-    <title>新闻：规范脑机接口研究，我国《脑机接口研究伦理指引》发布</title>
-    <link href="https://aisakaaoi.github.io/36f23cf9.html"/>
-    <id>https://aisakaaoi.github.io/36f23cf9.html</id>
+    <title>2024年保研经验分享</title>
+    <link href="https://aisakaaoi.github.io/826440e5.html"/>
+    <id>https://aisakaaoi.github.io/826440e5.html</id>
+    <published>2024-06-05T17:37:06.000Z</published>
+    <updated>2025-11-08T16:04:27.207Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐一些分享" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E4%B8%80%E4%BA%9B%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>规范脑机接口研究，我国《脑机接口研究伦理指引》发布</title>
+    <link href="https://aisakaaoi.github.io/e3612ebb.html"/>
+    <id>https://aisakaaoi.github.io/e3612ebb.html</id>
     <published>2024-04-17T08:47:46.000Z</published>
-    <updated>2024-09-04T08:50:52.876Z</updated>
+    <updated>2025-11-08T21:54:33.197Z</updated>
     
     
     <summary type="html">&lt;p&gt;科技部官网近日发布《脑机接口研究伦理指引》，这份由国家科技伦理委员会人工智能伦理分委员会编制的文件，旨在指导脑机接口研究合规开展，防范研究与技术应用过程中的科技伦理风险。&lt;/p&gt;
-&lt;img src=&quot;/36f23cf9/1.webp&quot; class&gt;</summary>
+&lt;img src=&quot;/e3612ebb/1.webp&quot; class&gt;</summary>
     
     
     
@@ -242,14 +284,14 @@
   </entry>
   
   <entry>
-    <title>新闻：第一届人工智能大脑编码与解码研讨会成功举办</title>
-    <link href="https://aisakaaoi.github.io/b4079936.html"/>
-    <id>https://aisakaaoi.github.io/b4079936.html</id>
+    <title>第一届人工智能大脑编码与解码研讨会成功举办</title>
+    <link href="https://aisakaaoi.github.io/8bab1080.html"/>
+    <id>https://aisakaaoi.github.io/8bab1080.html</id>
     <published>2024-04-06T08:40:27.000Z</published>
-    <updated>2024-09-04T08:43:10.401Z</updated>
+    <updated>2025-11-08T21:54:55.446Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/b4079936/1.webp&quot; class&gt;</summary>
+    <summary type="html">&lt;img src=&quot;/8bab1080/1.webp&quot; class&gt;</summary>
     
     
     
@@ -382,15 +424,15 @@
   </entry>
   
   <entry>
-    <title>新闻：“意念”控制“动作”，“人机共生”时代还有多远？</title>
-    <link href="https://aisakaaoi.github.io/27b70488.html"/>
-    <id>https://aisakaaoi.github.io/27b70488.html</id>
+    <title>“意念”控制“动作”，“人机共生”时代还有多远？</title>
+    <link href="https://aisakaaoi.github.io/259a2f0c.html"/>
+    <id>https://aisakaaoi.github.io/259a2f0c.html</id>
     <published>2024-02-20T08:33:02.000Z</published>
-    <updated>2024-09-04T08:39:36.522Z</updated>
+    <updated>2025-11-08T21:55:17.264Z</updated>
     
     
     <summary type="html">&lt;p&gt;2024年1月29日，首都医科大学宣武医院赵国光教授团队与清华大学医学院洪波教授团队召开无线微创脑机接口临床试验阶段进展总结会，宣布全球首例植入式硬膜外电极脑机接口辅助治疗颈髓损伤引起的四肢截瘫患者行为能力取得突破性进展。&lt;/p&gt;
-&lt;img src=&quot;/27b70488/1.webp&quot; class&gt;
+&lt;img src=&quot;/259a2f0c/1.webp&quot; class&gt;
 &lt;div align=&quot;center&quot;&gt;图1：无线微创植入脑机接口NEO系统及其体内机&lt;/div&gt;</summary>
     
     
@@ -400,53 +442,6 @@
     <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
     
     <category term="💫新闻" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>学习报告：TIP | 用于半监督小样本学习的以样本为中心的特征生成方法</title>
-    <link href="https://aisakaaoi.github.io/a27eb4cf.html"/>
-    <id>https://aisakaaoi.github.io/a27eb4cf.html</id>
-    <published>2024-02-03T03:10:50.000Z</published>
-    <updated>2024-10-02T03:22:02.977Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/a27eb4cf/1.webp&quot; class&gt;
-
-&lt;p&gt;该论文发表于IEEE Transactions on Image Processing (TIP)（中科院一区，IF&amp;#x3D;10.6），题目为《Sample-Centric Feature Generation for Semi-Supervised Few-Shot Learning》。&lt;/p&gt;
-&lt;p&gt;复旦大学的Bo Zhang为此文第一作者。复旦大学的Tao Chen为此文的通讯作者。&lt;/p&gt;
-&lt;p&gt;论文链接：&lt;a href=&quot;https://ieeexplore.ieee.org/abstract/document/9729102&quot;&gt;Sample-Centric Feature Generation for Semi-Supervised Few-Shot Learning | IEEE Journals &amp;amp; Magazine | IEEE Xplore&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>学习报告：基于几何放大的注意力图卷积网络用于基于骨架的微手势识别</title>
-    <link href="https://aisakaaoi.github.io/95a52ba.html"/>
-    <id>https://aisakaaoi.github.io/95a52ba.html</id>
-    <published>2024-02-02T03:05:24.000Z</published>
-    <updated>2024-10-02T03:10:24.480Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;论文概要&quot;&gt;&lt;a href=&quot;#论文概要&quot; class=&quot;headerlink&quot; title=&quot;论文概要&quot;&gt;&lt;/a&gt;论文概要&lt;/h3&gt;&lt;p&gt;微姿势（MG）识别是一项新兴且具有挑战性的任务，由于关节的持续时间短且幅度小所以比常规手势更难识别。为了解决上述问题，针对微姿势骨架数据建模，该论文提出了一种基于几何放大的注意力图卷积网络（MA-GCN）来放大和选择特征。该网络主要由两个模块组成：几何放大模块（GM模块）控制不同关节的放大倍数，空间时间注意力图卷积模块（STA模块）通过对不同关节和帧进行加权选择有效信息，以专注于微妙的运动。作者在两个MG数据集上进行了大量实验证明，其提出的方法取得了显著的性能。&lt;/p&gt;
-&lt;p&gt;该论文被2023 IEEE International Conference on Image Processing (ICIP)接收，题目为《Geometric Magnification-based Attention Graph Convolutional Network for Skeleton-based Micro-Gesture Recognition》，东南大学的Haolin Jiang为此文的第一作者，东南大学的Wenming Zheng为此文的通讯作者。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     
     
   </entry>
