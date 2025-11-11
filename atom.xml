@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.github.io/"/>
-  <updated>2025-11-11T00:08:54.116Z</updated>
+  <updated>2025-11-11T00:49:36.855Z</updated>
   <id>https://aisakaaoi.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="https://aisakaaoi.github.io/ac0c1e15.html"/>
     <id>https://aisakaaoi.github.io/ac0c1e15.html</id>
     <published>2025-11-11T00:05:58.000Z</published>
-    <updated>2025-11-11T00:08:54.116Z</updated>
+    <updated>2025-11-11T00:49:36.855Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;情绪识别&quot;&gt;&lt;a href=&quot;#情绪识别&quot; class=&quot;headerlink&quot; title=&quot;情绪识别&quot;&gt;&lt;/a&gt;情绪识别&lt;/h3&gt;&lt;h3 id=&quot;意识障碍辅助检测&quot;&gt;&lt;a href=&quot;#意识障碍辅助检测&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;研究方向&quot;&gt;&lt;a href=&quot;#研究方向&quot; class=&quot;headerlink&quot; title=&quot;研究方向&quot;&gt;&lt;/a&gt;研究方向&lt;/h3&gt;&lt;h4 id=&quot;情绪识别&quot;&gt;&lt;a href=&quot;#情绪识别&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -180,7 +180,7 @@
     <link href="https://aisakaaoi.github.io/30c3a1aa.html"/>
     <id>https://aisakaaoi.github.io/30c3a1aa.html</id>
     <published>2024-09-11T00:35:07.000Z</published>
-    <updated>2025-11-08T20:37:50.090Z</updated>
+    <updated>2025-11-11T01:00:26.619Z</updated>
     
     
       
@@ -193,13 +193,9 @@
     
     
     
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
     
-    <category term="⭐人工智能 Artificial Intelligence" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/"/>
-    
-    <category term="💫研究领域 Research Area" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F-Research-Area/"/>
-    
-    <category term="🛰️脑机接口 Brain-computer Interface" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E7%A0%94%E7%A9%B6%E9%A2%86%E5%9F%9F-Research-Area/%F0%9F%9B%B0%EF%B8%8F%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3-Brain-computer-Interface/"/>
+    <category term="⭐一些论文" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E4%B8%80%E4%BA%9B%E8%AE%BA%E6%96%87/"/>
     
     
   </entry>
