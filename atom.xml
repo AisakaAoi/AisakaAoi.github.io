@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>逢坂葵的个人博客</title>
+  
+  <subtitle>aoi学院</subtitle>
+  <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://aisakaaoi.github.io/"/>
+  <updated>2026-01-26T20:11:20.474Z</updated>
+  <id>https://aisakaaoi.github.io/</id>
+  
+  <author>
+    <name>Aisaka Aoi</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python-第1篇《Python，不只是程序员的玩具》</title>
+    <link href="https://aisakaaoi.github.io/645d2d74.html"/>
+    <id>https://aisakaaoi.github.io/645d2d74.html</id>
+    <published>2026-01-26T19:41:43.000Z</published>
+    <updated>2026-01-26T20:11:20.474Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次接触Excel时的感觉吗？那些复杂的函数、密密麻麻的格子，看起来既神秘又让人望而生畏。但你现在却能熟练地用VLOOKUP、数据透视表来完成各种财务分析工作。学习Python也是一样的道理，它看起来是程序员的专属工具，但实际上，它可以是你的得力助手，甚至是生活中的有趣玩伴。&lt;/p&gt;
+&lt;p&gt;今天，让我们一起揭开Python的神秘面纱，看看这个被程序员们奉为经典的编程语言，如何成为你我生活中的贴心小助手。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第0篇《Python学习之旅》</title>
+    <link href="https://aisakaaoi.github.io/6c2c54ad.html"/>
+    <id>https://aisakaaoi.github.io/6c2c54ad.html</id>
+    <published>2026-01-26T19:13:10.000Z</published>
+    <updated>2026-01-26T19:59:59.268Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;本课程不会讲那些让人打瞌睡的计算机理论，也不会一上来就抛出一堆专业术语。就像学开车不需要懂发动机原理一样，学Python也可以从“怎么用它解决问题”开始。课程里借用了一些财务相关的例子（毕竟你最熟悉这个），但核心教的是Python本身。学会之后，你一样可以用来处理任何数据、自动化任何重复工作。&lt;/p&gt;
+&lt;p&gt;整个课程就像搭积木，分五个阶段，共25篇博客，有空就看、想学就学｡:.ﾟヽ(*´∀&amp;#96;)ﾉﾟ.:｡&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>The Innovation Life | 生成式AI赋能脑机接口：前沿进展与未来展望</title>
+    <link href="https://aisakaaoi.github.io/a4c6044b.html"/>
+    <id>https://aisakaaoi.github.io/a4c6044b.html</id>
+    <published>2026-01-17T17:34:27.000Z</published>
+    <updated>2026-01-23T11:02:58.117Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;过去十年，脑机接口的核心挑战始终围绕“如何更准确地解码大脑信号”。随着生成式人工智能的快速发展，我们开始意识到，BCI 也许不应止步于解码，而应迈向“理解、生成与协同”的新阶段。本文正是基于这一转变，系统梳理生成式AI在脑机接口中的最新进展，探索构建下一代智能神经交互系统的可能路径。&lt;/p&gt;
+&lt;h3 id=&quot;导读&quot;&gt;&lt;a href=&quot;#导读&quot; class=&quot;headerlink&quot; title=&quot;导读&quot;&gt;&lt;/a&gt;导读&lt;/h3&gt;&lt;p&gt;当人失去语言或行动能力，脑机接口可能成为新的“出口”。但脑信号微弱、噪声多、数据少、个体差异大，常让系统不稳。生成式AI擅长去噪、补全、合成与迁移学习，正在把BCI从实验室推向更可靠的现实应用。本文用更易懂的方式梳理其关键作用与未来方向。&lt;/p&gt;
+&lt;img src=&quot;/a4c6044b/1.webp&quot; class&gt;
+&lt;div align=&quot;center&quot;&gt;图1 图文摘要&lt;/div&gt;
+
+&lt;p&gt;研究基于对170余篇前沿文献的系统梳理，深度解析生成式AI如何为BCI领域带来革命性突破。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>千亿睡眠经济风口：解锁健康睡眠商机</title>
+    <link href="https://aisakaaoi.github.io/c74fbe9d.html"/>
+    <id>https://aisakaaoi.github.io/c74fbe9d.html</id>
+    <published>2026-01-15T16:31:56.000Z</published>
+    <updated>2026-01-23T11:02:58.072Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;据艺恩 2025 年 12 月《「睡眠情况」社媒洞察报告》，中国超三成成年人受失眠困扰、超六成 90 后睡眠质量堪忧，&lt;strong&gt;推动智能床垫、睡眠监测等设备需求爆发&lt;/strong&gt;，当前消费者对助眠产品的科学原理关注度持续提升，睡眠经济正从“被动改善”转向“主动管理”的科学化赛道。本文将从睡眠需求痛点切入，拆解主流干预产品的市场逻辑与产业链布局，为相关行业投资者、从业者、企业经营者及创业者提供系统性的参考。&lt;/p&gt;
+&lt;img src=&quot;/c74fbe9d/1.webp&quot; class&gt;
+&lt;p&gt;图源：艺恩 2025 年 12 月《「睡眠情况」社媒洞察报告》&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫新闻" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ozlo: 前Bose团队创立，睡眠耳塞是下一个入口级机会?</title>
+    <link href="https://aisakaaoi.github.io/4c1d82da.html"/>
+    <id>https://aisakaaoi.github.io/4c1d82da.html</id>
+    <published>2026-01-12T16:13:09.000Z</published>
+    <updated>2026-01-23T11:02:58.064Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;过去十年，消费电子行业不断寻找“下一个手机级入口”。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;有人押注 AI 眼镜，有人尝试智能戒指、智能家居，也有人把目光投向更高频、却长期被忽视的一个场景：睡眠。&lt;/p&gt;
+&lt;p&gt;与工作、娱乐不同，睡眠几乎不依赖用户学习成本，却直接影响情绪、效率与长期健康。&lt;strong&gt;全球范围内，失眠与睡眠障碍人群规模已达数亿，助眠相关支出持续增长，但真正能够被用户长期、稳定使用的消费级产品却并不多。&lt;/strong&gt;传统方案要么停留在药物和补剂层面，要么是功能单一、体验割裂的硬件设备，始终未能形成类似手机、耳机那样的“日常必需品”。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ozlo，正是这一趋势下的代表性公司之一。据报道，目前正处于 B 轮融资收尾阶段。&lt;/strong&gt;Ozlo 并未创造需求，而是站在上一代 Bose Sleepbuds 留下的真实用户基础之上，通过对产品定义、功能形态与商业模式的重构，推动“睡眠耳塞”从小众配件，向具备平台潜力的睡眠系统入口演进。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫新闻" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>IEEE TNNLS | EmT：一种用于广义跨被试EEG情绪识别的新型Transformer模型</title>
+    <link href="https://aisakaaoi.github.io/ddd74882.html"/>
+    <id>https://aisakaaoi.github.io/ddd74882.html</id>
+    <published>2026-01-05T18:58:03.000Z</published>
+    <updated>2026-01-23T11:02:58.057Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;IEEE TNNLS | EmT：一种用于广义跨被试EEG情绪识别的新型Transformer模型&lt;/p&gt;
+&lt;img src=&quot;/ddd74882/1.webp&quot; class&gt;
+
+&lt;p&gt;该论文发表于IEEE Transactions on Neural Networks and Learning Systems（中科院一区，IF&amp;#x3D;11.1），题目为《EmT: A Novel Transformer for Generalized Cross-Subject EEG Emotion Recognition》。&lt;/p&gt;
+&lt;p&gt;南洋理工大学计算机科学与数据科学学院的丁毅博士为此论文的第一作者，关存太教授为此论文通讯作者。&lt;/p&gt;
+&lt;p&gt;论文链接:&lt;a href=&quot;https://ieeexplore.ieee.org/document/10960695&quot;&gt;https://ieeexplore.ieee.org/document/10960695&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Nature Communications | 人类大脑中条件性威胁的分布式神经表征</title>
+    <link href="https://aisakaaoi.github.io/b511cb06.html"/>
+    <id>https://aisakaaoi.github.io/b511cb06.html</id>
+    <published>2025-12-30T18:49:59.000Z</published>
+    <updated>2026-01-23T11:02:58.051Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/b511cb06/1.webp&quot; class&gt;
+
+&lt;p&gt;该论文发表于Nature Communications（中科院一区，IF&amp;#x3D;15.7），题目为《Distributed neural representations of conditioned threat in the human brain》。&lt;/p&gt;
+&lt;p&gt;德克萨斯大学休斯顿健康科学中心的温珍福研究员为此论文的第一作者，Joseph E. LeDoux教授与Mohammed R. Milad教授共同为此论文通讯作者。&lt;/p&gt;
+&lt;p&gt;论文链接：&lt;a href=&quot;https://www.nature.com/articles/s41467-024-46508-0&quot;&gt;https://www.nature.com/articles/s41467-024-46508-0&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于印发《南京市推进脑机接口产业创新突破行动方案（2026-2030年）》的通知</title>
+    <link href="https://aisakaaoi.github.io/d42909f7.html"/>
+    <id>https://aisakaaoi.github.io/d42909f7.html</id>
+    <published>2025-12-21T18:54:08.000Z</published>
+    <updated>2026-01-23T11:02:58.050Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;&lt;div align=&quot;center&quot;&gt;南京市推进脑机接口产业创新突破行动方案（2026-2030年）&lt;/div&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;脑机接口技术借助神经科学、人工智能、电子信息和功能材料等多学科交叉融合发展，正逐步从实验室走向商业化应用，成为全球科技前沿领域中最受瞩目的增长点之一。为抢抓脑机接口发展机遇，打造产业创新高地，培育未来经济增长极，特制定本行动方案。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>综述丨脑机接口应用于睡眠障碍的研究进展</title>
+    <link href="https://aisakaaoi.github.io/29301a93.html"/>
+    <id>https://aisakaaoi.github.io/29301a93.html</id>
+    <published>2025-12-19T21:55:39.000Z</published>
+    <updated>2026-01-23T11:02:58.048Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;目前非侵入式脑机接口的商业化步伐快于侵入式，而前者商业化程度最高的领域为睡眠领域。近期，复旦大学附属华山医院、路桥区中医医院、深圳市第二人民医院的联合团队回顾了脑机接口应用于睡眠障碍的研究进展，认为亟需实现“材料—算法—硬件”的深度协同，以及多模态融合，以推动BCI睡眠设备真正进化为可靠、有效的临床诊疗工具。以下为论文摘编。&lt;/p&gt;
+&lt;img src=&quot;/29301a93/1.webp&quot; class&gt;
+
+&lt;p&gt;随着现代社会工作与生活节奏的加快，睡眠障碍已成为一个日益普遍的问题。据世界卫生组织数据，全球睡眠障碍患病率高达 27% 。而在我国有超过 3亿人存在睡眠障碍，普通人群有临床意义的失眠患病率约为 15%。&lt;/p&gt;
+&lt;p&gt;将脑机接口技术应用于睡眠障碍的诊断与治疗具有重要的意义。BCI可以通过持续采集并分析脑电信号（electroencephalogram, EEG），实时跟踪和分析睡眠状态，从而提供更准确的睡眠评估以及更加个性化的治疗方案。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>BrainOmni：脑电脑磁基础模型，实现跨设备、跨模态的通用脑信号表征</title>
+    <link href="https://aisakaaoi.github.io/ebfcef04.html"/>
+    <id>https://aisakaaoi.github.io/ebfcef04.html</id>
+    <published>2025-12-09T19:20:38.000Z</published>
+    <updated>2026-01-23T11:02:58.024Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;上海人工智能实验室（上海AI实验室）联合清华大学、剑桥大学等合作单位，正式发布BrainOmni——全球首个统一 脑电（EEG）与脑磁（MEG）的大脑基础模型。BrainOmni通过一种新注意力机制，模拟了脑科学中源重构算法的前向过程，并且首次利用传感器的真实物理属性（坐标、方向、类型）替代通道命名，从而实现跨设备、跨模态兼容。通过1997小时EEG和656小时MEG的大规模自监督预训练，BrainOmni在9项下游任务上超越现有基础模型与专用模型，并在未见过的设备上展现强零样本泛化能力。工作自发布以来，收到了来自牛津大学、剑桥大学、法国国家科学研究中心、荷兰Radboud大学、美国著名可穿戴脑磁图企业等的关注与合作邀请。&lt;/p&gt;
+&lt;p&gt;论文链接：&lt;a href=&quot;https://arxiv.org/abs/2505.18185&quot;&gt;https://arxiv.org/abs/2505.18185&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;开源链接：&lt;a href=&quot;https://github.com/OpenTSLab/BrainOmni&quot;&gt;https://github.com/OpenTSLab/BrainOmni&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一图读懂：南京市栖霞区促进脑机接口产业创新发展政策措施</title>
+    <link href="https://aisakaaoi.github.io/1adcdd0c.html"/>
+    <id>https://aisakaaoi.github.io/1adcdd0c.html</id>
+    <published>2025-11-27T19:23:14.000Z</published>
+    <updated>2026-01-23T11:02:58.020Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;img src=&quot;/1adcdd0c/1.webp&quot; class&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&quot;原文链接&quot;&gt;&lt;a href=&quot;#原文链接&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一图读懂——关于印发《闵行区关于打造脑机接口未来产业生态的若干意见》的通知</title>
+    <link href="https://aisakaaoi.github.io/c4a9a77f.html"/>
+    <id>https://aisakaaoi.github.io/c4a9a77f.html</id>
+    <published>2025-11-26T19:23:14.000Z</published>
+    <updated>2026-01-23T11:02:58.012Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;img src=&quot;/c4a9a77f/1.webp&quot; class&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&quot;原文链接&quot;&gt;&lt;a href=&quot;#原文链接&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>NeurIPS 2025 | 概率表征学习赋能脑编码: SynBrain破解神经变异性下功能一致性的脑活动生成难题</title>
+    <link href="https://aisakaaoi.github.io/193fa88.html"/>
+    <id>https://aisakaaoi.github.io/193fa88.html</id>
+    <published>2025-11-26T03:25:23.000Z</published>
+    <updated>2026-01-23T11:02:58.005Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/193fa88/1.webp&quot; class&gt;
+
+&lt;p&gt;论文链接：&lt;a href=&quot;https://arxiv.org/pdf/2508.10298&quot;&gt;https://arxiv.org/pdf/2508.10298&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;代码链接：&lt;a href=&quot;https://github.com/MichaelMaiii/SynBrain&quot;&gt;https://github.com/MichaelMaiii/SynBrain&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本研究由上海人工智能实验室、香港大学、香港中文大学等机构的科研人员联合完成，发表于&lt;strong&gt;NeurIPS 2025《SynBrain: Enhancing Visual-to-fMRI Synthesis via Probabilistic Representation Learning》&lt;/strong&gt;。论文第一作者为&lt;strong&gt;麦伟健（Weijian Mai）&lt;/strong&gt;，现为香港大学一年级博士生，师从香港大学助理教授&lt;strong&gt;罗逸飞（Andrew F. Luo）&lt;/strong&gt;。该工作完成于其在上海人工智能实验室实习期间，通讯作者为&lt;strong&gt;伍佳敏（Jiamin Wu）&lt;/strong&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>江西省人民政府办公厅关于印发《江西省加快脑机接口技术和产业发展若干措施》的通知</title>
+    <link href="https://aisakaaoi.github.io/5c2ad52c.html"/>
+    <id>https://aisakaaoi.github.io/5c2ad52c.html</id>
+    <published>2025-11-26T00:35:00.000Z</published>
+    <updated>2026-01-23T11:02:58.012Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;&lt;div align=&quot;center&quot;&gt;江西省加快脑机接口技术和产业发展若干措施&lt;/div&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;为贯彻落实党中央、国务院关于脑机接口技术和产业发展的工作部署，以承接脑机接口科技成果转化为抓手，推动脑机接口科技创新和产业创新深度融合，加快布局未来产业新赛道，现制定如下措施。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于印发《闵行区关于打造脑机接口未来产业生态的若干意见》的通知</title>
+    <link href="https://aisakaaoi.github.io/4be1f8.html"/>
+    <id>https://aisakaaoi.github.io/4be1f8.html</id>
+    <published>2025-11-24T19:16:14.000Z</published>
+    <updated>2026-01-23T11:02:58.004Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;&lt;div align=&quot;center&quot;&gt;闵行区关于打造脑机接口未来产业生态的&lt;/div&gt;&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;&lt;div align=&quot;center&quot;&gt;若干意见&lt;/div&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;脑机接口作为颠覆性技术被列为我国未来产业发展的重点方向，为深入贯彻国家科技战略规划，落实《上海市脑机接口未来产业培育行动方案（2025-2030年）》，抢抓全球脑机接口技术和产业发展机遇，增强创新研发、临床转化和孵化加速功能，完善人才、金融、数据、场地和专业服务资源支撑，推动先进技术产品开发、临床试验和产业化，打造上海高水平脑机接口未来产业集聚区，特制定本意见。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>与“十四五”相比，“十五五”规划对卫生健康领域的战略部署</title>
+    <link href="https://aisakaaoi.github.io/252596dc.html"/>
+    <id>https://aisakaaoi.github.io/252596dc.html</id>
+    <published>2025-11-20T00:28:20.000Z</published>
+    <updated>2026-01-23T11:02:58.004Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;与“十四五”相比，“十五五”规划对卫生健康领域的战略部署呈现出系统性升级，核心关键词的权重调整深刻反映了国家对基层医疗未来的战略定位。以下是基于最新政策文件和实践案例的深度解析：&lt;/p&gt;
+&lt;h3 id=&quot;一、健康优先：从战略位置到发展战略的制度性升级&quot;&gt;&lt;a href=&quot;#一、健康优先：从战略位置到发展战略的制度性升级&quot; class=&quot;headerlink&quot; title=&quot;一、健康优先：从战略位置到发展战略的制度性升级&quot;&gt;&lt;/a&gt;一、健康优先：从战略位置到发展战略的制度性升级&lt;/h3&gt;&lt;p&gt;“十四五”时期，“健康优先”更多体现在预防为主的政策导向中，例如通过扩大公共卫生投入提升疾病防控能力 。而“十五五”规划将其明确为发展战略，强调“健康融入所有政策”的刚性约束：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;顶层设计强化：通过立法保障健康影响评估机制，要求在财政投入、项目安排等领域优先考虑健康因素。例如，国务院《医疗卫生强基工程实施方案》明确将基层医疗资源配置与人口结构变化直接挂钩，到2030年实现居民15分钟可达最近医疗服务点 。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;全周期治理深化：从单一疾病防控转向覆盖生命全周期的健康管理。例如，上海某社区通过AI慢性病管理平台，将糖尿病患者血糖控制达标率提升30%，急诊就医次数减少40%，验证了“健康优先”从理念到实践的转化路径。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;政策融合机制创新：建立跨部门协同的健康促进体系，例如将健康社区、健康学校等“健康细胞”建设纳入地方政府绩效考核 ，推动健康目标与经济社会发展指标深度融合。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>AAAI 2026 | 上海交大郑伟龙团队提出MindCross：快速适应新被试的跨被试脑信号解码视频框架</title>
+    <link href="https://aisakaaoi.github.io/e15a525c.html"/>
+    <id>https://aisakaaoi.github.io/e15a525c.html</id>
+    <published>2025-11-19T03:37:21.000Z</published>
+    <updated>2026-01-23T11:02:57.963Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/e15a525c/1.webp&quot; class&gt;
+
+&lt;img src=&quot;/e15a525c/2.webp&quot; class&gt;
+&lt;div align=&quot;center&quot;&gt;图1. 跨被试脑解码示意图&lt;/div&gt;
+
+&lt;p&gt;近年来脑机接口(BCI)技术飞速发展，从脑信号解码视频成为了其中一个热点问题。近期，上海交通大学郑伟龙团队提出了一种基于共享-特定结构的快速适应新被试的跨被试脑信号解码视频框架MindCross, 相关成果发表于人工智能顶级会议（CCF-A类&lt;strong&gt;AAAI 2026&lt;/strong&gt;上，标题为“&lt;strong&gt;MindCross: Fast New Subject Adaptation with Limited Data for Cross-subject Video Reconstruction from Brain Signals&lt;/strong&gt;”。如图1所示，现有的脑解码框架主要基于被试依赖范式，需要采集每个受试者大量的脑数据，导致难以快速适应一个数据较少的新被试，毕竟脑视频数据的采集成本高昂，而MindCross为所有被试训练一个通用模型，该模型能够快速适应数据有限的新被试。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>牢记嘱托 创新赋能丨汕头市中心医院启用潮汕地区首家脑机接口病房</title>
+    <link href="https://aisakaaoi.github.io/5620c3ab.html"/>
+    <id>https://aisakaaoi.github.io/5620c3ab.html</id>
+    <published>2025-11-19T00:41:12.000Z</published>
+    <updated>2026-01-23T11:02:57.987Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;意念操控机械臂写字，使盲人重获光明······这些过去只出现在科幻电影里的场景，正在脑机接口技术的发展和应用中逐步走进现实。&lt;/p&gt;
+&lt;p&gt;新近出炉的“十五五”规划建议提出，前瞻布局未来产业，探索多元技术路线、典型应用场景、可行商业模式、市场监管规则，推动&lt;strong&gt;量子科技、生物制造、氢能和核聚变能、脑机接口、具身智能、第六代移动通信&lt;/strong&gt;等成为新的经济增长点。&lt;/p&gt;
+&lt;p&gt;在国家战略指引下“&lt;strong&gt;创新优势，实现新突破&lt;/strong&gt;”，汕头市中心医院作为省级区域医疗中心，在这一前沿领域进行积极探索。11月19日，汕头市中心医院脑机接口病房启用，暨南大学汕头临床医学院脑机接口创新转化中心同步成立，标志着&lt;strong&gt;粤东地区首次实现脑机接口临床转化落地&lt;/strong&gt;。校地合作孵化的这一创新平台，将为神经系统疾病患者带来更具科技感的治疗方案，助力汕头区域医疗中心建设驶入快车道。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫新闻" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>重庆市人民政府办公厅关于印发《重庆市智慧医疗装备产业创新发展行动计划（2025—2027年）》的通知</title>
+    <link href="https://aisakaaoi.github.io/5aaec42b.html"/>
+    <id>https://aisakaaoi.github.io/5aaec42b.html</id>
+    <published>2025-11-18T15:10:32.000Z</published>
+    <updated>2026-01-23T11:02:57.963Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;&lt;div align=&quot;center&quot;&gt;重庆市智慧医疗装备产业创新发展行动计划&lt;/div&gt;&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;&lt;div align=&quot;center&quot;&gt;（2025—2027年）&lt;/div&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;为推动重庆市智慧医疗装备产业高质量发展，特制定本行动计划。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>研究方向相关工作整理</title>
+    <link href="https://aisakaaoi.github.io/ac0c1e15.html"/>
+    <id>https://aisakaaoi.github.io/ac0c1e15.html</id>
+    <published>2025-11-11T00:05:58.000Z</published>
+    <updated>2026-01-26T17:35:48.466Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本篇博客整理一些个人研究领域相关的重要文献。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+</feed>
