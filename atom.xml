@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.github.io/"/>
-  <updated>2026-01-26T20:11:20.474Z</updated>
+  <updated>2026-01-27T10:01:54.929Z</updated>
   <id>https://aisakaaoi.github.io/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python-第2篇《第一个Python程序》</title>
+    <link href="https://aisakaaoi.github.io/418642a.html"/>
+    <id>https://aisakaaoi.github.io/418642a.html</id>
+    <published>2026-01-27T09:13:35.000Z</published>
+    <updated>2026-01-27T10:01:54.929Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;果果还记得第一次用Excel计算复利时的成就感吗？这次我们要用Python再体验一次。&lt;/p&gt;
+&lt;p&gt;上一篇我们安装好了Python，写了第一行“你好世界”。这次，让我们来写点真正有用的东西：一个能帮你算利息的小小程序。别担心，不会比Excel的公式难，而且你会发现，Python算这些比Excel还要直观！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Python-第1篇《Python，不只是程序员的玩具》</title>
     <link href="https://aisakaaoi.github.io/645d2d74.html"/>
     <id>https://aisakaaoi.github.io/645d2d74.html</id>
     <published>2026-01-26T19:41:43.000Z</published>
-    <updated>2026-01-26T20:11:20.474Z</updated>
+    <updated>2026-01-27T09:23:59.580Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次接触Excel时的感觉吗？那些复杂的函数、密密麻麻的格子，看起来既神秘又让人望而生畏。但你现在却能熟练地用VLOOKUP、数据透视表来完成各种财务分析工作。学习Python也是一样的道理，它看起来是程序员的专属工具，但实际上，它可以是你的得力助手，甚至是生活中的有趣玩伴。&lt;/p&gt;
@@ -41,7 +61,7 @@
     <link href="https://aisakaaoi.github.io/6c2c54ad.html"/>
     <id>https://aisakaaoi.github.io/6c2c54ad.html</id>
     <published>2026-01-26T19:13:10.000Z</published>
-    <updated>2026-01-26T19:59:59.268Z</updated>
+    <updated>2026-01-27T09:13:17.426Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;本课程不会讲那些让人打瞌睡的计算机理论，也不会一上来就抛出一堆专业术语。就像学开车不需要懂发动机原理一样，学Python也可以从“怎么用它解决问题”开始。课程里借用了一些财务相关的例子（毕竟你最熟悉这个），但核心教的是Python本身。学会之后，你一样可以用来处理任何数据、自动化任何重复工作。&lt;/p&gt;
@@ -480,27 +500,6 @@
     <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
     
     <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>研究方向相关工作整理</title>
-    <link href="https://aisakaaoi.github.io/ac0c1e15.html"/>
-    <id>https://aisakaaoi.github.io/ac0c1e15.html</id>
-    <published>2025-11-11T00:05:58.000Z</published>
-    <updated>2026-01-26T17:35:48.466Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;本篇博客整理一些个人研究领域相关的重要文献。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     
     
   </entry>
