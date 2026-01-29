@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.github.io/"/>
-  <updated>2026-01-28T19:27:16.631Z</updated>
+  <updated>2026-01-29T19:27:38.834Z</updated>
   <id>https://aisakaaoi.github.io/</id>
   
   <author>
@@ -17,11 +17,82 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python-第9篇《pandas入门：数据处理的瑞士军刀》</title>
+    <link href="https://aisakaaoi.github.io/889621e3.html"/>
+    <id>https://aisakaaoi.github.io/889621e3.html</id>
+    <published>2026-01-29T19:03:20.000Z</published>
+    <updated>2026-01-29T19:27:38.834Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次用数据透视表的情景吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“哇，拖拽几下就能统计出各种维度的数据，太神奇了！”&lt;br&gt;今天我们要学的pandas，就是Python的“超级数据透视表”。&lt;br&gt;它不仅能做Excel的所有操作，还能做得更快、更智能、更自动化！&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第8篇《文件操作：让Python读写Excel》</title>
+    <link href="https://aisakaaoi.github.io/c0084aa4.html"/>
+    <id>https://aisakaaoi.github.io/c0084aa4.html</id>
+    <published>2026-01-29T18:39:00.000Z</published>
+    <updated>2026-01-29T19:09:48.984Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次用Excel打开CSV文件的情景吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“哇，原来Python生成的数据可以直接在Excel里打开！”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今天我们要反过来——&lt;strong&gt;让Python直接读写Excel文件&lt;/strong&gt;。&lt;br&gt;从此告别“复制粘贴”的机械劳动，实现真正的自动化办公！&lt;/p&gt;
+&lt;p&gt;想象一下这个场景：&lt;br&gt;&lt;code&gt;每天早上9点，Python自动下载银行对账单 → 读取公司账目 → 自动对账 → 生成差异报告 → 发送到你的邮箱&lt;/code&gt;&lt;br&gt;而你只需要喝杯咖啡，看看报告就行！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第7篇《列表和字典：Python的数据表格》</title>
+    <link href="https://aisakaaoi.github.io/9ca225f1.html"/>
+    <id>https://aisakaaoi.github.io/9ca225f1.html</id>
+    <published>2026-01-29T18:16:28.000Z</published>
+    <updated>2026-01-29T18:38:34.281Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得第一次用Excel做员工花名册的情景吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A列是姓名，B列是部门，C列是工资，D列是入职日期……&lt;br&gt;一行就是一个员工的完整信息，一列就是所有人的同种信息&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今天我们要学的，就是Python里的“Excel表格”——列表和字典。&lt;/p&gt;
+&lt;p&gt;它们不仅能像Excel一样整齐地存放数据，还能做出更智能的筛选、统计和分析。&lt;/p&gt;
+&lt;p&gt;准备好让你的数据“活”起来了吗？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Python-第6篇《代码的乐高：函数》</title>
     <link href="https://aisakaaoi.github.io/ecc828f4.html"/>
     <id>https://aisakaaoi.github.io/ecc828f4.html</id>
     <published>2026-01-28T19:09:37.000Z</published>
-    <updated>2026-01-28T19:27:16.631Z</updated>
+    <updated>2026-01-29T18:38:26.952Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次用Excel的 &lt;code&gt;SUM&lt;/code&gt; 函数吗？&lt;/p&gt;
@@ -45,7 +116,7 @@
     <link href="https://aisakaaoi.github.io/d9581ba0.html"/>
     <id>https://aisakaaoi.github.io/d9581ba0.html</id>
     <published>2026-01-28T18:44:39.000Z</published>
-    <updated>2026-01-28T19:25:33.765Z</updated>
+    <updated>2026-01-29T18:38:23.754Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得上次处理报销单的情景吗？&lt;/p&gt;
@@ -69,7 +140,7 @@
     <link href="https://aisakaaoi.github.io/276a5784.html"/>
     <id>https://aisakaaoi.github.io/276a5784.html</id>
     <published>2026-01-27T20:53:24.000Z</published>
-    <updated>2026-01-28T19:25:27.554Z</updated>
+    <updated>2026-01-29T18:38:20.744Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次审核报销单时的场景吗？&lt;/p&gt;
@@ -92,7 +163,7 @@
     <link href="https://aisakaaoi.github.io/67aa68e7.html"/>
     <id>https://aisakaaoi.github.io/67aa68e7.html</id>
     <published>2026-01-27T17:56:03.000Z</published>
-    <updated>2026-01-28T19:25:17.509Z</updated>
+    <updated>2026-01-29T18:38:17.442Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次用Excel做表格时的情景吗？你可能会在A列输入姓名（文字），B列输入年龄（数字），C列输入是否已婚（是&amp;#x2F;否）。Excel很聪明，它知道文字和数字要区别对待——比如你不会对“张三”这个姓名求和，也不会把年龄25岁当成文字来处理。&lt;/p&gt;
@@ -112,7 +183,7 @@
     <link href="https://aisakaaoi.github.io/418642a.html"/>
     <id>https://aisakaaoi.github.io/418642a.html</id>
     <published>2026-01-27T09:13:35.000Z</published>
-    <updated>2026-01-28T19:25:06.738Z</updated>
+    <updated>2026-01-29T18:38:13.699Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得第一次用Excel计算复利时的成就感吗？这次我们要用Python再体验一次。&lt;/p&gt;
@@ -132,7 +203,7 @@
     <link href="https://aisakaaoi.github.io/645d2d74.html"/>
     <id>https://aisakaaoi.github.io/645d2d74.html</id>
     <published>2026-01-26T19:41:43.000Z</published>
-    <updated>2026-01-28T19:24:55.173Z</updated>
+    <updated>2026-01-29T18:38:10.742Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次接触Excel时的感觉吗？那些复杂的函数、密密麻麻的格子，看起来既神秘又让人望而生畏。但你现在却能熟练地用VLOOKUP、数据透视表来完成各种财务分析工作。学习Python也是一样的道理，它看起来是程序员的专属工具，但实际上，它可以是你的得力助手，甚至是生活中的有趣玩伴。&lt;/p&gt;
@@ -152,7 +223,7 @@
     <link href="https://aisakaaoi.github.io/6c2c54ad.html"/>
     <id>https://aisakaaoi.github.io/6c2c54ad.html</id>
     <published>2026-01-26T19:13:10.000Z</published>
-    <updated>2026-01-28T19:24:35.776Z</updated>
+    <updated>2026-01-29T18:53:01.991Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;本课程不会讲那些让人打瞌睡的计算机理论，也不会一上来就抛出一堆专业术语。就像学开车不需要懂发动机原理一样，学Python也可以从“怎么用它解决问题”开始。课程里借用了一些财务相关的例子（毕竟你最熟悉这个），但核心教的是Python本身。学会之后，你一样可以用来处理任何数据、自动化任何重复工作。&lt;/p&gt;
@@ -413,75 +484,6 @@
 &lt;h3 id=&quot;原文链接&quot;&gt;&lt;a href=&quot;#原文链接&quot; class=&quot;headerlink&quot;</summary>
         
       
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>NeurIPS 2025 | 概率表征学习赋能脑编码: SynBrain破解神经变异性下功能一致性的脑活动生成难题</title>
-    <link href="https://aisakaaoi.github.io/193fa88.html"/>
-    <id>https://aisakaaoi.github.io/193fa88.html</id>
-    <published>2025-11-26T03:25:23.000Z</published>
-    <updated>2026-01-23T11:02:58.005Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/193fa88/1.webp&quot; class&gt;
-
-&lt;p&gt;论文链接：&lt;a href=&quot;https://arxiv.org/pdf/2508.10298&quot;&gt;https://arxiv.org/pdf/2508.10298&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;代码链接：&lt;a href=&quot;https://github.com/MichaelMaiii/SynBrain&quot;&gt;https://github.com/MichaelMaiii/SynBrain&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;本研究由上海人工智能实验室、香港大学、香港中文大学等机构的科研人员联合完成，发表于&lt;strong&gt;NeurIPS 2025《SynBrain: Enhancing Visual-to-fMRI Synthesis via Probabilistic Representation Learning》&lt;/strong&gt;。论文第一作者为&lt;strong&gt;麦伟健（Weijian Mai）&lt;/strong&gt;，现为香港大学一年级博士生，师从香港大学助理教授&lt;strong&gt;罗逸飞（Andrew F. Luo）&lt;/strong&gt;。该工作完成于其在上海人工智能实验室实习期间，通讯作者为&lt;strong&gt;伍佳敏（Jiamin Wu）&lt;/strong&gt;。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>江西省人民政府办公厅关于印发《江西省加快脑机接口技术和产业发展若干措施》的通知</title>
-    <link href="https://aisakaaoi.github.io/5c2ad52c.html"/>
-    <id>https://aisakaaoi.github.io/5c2ad52c.html</id>
-    <published>2025-11-26T00:35:00.000Z</published>
-    <updated>2026-01-23T11:02:58.012Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;&lt;div align=&quot;center&quot;&gt;江西省加快脑机接口技术和产业发展若干措施&lt;/div&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;为贯彻落实党中央、国务院关于脑机接口技术和产业发展的工作部署，以承接脑机接口科技成果转化为抓手，推动脑机接口科技创新和产业创新深度融合，加快布局未来产业新赛道，现制定如下措施。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>关于印发《闵行区关于打造脑机接口未来产业生态的若干意见》的通知</title>
-    <link href="https://aisakaaoi.github.io/4be1f8.html"/>
-    <id>https://aisakaaoi.github.io/4be1f8.html</id>
-    <published>2025-11-24T19:16:14.000Z</published>
-    <updated>2026-01-23T11:02:58.004Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;&lt;div align=&quot;center&quot;&gt;闵行区关于打造脑机接口未来产业生态的&lt;/div&gt;&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;&lt;div align=&quot;center&quot;&gt;若干意见&lt;/div&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;脑机接口作为颠覆性技术被列为我国未来产业发展的重点方向，为深入贯彻国家科技战略规划，落实《上海市脑机接口未来产业培育行动方案（2025-2030年）》，抢抓全球脑机接口技术和产业发展机遇，增强创新研发、临床转化和孵化加速功能，完善人才、金融、数据、场地和专业服务资源支撑，推动先进技术产品开发、临床试验和产业化，打造上海高水平脑机接口未来产业集聚区，特制定本意见。&lt;/p&gt;</summary>
     
     
     
