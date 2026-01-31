@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.github.io/"/>
-  <updated>2026-01-30T22:01:13.665Z</updated>
+  <updated>2026-01-31T18:32:52.263Z</updated>
   <id>https://aisakaaoi.github.io/</id>
   
   <author>
@@ -15,6 +15,63 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python-第15篇《Excel批量处理器》</title>
+    <link href="https://aisakaaoi.github.io/e7947d0f.html"/>
+    <id>https://aisakaaoi.github.io/e7947d0f.html</id>
+    <published>2026-01-31T18:27:39.000Z</published>
+    <updated>2026-01-31T18:32:52.263Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;上篇我们用Python管理个人账目，但工作中更常见的是“成堆的Excel文件”——月度报表、部门预算、项目台账…一个个手动调整格式、合并数据，简直是体力活！今天我们去芜存菁，写一个Excel批量处理器：批量改格式、批量转文件、批量合并数据。一次编写，解放双手！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第14篇《智能记账本》</title>
+    <link href="https://aisakaaoi.github.io/9321f605.html"/>
+    <id>https://aisakaaoi.github.io/9321f605.html</id>
+    <published>2026-01-31T18:03:22.000Z</published>
+    <updated>2026-01-31T18:27:37.298Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;上一篇我们做了股票监控器，学会了从网络获取实时数据。不过，投资只是理财的一部分，更基础的是日常收支管理。今天我们来打造一款“懂你”的智能记账本——它能自动识别消费类别、在你乱花钱时发出警告，还能一键生成月度报表。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第13篇《股票数据监控器》</title>
+    <link href="https://aisakaaoi.github.io/8dfcbd79.html"/>
+    <id>https://aisakaaoi.github.io/8dfcbd79.html</id>
+    <published>2026-01-31T17:22:42.000Z</published>
+    <updated>2026-01-31T18:27:12.073Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;经过前两阶段的学习，你已经掌握了Python的数据处理基础。今天，我们要把这些知识用起来，做一个真正“有用”的小工具——股票数据监控器。别担心，即使你不炒股，这个项目也能让你学会如何从互联网上获取实时数据，这可是打开无数可能性的关键技能！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Python-第12篇《制作你的第一个数据报告》</title>
@@ -405,78 +462,6 @@
 &lt;p&gt;该论文发表于IEEE Transactions on Neural Networks and Learning Systems（中科院一区，IF&amp;#x3D;11.1），题目为《EmT: A Novel Transformer for Generalized Cross-Subject EEG Emotion Recognition》。&lt;/p&gt;
 &lt;p&gt;南洋理工大学计算机科学与数据科学学院的丁毅博士为此论文的第一作者，关存太教授为此论文通讯作者。&lt;/p&gt;
 &lt;p&gt;论文链接:&lt;a href=&quot;https://ieeexplore.ieee.org/document/10960695&quot;&gt;https://ieeexplore.ieee.org/document/10960695&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Nature Communications | 人类大脑中条件性威胁的分布式神经表征</title>
-    <link href="https://aisakaaoi.github.io/b511cb06.html"/>
-    <id>https://aisakaaoi.github.io/b511cb06.html</id>
-    <published>2025-12-30T18:49:59.000Z</published>
-    <updated>2026-01-23T11:02:58.051Z</updated>
-    
-    
-    <summary type="html">&lt;img src=&quot;/b511cb06/1.webp&quot; class&gt;
-
-&lt;p&gt;该论文发表于Nature Communications（中科院一区，IF&amp;#x3D;15.7），题目为《Distributed neural representations of conditioned threat in the human brain》。&lt;/p&gt;
-&lt;p&gt;德克萨斯大学休斯顿健康科学中心的温珍福研究员为此论文的第一作者，Joseph E. LeDoux教授与Mohammed R. Milad教授共同为此论文通讯作者。&lt;/p&gt;
-&lt;p&gt;论文链接：&lt;a href=&quot;https://www.nature.com/articles/s41467-024-46508-0&quot;&gt;https://www.nature.com/articles/s41467-024-46508-0&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>关于印发《南京市推进脑机接口产业创新突破行动方案（2026-2030年）》的通知</title>
-    <link href="https://aisakaaoi.github.io/d42909f7.html"/>
-    <id>https://aisakaaoi.github.io/d42909f7.html</id>
-    <published>2025-12-21T18:54:08.000Z</published>
-    <updated>2026-01-23T11:02:58.050Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;&lt;div align=&quot;center&quot;&gt;南京市推进脑机接口产业创新突破行动方案（2026-2030年）&lt;/div&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;脑机接口技术借助神经科学、人工智能、电子信息和功能材料等多学科交叉融合发展，正逐步从实验室走向商业化应用，成为全球科技前沿领域中最受瞩目的增长点之一。为抢抓脑机接口发展机遇，打造产业创新高地，培育未来经济增长极，特制定本行动方案。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>综述丨脑机接口应用于睡眠障碍的研究进展</title>
-    <link href="https://aisakaaoi.github.io/29301a93.html"/>
-    <id>https://aisakaaoi.github.io/29301a93.html</id>
-    <published>2025-12-19T21:55:39.000Z</published>
-    <updated>2026-01-23T11:02:58.048Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;目前非侵入式脑机接口的商业化步伐快于侵入式，而前者商业化程度最高的领域为睡眠领域。近期，复旦大学附属华山医院、路桥区中医医院、深圳市第二人民医院的联合团队回顾了脑机接口应用于睡眠障碍的研究进展，认为亟需实现“材料—算法—硬件”的深度协同，以及多模态融合，以推动BCI睡眠设备真正进化为可靠、有效的临床诊疗工具。以下为论文摘编。&lt;/p&gt;
-&lt;img src=&quot;/29301a93/1.webp&quot; class&gt;
-
-&lt;p&gt;随着现代社会工作与生活节奏的加快，睡眠障碍已成为一个日益普遍的问题。据世界卫生组织数据，全球睡眠障碍患病率高达 27% 。而在我国有超过 3亿人存在睡眠障碍，普通人群有临床意义的失眠患病率约为 15%。&lt;/p&gt;
-&lt;p&gt;将脑机接口技术应用于睡眠障碍的诊断与治疗具有重要的意义。BCI可以通过持续采集并分析脑电信号（electroencephalogram, EEG），实时跟踪和分析睡眠状态，从而提供更准确的睡眠评估以及更加个性化的治疗方案。&lt;/p&gt;</summary>
     
     
     
