@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.github.io/"/>
-  <updated>2026-01-31T18:32:52.263Z</updated>
+  <updated>2026-02-01T22:02:24.346Z</updated>
   <id>https://aisakaaoi.github.io/</id>
   
   <author>
@@ -15,6 +15,63 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python-第18篇《数据可视化入门》</title>
+    <link href="https://aisakaaoi.github.io/c9256979.html"/>
+    <id>https://aisakaaoi.github.io/c9256979.html</id>
+    <published>2026-02-01T21:57:06.000Z</published>
+    <updated>2026-02-01T22:02:24.346Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;辛辛苦苦做出完美数据表，结果领导只看了一眼说“看不懂”？今天咱们给数字“化妆”——把枯燥的表格变成一目了然的图表。柱状图PK部门业绩，折线图看利润走势，饼图分析成本结构。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第17篇《简单的网页爬虫》</title>
+    <link href="https://aisakaaoi.github.io/8f68ea0b.html"/>
+    <id>https://aisakaaoi.github.io/8f68ea0b.html</id>
+    <published>2026-02-01T21:52:13.000Z</published>
+    <updated>2026-02-01T21:56:53.903Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;每天睁开眼三件事：看汇率、看股价、看政策新闻。手动刷新十几个网站？太累了！今天咱们造一个“财经资讯雷达”——自动从新闻网站抓取最新财经头条，提取关键信息，保存成表格慢慢看。学会这招，你也能爬天气、爬电影评分、爬招聘数据，互联网就是你的数据库！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第16篇《个人税务助手》</title>
+    <link href="https://aisakaaoi.github.io/f47c2f05.html"/>
+    <id>https://aisakaaoi.github.io/f47c2f05.html</id>
+    <published>2026-02-01T21:47:04.000Z</published>
+    <updated>2026-02-01T21:51:55.215Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;上篇我们解放了双手，批量处理Excel的效率立竿见影。但财务工作中还有个“每年一度”的重头戏——个人所得税！今天咱们打造一位贴身的税务管家：它懂得最新的个税算法，帮你管理七项专项附加扣除，年终还能一键生成汇算清单。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Python-第15篇《Excel批量处理器》</title>
@@ -360,7 +417,7 @@
     <link href="https://aisakaaoi.github.io/6c2c54ad.html"/>
     <id>https://aisakaaoi.github.io/6c2c54ad.html</id>
     <published>2026-01-26T19:13:10.000Z</published>
-    <updated>2026-01-29T18:53:01.991Z</updated>
+    <updated>2026-02-01T22:02:16.853Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;本课程不会讲那些让人打瞌睡的计算机理论，也不会一上来就抛出一堆专业术语。就像学开车不需要懂发动机原理一样，学Python也可以从“怎么用它解决问题”开始。课程里借用了一些财务相关的例子（毕竟你最熟悉这个），但核心教的是Python本身。学会之后，你一样可以用来处理任何数据、自动化任何重复工作。&lt;/p&gt;
@@ -389,79 +446,6 @@
 &lt;div align=&quot;center&quot;&gt;图1 图文摘要&lt;/div&gt;
 
 &lt;p&gt;研究基于对170余篇前沿文献的系统梳理，深度解析生成式AI如何为BCI领域带来革命性突破。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>千亿睡眠经济风口：解锁健康睡眠商机</title>
-    <link href="https://aisakaaoi.github.io/c74fbe9d.html"/>
-    <id>https://aisakaaoi.github.io/c74fbe9d.html</id>
-    <published>2026-01-15T16:31:56.000Z</published>
-    <updated>2026-01-23T11:02:58.072Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;据艺恩 2025 年 12 月《「睡眠情况」社媒洞察报告》，中国超三成成年人受失眠困扰、超六成 90 后睡眠质量堪忧，&lt;strong&gt;推动智能床垫、睡眠监测等设备需求爆发&lt;/strong&gt;，当前消费者对助眠产品的科学原理关注度持续提升，睡眠经济正从“被动改善”转向“主动管理”的科学化赛道。本文将从睡眠需求痛点切入，拆解主流干预产品的市场逻辑与产业链布局，为相关行业投资者、从业者、企业经营者及创业者提供系统性的参考。&lt;/p&gt;
-&lt;img src=&quot;/c74fbe9d/1.webp&quot; class&gt;
-&lt;p&gt;图源：艺恩 2025 年 12 月《「睡眠情况」社媒洞察报告》&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫新闻" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Ozlo: 前Bose团队创立，睡眠耳塞是下一个入口级机会?</title>
-    <link href="https://aisakaaoi.github.io/4c1d82da.html"/>
-    <id>https://aisakaaoi.github.io/4c1d82da.html</id>
-    <published>2026-01-12T16:13:09.000Z</published>
-    <updated>2026-01-23T11:02:58.064Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;过去十年，消费电子行业不断寻找“下一个手机级入口”。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;有人押注 AI 眼镜，有人尝试智能戒指、智能家居，也有人把目光投向更高频、却长期被忽视的一个场景：睡眠。&lt;/p&gt;
-&lt;p&gt;与工作、娱乐不同，睡眠几乎不依赖用户学习成本，却直接影响情绪、效率与长期健康。&lt;strong&gt;全球范围内，失眠与睡眠障碍人群规模已达数亿，助眠相关支出持续增长，但真正能够被用户长期、稳定使用的消费级产品却并不多。&lt;/strong&gt;传统方案要么停留在药物和补剂层面，要么是功能单一、体验割裂的硬件设备，始终未能形成类似手机、耳机那样的“日常必需品”。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ozlo，正是这一趋势下的代表性公司之一。据报道，目前正处于 B 轮融资收尾阶段。&lt;/strong&gt;Ozlo 并未创造需求，而是站在上一代 Bose Sleepbuds 留下的真实用户基础之上，通过对产品定义、功能形态与商业模式的重构，推动“睡眠耳塞”从小众配件，向具备平台潜力的睡眠系统入口演进。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫新闻" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>IEEE TNNLS | EmT：一种用于广义跨被试EEG情绪识别的新型Transformer模型</title>
-    <link href="https://aisakaaoi.github.io/ddd74882.html"/>
-    <id>https://aisakaaoi.github.io/ddd74882.html</id>
-    <published>2026-01-05T18:58:03.000Z</published>
-    <updated>2026-01-23T11:02:58.057Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;IEEE TNNLS | EmT：一种用于广义跨被试EEG情绪识别的新型Transformer模型&lt;/p&gt;
-&lt;img src=&quot;/ddd74882/1.webp&quot; class&gt;
-
-&lt;p&gt;该论文发表于IEEE Transactions on Neural Networks and Learning Systems（中科院一区，IF&amp;#x3D;11.1），题目为《EmT: A Novel Transformer for Generalized Cross-Subject EEG Emotion Recognition》。&lt;/p&gt;
-&lt;p&gt;南洋理工大学计算机科学与数据科学学院的丁毅博士为此论文的第一作者，关存太教授为此论文通讯作者。&lt;/p&gt;
-&lt;p&gt;论文链接:&lt;a href=&quot;https://ieeexplore.ieee.org/document/10960695&quot;&gt;https://ieeexplore.ieee.org/document/10960695&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
