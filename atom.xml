@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.github.io/"/>
-  <updated>2026-02-01T22:02:24.346Z</updated>
+  <updated>2026-02-02T21:03:26.141Z</updated>
   <id>https://aisakaaoi.github.io/</id>
   
   <author>
@@ -17,11 +17,68 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python-第21篇《正则表达式：文本处理利器》</title>
+    <link href="https://aisakaaoi.github.io/86b1dcdb.html"/>
+    <id>https://aisakaaoi.github.io/86b1dcdb.html</id>
+    <published>2026-02-02T20:40:43.000Z</published>
+    <updated>2026-02-02T21:03:26.141Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;每天面对海量文本——发票号码、银行账号、合同日期、金额数字…手动一个个复制粘贴？眼睛都看花了！正则表达式就是你的“文本扫描仪”，只要告诉它“找数字”“找日期”这些模式，它能在1秒内从几百页PDF里精准提取所有信息。今天咱们掌握这门“数据提取魔法”，从此告别机械重复的复制粘贴！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第20篇《异常处理：让程序更健壮》</title>
+    <link href="https://aisakaaoi.github.io/43bb98e4.html"/>
+    <id>https://aisakaaoi.github.io/43bb98e4.html</id>
+    <published>2026-02-02T20:28:09.000Z</published>
+    <updated>2026-02-02T20:40:25.397Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;“容错”的重要性！——报销单写错金额要退回重填，报表数据异常要标红提醒。程序也一样，用户输入“abc”当工资、除数为零、文件找不到…如果不管这些，程序就会崩溃罢工。今天咱们给代码装上“安全气囊”，让它遇到错误能优雅处理，继续运行。毕竟，一个成熟的程序，应该学会自己处理异常！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第19篇《面向对象编程》</title>
+    <link href="https://aisakaaoi.github.io/f5c263b8.html"/>
+    <id>https://aisakaaoi.github.io/f5c263b8.html</id>
+    <published>2026-02-02T20:12:08.000Z</published>
+    <updated>2026-02-02T20:27:53.872Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;前面我们写的代码都是“一股脑”顺序执行，像记流水账。但现实世界的财务系统不是这样的：员工、部门、工资单、报销单…每个都是“独立个体”，互相协作。今天咱们用财务最熟悉的公司组织架构，来理解面向对象编程（OOP）：把代码拆成一个个“部门”，每个部门有自己的“职责”和“账本”，既能独立工作又能互相配合。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Python-第18篇《数据可视化入门》</title>
     <link href="https://aisakaaoi.github.io/c9256979.html"/>
     <id>https://aisakaaoi.github.io/c9256979.html</id>
     <published>2026-02-01T21:57:06.000Z</published>
-    <updated>2026-02-01T22:02:24.346Z</updated>
+    <updated>2026-02-02T20:11:41.798Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;辛辛苦苦做出完美数据表，结果领导只看了一眼说“看不懂”？今天咱们给数字“化妆”——把枯燥的表格变成一目了然的图表。柱状图PK部门业绩，折线图看利润走势，饼图分析成本结构。&lt;/p&gt;</summary>
@@ -388,72 +445,6 @@
     <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
     
     <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python-第1篇《Python，不只是程序员的玩具》</title>
-    <link href="https://aisakaaoi.github.io/645d2d74.html"/>
-    <id>https://aisakaaoi.github.io/645d2d74.html</id>
-    <published>2026-01-26T19:41:43.000Z</published>
-    <updated>2026-01-29T18:38:10.742Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次接触Excel时的感觉吗？那些复杂的函数、密密麻麻的格子，看起来既神秘又让人望而生畏。但你现在却能熟练地用VLOOKUP、数据透视表来完成各种财务分析工作。学习Python也是一样的道理，它看起来是程序员的专属工具，但实际上，它可以是你的得力助手，甚至是生活中的有趣玩伴。&lt;/p&gt;
-&lt;p&gt;今天，让我们一起揭开Python的神秘面纱，看看这个被程序员们奉为经典的编程语言，如何成为你我生活中的贴心小助手。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
-    
-    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python-第0篇《Python学习之旅》</title>
-    <link href="https://aisakaaoi.github.io/6c2c54ad.html"/>
-    <id>https://aisakaaoi.github.io/6c2c54ad.html</id>
-    <published>2026-01-26T19:13:10.000Z</published>
-    <updated>2026-02-01T22:02:16.853Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;本课程不会讲那些让人打瞌睡的计算机理论，也不会一上来就抛出一堆专业术语。就像学开车不需要懂发动机原理一样，学Python也可以从“怎么用它解决问题”开始。课程里借用了一些财务相关的例子（毕竟你最熟悉这个），但核心教的是Python本身。学会之后，你一样可以用来处理任何数据、自动化任何重复工作。&lt;/p&gt;
-&lt;p&gt;整个课程就像搭积木，分五个阶段，共25篇博客，有空就看、想学就学｡:.ﾟヽ(*´∀&amp;#96;)ﾉﾟ.:｡&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
-    
-    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>The Innovation Life | 生成式AI赋能脑机接口：前沿进展与未来展望</title>
-    <link href="https://aisakaaoi.github.io/a4c6044b.html"/>
-    <id>https://aisakaaoi.github.io/a4c6044b.html</id>
-    <published>2026-01-17T17:34:27.000Z</published>
-    <updated>2026-01-23T11:02:58.117Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;过去十年，脑机接口的核心挑战始终围绕“如何更准确地解码大脑信号”。随着生成式人工智能的快速发展，我们开始意识到，BCI 也许不应止步于解码，而应迈向“理解、生成与协同”的新阶段。本文正是基于这一转变，系统梳理生成式AI在脑机接口中的最新进展，探索构建下一代智能神经交互系统的可能路径。&lt;/p&gt;
-&lt;h3 id=&quot;导读&quot;&gt;&lt;a href=&quot;#导读&quot; class=&quot;headerlink&quot; title=&quot;导读&quot;&gt;&lt;/a&gt;导读&lt;/h3&gt;&lt;p&gt;当人失去语言或行动能力，脑机接口可能成为新的“出口”。但脑信号微弱、噪声多、数据少、个体差异大，常让系统不稳。生成式AI擅长去噪、补全、合成与迁移学习，正在把BCI从实验室推向更可靠的现实应用。本文用更易懂的方式梳理其关键作用与未来方向。&lt;/p&gt;
-&lt;img src=&quot;/a4c6044b/1.webp&quot; class&gt;
-&lt;div align=&quot;center&quot;&gt;图1 图文摘要&lt;/div&gt;
-
-&lt;p&gt;研究基于对170余篇前沿文献的系统梳理，深度解析生成式AI如何为BCI领域带来革命性突破。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
-    
-    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     
     
   </entry>
