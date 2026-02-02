@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.github.io/"/>
-  <updated>2026-02-02T21:03:26.141Z</updated>
+  <updated>2026-02-02T21:28:16.497Z</updated>
   <id>https://aisakaaoi.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://aisakaaoi.github.io/86b1dcdb.html"/>
     <id>https://aisakaaoi.github.io/86b1dcdb.html</id>
     <published>2026-02-02T20:40:43.000Z</published>
-    <updated>2026-02-02T21:03:26.141Z</updated>
+    <updated>2026-02-02T21:28:16.497Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;每天面对海量文本——发票号码、银行账号、合同日期、金额数字…手动一个个复制粘贴？眼睛都看花了！正则表达式就是你的“文本扫描仪”，只要告诉它“找数字”“找日期”这些模式，它能在1秒内从几百页PDF里精准提取所有信息。今天咱们掌握这门“数据提取魔法”，从此告别机械重复的复制粘贴！&lt;/p&gt;</summary>
