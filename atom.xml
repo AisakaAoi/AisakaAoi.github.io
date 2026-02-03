@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.github.io/"/>
-  <updated>2026-02-02T21:28:16.497Z</updated>
+  <updated>2026-02-03T22:44:12.507Z</updated>
   <id>https://aisakaaoi.github.io/</id>
   
   <author>
@@ -15,6 +15,82 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python-第25篇《总结与展望：Python学习路线图》</title>
+    <link href="https://aisakaaoi.github.io/5df613a2.html"/>
+    <id>https://aisakaaoi.github.io/5df613a2.html</id>
+    <published>2026-02-03T22:12:01.000Z</published>
+    <updated>2026-02-03T22:44:12.507Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;从第1篇的“你好，世界”到现在，我们一起走过了25篇学习旅程。还记得你第一次安装Python时的忐忑吗？现在你已经能写程序自动做报表、监控汇率、管理客户数据了。这就好比从“只会按计算器”到“会造机器人”的蜕变！今天咱们不教新技能，而是坐下来喝杯茶，聊聊怎么把学过的本事变成真正的“超能力”，以及未来还能往哪儿走。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第24篇《网络编程：获取实时财经数据》</title>
+    <link href="https://aisakaaoi.github.io/8c5f2269.html"/>
+    <id>https://aisakaaoi.github.io/8c5f2269.html</id>
+    <published>2026-02-03T22:06:29.000Z</published>
+    <updated>2026-02-03T22:11:48.607Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;今天咱们造一个“汇率雷达”——自动调用免费API获取实时汇率，JSON数据一键解析，监控到理想点位自动提醒。学会这招，你还能爬金价、股价、原油价格！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第23篇《自动化办公：Python+Excel高级应用》</title>
+    <link href="https://aisakaaoi.github.io/7cea4f2.html"/>
+    <id>https://aisakaaoi.github.io/7cea4f2.html</id>
+    <published>2026-02-03T21:28:17.000Z</published>
+    <updated>2026-02-03T22:06:15.688Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;手动从系统导出数据，复制粘贴到报表模板，调整格式，更新公式，制作数据透视表，最后生成图表…一套流程下来，眼睛花了，手也酸了。今天咱们造一个“自动报表机器人”——它每月1号自动拉数据、算指标、生成带透视表的精美报表，还能邮件发给领导。一次编写，月月省心！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第22篇《数据库基础：SQLite入门》</title>
+    <link href="https://aisakaaoi.github.io/7e12eba1.html"/>
+    <id>https://aisakaaoi.github.io/7e12eba1.html</id>
+    <published>2026-02-03T16:30:19.000Z</published>
+    <updated>2026-02-03T21:28:01.531Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;上篇我们用正则表达式从文本里“捞”出了金子，但这些数据放哪儿？存Excel？文件一多就乱套。存CSV？查询起来翻遍文件夹。是时候请出数据管理的“终极神器”——数据库！它就像公司的档案室，有专门的管理员（SQL语言），想找“去年交易额超过50万的客户”，1秒就搞定。今天我们从最轻量级的SQLite开始，不用安装服务器，像操作Excel一样简单！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Python-第21篇《正则表达式：文本处理利器》</title>
@@ -352,93 +428,6 @@
 &lt;/blockquote&gt;
 &lt;p&gt;后来你又学会了 &lt;code&gt;VLOOKUP&lt;/code&gt;、&lt;code&gt;IF&lt;/code&gt;、&lt;code&gt;ROUND&lt;/code&gt;……每个函数就像一个“魔法盒子”，输入数据，唰地得到结果。&lt;/p&gt;
 &lt;p&gt;今天，我们要学习Python的“魔法盒子”——函数。更酷的是，你不仅能使用别人做好的盒子，还能自己创造全新的魔法盒子！就像玩乐高积木一样，用一个个小函数搭建出强大的工具。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
-    
-    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python-第5篇《重复的艺术：循环语句》</title>
-    <link href="https://aisakaaoi.github.io/d9581ba0.html"/>
-    <id>https://aisakaaoi.github.io/d9581ba0.html</id>
-    <published>2026-01-28T18:44:39.000Z</published>
-    <updated>2026-01-29T18:38:23.754Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得上次处理报销单的情景吗？&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;打开第1张发票 → 录入金额 → 核对日期 → 检查签字 → 保存&lt;br&gt;打开第2张发票 → 录入金额 → 核对日期 → 检查签字 → 保存&lt;br&gt;打开第3张发票 → 录入金额 → 核对日期 → 检查签字 → 保存&lt;br&gt;…&lt;br&gt;打开第58张发票 → 录入金额 → 核对日期 → 检查签字 → 保存&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这种重复性工作，占据了大量的时间。Python的循环语句，就是专治各种“重复动作”的神器。&lt;/p&gt;
-&lt;p&gt;让我们学会用Python的“循环魔法”，把58次重复变成一串代码！&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
-    
-    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python-第4篇《条件判断：让程序学会思考》</title>
-    <link href="https://aisakaaoi.github.io/276a5784.html"/>
-    <id>https://aisakaaoi.github.io/276a5784.html</id>
-    <published>2026-01-27T20:53:24.000Z</published>
-    <updated>2026-01-29T18:38:20.744Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次审核报销单时的场景吗？&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“发票金额超过5000元？需要部门经理签字。”&lt;br&gt;“差旅费超标了吗？超标部分自理。”&lt;br&gt;“发票日期是今年的吗？跨年发票不能报。”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这些判断流程，你已经烂熟于心。今天，我们要让Python学会这种“判断思维”：遇到不同情况，做出不同决策。这就是编程中的“条件判断”，也是Python从“计算器”升级为“智能助手”的关键一步。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
-    
-    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python-第3篇《数据的盒子：变量和数据类型》</title>
-    <link href="https://aisakaaoi.github.io/67aa68e7.html"/>
-    <id>https://aisakaaoi.github.io/67aa68e7.html</id>
-    <published>2026-01-27T17:56:03.000Z</published>
-    <updated>2026-01-29T18:38:17.442Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次用Excel做表格时的情景吗？你可能会在A列输入姓名（文字），B列输入年龄（数字），C列输入是否已婚（是&amp;#x2F;否）。Excel很聪明，它知道文字和数字要区别对待——比如你不会对“张三”这个姓名求和，也不会把年龄25岁当成文字来处理。&lt;/p&gt;
-&lt;p&gt;Python也一样，它有不同的“数据类型”来存放不同类型的信息。今天，我们就来认识Python中的各种“储物盒”，看看它们和Excel的单元格有什么相似之处。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
-    
-    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python-第2篇《第一个Python程序》</title>
-    <link href="https://aisakaaoi.github.io/418642a.html"/>
-    <id>https://aisakaaoi.github.io/418642a.html</id>
-    <published>2026-01-27T09:13:35.000Z</published>
-    <updated>2026-01-29T18:38:13.699Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得第一次用Excel计算复利时的成就感吗？这次我们要用Python再体验一次。&lt;/p&gt;
-&lt;p&gt;上一篇我们安装好了Python，写了第一行“你好世界”。这次，让我们来写点真正有用的东西：一个能帮你算利息的小小程序。别担心，不会比Excel的公式难，而且你会发现，Python算这些比Excel还要直观！&lt;/p&gt;</summary>
     
     
     
