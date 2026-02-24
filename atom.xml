@@ -207,6 +207,27 @@
   </entry>
   
   <entry>
+    <title>Nature Communications | DREAM 数据库—全球首个睡眠脑电与梦境报告的标准化开放数据库</title>
+    <link href="https://aisakaaoi.github.io/1cf9dd0d.html"/>
+    <id>https://aisakaaoi.github.io/1cf9dd0d.html</id>
+    <published>2026-01-31T21:22:38.000Z</published>
+    <updated>2026-02-24T21:31:22.233Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/1cf9dd0d/1.webp&quot; class&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Python-第15篇《Excel批量处理器》</title>
     <link href="https://aisakaaoi.github.io/e7947d0f.html"/>
     <id>https://aisakaaoi.github.io/e7947d0f.html</id>
@@ -404,30 +425,6 @@
 &lt;p&gt;今天我们要学的，就是Python里的“Excel表格”——列表和字典。&lt;/p&gt;
 &lt;p&gt;它们不仅能像Excel一样整齐地存放数据，还能做出更智能的筛选、统计和分析。&lt;/p&gt;
 &lt;p&gt;准备好让你的数据“活”起来了吗？&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
-    
-    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python-第6篇《代码的乐高：函数》</title>
-    <link href="https://aisakaaoi.github.io/ecc828f4.html"/>
-    <id>https://aisakaaoi.github.io/ecc828f4.html</id>
-    <published>2026-01-28T19:09:37.000Z</published>
-    <updated>2026-01-29T18:38:26.952Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次用Excel的 &lt;code&gt;SUM&lt;/code&gt; 函数吗？&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“哇，原来不用手工相加，一个公式就能自动计算！”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;后来你又学会了 &lt;code&gt;VLOOKUP&lt;/code&gt;、&lt;code&gt;IF&lt;/code&gt;、&lt;code&gt;ROUND&lt;/code&gt;……每个函数就像一个“魔法盒子”，输入数据，唰地得到结果。&lt;/p&gt;
-&lt;p&gt;今天，我们要学习Python的“魔法盒子”——函数。更酷的是，你不仅能使用别人做好的盒子，还能自己创造全新的魔法盒子！就像玩乐高积木一样，用一个个小函数搭建出强大的工具。&lt;/p&gt;</summary>
     
     
     
