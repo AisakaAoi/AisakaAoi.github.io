@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.github.io/"/>
-  <updated>2026-03-01T14:09:18.756Z</updated>
+  <updated>2026-04-11T17:28:38.961Z</updated>
   <id>https://aisakaaoi.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>State Mamba：面向跨被试 EEG 表征的时空脑状态空间模型</title>
+    <link href="https://aisakaaoi.github.io/106260cb.html"/>
+    <id>https://aisakaaoi.github.io/106260cb.html</id>
+    <published>2026-04-06T17:22:41.000Z</published>
+    <updated>2026-04-11T17:28:38.961Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;论文信息&quot;&gt;&lt;a href=&quot;#论文信息&quot; class=&quot;headerlink&quot; title=&quot;论文信息&quot;&gt;&lt;/a&gt;论文信息&lt;/h3&gt;&lt;p&gt;标题：State Mamba: A Spatiotemporal Brain State-Space Model for Cross-Subject EEG Representation&lt;/p&gt;
+&lt;p&gt;核心任务：跨被试 EEG 表征学习、情绪识别、睡眠分期&lt;/p&gt;
+&lt;p&gt;发表会议：AAAI 2026&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;无创脑电图（EEG）凭借便携、低成本、毫秒级时间分辨率的核心优势，是消费级脑机接口、情绪识别、睡眠监测、临床神经疾病诊断的核心技术载体。但长期以来，&lt;strong&gt;跨被试个体差异&lt;/strong&gt;始终是 EEG 解码领域无法回避的终极痛点 —— 不同个体的大脑结构、神经响应模式存在巨大差异，针对特定被试训练的模型，在全新未见过的被试上性能往往会断崖式下跌，严重制约了 EEG 脑机接口的规模化落地与通用化应用。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Python-第25篇《总结与展望：Python学习路线图》</title>
@@ -400,31 +425,6 @@
 &lt;/blockquote&gt;
 &lt;p&gt;今天我们要反过来——&lt;strong&gt;让Python直接读写Excel文件&lt;/strong&gt;。&lt;br&gt;从此告别“复制粘贴”的机械劳动，实现真正的自动化办公！&lt;/p&gt;
 &lt;p&gt;想象一下这个场景：&lt;br&gt;&lt;code&gt;每天早上9点，Python自动下载银行对账单 → 读取公司账目 → 自动对账 → 生成差异报告 → 发送到你的邮箱&lt;/code&gt;&lt;br&gt;而你只需要喝杯咖啡，看看报告就行！&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
-    
-    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python-第7篇《列表和字典：Python的数据表格》</title>
-    <link href="https://aisakaaoi.github.io/9ca225f1.html"/>
-    <id>https://aisakaaoi.github.io/9ca225f1.html</id>
-    <published>2026-01-29T18:16:28.000Z</published>
-    <updated>2026-03-01T14:09:18.716Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得第一次用Excel做员工花名册的情景吗？&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;A列是姓名，B列是部门，C列是工资，D列是入职日期……&lt;br&gt;一行就是一个员工的完整信息，一列就是所有人的同种信息&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;今天我们要学的，就是Python里的“Excel表格”——列表和字典。&lt;/p&gt;
-&lt;p&gt;它们不仅能像Excel一样整齐地存放数据，还能做出更智能的筛选、统计和分析。&lt;/p&gt;
-&lt;p&gt;准备好让你的数据“活”起来了吗？&lt;/p&gt;</summary>
     
     
     
