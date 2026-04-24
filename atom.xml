@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>逢坂葵的个人博客</title>
+  
+  <subtitle>aoi学院</subtitle>
+  <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://aisakaaoi.github.io/"/>
+  <updated>2026-04-24T09:06:44.333Z</updated>
+  <id>https://aisakaaoi.github.io/</id>
+  
+  <author>
+    <name>Aisaka Aoi</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AI赋能科研科普——AI科研工具与学术规范</title>
+    <link href="https://aisakaaoi.github.io/9c8b3e9d.html"/>
+    <id>https://aisakaaoi.github.io/9c8b3e9d.html</id>
+    <published>2026-04-12T16:04:03.000Z</published>
+    <updated>2026-04-24T09:06:44.333Z</updated>
+    
+    
+    <summary type="html">这里的内容加密了，需要密码哦。</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐一些分享" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E4%B8%80%E4%BA%9B%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>State Mamba：面向跨被试 EEG 表征的时空脑状态空间模型</title>
+    <link href="https://aisakaaoi.github.io/106260cb.html"/>
+    <id>https://aisakaaoi.github.io/106260cb.html</id>
+    <published>2026-04-06T17:22:41.000Z</published>
+    <updated>2026-04-11T17:28:38.961Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;论文信息&quot;&gt;&lt;a href=&quot;#论文信息&quot; class=&quot;headerlink&quot; title=&quot;论文信息&quot;&gt;&lt;/a&gt;论文信息&lt;/h3&gt;&lt;p&gt;标题：State Mamba: A Spatiotemporal Brain State-Space Model for Cross-Subject EEG Representation&lt;/p&gt;
+&lt;p&gt;核心任务：跨被试 EEG 表征学习、情绪识别、睡眠分期&lt;/p&gt;
+&lt;p&gt;发表会议：AAAI 2026&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;无创脑电图（EEG）凭借便携、低成本、毫秒级时间分辨率的核心优势，是消费级脑机接口、情绪识别、睡眠监测、临床神经疾病诊断的核心技术载体。但长期以来，&lt;strong&gt;跨被试个体差异&lt;/strong&gt;始终是 EEG 解码领域无法回避的终极痛点 —— 不同个体的大脑结构、神经响应模式存在巨大差异，针对特定被试训练的模型，在全新未见过的被试上性能往往会断崖式下跌，严重制约了 EEG 脑机接口的规模化落地与通用化应用。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第25篇《总结与展望：Python学习路线图》</title>
+    <link href="https://aisakaaoi.github.io/5df613a2.html"/>
+    <id>https://aisakaaoi.github.io/5df613a2.html</id>
+    <published>2026-02-03T22:12:01.000Z</published>
+    <updated>2026-03-01T14:09:18.756Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;从第1篇的“你好，世界”到现在，我们一起走过了25篇学习旅程。还记得你第一次安装Python时的忐忑吗？现在你已经能写程序自动做报表、监控汇率、管理客户数据了。这就好比从“只会按计算器”到“会造机器人”的蜕变！今天咱们不教新技能，而是坐下来喝杯茶，聊聊怎么把学过的本事变成真正的“超能力”，以及未来还能往哪儿走。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第24篇《网络编程：获取实时财经数据》</title>
+    <link href="https://aisakaaoi.github.io/8c5f2269.html"/>
+    <id>https://aisakaaoi.github.io/8c5f2269.html</id>
+    <published>2026-02-03T22:06:29.000Z</published>
+    <updated>2026-03-01T14:09:18.754Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;今天咱们造一个“汇率雷达”——自动调用免费API获取实时汇率，JSON数据一键解析，监控到理想点位自动提醒。学会这招，你还能爬金价、股价、原油价格！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第23篇《自动化办公：Python+Excel高级应用》</title>
+    <link href="https://aisakaaoi.github.io/7cea4f2.html"/>
+    <id>https://aisakaaoi.github.io/7cea4f2.html</id>
+    <published>2026-02-03T21:28:17.000Z</published>
+    <updated>2026-03-01T14:09:18.752Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;手动从系统导出数据，复制粘贴到报表模板，调整格式，更新公式，制作数据透视表，最后生成图表…一套流程下来，眼睛花了，手也酸了。今天咱们造一个“自动报表机器人”——它每月1号自动拉数据、算指标、生成带透视表的精美报表，还能邮件发给领导。一次编写，月月省心！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第22篇《数据库基础：SQLite入门》</title>
+    <link href="https://aisakaaoi.github.io/7e12eba1.html"/>
+    <id>https://aisakaaoi.github.io/7e12eba1.html</id>
+    <published>2026-02-03T16:30:19.000Z</published>
+    <updated>2026-03-01T14:09:18.750Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;上篇我们用正则表达式从文本里“捞”出了金子，但这些数据放哪儿？存Excel？文件一多就乱套。存CSV？查询起来翻遍文件夹。是时候请出数据管理的“终极神器”——数据库！它就像公司的档案室，有专门的管理员（SQL语言），想找“去年交易额超过50万的客户”，1秒就搞定。今天我们从最轻量级的SQLite开始，不用安装服务器，像操作Excel一样简单！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第21篇《正则表达式：文本处理利器》</title>
+    <link href="https://aisakaaoi.github.io/86b1dcdb.html"/>
+    <id>https://aisakaaoi.github.io/86b1dcdb.html</id>
+    <published>2026-02-02T20:40:43.000Z</published>
+    <updated>2026-03-01T14:09:18.749Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;每天面对海量文本——发票号码、银行账号、合同日期、金额数字…手动一个个复制粘贴？眼睛都看花了！正则表达式就是你的“文本扫描仪”，只要告诉它“找数字”“找日期”这些模式，它能在1秒内从几百页PDF里精准提取所有信息。今天咱们掌握这门“数据提取魔法”，从此告别机械重复的复制粘贴！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第20篇《异常处理：让程序更健壮》</title>
+    <link href="https://aisakaaoi.github.io/43bb98e4.html"/>
+    <id>https://aisakaaoi.github.io/43bb98e4.html</id>
+    <published>2026-02-02T20:28:09.000Z</published>
+    <updated>2026-03-01T14:09:18.747Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;“容错”的重要性！——报销单写错金额要退回重填，报表数据异常要标红提醒。程序也一样，用户输入“abc”当工资、除数为零、文件找不到…如果不管这些，程序就会崩溃罢工。今天咱们给代码装上“安全气囊”，让它遇到错误能优雅处理，继续运行。毕竟，一个成熟的程序，应该学会自己处理异常！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第19篇《面向对象编程》</title>
+    <link href="https://aisakaaoi.github.io/f5c263b8.html"/>
+    <id>https://aisakaaoi.github.io/f5c263b8.html</id>
+    <published>2026-02-02T20:12:08.000Z</published>
+    <updated>2026-03-01T14:09:18.746Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;前面我们写的代码都是“一股脑”顺序执行，像记流水账。但现实世界的财务系统不是这样的：员工、部门、工资单、报销单…每个都是“独立个体”，互相协作。今天咱们用财务最熟悉的公司组织架构，来理解面向对象编程（OOP）：把代码拆成一个个“部门”，每个部门有自己的“职责”和“账本”，既能独立工作又能互相配合。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第18篇《数据可视化入门》</title>
+    <link href="https://aisakaaoi.github.io/c9256979.html"/>
+    <id>https://aisakaaoi.github.io/c9256979.html</id>
+    <published>2026-02-01T21:57:06.000Z</published>
+    <updated>2026-03-01T14:09:18.744Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;辛辛苦苦做出完美数据表，结果领导只看了一眼说“看不懂”？今天咱们给数字“化妆”——把枯燥的表格变成一目了然的图表。柱状图PK部门业绩，折线图看利润走势，饼图分析成本结构。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第17篇《简单的网页爬虫》</title>
+    <link href="https://aisakaaoi.github.io/8f68ea0b.html"/>
+    <id>https://aisakaaoi.github.io/8f68ea0b.html</id>
+    <published>2026-02-01T21:52:13.000Z</published>
+    <updated>2026-03-01T14:09:18.743Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;每天睁开眼三件事：看汇率、看股价、看政策新闻。手动刷新十几个网站？太累了！今天咱们造一个“财经资讯雷达”——自动从新闻网站抓取最新财经头条，提取关键信息，保存成表格慢慢看。学会这招，你也能爬天气、爬电影评分、爬招聘数据，互联网就是你的数据库！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第16篇《个人税务助手》</title>
+    <link href="https://aisakaaoi.github.io/f47c2f05.html"/>
+    <id>https://aisakaaoi.github.io/f47c2f05.html</id>
+    <published>2026-02-01T21:47:04.000Z</published>
+    <updated>2026-03-01T14:09:18.741Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;上篇我们解放了双手，批量处理Excel的效率立竿见影。但财务工作中还有个“每年一度”的重头戏——个人所得税！今天咱们打造一位贴身的税务管家：它懂得最新的个税算法，帮你管理七项专项附加扣除，年终还能一键生成汇算清单。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Nature Communications | DREAM 数据库—全球首个睡眠脑电与梦境报告的标准化开放数据库</title>
+    <link href="https://aisakaaoi.github.io/1cf9dd0d.html"/>
+    <id>https://aisakaaoi.github.io/1cf9dd0d.html</id>
+    <published>2026-01-31T21:22:38.000Z</published>
+    <updated>2026-03-01T14:09:18.727Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/1cf9dd0d/1.webp&quot; class&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第15篇《Excel批量处理器》</title>
+    <link href="https://aisakaaoi.github.io/e7947d0f.html"/>
+    <id>https://aisakaaoi.github.io/e7947d0f.html</id>
+    <published>2026-01-31T18:27:39.000Z</published>
+    <updated>2026-03-01T14:09:18.740Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;上篇我们用Python管理个人账目，但工作中更常见的是“成堆的Excel文件”——月度报表、部门预算、项目台账…一个个手动调整格式、合并数据，简直是体力活！今天我们去芜存菁，写一个Excel批量处理器：批量改格式、批量转文件、批量合并数据。一次编写，解放双手！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第14篇《智能记账本》</title>
+    <link href="https://aisakaaoi.github.io/9321f605.html"/>
+    <id>https://aisakaaoi.github.io/9321f605.html</id>
+    <published>2026-01-31T18:03:22.000Z</published>
+    <updated>2026-03-01T14:09:18.738Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;上一篇我们做了股票监控器，学会了从网络获取实时数据。不过，投资只是理财的一部分，更基础的是日常收支管理。今天我们来打造一款“懂你”的智能记账本——它能自动识别消费类别、在你乱花钱时发出警告，还能一键生成月度报表。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第13篇《股票数据监控器》</title>
+    <link href="https://aisakaaoi.github.io/8dfcbd79.html"/>
+    <id>https://aisakaaoi.github.io/8dfcbd79.html</id>
+    <published>2026-01-31T17:22:42.000Z</published>
+    <updated>2026-03-01T14:09:18.736Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;经过前两阶段的学习，你已经掌握了Python的数据处理基础。今天，我们要把这些知识用起来，做一个真正“有用”的小工具——股票数据监控器。别担心，即使你不炒股，这个项目也能让你学会如何从互联网上获取实时数据，这可是打开无数可能性的关键技能！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第12篇《制作你的第一个数据报告》</title>
+    <link href="https://aisakaaoi.github.io/295ead7e.html"/>
+    <id>https://aisakaaoi.github.io/295ead7e.html</id>
+    <published>2026-01-30T21:53:14.000Z</published>
+    <updated>2026-03-01T14:09:18.725Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次向领导汇报财务数据的情景吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Excel表格做好了，但老板说：“这些数据我看不懂，给我做个图表！”&lt;br&gt;于是你开始学习插入图表、调整颜色、设置格式…&lt;br&gt;做完后发现：数据更新了，图表又要重新做一遍！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今天我们要学的，就是让Python帮你自动生成专业的数据报告。&lt;br&gt;数据更新了？运行一下代码，全新的报告就生成了！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;你会发现：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;几行代码就能生成漂亮的图表&lt;/li&gt;
+&lt;li&gt;Excel能做的图表，Python都能做，而且更好看&lt;/li&gt;
+&lt;li&gt;可以一键导出PDF、Excel、PPT等多种格式&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第11篇《简单的数据分析》</title>
+    <link href="https://aisakaaoi.github.io/4b71c371.html"/>
+    <id>https://aisakaaoi.github.io/4b71c371.html</id>
+    <published>2026-01-30T21:44:32.000Z</published>
+    <updated>2026-03-01T14:09:18.723Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得第一次用Excel做月度报表的情景吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;选中数据 → 点击求和 → 插入图表 → 拖拽生成数据透视表&lt;br&gt;“哇，原来数据分析这么简单！”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今天我们要学的，就是用Python做这些“简单”的数据分析。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;你会发现：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一行代码就能完成复杂的分组统计&lt;/li&gt;
+&lt;li&gt;自动处理几万行数据，再也不用手动拖拽&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第10篇《数据清洗：让脏数据变干净》</title>
+    <link href="https://aisakaaoi.github.io/805a0f35.html"/>
+    <id>https://aisakaaoi.github.io/805a0f35.html</id>
+    <published>2026-01-30T19:38:05.000Z</published>
+    <updated>2026-03-01T14:09:18.721Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次收到客户信息表的情景吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;手机号有的是13800138000，有的是138-0013-8000，还有的是空着的&lt;br&gt;日期格式五花八门：2024&amp;#x2F;1&amp;#x2F;1、2024-01-01、1-Jan-2024&lt;br&gt;客户名称前后有空格，有的还多了个“有限公司”&lt;br&gt;邮箱地址明显写错了：zhangsan@email、lisi123@com&lt;br&gt;这就是“脏数据”——现实世界中的数据从来都不是完美的！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今天我们要学的，就是让Python帮你把这些“脏数据”变成“干净数据”。&lt;br&gt;就像财务做账前的整理工作一样，数据清洗是数据分析的第一步，也是最重要的一步！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python-第9篇《pandas入门：数据处理的瑞士军刀》</title>
+    <link href="https://aisakaaoi.github.io/889621e3.html"/>
+    <id>https://aisakaaoi.github.io/889621e3.html</id>
+    <published>2026-01-29T19:03:20.000Z</published>
+    <updated>2026-03-01T14:09:18.720Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;📖-开篇语&quot;&gt;&lt;a href=&quot;#📖-开篇语&quot; class=&quot;headerlink&quot; title=&quot;📖 开篇语&quot;&gt;&lt;/a&gt;📖 开篇语&lt;/h3&gt;&lt;p&gt;还记得你第一次用数据透视表的情景吗？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“哇，拖拽几下就能统计出各种维度的数据，太神奇了！”&lt;br&gt;今天我们要学的pandas，就是Python的“超级数据透视表”。&lt;br&gt;它不仅能做Excel的所有操作，还能做得更快、更智能、更自动化！&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+</feed>
