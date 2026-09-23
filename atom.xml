@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.github.io/"/>
-  <updated>2026-04-29T21:19:57.702Z</updated>
+  <updated>2026-09-23T23:28:46.031Z</updated>
   <id>https://aisakaaoi.github.io/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CS2道具合集</title>
+    <link href="https://aisakaaoi.github.io/7842d727.html"/>
+    <id>https://aisakaaoi.github.io/7842d727.html</id>
+    <published>2026-09-06T22:12:24.000Z</published>
+    <updated>2026-09-23T23:28:46.031Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;荒漠迷城-Mirage&quot;&gt;&lt;a href=&quot;#荒漠迷城-Mirage&quot; class=&quot;headerlink&quot; title=&quot; 荒漠迷城 Mirage&quot;&gt;&lt;/a&gt;&lt;img src=&quot;/7842d727/de_mirage.webp&quot; style=&quot;height:1.5em;width:auto;vertical-align:top;display:inline-block;margin:0&quot;&gt; 荒漠迷城 Mirage&lt;/h3&gt;&lt;div class=&quot;cs2-filter&quot;&gt;
+&lt;span class=&quot;cs2-title&quot;&gt;🔍 点位筛选&lt;/span&gt;
+&lt;label&gt;从 &lt;select&gt;&lt;option value&gt;任意投掷地点&lt;/option&gt;&lt;/select&gt; 投掷&lt;/label&gt;
+&lt;label&gt;到 &lt;select&gt;&lt;option value&gt;任意目标位置&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;
+&lt;button class=&quot;cs2-reset&quot; type=&quot;button&quot;&gt;重置&lt;/button&gt;
+&lt;span class=&quot;cs2-hint&quot;&gt;选择条件后，匹配的道具会自动展开显示在下方&lt;/span&gt;
+&lt;/div&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐一些兴趣" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E4%B8%80%E4%BA%9B%E5%85%B4%E8%B6%A3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2025级研究生政治期末复习冲刺资料</title>
+    <link href="https://aisakaaoi.github.io/ac68046b.html"/>
+    <id>https://aisakaaoi.github.io/ac68046b.html</id>
+    <published>2026-07-07T19:42:12.000Z</published>
+    <updated>2026-07-09T03:47:49.311Z</updated>
+    
+    
+    <summary type="html">这里的内容加密了，需要密码哦。</summary>
+    
+    
+    
+    <category term="🌙大学课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2025级博士公共政治课-中国马克思主义与当代-2026.6 SCNU研究生政治期末复习</title>
+    <link href="https://aisakaaoi.github.io/3a472878.html"/>
+    <id>https://aisakaaoi.github.io/3a472878.html</id>
+    <published>2026-06-15T00:21:44.000Z</published>
+    <updated>2026-07-06T22:23:05.632Z</updated>
+    
+    
+    <summary type="html">这里的内容加密了，需要密码哦。</summary>
+    
+    
+    
+    <category term="🌙大学课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>CSIG云上微表情-第76期-基于微表情与脑电生理信号的交叉研究-基于脑电图和微表情的情绪识别与意识检测</title>
@@ -373,63 +432,6 @@
     
     
     <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;今天咱们造一个“汇率雷达”——自动调用免费API获取实时汇率，JSON数据一键解析，监控到理想点位自动提醒。学会这招，你还能爬金价、股价、原油价格！&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
-    
-    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python-第23篇《自动化办公：Python+Excel高级应用》</title>
-    <link href="https://aisakaaoi.github.io/7cea4f2.html"/>
-    <id>https://aisakaaoi.github.io/7cea4f2.html</id>
-    <published>2026-02-03T21:28:17.000Z</published>
-    <updated>2026-03-01T14:09:18.752Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;手动从系统导出数据，复制粘贴到报表模板，调整格式，更新公式，制作数据透视表，最后生成图表…一套流程下来，眼睛花了，手也酸了。今天咱们造一个“自动报表机器人”——它每月1号自动拉数据、算指标、生成带透视表的精美报表，还能邮件发给领导。一次编写，月月省心！&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
-    
-    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python-第22篇《数据库基础：SQLite入门》</title>
-    <link href="https://aisakaaoi.github.io/7e12eba1.html"/>
-    <id>https://aisakaaoi.github.io/7e12eba1.html</id>
-    <published>2026-02-03T16:30:19.000Z</published>
-    <updated>2026-03-01T14:09:18.750Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;上篇我们用正则表达式从文本里“捞”出了金子，但这些数据放哪儿？存Excel？文件一多就乱套。存CSV？查询起来翻遍文件夹。是时候请出数据管理的“终极神器”——数据库！它就像公司的档案室，有专门的管理员（SQL语言），想找“去年交易额超过50万的客户”，1秒就搞定。今天我们从最轻量级的SQLite开始，不用安装服务器，像操作Excel一样简单！&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
-    
-    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python-第21篇《正则表达式：文本处理利器》</title>
-    <link href="https://aisakaaoi.github.io/86b1dcdb.html"/>
-    <id>https://aisakaaoi.github.io/86b1dcdb.html</id>
-    <published>2026-02-02T20:40:43.000Z</published>
-    <updated>2026-03-01T14:09:18.749Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;每天面对海量文本——发票号码、银行账号、合同日期、金额数字…手动一个个复制粘贴？眼睛都看花了！正则表达式就是你的“文本扫描仪”，只要告诉它“找数字”“找日期”这些模式，它能在1秒内从几百页PDF里精准提取所有信息。今天咱们掌握这门“数据提取魔法”，从此告别机械重复的复制粘贴！&lt;/p&gt;</summary>
     
     
     
