@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.github.io/"/>
-  <updated>2026-09-23T23:28:46.031Z</updated>
+  <updated>2026-09-24T01:47:34.755Z</updated>
   <id>https://aisakaaoi.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://aisakaaoi.github.io/7842d727.html"/>
     <id>https://aisakaaoi.github.io/7842d727.html</id>
     <published>2026-09-06T22:12:24.000Z</published>
-    <updated>2026-09-23T23:28:46.031Z</updated>
+    <updated>2026-09-24T01:47:34.755Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;荒漠迷城-Mirage&quot;&gt;&lt;a href=&quot;#荒漠迷城-Mirage&quot; class=&quot;headerlink&quot; title=&quot; 荒漠迷城 Mirage&quot;&gt;&lt;/a&gt;&lt;img src=&quot;/7842d727/de_mirage.webp&quot; style=&quot;height:1.5em;width:auto;vertical-align:top;display:inline-block;margin:0&quot;&gt; 荒漠迷城 Mirage&lt;/h3&gt;&lt;div class=&quot;cs2-filter&quot;&gt;
@@ -42,11 +42,63 @@
   </entry>
   
   <entry>
+    <title>脑机接口2026：四个正在从论文走向病床的方向</title>
+    <link href="https://aisakaaoi.github.io/19eadd5c.html"/>
+    <id>https://aisakaaoi.github.io/19eadd5c.html</id>
+    <published>2026-08-19T23:53:53.000Z</published>
+    <updated>2026-09-24T02:10:00.606Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;脑机接口这个行业，过去几年最容易被批评的一点是”演示很惊艳，落地看不见”。但翻完 2026 年上半年的顶级期刊和临床试验登记，这个批评正在过时——变化不在某个单一突破上，而在研究重心的整体迁移：从”能不能做到”转向”能不能长期用、给更多人用”。&lt;/p&gt;
+&lt;p&gt;以下四个方向，每一个都有 2026 年发表在 Nature 子刊的实证工作支撑。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫新闻" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>读博进步最快的方式，极致模仿顶刊</title>
+    <link href="https://aisakaaoi.github.io/cc74429a.html"/>
+    <id>https://aisakaaoi.github.io/cc74429a.html</id>
+    <published>2026-07-28T00:02:33.000Z</published>
+    <updated>2026-09-24T00:09:21.016Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;01-我曾经也走过弯路&quot;&gt;&lt;a href=&quot;#01-我曾经也走过弯路&quot; class=&quot;headerlink&quot; title=&quot;01 我曾经也走过弯路&quot;&gt;&lt;/a&gt;01 我曾经也走过弯路&lt;/h3&gt;&lt;p&gt;说实话，读博前两年，我也以为”多读文献”就是王道。&lt;/p&gt;
+&lt;p&gt;那时候我的日常是这样的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每周精读5篇文献，笔记写了满满两个笔记本，Zotero里存了800+篇PDF。&lt;/li&gt;
+&lt;li&gt;但每次开组会，导师问我：”你这个研究的创新点到底在哪？”&lt;/li&gt;
+&lt;li&gt;我支支吾吾答不上来——因为我只是”读”了，但从来没想过&lt;strong&gt;人家是怎么写出来的&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;直到博二下学期，导师一句话点醒了我：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“你读100篇文献，不如把一篇顶刊从里到外拆三遍。”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;那一刻我才意识到：&lt;strong&gt;读文献和写论文，完全是两回事&lt;/strong&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐学术杂谈" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E5%AD%A6%E6%9C%AF%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>2025级研究生政治期末复习冲刺资料</title>
     <link href="https://aisakaaoi.github.io/ac68046b.html"/>
     <id>https://aisakaaoi.github.io/ac68046b.html</id>
     <published>2026-07-07T19:42:12.000Z</published>
-    <updated>2026-07-09T03:47:49.311Z</updated>
+    <updated>2026-09-24T11:45:19.400Z</updated>
     
     
     <summary type="html">这里的内容加密了，需要密码哦。</summary>
@@ -54,6 +106,8 @@
     
     
     <category term="🌙大学课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/"/>
+    
+    <category term="⭐研究生政治课" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/%E2%AD%90%E7%A0%94%E7%A9%B6%E7%94%9F%E6%94%BF%E6%B2%BB%E8%AF%BE/"/>
     
     
   </entry>
@@ -63,7 +117,7 @@
     <link href="https://aisakaaoi.github.io/3a472878.html"/>
     <id>https://aisakaaoi.github.io/3a472878.html</id>
     <published>2026-06-15T00:21:44.000Z</published>
-    <updated>2026-07-06T22:23:05.632Z</updated>
+    <updated>2026-09-24T11:45:19.397Z</updated>
     
     
     <summary type="html">这里的内容加密了，需要密码哦。</summary>
@@ -71,6 +125,8 @@
     
     
     <category term="🌙大学课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/"/>
+    
+    <category term="⭐研究生政治课" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/%E2%AD%90%E7%A0%94%E7%A9%B6%E7%94%9F%E6%94%BF%E6%B2%BB%E8%AF%BE/"/>
     
     
   </entry>
@@ -99,7 +155,7 @@
     <link href="https://aisakaaoi.github.io/9d3f2b7b.html"/>
     <id>https://aisakaaoi.github.io/9d3f2b7b.html</id>
     <published>2026-04-28T19:14:26.000Z</published>
-    <updated>2026-04-29T21:16:18.350Z</updated>
+    <updated>2026-09-24T11:45:19.394Z</updated>
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?isOutside=true&amp;aid=116488103140939&amp;bvid=BV1hC9xBtEkp&amp;cid=37948426653&amp;p=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;</summary>
@@ -110,6 +166,8 @@
     
     <category term="⭐一些讲座" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E4%B8%80%E4%BA%9B%E8%AE%B2%E5%BA%A7/"/>
     
+    <category term="💫CSIG云上微表情" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E4%B8%80%E4%BA%9B%E8%AE%B2%E5%BA%A7/%F0%9F%92%ABCSIG%E4%BA%91%E4%B8%8A%E5%BE%AE%E8%A1%A8%E6%83%85/"/>
+    
     
   </entry>
   
@@ -118,7 +176,7 @@
     <link href="https://aisakaaoi.github.io/5e2a5766.html"/>
     <id>https://aisakaaoi.github.io/5e2a5766.html</id>
     <published>2026-04-21T22:53:41.000Z</published>
-    <updated>2026-04-27T22:55:35.343Z</updated>
+    <updated>2026-09-24T02:10:00.602Z</updated>
     
     
     <summary type="html">&lt;p&gt;脑机接口作为融合医学、计算机、电子、机械、材料等多学科的前沿技术，关乎一国在未来产业领域的核心竞争力。&lt;/p&gt;
@@ -128,9 +186,9 @@
     
     <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
     
-    <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
+    <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
     
     
   </entry>
@@ -140,7 +198,7 @@
     <link href="https://aisakaaoi.github.io/7a41e11d.html"/>
     <id>https://aisakaaoi.github.io/7a41e11d.html</id>
     <published>2026-04-19T20:42:39.000Z</published>
-    <updated>2026-04-28T20:45:49.999Z</updated>
+    <updated>2026-09-24T02:10:00.600Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;基于稳态视觉诱发电位（SSVEP）的视觉脑机接口（BCI）长期以来一直是高速无创脑机通信的”黄金标准”。&lt;/strong&gt;其优势在于响应迅速、用户训练需求少，且信息传输速率（ITR）较高。然而，自2018年里程碑式的40目标BCI系统达到325.33 bpm（比特&amp;#x2F;分钟）后，ITR的提升几乎陷入停滞。&lt;/p&gt;
@@ -151,9 +209,9 @@
     
     <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
     
-    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     
     
   </entry>
@@ -183,7 +241,7 @@
     <link href="https://aisakaaoi.github.io/d90f3a5a.html"/>
     <id>https://aisakaaoi.github.io/d90f3a5a.html</id>
     <published>2026-04-14T20:46:15.000Z</published>
-    <updated>2026-04-28T20:51:15.817Z</updated>
+    <updated>2026-09-24T02:10:00.598Z</updated>
     
     
     <summary type="html">&lt;p&gt;近期，中国科学院沈阳自动化研究所褚亚奇团队针对运动想象脑电解码中因信号非线性、特征弱可分性、个体差异性导致的解码精度低、稳定性不足及泛化能力受限等问题，提出了一种融合桥接结构与注意力机制的新型网络模型——BANet。该方法能够从局部和全局两个层面协同提取脑电时间特征，并结合多尺度特征建模策略，进一步提升对时空信息的挖掘与利用能力。实验结果表明，与多种代表性深度神经网络模型相比，BANet在解码性能上表现更优，验证了其在关键脑电特征提取和模型鲁棒性提升方面的有效性。&lt;/p&gt;
@@ -196,9 +254,9 @@
     
     <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
     
-    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     
     
   </entry>
@@ -227,7 +285,7 @@
     <link href="https://aisakaaoi.github.io/106260cb.html"/>
     <id>https://aisakaaoi.github.io/106260cb.html</id>
     <published>2026-04-06T17:22:41.000Z</published>
-    <updated>2026-04-11T17:28:38.961Z</updated>
+    <updated>2026-09-24T02:10:00.596Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;论文信息&quot;&gt;&lt;a href=&quot;#论文信息&quot; class=&quot;headerlink&quot; title=&quot;论文信息&quot;&gt;&lt;/a&gt;论文信息&lt;/h3&gt;&lt;p&gt;标题：State Mamba: A Spatiotemporal Brain State-Space Model for Cross-Subject EEG Representation&lt;/p&gt;
@@ -240,9 +298,9 @@
     
     <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
     
-    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     
     
   </entry>
@@ -252,7 +310,7 @@
     <link href="https://aisakaaoi.github.io/70b26c66.html"/>
     <id>https://aisakaaoi.github.io/70b26c66.html</id>
     <published>2026-03-31T20:58:32.000Z</published>
-    <updated>2026-04-28T21:03:58.193Z</updated>
+    <updated>2026-09-24T02:10:00.594Z</updated>
     
     
     <summary type="html">&lt;p&gt;近日，上海交通大学计算机学院通用人工智能研究所&lt;strong&gt;郑伟龙&lt;/strong&gt;副教授、&lt;strong&gt;吕宝粮&lt;/strong&gt;教授团队与上海交通大学医学院附属瑞金医院癫痫中心公开了他们的合作研究论文：“&lt;strong&gt;CerebraGloss: Instruction-Tuning a Large Vision-Language Model for Fine-Grained Clinical EEG Interpretation&lt;/strong&gt;”，该论文将在今年4月召开的人工智能顶级会议 &lt;strong&gt;ICLR 2026&lt;/strong&gt; 上发表。&lt;/p&gt;
@@ -264,9 +322,9 @@
     
     <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
     
-    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     
     
   </entry>
@@ -276,7 +334,7 @@
     <link href="https://aisakaaoi.github.io/5920fd59.html"/>
     <id>https://aisakaaoi.github.io/5920fd59.html</id>
     <published>2026-03-29T21:14:57.000Z</published>
-    <updated>2026-04-27T21:17:12.428Z</updated>
+    <updated>2026-09-24T11:45:19.388Z</updated>
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?isOutside=true&amp;aid=116318049278661&amp;bvid=BV1WWXYBhEKz&amp;cid=37099540086&amp;p=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;</summary>
@@ -287,6 +345,8 @@
     
     <category term="⭐一些讲座" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E4%B8%80%E4%BA%9B%E8%AE%B2%E5%BA%A7/"/>
     
+    <category term="💫CSIG云上微表情" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E4%B8%80%E4%BA%9B%E8%AE%B2%E5%BA%A7/%F0%9F%92%ABCSIG%E4%BA%91%E4%B8%8A%E5%BE%AE%E8%A1%A8%E6%83%85/"/>
+    
     
   </entry>
   
@@ -295,7 +355,7 @@
     <link href="https://aisakaaoi.github.io/90017258.html"/>
     <id>https://aisakaaoi.github.io/90017258.html</id>
     <published>2026-03-21T23:02:53.000Z</published>
-    <updated>2026-04-28T20:20:16.263Z</updated>
+    <updated>2026-09-24T02:10:00.590Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/90017258/1.webp&quot; class&gt;
@@ -309,9 +369,9 @@
     
     <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
     
-    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     
     
   </entry>
@@ -321,7 +381,7 @@
     <link href="https://aisakaaoi.github.io/1f37ce42.html"/>
     <id>https://aisakaaoi.github.io/1f37ce42.html</id>
     <published>2026-03-21T22:56:06.000Z</published>
-    <updated>2026-04-27T23:02:07.860Z</updated>
+    <updated>2026-09-24T02:10:00.592Z</updated>
     
     
     <summary type="html">&lt;img src=&quot;/1f37ce42/1.webp&quot; class&gt;
@@ -334,9 +394,9 @@
     
     <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
     
-    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     
     
   </entry>
@@ -346,7 +406,7 @@
     <link href="https://aisakaaoi.github.io/5f0ed9bf.html"/>
     <id>https://aisakaaoi.github.io/5f0ed9bf.html</id>
     <published>2026-03-09T22:41:34.000Z</published>
-    <updated>2026-04-27T22:53:36.033Z</updated>
+    <updated>2026-09-24T02:10:00.589Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;&lt;div align=&quot;center&quot;&gt;江苏省脑机接口产业创新发展行动方案&lt;/div&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -356,9 +416,9 @@
     
     <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
     
-    <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
+    <category term="💫政策" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E6%94%BF%E7%AD%96/"/>
     
     
   </entry>
@@ -368,7 +428,7 @@
     <link href="https://aisakaaoi.github.io/4bebe8c7.html"/>
     <id>https://aisakaaoi.github.io/4bebe8c7.html</id>
     <published>2026-02-27T21:13:21.000Z</published>
-    <updated>2026-04-27T21:14:25.699Z</updated>
+    <updated>2026-09-24T11:45:19.384Z</updated>
     
     
     <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?isOutside=true&amp;aid=116148163056971&amp;bvid=BV1ZZAazCEKq&amp;cid=36354917679&amp;p=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;</summary>
@@ -379,6 +439,8 @@
     
     <category term="⭐一些讲座" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E4%B8%80%E4%BA%9B%E8%AE%B2%E5%BA%A7/"/>
     
+    <category term="💫CSIG云上微表情" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E4%B8%80%E4%BA%9B%E8%AE%B2%E5%BA%A7/%F0%9F%92%ABCSIG%E4%BA%91%E4%B8%8A%E5%BE%AE%E8%A1%A8%E6%83%85/"/>
+    
     
   </entry>
   
@@ -387,7 +449,7 @@
     <link href="https://aisakaaoi.github.io/17a22e39.html"/>
     <id>https://aisakaaoi.github.io/17a22e39.html</id>
     <published>2026-02-13T20:42:23.000Z</published>
-    <updated>2026-04-27T21:05:50.494Z</updated>
+    <updated>2026-09-24T02:10:00.587Z</updated>
     
     
     <summary type="html">&lt;p&gt;近日，上海交通大学计算机学院通用人工智能研究所仿脑计算与机器智能研究中心吕宝粮教授和郑伟龙副教授团队在IEEE Transactions on Affective Computing上发表了题为SEED-OLF: A Novel EEG Dataset with Olfactory Stimulation for Emotion Recognition的研究论文。这是国际上第一个基于嗅觉刺激的情绪脑电公开数据集。&lt;/p&gt;
@@ -397,47 +459,9 @@
     
     <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="⭐脑机接口与混合智能研究团队（BCI团队）" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/"/>
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
     
-    <category term="💫新闻" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%B7%B7%E5%90%88%E6%99%BA%E8%83%BD%E7%A0%94%E7%A9%B6%E5%9B%A2%E9%98%9F%EF%BC%88BCI%E5%9B%A2%E9%98%9F%EF%BC%89/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python-第25篇《总结与展望：Python学习路线图》</title>
-    <link href="https://aisakaaoi.github.io/5df613a2.html"/>
-    <id>https://aisakaaoi.github.io/5df613a2.html</id>
-    <published>2026-02-03T22:12:01.000Z</published>
-    <updated>2026-03-01T14:09:18.756Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;从第1篇的“你好，世界”到现在，我们一起走过了25篇学习旅程。还记得你第一次安装Python时的忐忑吗？现在你已经能写程序自动做报表、监控汇率、管理客户数据了。这就好比从“只会按计算器”到“会造机器人”的蜕变！今天咱们不教新技能，而是坐下来喝杯茶，聊聊怎么把学过的本事变成真正的“超能力”，以及未来还能往哪儿走。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
-    
-    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python-第24篇《网络编程：获取实时财经数据》</title>
-    <link href="https://aisakaaoi.github.io/8c5f2269.html"/>
-    <id>https://aisakaaoi.github.io/8c5f2269.html</id>
-    <published>2026-02-03T22:06:29.000Z</published>
-    <updated>2026-03-01T14:09:18.754Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h3&gt;&lt;p&gt;今天咱们造一个“汇率雷达”——自动调用免费API获取实时汇率，JSON数据一键解析，监控到理想点位自动提醒。学会这招，你还能爬金价、股价、原油价格！&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
-    
-    <category term="⭐果果课程" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E6%9E%9C%E6%9E%9C%E8%AF%BE%E7%A8%8B/"/>
+    <category term="💫新闻" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
     
     
   </entry>
