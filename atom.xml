@@ -24,7 +24,7 @@
     <updated>2026-09-29T20:30:16.356Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/bee43801/1.webp&quot; class&gt;
+    <summary type="html">&lt;img src=&quot;/bee43801/1.webp&quot; class=&quot;&quot;&gt;
 
 &lt;p&gt;该论文发表于Science Advances（中科院1区top，IF：13.9），题目为《Real‑time decoding of full‑spectrum Chinese using brain‑computer interface》。&lt;/p&gt;
 &lt;p&gt;上海复旦大学上海医科学院华山医院神经外科钱友坤，刘长江研究员为此文的第一作者。上海复旦大学上海医科学院华山医院神经外科吴劲松研究员、中国科学院研究生院周志涛研究员为共同通讯作者。&lt;/p&gt;
@@ -68,10 +68,10 @@
     <updated>2026-09-25T21:13:14.963Z</updated>
     
     
-    <summary type="html">&lt;h3 id=&quot;荒漠迷城-Mirage&quot;&gt;&lt;a href=&quot;#荒漠迷城-Mirage&quot; class=&quot;headerlink&quot; title=&quot; 荒漠迷城 Mirage&quot;&gt;&lt;/a&gt;&lt;img src=&quot;/7842d727/de_mirage.webp&quot; style=&quot;height:1.5em;width:auto;vertical-align:top;display:inline-block;margin:0&quot;&gt; 荒漠迷城 Mirage&lt;/h3&gt;&lt;div class=&quot;cs2-filter&quot;&gt;
+    <summary type="html">&lt;h3 id=&quot;荒漠迷城-Mirage&quot;&gt;&lt;a href=&quot;#荒漠迷城-Mirage&quot; class=&quot;headerlink&quot; title=&quot; 荒漠迷城 Mirage&quot;&gt;&lt;/a&gt;&lt;img src=&quot;de_mirage.webp&quot; style=&quot;height:1.5em;width:auto;vertical-align:top;display:inline-block;margin:0&quot;&gt; 荒漠迷城 Mirage&lt;/h3&gt;&lt;div class=&quot;cs2-filter&quot;&gt;
 &lt;span class=&quot;cs2-title&quot;&gt;🔍 点位筛选&lt;/span&gt;
-&lt;label&gt;从 &lt;select&gt;&lt;option value&gt;任意投掷地点&lt;/option&gt;&lt;/select&gt; 投掷&lt;/label&gt;
-&lt;label&gt;到 &lt;select&gt;&lt;option value&gt;任意目标位置&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;
+&lt;label&gt;从 &lt;select&gt;&lt;option value=&quot;&quot;&gt;任意投掷地点&lt;/option&gt;&lt;/select&gt; 投掷&lt;/label&gt;
+&lt;label&gt;到 &lt;select&gt;&lt;option value=&quot;&quot;&gt;任意目标位置&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;
 &lt;button class=&quot;cs2-reset&quot; type=&quot;button&quot;&gt;重置&lt;/button&gt;
 &lt;span class=&quot;cs2-hint&quot;&gt;选择条件后，匹配的道具会自动展开显示在下方&lt;/span&gt;
 &lt;/div&gt;</summary>
@@ -115,7 +115,7 @@
     <updated>2026-09-29T20:17:10.163Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/11b95f9e/1.webp&quot; class&gt;
+    <summary type="html">&lt;img src=&quot;/11b95f9e/1.webp&quot; class=&quot;&quot;&gt;
 
 &lt;p&gt;该论文发表于&lt;/p&gt;
 &lt;p&gt;Advances in Neural Information Processing Systems&lt;/p&gt;
@@ -141,7 +141,7 @@
     <updated>2026-09-29T19:44:07.227Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/10fccaf/1.webp&quot; class&gt;
+    <summary type="html">&lt;img src=&quot;/10fccaf/1.webp&quot; class=&quot;&quot;&gt;
 
 &lt;p&gt;该论文发表于Advances in Neural Information Processing Systems（NeurIPS, CCF-A类国际人工智能会议），题目为《Reinforcement Learning for Reasoning in Large Language Models with One Training Example》。&lt;/p&gt;
 &lt;p&gt;华盛顿大学王宜平为此文的第一作者，华盛顿大学王宜平、微软王硕航、华盛顿大学杜少雷、微软沈烨龙为此文的通讯作者。&lt;/p&gt;
@@ -166,7 +166,7 @@
     <updated>2026-09-29T19:25:31.120Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/f6f2fc26/1.webp&quot; class&gt;
+    <summary type="html">&lt;img src=&quot;/f6f2fc26/1.webp&quot; class=&quot;&quot;&gt;
 
 &lt;p&gt;该论文于IEEE&amp;#x2F;CVF Conference on Computer Vision and Pattern Recognition（CVPR 2026）。论文题目为《FusionAgent: A Multimodal Agent with Dynamic Model Selection for Human Recognition》。&lt;/p&gt;
 &lt;p&gt;本文第一作者为美国密歇根州立大学博士生朱杰，合作者包括该校博士生郭晓、苏一洋、Anil Jain教授、刘小明教授。&lt;/p&gt;
@@ -213,7 +213,7 @@
     <updated>2026-09-29T19:15:52.239Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/4117eb26/1.webp&quot; class&gt;
+    <summary type="html">&lt;img src=&quot;/4117eb26/1.webp&quot; class=&quot;&quot;&gt;
 
 &lt;p&gt;该论文为arXiv预印本，题目为《NeuroWeaver: An Autonomous Evolutionary Agent for Exploring the Programmatic Space of EEG Analysis Pipelines》。&lt;/p&gt;
 &lt;p&gt;美国史蒂文斯理工学院王国安（Guoan Wang）为本文第一作者，Feng Liu 博士，美国史蒂文斯理工学院系统工程系助理教授，为本文通讯作者。论文当前版本为arXiv:2602.13473v2，更新于2026年5月21日。&lt;/p&gt;
@@ -238,7 +238,7 @@
     <updated>2026-09-29T19:07:21.087Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/47b9cb72/1.webp&quot; class&gt;
+    <summary type="html">&lt;img src=&quot;/47b9cb72/1.webp&quot; class=&quot;&quot;&gt;
 
 &lt;p&gt;该论文发表于 IEEE Transactions on Affective Computing（中科院1区，IF&amp;#x3D;11.3），题目为《TFAGL: A Novel Agent Graph Learning Method Using Time-Frequency EEG for Major Depressive Disorder Detection》。&lt;/p&gt;
 &lt;p&gt;华南理工大学计算机科学与工程学院博士研究生徐自华为本文第一作者；华南理工大学计算机科学与工程学院张通教授为本文通讯作者。&lt;/p&gt;
@@ -263,7 +263,7 @@
     <updated>2026-09-28T19:58:44.523Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/3e4f5635/1.webp&quot; class&gt;
+    <summary type="html">&lt;img src=&quot;/3e4f5635/1.webp&quot; class=&quot;&quot;&gt;
 
 &lt;p&gt;该论文发表于IEEE Transactions on Affective Computing（中科院1区top，IF：11.3），题目为《WDANet: Wasserstein Distribution Inspired Dynamic Adversarial Network for EEG-Based Cross-Domain Depression Recognition》。&lt;/p&gt;
 &lt;p&gt;北京理工大学沈健博士为本文第一作者，北京理工大学张亚男博士后、董群喜教授、胡斌教授与兰州大学张晓炜教授为通讯作者。&lt;/p&gt;
@@ -408,7 +408,7 @@
     <updated>2026-09-25T19:31:35.925Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;strong&gt;&lt;div align=&quot;center&quot;&gt;广东省脑机接口科技与产业协同发展行动计划（2026-2030年）&lt;/div&gt;&lt;/strong&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;&lt;strong&gt;&lt;div align=&#39;center&#39;&gt;广东省脑机接口科技与产业协同发展行动计划（2026-2030年）&lt;/div&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;为贯彻落实党中央关于脑机接口等未来产业的决策部署，把握全球新一轮科技和产业发展机遇，培育未来产业新赛道，强化创新链产业链资金链人才链深度融合，推动人工智能与脑机接口产业链深度协同发展，特制定本行动计划。&lt;/p&gt;</summary>
     
     
@@ -448,7 +448,7 @@
     <link href="https://aisakaaoi.github.io/3a472878.html"/>
     <id>https://aisakaaoi.github.io/3a472878.html</id>
     <published>2026-06-15T00:21:44.000Z</published>
-    <updated>2026-09-24T11:45:19.397Z</updated>
+    <updated>2026-09-30T15:28:03.853Z</updated>
     
     
     <summary type="html">这里的内容加密了，需要密码哦。</summary>
