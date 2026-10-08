@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="一篇Journal of Neural Engineering2026 论文的硬核解读 · 伦敦玛丽女王大学 + 奥胡斯大学 Winnard&#x2F;Pearce 团队 · 31 名被试 · 5 种数据分割 × 8 种深度学习模型 TL;DR · 一句话总结伦敦玛丽女王大学 + 奥胡斯大学 Winnard &#x2F; Pearce 团队*J. Neural Eng.*2026：用 31 名"><meta property="og:type" content="article"><meta property="og:title" content="PAPER REVIEW · 第008期 &quot;可穿戴情绪解码&quot;硬件层可行，但可信准确率&quot;远低于以往文献报道 · Journal of Neural Engineering论文硬核解读"><meta property="og:url" content="https://aisakaaoi.github.io/466f593f.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="一篇Journal of Neural Engineering2026 论文的硬核解读 · 伦敦玛丽女王大学 + 奥胡斯大学 Winnard&#x2F;Pearce 团队 · 31 名被试 · 5 种数据分割 × 8 种深度学习模型 TL;DR · 一句话总结伦敦玛丽女王大学 + 奥胡斯大学 Winnard &#x2F; Pearce 团队*J. Neural Eng.*2026：用 31 名"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/466f593f/0.webp"><meta property="og:image" content="https://aisakaaoi.github.io/466f593f/1.webp"><meta property="og:image" content="https://aisakaaoi.github.io/466f593f/2.webp"><meta property="og:image" content="https://aisakaaoi.github.io/466f593f/3.webp"><meta property="og:image" content="https://aisakaaoi.github.io/466f593f/4.webp"><meta property="article:published_time" content="2026-09-20T04:00:00.000Z"><meta property="article:modified_time" content="2026-10-08T20:24:54.821Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/466f593f/0.webp"><link rel="canonical" href="https://aisakaaoi.github.io/466f593f.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>PAPER REVIEW · 第008期 "可穿戴情绪解码"硬件层可行，但可信准确率"远低于以往文献报道 · Journal of Neural Engineering论文硬核解读 | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">35</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1376</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/466f593f.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">PAPER REVIEW · 第008期 "可穿戴情绪解码"硬件层可行，但可信准确率"远低于以往文献报道 · Journal of Neural Engineering论文硬核解读</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-09-20 12:00:00" itemprop="dateCreated datePublished" datetime="2026-09-20T12:00:00+08:00">2026-09-20</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/" itemprop="url" rel="index"><span itemprop="name">⭐SCNU BCI团队</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/" itemprop="url" rel="index"><span itemprop="name">💫学习报告</span></a> </span></span><span id="/466f593f.html" class="post-meta-item leancloud_visitors" data-flag-title="PAPER REVIEW · 第008期 "可穿戴情绪解码"硬件层可行，但可信准确率"远低于以往文献报道 · Journal of Neural Engineering论文硬核解读" title="阅读次数"> <span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> <span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/466f593f.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/466f593f.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>6.6k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>17 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><img src="/466f593f/0.webp"><p>一篇<em>Journal of Neural Engineering</em>2026 论文的硬核解读 · 伦敦玛丽女王大学 + 奥胡斯大学 Winnard&#x2F;Pearce 团队 · 31 名被试 · 5 种数据分割 × 8 种深度学习模型</p><h3 id="TL-DR-·-一句话总结"><a href="#TL-DR-·-一句话总结" class="headerlink" title="TL;DR · 一句话总结"></a>TL;DR · 一句话总结</h3><p>伦敦玛丽女王大学 + 奥胡斯大学 Winnard &#x2F; Pearce 团队*J. Neural Eng.*2026：用 31 名被试的 scalp + cEEGrid 双通道 EEG 音乐情绪数据集 DAAMEE，对 5 种数据分割 × 8 种深度学习模型做”系统性打假”——同一份数据下 K-fold 准确率 75%，LOSO 跌到 50%，与机会水平无显著差异；同时验证了耳周 EEG 与 scalp EEG 性能等价，为可穿戴情绪监测的硬件可行性背书。</p><span id="more"></span><h3 id="论文卡片"><a href="#论文卡片" class="headerlink" title="论文卡片"></a>论文卡片</h3><table><thead><tr><th>标题</th><th>Music emotion recognition with cEEGrid</th></tr></thead><tbody><tr><td>作者</td><td>Chris Winnard¹, Kaare Mikkelsen², Preben Kidmose², Marcus T. Pearce¹ *通讯</td></tr><tr><td>单位</td><td>1. Queen Mary University of London, School of EECS 2. Aarhus University, Department of Electrical &amp; Computer Engineering</td></tr><tr><td>期刊</td><td>Journal of Neural Engineering</td></tr><tr><td>卷期</td><td>Vol. 23, No. 4, 046057 (2026)</td></tr><tr><td>DOI</td><td><a target="_blank" rel="noopener" href="https://doi.org/10.1088/1741-2552/ae94b1">https://doi.org/10.1088/1741-2552/ae94b1</a></td></tr><tr><td>发表</td><td>2026 年 8 月 20 日（在线） · 接收 2026-08-04</td></tr><tr><td>资助</td><td>（原文未列具体资助编号） · 计算在 Queen Mary HPC 完成</td></tr><tr><td>被试</td><td>31 名（11 男 + 2 跨性别男 + 18 女，平均 26 岁，3 名左利手）</td></tr><tr><td>PMID</td><td>42551462</td></tr></tbody></table><h3 id="一、研究背景：当”AI-能听懂你情绪”被报道时，先问一句”它怎么评估的”"><a href="#一、研究背景：当”AI-能听懂你情绪”被报道时，先问一句”它怎么评估的”" class="headerlink" title="一、研究背景：当”AI 能听懂你情绪”被报道时，先问一句”它怎么评估的”"></a>一、研究背景：当”AI 能听懂你情绪”被报道时，先问一句”它怎么评估的”</h3><p>过去几年，”AI + EEG + 情绪”方向的研究呈现一种虚假的繁荣——<em>IEEE Transactions on Affective Computing</em>、<em>Journal of Neural Engineering</em>、<em>Interspeech</em>频繁报道 90%、95% 乃至 99% 的情绪分类准确率。但当你把同样的数据用更严格的方式拆分，得到的结果却常常回到二选一的 50%（机会水平）。</p><p>这不是阴谋论。<strong>Brookshire 等（2025）</strong>做过一个著名实验：同一份阿尔茨海默 EEG 数据，用 LOSO（Leave-One-Subject-Out）评估时准确率<strong>53%<strong>，但只要把同一被试的相邻样本分到不同折，准确率直升</strong>99.8%<strong>——这中间的 +46.8 个百分点完全来自数据泄漏，不是任何模型改进。</strong>TorchEEG 库</strong>原版报告 DEAP 数据集 CCNN 效价二分类 KF 准确率**93.20%<strong>，换成交叉 trial 分割（KFCT）后跌到</strong>53.66%**——又是 +39.54 个百分点的通胀。</p><p>Winnard &#x2F; Pearce 团队这篇<em>J. Neural Eng.<em>2026 的研究就是这个背景下的”系统性打假”：他们用自己新发布的<strong>DAAMEE</strong>数据集（含 scalp EEG + around-the-ear cEEGrid 两种记录），系统比较了 5 种数据分割 × 8 种深度学习模型 × 3 种情绪维度（valence &#x2F; arousal &#x2F; dominance）。**</em></em></p><p><strong>两条主要发现</strong>：</p><ul><li><strong>耳周 EEG 的绝对性能跟 scalp EEG 几乎没差别</strong>——这意味着”可穿戴情绪解码”在硬件层是可行的。</li><li><strong>可穿戴情绪解码的”可信准确率”远低于以往文献报道</strong>——只有用严格分割（KFCT &#x2F; KFCS &#x2F; LOSO）时才能得到接近机会水平的真实数字。</li></ul><p>而这一切，又是用<strong>音乐</strong>作为情绪诱发刺激得到的结果——这让”AI 音乐情绪识别”这个赛道普遍高估的现状变得更加刺眼。</p><h3 id="二、实验设计：让被试听-16-段原创音乐、用-VAD-量表打分"><a href="#二、实验设计：让被试听-16-段原创音乐、用-VAD-量表打分" class="headerlink" title="二、实验设计：让被试听 16 段原创音乐、用 VAD 量表打分"></a>二、实验设计：让被试听 16 段原创音乐、用 VAD 量表打分</h3><h4 id="①-数据集-DAAMEE"><a href="#①-数据集-DAAMEE" class="headerlink" title="① 数据集 DAAMEE"></a>① 数据集 DAAMEE</h4><p>研究的核心交付物之一是新发布的<strong>DAAMEE（Decoding Auditory Attention and Musical Emotions with Ear-EEG）</strong>——首个公开的、同时含 scalp EEG 与 cEEGrid 的情绪解码数据集。</p><ul><li><strong>被试</strong>：32 名招募，<strong>1 名因技术故障剔除</strong>，剩余<strong>31 名</strong>进入分析（11 男 + 2 跨性别男 + 18 女，平均 26 岁，3 名左利手）</li><li><strong>cEEGrid 子集</strong>：其中 2 名被试因设备连接问题数据不可用，因此<strong>DAAMEE-c 仅 29 名被试</strong>；DAAMEE-s（scalp）保持 31 名</li><li><strong>刺激</strong>：4 位作曲家原创的 12 首三部组合曲（harmonica &#x2F; vibraphone &#x2F; piano），每首切出 3 个独奏轨，共<strong>36 段</strong>；每位被试听其中一半（<strong>16 段</strong>，含 1 段练习），每段<strong>30 秒</strong>，分析时取中间<strong>28.42 秒</strong>（去掉 0.6 秒淡入淡出与眼动缓冲）</li></ul><h4 id="②-实验流程（每名被试）"><a href="#②-实验流程（每名被试）" class="headerlink" title="② 实验流程（每名被试）"></a>② 实验流程（每名被试）</h4><p>PsychoPy 呈现，整体分三段：</p><ol><li><strong>听力校准</strong>：用滑动条居中每个乐器的立体声平衡并设定舒适音量</li><li><strong>人口学问卷 + 当下 VAD 自评（0–10 连续量表）</strong>+ Goldsmiths Musical Sophistication Index 部分子量表</li><li><strong>情绪解码任务</strong>：每 trial 前要求<strong>闭眼</strong>减少眼电伪影；听完后用 0–10 量表分别对 valence &#x2F; arousal &#x2F; dominance 打分</li></ol><h4 id="③-模型与数据分割"><a href="#③-模型与数据分割" class="headerlink" title="③ 模型与数据分割"></a>③ 模型与数据分割</h4><p><strong>模型</strong>：8 种深度学习架构——CCNN（Continuous CNN）、DGCNN（Dynamic Graph CNN）、LGGNet、Vanilla Transformer、SimpleViT、ViT、ArjunViT、LSTM。</p><p><strong>数据分割</strong>：5 种——</p><ul><li><strong>KF</strong>：标准 K-fold（随机）</li><li><strong>KFGbT</strong>：按 trial 分组后的 K-fold（防止同一 trial 完整泄漏到不同折）</li><li><strong>KFCT</strong>：cross-trial（同被试不同 trial 分开）</li><li><strong>KFCS</strong>：cross-subject（同被试不泄漏，跨被试）</li><li><strong>LOSO</strong>：被试外留一（最强约束）</li></ul><p><strong>对比基线</strong>：经典 DEAP 数据集 scalp EEG 数据（Koelstra et al. 2011）。</p><p>在 EEG 情绪解码领域，”准确率 75%”通常不是说”我能读懂你的情绪”，而是说”我能识别你前 5 秒脑电里是否还残留着 5 秒前的痕迹”——这两件事不是同一件事。</p><img src="/466f593f/1.webp"><div align="center">图1 · DAAMEE 五步实验流程：听力校准 → 问卷 → 情绪任务（scalp + cEEGrid 同时记录）→ VAD 自评 → 深度学习分类</div><h3 id="三、关键发现：准确率的”75-”与”50-”可能描述的是同一份数据"><a href="#三、关键发现：准确率的”75-”与”50-”可能描述的是同一份数据" class="headerlink" title="三、关键发现：准确率的”75%”与”50%”可能描述的是同一份数据"></a>三、关键发现：准确率的”75%”与”50%”可能描述的是同一份数据</h3><h4 id="①-耳周-EEG-跟-scalp-EEG-性能持平——这是好消息"><a href="#①-耳周-EEG-跟-scalp-EEG-性能持平——这是好消息" class="headerlink" title="① 耳周 EEG 跟 scalp EEG 性能持平——这是好消息"></a>① 耳周 EEG 跟 scalp EEG 性能持平——这是好消息</h4><p>按跨分割平均的效价二分类准确率，<strong>cEEGrid（DAAMEE-c）与 scalp EEG（DAAMEE-s）在统计上没差别</strong>：</p><table><thead><tr><th>数据集</th><th>GNN 类模型平均</th><th>Transformer 类模型平均</th><th>最佳模型</th></tr></thead><tbody><tr><td>DEAP（scalp）</td><td>59.1%</td><td>55.6%</td><td>CCNN 60.4%</td></tr><tr><td>DAAMEE-s（scalp）</td><td>60.0%</td><td>57.1%</td><td>DGCNN 61.5%</td></tr><tr><td>DAAMEE-c（cEEGrid）</td><td>60.2%</td><td>57.6%</td><td>DGCNN 61.4%</td></tr></tbody></table><p>DAAMEE-c 的最佳模型（DGCNN）和 DAAMEE-s 的最佳模型（DGCNN）平均下来，<strong>耳周 EEG 反而略高 0.2 个百分点</strong>。这为”用耳机&#x2F;耳塞做情绪监测”打开了一扇现实的门。</p><h4 id="②-但”75-vs-50-”的鸿沟才是坏消息"><a href="#②-但”75-vs-50-”的鸿沟才是坏消息" class="headerlink" title="② 但”75% vs 50%”的鸿沟才是坏消息"></a>② 但”75% vs 50%”的鸿沟才是坏消息</h4><p><strong>这才是论文的主菜</strong>。同一个 DGCNN 模型，仅改变数据分割方式，准确率就能从 75% 跌到 50%：</p><table><thead><tr><th>模型 × 数据集</th><th>KF</th><th>KFGbT</th><th>KFCT</th><th>LOSO</th><th>跌幅</th></tr></thead><tbody><tr><td>DGCNN × DEAP</td><td>69.4</td><td>69.6</td><td>58.7</td><td>51.6</td><td>−17.8 pp</td></tr><tr><td>DGCNN × DAAMEE-s</td><td>73.8</td><td>74.0</td><td>57.5</td><td>51.9</td><td>−22.1 pp</td></tr><tr><td>DGCNN × DAAMEE-c（cEEGrid）</td><td>75.0</td><td>75.0</td><td>59.2</td><td>50.2</td><td>−24.8 pp</td></tr></tbody></table><p>这一组数据里几个值得划重点的细节：</p><ul><li><strong>DGCNN × DAAMEE-s 的”模式落差”<strong>：从 KFGbT 74.0% 到 KFCT 57.5% 跌了</strong>16.5 个百分点</strong>，但 KFCT 到 LOSO 只再跌<strong>5.6 pp</strong>——这强烈提示<strong>最大的通胀来源是 trial 内时间相关性泄漏，不是被试间变异性</strong></li><li><strong>DEAP × CCNN</strong>：从 KF 69.0% 到 LOSO 53.2% 跌<strong>15.8 pp</strong></li><li><strong>cEEGrid 比 scalp 更脆弱</strong>：在 DAAMEE-c 上 DGCNN 跌 24.8 pp，比 scalp 的 22.1 pp 多——可能因为 cEEGrid 样本点更多更密，时间相关性更强</li></ul><p>当一篇 EEG 论文只汇报”K-fold 准确率”，它汇报的不是”模型能力”，而是”模型记住时间的能力”。</p><img src="/466f593f/2.webp"><div align="center">图2 · 四种数据分割对样本归属的影响（红色 = 同 trial 同时存在于 train/test，绿色 = 完全隔离）</div><h4 id="③-arousal-dominance-8-分类-VAD-同样有此现象"><a href="#③-arousal-dominance-8-分类-VAD-同样有此现象" class="headerlink" title="③ arousal &#x2F; dominance &#x2F; 8 分类 VAD 同样有此现象"></a>③ arousal &#x2F; dominance &#x2F; 8 分类 VAD 同样有此现象</h4><p>研究者把最佳模型拓展到三种情绪维度的更多任务上：</p><ul><li>在<strong>arousal</strong>上，DGCNN on DAAMEE-c 从 KF 74.2% → LOSO 54.3%，跌<strong>19.9 pp</strong></li><li>在<strong>dominance</strong>上，DGCNN on DAAMEE-c 从 KF 71.3% → LOSO 50.2%，跌<strong>21.1 pp</strong></li><li>在<strong>8 分类 VAD</strong>（情绪三维度联合）上，DGCNN on DAAMEE-c 从 KF 49.2% → LOSO 18.4%（机会水平 16.2%）——多分类任务上几乎完全回到机会</li></ul><h4 id="④-二项检验与-ANOVA：几乎所有-KF-模型都”显著高于机会”"><a href="#④-二项检验与-ANOVA：几乎所有-KF-模型都”显著高于机会”" class="headerlink" title="④ 二项检验与 ANOVA：几乎所有 KF 模型都”显著高于机会”"></a>④ 二项检验与 ANOVA：几乎所有 KF 模型都”显著高于机会”</h4><p>研究者用二项检验（p &lt; 0.05）确认：在 DEAP 上 40 个模型 × 分割组合中有<strong>35 个</strong>显著高于机会（51.2%）；DAAMEE-s 上也有多数组合显著。但当分割换成 LOSO 后，<strong>多个组合不再显著</strong>（如 DGCNN on DAAMEE-c LOSO 50.2% &lt; 机会 51.5%，未加粗）。</p><p>三种数据集上不同分割方法间性能差异<strong>全部 ANOVA 显著</strong>：</p><table><thead><tr><th>数据集</th><th>DEAP</th><th>DAAMEE-s</th><th>DAAMEE-c</th></tr></thead><tbody><tr><td>ANOVA F 值（分割间差异）</td><td>10.9</td><td>16.9</td><td>9.48</td></tr><tr><td>全部 p &lt; 0.05</td><td>✓</td><td>✓</td><td>✓</td></tr></tbody></table><p><strong>统计含义</strong>：不同数据分割下的准确率差异全部显著——但这种显著差异主要来自”哪个分割更宽松”，而不是”模型能力本身”。</p><img src="/466f593f/3.webp"><div align="center">图3 · 准确率从 KF 的 75% 跌到 LOSO 的 50%（DGCNN × DAAMEE-c），红色双头箭头标记的"性能通胀"约 25 个百分点；水平虚线为机会水平 51%</div><h3 id="四、个体差异视角：cEEGrid-不只是”性能等效”"><a href="#四、个体差异视角：cEEGrid-不只是”性能等效”" class="headerlink" title="四、个体差异视角：cEEGrid 不只是”性能等效”"></a>四、个体差异视角：cEEGrid 不只是”性能等效”</h3><p>把 LOSO 当作”严苛场景下的真实泛化能力”基准，cEEGrid 与 scalp EEG 在 valence &#x2F; arousal &#x2F; dominance 三个维度上的 LOSO 准确率差距都不超过 1-3 个百分点（多数在统计上不显著）。这一稳定对等让 cEEGrid 的<strong>可穿戴性优势</strong>变得更值得讨论：</p><ul><li><strong>佩戴舒适度</strong>：耳周电极可以做成耳机&#x2F;耳塞形态，长时间佩戴不显眼</li><li><strong>日常可行性</strong>：相比 32 通道的 scalp EEG 帽，cEEGrid 不需要导电胶、不需要洗头</li><li><strong>与音频硬件重叠</strong>：cEEGrid 的物理位置恰好就是音乐播放设备的物理位置</li></ul><p>研究者也注意到一个微妙但重要的现象：<strong>cEEGrid 适合的模型子集更窄</strong>。因为耳周电极无法排成 2D 网格，需要空间图输入的 CCNN、SimpleViT、ViT 在 DAAMEE-c 分析中被排除，最终只用 DGCNN、LGGNet、Vanilla Transformer、ArjunViT、LSTM 五种。这也是为什么工业上做 cEEGrid 模型时<strong>图神经网络（GNN）更受偏爱</strong>。</p><h3 id="五、学术争议、局限与可证伪的未来"><a href="#五、学术争议、局限与可证伪的未来" class="headerlink" title="五、学术争议、局限与可证伪的未来"></a>五、学术争议、局限与可证伪的未来</h3><p>作者的局限部分写得相当坦诚，加上从方法学角度可补的几点：</p><ol><li><p><strong>LOSO 准确率近机会</strong>：作者承认”40 个 DEAP 模型管道里只有 8 个达到 60%”，提示绝对性能偏低，远未达到”可部署情绪识别”的门槛</p></li><li><p><strong>泄漏与跨被试噪声无法解耦</strong>：作者明确说”无法自信判断 KFCT vs KFCS&#x2F;LOSO 之差，多少来自被试间负向噪声、多少来自正向泄漏”</p></li><li><p><strong>刺激泄漏未系统研究</strong>：本文聚焦时间&#x2F;被试泄漏，刺激级泄漏（如同一首乐曲的相同段同时出现在 train&#x2F;test）作者标为未来工作</p></li><li><p><strong>cEEGrid 模型池受限</strong>：需空间图的模型被排除于 DAAMEE-c，所以 cEEGrid 上的”最佳模型”结论未必通用</p></li><li><p><strong>绝对性能被”跨分割均值”低估或高估</strong>：用平均准确率选最佳模型，可能偏向利用泄漏的模型（DGCNN 在 KF&#x2F;KFGbT 虚高）</p></li><li><p><strong>强制偏差设计缺位</strong>：作者建议未来用强制偏差设计或多数据集学习来厘清个体差异方向</p></li></ol><p>值得研究者更警惕的几点：</p><ul><li><strong>数据集规模小（N&#x3D;31）</strong>：达到 LOSO 稳定的置信区间需要的样本量远超此数</li><li><strong>刺激同质化</strong>：只用 12 首三部组合曲，无法外推到流行、摇滚、电子、噪音等更广的音乐生态</li><li><strong>录音时长有限</strong>：每位被试只听约 8 分钟音乐，跨时段稳定性未知</li><li><strong>“机会水平”基线在不同分割下不同</strong>：DEAP 51.2% &#x2F; DAAMEE-s 51.2% &#x2F; DAAMEE-c 51.5% &#x2F; arousal 51.7-51.9%——比较时要小心基线漂移</li><li><strong>缺少”留出数据集”评估</strong>：本研究用同一被试池内部做 LOSO，未来应该跨数据集做 generalization test</li></ul><p><strong>最后一点最值得 AI 音乐同行反思</strong>：本文没有直接测量”音乐情绪识别 AI 的精度”，但方法学结论直接影响到几乎所有 MERT（MERT、Music2Emotion、DAMER、Memo2496）中汇报的”情绪一致性”指标的可信度——如果 EEG 这类有真实时间戳的连续信号都被 KF 严重高估，那基于”生成音频”的预测情绪一致性指标，又有多少是真实信号、多少是参考音频的时间相关性？</p><p>在 EEG 情绪解码领域，怀疑某种”准确率通胀”是美德，把它显式测出来才是学问。</p><img src="/466f593f/4.webp"><div align="center">图4 · cEEGrid → 预处理 → 深度学习 → 多维情绪输出的端到端管道。珊瑚红重点标注模型块与反馈环，提示"硬件可行但模型评估需重做"</div><h3 id="写给你"><a href="#写给你" class="headerlink" title="写给你"></a>写给你</h3><p>这篇*J. Neural Eng.*给了我们三件事：</p><p><strong>给研究者</strong>：本文的最大方法学价值是给出了”5 种数据分割 × 报告准确率”的完整对比表——这是任何 EEG 情绪识别新论文都该模仿的报告标准。如果你做 AI 音乐情绪识别（MERT &#x2F; MER &#x2F; Music2Emotion 等）也建议照搬这套评估范式：<strong>主指标用 LOSO 或 KFCS 报告</strong>，KF&#x2F;KFGbT 数字可以作为上限放在附录。</p><p><strong>给关注音乐 × 心理 × AI 产品的人</strong>：耳周 EEG（cEEGrid）在本文中显示<strong>与 32 通道 scalp EEG 在性能上等价</strong>——这意味着耳机形态的”情绪监测”硬件已经成熟，最大的瓶颈反而是<strong>算法侧</strong>：当你给用户报告”你现在比较焦虑”时，这个数字背后可能并没有超越机会水平的模型能力。<strong>做产品要先做反幻觉</strong>。</p><p><strong>给一个想理解自己的人</strong>：你今天听一首歌时的情绪状态，跟你 5 秒前听同一首歌时的状态，有相当一部分”重合”在脑电里——这种<strong>短时情绪惯性</strong>既是我们能感受到”情绪氛围”的神经基础，也是 AI 模型在 K-fold 评估下”看起来很准”的原因。如果你想真的”读懂自己的情绪”，<strong>别相信耳机直接告诉你的百分比</strong>，试试用 30 秒后的自己复述刚才的感觉——这种离样本验证比 LOSO 评估更接近真实可用性。</p><h3 id="DISCUSSION"><a href="#DISCUSSION" class="headerlink" title="DISCUSSION"></a>DISCUSSION</h3><p>这篇*J. Neural Eng.*论文的研究者下一步想做的事包括”刺激级泄漏的系统性研究”和”强制偏差设计厘清个体差异方向”。</p><p><strong>最想问他们什么问题？</strong></p><p>如果改用流行、摇滚、电子、噪音等更广的音乐生态，cEEGrid 跟 scalp 的等价性还能保持吗？ &#x2F; LOSO 准确率近机会这件事，能否靠”先用大批量被试预训练 + 个体微调”的迁移学习缓解？ &#x2F; 在可穿戴 EEG 上做”情绪识别”是否应该彻底放弃分类指标，改用”情绪连续回归 + 校准曲线”？ &#x2F; 这套数据分割诊断方法，是否同样适用于音乐以外的 EEG 任务（运动想象、P300 BCI）？</p><h3 id="CITATION-·-如何引用本文"><a href="#CITATION-·-如何引用本文" class="headerlink" title="CITATION · 如何引用本文"></a>CITATION · 如何引用本文</h3><p>Winnard, C., Mikkelsen, K., Kidmose, P., &amp; Pearce, M. T. (2026). Music emotion recognition with cEEGrid.<em>Journal of Neural Engineering</em>, 23(4), 046057. <a target="_blank" rel="noopener" href="https://doi.org/10.1088/1741-2552/ae94b1">https://doi.org/10.1088/1741-2552/ae94b1</a></p><hr><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzA3ODA4OTMwMg==&amp;mid=2257497551&amp;idx=1&amp;sn=48c6a9ad22c6a07c4fd38fda890fdfe4">https://mp.weixin.qq.com/s?__biz=MzA3ODA4OTMwMg==&amp;mid=2257497551&amp;idx=1&amp;sn=48c6a9ad22c6a07c4fd38fda890fdfe4</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/3e2e3097.html" rel="prev" title="PAPER REVIEW · 第007期 AI音乐能把你"送"到平静吗？"快乐"只用了 2 分钟，"平静"走了 4 分钟 · 一篇 IEEE TAFFC 2026论文的硬核解读"> <i class="fa fa-chevron-left"></i> PAPER REVIEW · 第007期 AI音乐能把你"送"到平静吗？"快乐"只用了 2 分钟，"平静"走了 4 分钟 · 一篇 IEEE TAFFC 2026论文的硬核解读</div><div class="post-nav-item"><a href="/155d1bab.html" rel="next" title="Nature：如何找到顶刊级的论文选题">Nature：如何找到顶刊级的论文选题 <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TL-DR-%C2%B7-%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">TL;DR · 一句话总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E5%8D%A1%E7%89%87"><span class="nav-number">2.</span> <span class="nav-text">论文卡片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%A0%94%E7%A9%B6%E8%83%8C%E6%99%AF%EF%BC%9A%E5%BD%93%E2%80%9DAI-%E8%83%BD%E5%90%AC%E6%87%82%E4%BD%A0%E6%83%85%E7%BB%AA%E2%80%9D%E8%A2%AB%E6%8A%A5%E9%81%93%E6%97%B6%EF%BC%8C%E5%85%88%E9%97%AE%E4%B8%80%E5%8F%A5%E2%80%9D%E5%AE%83%E6%80%8E%E4%B9%88%E8%AF%84%E4%BC%B0%E7%9A%84%E2%80%9D"><span class="nav-number">3.</span> <span class="nav-text">一、研究背景：当”AI 能听懂你情绪”被报道时，先问一句”它怎么评估的”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1%EF%BC%9A%E8%AE%A9%E8%A2%AB%E8%AF%95%E5%90%AC-16-%E6%AE%B5%E5%8E%9F%E5%88%9B%E9%9F%B3%E4%B9%90%E3%80%81%E7%94%A8-VAD-%E9%87%8F%E8%A1%A8%E6%89%93%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">二、实验设计：让被试听 16 段原创音乐、用 VAD 量表打分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A0-%E6%95%B0%E6%8D%AE%E9%9B%86-DAAMEE"><span class="nav-number">4.1.</span> <span class="nav-text">① 数据集 DAAMEE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A1-%E5%AE%9E%E9%AA%8C%E6%B5%81%E7%A8%8B%EF%BC%88%E6%AF%8F%E5%90%8D%E8%A2%AB%E8%AF%95%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">② 实验流程（每名被试）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A2-%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2"><span class="nav-number">4.3.</span> <span class="nav-text">③ 模型与数据分割</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%85%B3%E9%94%AE%E5%8F%91%E7%8E%B0%EF%BC%9A%E5%87%86%E7%A1%AE%E7%8E%87%E7%9A%84%E2%80%9D75-%E2%80%9D%E4%B8%8E%E2%80%9D50-%E2%80%9D%E5%8F%AF%E8%83%BD%E6%8F%8F%E8%BF%B0%E7%9A%84%E6%98%AF%E5%90%8C%E4%B8%80%E4%BB%BD%E6%95%B0%E6%8D%AE"><span class="nav-number">5.</span> <span class="nav-text">三、关键发现：准确率的”75%”与”50%”可能描述的是同一份数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A0-%E8%80%B3%E5%91%A8-EEG-%E8%B7%9F-scalp-EEG-%E6%80%A7%E8%83%BD%E6%8C%81%E5%B9%B3%E2%80%94%E2%80%94%E8%BF%99%E6%98%AF%E5%A5%BD%E6%B6%88%E6%81%AF"><span class="nav-number">5.1.</span> <span class="nav-text">① 耳周 EEG 跟 scalp EEG 性能持平——这是好消息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A1-%E4%BD%86%E2%80%9D75-vs-50-%E2%80%9D%E7%9A%84%E9%B8%BF%E6%B2%9F%E6%89%8D%E6%98%AF%E5%9D%8F%E6%B6%88%E6%81%AF"><span class="nav-number">5.2.</span> <span class="nav-text">② 但”75% vs 50%”的鸿沟才是坏消息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A2-arousal-dominance-8-%E5%88%86%E7%B1%BB-VAD-%E5%90%8C%E6%A0%B7%E6%9C%89%E6%AD%A4%E7%8E%B0%E8%B1%A1"><span class="nav-number">5.3.</span> <span class="nav-text">③ arousal &#x2F; dominance &#x2F; 8 分类 VAD 同样有此现象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A3-%E4%BA%8C%E9%A1%B9%E6%A3%80%E9%AA%8C%E4%B8%8E-ANOVA%EF%BC%9A%E5%87%A0%E4%B9%8E%E6%89%80%E6%9C%89-KF-%E6%A8%A1%E5%9E%8B%E9%83%BD%E2%80%9D%E6%98%BE%E8%91%97%E9%AB%98%E4%BA%8E%E6%9C%BA%E4%BC%9A%E2%80%9D"><span class="nav-number">5.4.</span> <span class="nav-text">④ 二项检验与 ANOVA：几乎所有 KF 模型都”显著高于机会”</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%B8%AA%E4%BD%93%E5%B7%AE%E5%BC%82%E8%A7%86%E8%A7%92%EF%BC%9AcEEGrid-%E4%B8%8D%E5%8F%AA%E6%98%AF%E2%80%9D%E6%80%A7%E8%83%BD%E7%AD%89%E6%95%88%E2%80%9D"><span class="nav-number">6.</span> <span class="nav-text">四、个体差异视角：cEEGrid 不只是”性能等效”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AD%A6%E6%9C%AF%E4%BA%89%E8%AE%AE%E3%80%81%E5%B1%80%E9%99%90%E4%B8%8E%E5%8F%AF%E8%AF%81%E4%BC%AA%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="nav-number">7.</span> <span class="nav-text">五、学术争议、局限与可证伪的未来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E7%BB%99%E4%BD%A0"><span class="nav-number">8.</span> <span class="nav-text">写给你</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DISCUSSION"><span class="nav-number">9.</span> <span class="nav-text">DISCUSSION</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CITATION-%C2%B7-%E5%A6%82%E4%BD%95%E5%BC%95%E7%94%A8%E6%9C%AC%E6%96%87"><span class="nav-number">10.</span> <span class="nav-text">CITATION · 如何引用本文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">11.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1376</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">35</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">9.7m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">403:56</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/assets/haru02.model.json"},display:{position:"right",width:208,height:520},mobile:{show:!1},log:!1})</script></body></html>

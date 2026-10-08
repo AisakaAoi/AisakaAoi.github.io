@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="PAPER REVIEW · 第 007 期 一篇 IEEE TAFFC 2026 论文的硬核解读 · 新加坡国立大学 Agres 团队 · 50 名被试内设计 + 实时生成音乐 TL;DR · 一句话总结新加坡国立大学 Agres 团队 IEEE TAFFC 2026：用自研 AI 作曲系统 AffectMachine 给 50 名被试实时生成音乐，按音乐治疗的”同调原则”从每个人当下的情绪"><meta property="og:type" content="article"><meta property="og:title" content="PAPER REVIEW · 第007期 AI音乐能把你&quot;送&quot;到平静吗？&quot;快乐&quot;只用了 2 分钟，&quot;平静&quot;走了 4 分钟 · 一篇 IEEE TAFFC 2026论文的硬核解读"><meta property="og:url" content="https://aisakaaoi.github.io/3e2e3097.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="PAPER REVIEW · 第 007 期 一篇 IEEE TAFFC 2026 论文的硬核解读 · 新加坡国立大学 Agres 团队 · 50 名被试内设计 + 实时生成音乐 TL;DR · 一句话总结新加坡国立大学 Agres 团队 IEEE TAFFC 2026：用自研 AI 作曲系统 AffectMachine 给 50 名被试实时生成音乐，按音乐治疗的”同调原则”从每个人当下的情绪"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/3e2e3097/0.webp"><meta property="og:image" content="https://aisakaaoi.github.io/3e2e3097/1.webp"><meta property="og:image" content="https://aisakaaoi.github.io/3e2e3097/2.webp"><meta property="og:image" content="https://aisakaaoi.github.io/3e2e3097/3.webp"><meta property="og:image" content="https://aisakaaoi.github.io/3e2e3097/4.webp"><meta property="article:published_time" content="2026-09-19T04:00:00.000Z"><meta property="article:modified_time" content="2026-10-08T20:19:14.793Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/3e2e3097/0.webp"><link rel="canonical" href="https://aisakaaoi.github.io/3e2e3097.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>PAPER REVIEW · 第007期 AI音乐能把你"送"到平静吗？"快乐"只用了 2 分钟，"平静"走了 4 分钟 · 一篇 IEEE TAFFC 2026论文的硬核解读 | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">35</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1376</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/3e2e3097.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">PAPER REVIEW · 第007期 AI音乐能把你"送"到平静吗？"快乐"只用了 2 分钟，"平静"走了 4 分钟 · 一篇 IEEE TAFFC 2026论文的硬核解读</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-09-19 12:00:00" itemprop="dateCreated datePublished" datetime="2026-09-19T12:00:00+08:00">2026-09-19</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/" itemprop="url" rel="index"><span itemprop="name">⭐SCNU BCI团队</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/" itemprop="url" rel="index"><span itemprop="name">💫学习报告</span></a> </span></span><span id="/3e2e3097.html" class="post-meta-item leancloud_visitors" data-flag-title="PAPER REVIEW · 第007期 AI音乐能把你"送"到平静吗？"快乐"只用了 2 分钟，"平静"走了 4 分钟 · 一篇 IEEE TAFFC 2026论文的硬核解读" title="阅读次数"> <span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> <span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/3e2e3097.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/3e2e3097.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>6.4k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>16 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><img src="/3e2e3097/0.webp"><p>PAPER REVIEW · 第 007 期</p><p>一篇 IEEE TAFFC 2026 论文的硬核解读 · 新加坡国立大学 Agres 团队 · 50 名被试内设计 + 实时生成音乐</p><h3 id="TL-DR-·-一句话总结"><a href="#TL-DR-·-一句话总结" class="headerlink" title="TL;DR · 一句话总结"></a>TL;DR · 一句话总结</h3><p>新加坡国立大学 Agres 团队 IEEE TAFFC 2026：用自研 AI 作曲系统 AffectMachine 给 50 名被试实时生成音乐，按音乐治疗的”同调原则”从每个人当下的情绪出发，逐步推向目标情绪。<strong>唤醒度被稳定推动（整体 Cohen’s d &gt; 1），”快乐”2 分钟即达成、”平静”需要 4 分钟；但”愉悦程度”基本没动。</strong></p><span id="more"></span><h3 id="论文卡片"><a href="#论文卡片" class="headerlink" title="论文卡片"></a>论文卡片</h3><table><thead><tr><th>标题</th><th>Emotion Induction through AffectMachine: Testing Subjective and Physiological Responses to Generative Music</th></tr></thead><tbody><tr><td>作者</td><td>Phoebe Chua , Lily Tyszczuk , Ting Yuan Tay , Kat R. Agres *前两位共同一作</td></tr><tr><td>单位</td><td>新加坡国立大学（National University of Singapore）</td></tr><tr><td>期刊</td><td>IEEE Transactions on Affective Computing · TAFFC</td></tr><tr><td>卷期</td><td>Early Access（PrePrints pp. 1–15）</td></tr><tr><td>DOI</td><td><a target="_blank" rel="noopener" href="https://doi.org/10.1109/TAFFC.2026.3729220">https://doi.org/10.1109/TAFFC.2026.3729220</a></td></tr><tr><td>发表</td><td>2026（作者版已接收，最终排版前） · CC BY 4.0</td></tr><tr><td>资助</td><td>新加坡 RIE2020 AME Programmatic Fund（A20G8b0102）· NUS IRB 豁免</td></tr><tr><td>被试</td><td>招募 54 人，4 人因设备故障剔除， 50 人 进入分析（女 26 &#x2F; 男 23 &#x2F; 非二元 1），平均年龄 22.2 岁（SD &#x3D; 3.28）</td></tr><tr><td>编辑</td><td>（Early Access 阶段未公开）</td></tr></tbody></table><h3 id="一、研究背景：为什么”用音乐改变情绪”需要一次闭环检验"><a href="#一、研究背景：为什么”用音乐改变情绪”需要一次闭环检验" class="headerlink" title="一、研究背景：为什么”用音乐改变情绪”需要一次闭环检验"></a>一、研究背景：为什么”用音乐改变情绪”需要一次闭环检验</h3><p>“听音乐能调节情绪”这件事，大众语境里几乎不需要论证。但在工程层面，它一直卡在一个粗糙的环节：<strong>用哪首歌</strong>。</p><p>个性化推荐系统再精细，也只是在既有曲库里挑——它无法贴合你<strong>此刻</strong>的状态，也无法实时调整。AI 情绪音乐生成（AI-AMG）系统绕开了这个限制：它可以直接把情绪参数变成音乐。</p><p>这篇论文借用的核心理论，来自音乐治疗里一个用了几十年的老办法——<strong>同调原则（iso principle）</strong>：想引导一个人走向目标情绪，最有效的方式是先让音乐匹配他现在的心情，再逐步过渡到目标状态。给一个悲伤的人直接放欢快的歌，往往无效甚至适得其反；先放悲伤的歌，再慢慢转亮，效果好得多。</p><p>问题在于，同调原则的临床文献很厚，<strong>临床外的实证检验很薄</strong>。把它写进一个实时生成系统的技术实现，更是几乎没有。作者在引言里明确说，这是”同调原则技术实现的最早一批实证检验之一”（Chua et al., 2026, IEEE TAFFC）。</p><p>他们同时追问了一个几乎没人量过的变量：<strong>诱导一种情绪到底需要多久？</strong>既往情绪诱导研究的刺激时长从几分钟到十几分钟不等，但很少有人直接比较”到达不同目标情绪”的时间进程。这个问题对同调原则尤其关键——因为同调原则本身就依赖”随时间渐进过渡”。</p><h3 id="二、实验设计：AffectMachine-怎么”先接住、再引导”"><a href="#二、实验设计：AffectMachine-怎么”先接住、再引导”" class="headerlink" title="二、实验设计：AffectMachine 怎么”先接住、再引导”"></a>二、实验设计：AffectMachine 怎么”先接住、再引导”</h3><p><strong>系统</strong>。AffectMachine 是一个<strong>随机规则系统</strong>，不是深度生成模型。它接收两个连续输入——唤醒度（arousal）与效价（valence），逐小节生成 MIDI 消息，送进 Ableton Live 11 的虚拟乐器发声。效价控制和声（低效价→更不协和、更倾向小调），唤醒度控制节奏密度、速度与力度（高唤醒→更快、更密、更亮）。输出延迟 10–15 毫秒，远低于人耳 50 毫秒的感知阈。</p><p>论文用了两个版本：<strong>Classical</strong>（弦乐组 + 钢琴 + 单簧管 + 马林巴，8 小节循环结构和声）和<strong>Pop</strong>（打击乐 + 贝斯 + 电吉他 + 小提琴 + 圆号，走”复古 1960–70s”路线，带曼波与华语流行影响，32 小节 AABB 结构）。</p><p><strong>流程</strong>。50 人<strong>被试内设计</strong>：2 流派 × 2 目标情绪 &#x3D; 4 个 block。目标情绪是”快乐”（唤醒 9、效价 9，对应环状模型右上）与”平静”（唤醒 1、效价 9，右下）。每个 block 含两个 2 分钟 trial，被试在每个 trial 前后在一张<strong>9×9 affect grid</strong>上自评当前状态；block 之间播放 20 秒鸟鸣作为”情绪中和”。第一个 block 的目标被设定为<strong>离初始自评最远</strong>的那个目标；流派顺序在被试间平衡。</p><p><strong>测量与统计</strong>。Empatica E4 手腕设备全程采集心率，经 pyphysio 计算 IBI、样条插值去噪（每个 trial 掐头去尾各 10 秒）：</p><ul><li>Manhattan (L1) 距离度量朝目标移动的量</li><li>配对 Cohen’s d（1000 次 bootstrap 95% CI）</li><li>线性混合效应模型（被试作随机截距）</li><li>心率斜率 × 情绪变化的 Pearson 相关，经 Benjamini–Hochberg FDR 校正</li><li><strong>1000 次随机游走基线</strong>，专门排除”均值回归”造成的假移动</li></ul><img src="/3e2e3097/1.webp"><div align="center">图1 · 实验流程：2 流派 × 2 目标 = 4 block，每 block 2 个 2 分钟 trial，trial 前后各评一次 9×9 affect grid，block 间 20 秒鸟鸣</div><p>音乐治疗师几十年前就知道”先接住，再引导”。这篇论文做的事，是把”接住”和”引导”都变成可以被连续参数控制的变量。</p><h3 id="三、关键发现：方向对了一半"><a href="#三、关键发现：方向对了一半" class="headerlink" title="三、关键发现：方向对了一半"></a>三、关键发现：方向对了一半</h3><h4 id="①-多数人确实被推动了"><a href="#①-多数人确实被推动了" class="headerlink" title="① 多数人确实被推动了"></a>① 多数人确实被推动了</h4><p>两种流派、两个目标下，都有<strong>超过 60% 的被试</strong>朝目标方向移动。更关键的是剂量效应：初始状态离目标越远，效果越好——初始距离至少 7 格（超过 affect grid 一半）时，**所有条件的成功率都到了 70–80%**；Pop 系统对初始距离 ≥6 格的被试，推动率超过 75%。而随机游走基线的平均位移几乎贴着零。这不是均值回归的假象。</p><h4 id="②-效应量很大，但要小心它怎么算的"><a href="#②-效应量很大，但要小心它怎么算的" class="headerlink" title="② 效应量很大，但要小心它怎么算的"></a>② 效应量很大，但要小心它怎么算的</h4><p>所有条件在整块水平（唤醒 + 效价合计）的配对 Cohen’s d 都<strong>大于 1 且显著</strong>，最强的是 Pop→Happy，<strong>d &gt; 2</strong>。混合模型里，唤醒度有显著的 Trial 主效应（β &#x3D; 0.63, SE &#x3D; 0.17, t(550) &#x3D; 3.78, p &lt; 0.001）和 Trial × Target 交互（β &#x3D; 1.04, t(550) &#x3D; 4.41, p &lt; 0.0001），流派还进一步调节了它（三阶交互 β &#x3D; 0.74, t(550) &#x3D; 2.20, p &lt; 0.05）。</p><p>但效价那一边基本没动：Trial 主效应不显著（β &#x3D; 0.14, SE &#x3D; 0.16, t &#x3D; 0.90, p &#x3D; 0.37）。四个条件里，<strong>只有 Classical→Happy 在整块结束时保留了效价上的显著移动</strong>；两个流派在”平静”目标下，效价都是<strong>非显著的下降</strong>。</p><img src="/3e2e3097/2.webp"><div align="center">图2 · AffectMachine 架构：连续效价/唤醒输入 → 随机规则生成（和声/节奏/音色）→ 实时音频；红色回路是未来接入生理信号的闭环接口</div><h4 id="③-时间进程——本文最独特的发现"><a href="#③-时间进程——本文最独特的发现" class="headerlink" title="③ 时间进程——本文最独特的发现"></a>③ 时间进程——本文最独特的发现</h4><p>“快乐”（高唤醒目标）通常一个 2 分钟 trial 就够了，第二个 trial 没有带来显著增量；”平静”（低唤醒目标）需要完整的<strong>4 分钟</strong>。Classical→Calm 在 trial A 结束时整体移动还不显著，到 trial B 结束才变得强且显著。</p><p>心率那一边，经 FDR 校正后只剩一个相关站得住：<strong>Pop→Happy trial A 里，唤醒度的变化与心率斜率显著正相关（PCC &#x3D; 0.52, p &#x3D; 0.0019）</strong>。其余所有条件、所有维度的相关，绝对值都不到 0.10。作者自己也承认：”我们本来预期会有更多 trial 显著。”</p><p>把人往上提（升唤醒）比把人往下压（降唤醒）快一倍——这对”减压类产品”的产品设计，是个相当扎眼的提醒。</p><h3 id="四、个体差异：谁更容易被推动？"><a href="#四、个体差异：谁更容易被推动？" class="headerlink" title="四、个体差异：谁更容易被推动？"></a>四、个体差异：谁更容易被推动？</h3><p>答案是：<strong>几乎谁都可以，至少在这次样本里。</strong></p><p>人口学变量、音乐训练年限对唤醒度评分<strong>没有显著影响</strong>。流派偏好对效价有小效应——偏好古典乐的人整体效价略高（β &#x3D; 0.95, SE &#x3D; 0.33, t &#x3D; 2.89, p &lt; 0.01），偏好爵士乐的人略低（β &#x3D; 0.70, SE &#x3D; 0.33, t &#x3D; 2.12, p &lt; 0.05）——但经 Tukey 校正后两两对比都不显著，且被试可多选流派，作者自己提醒这些结果要谨慎解读。</p><p>更值得注意的是一个”没发生”的交互：<strong>偏好古典乐的人，并没有在古典乐条件下表现出更强的诱导</strong>。系统的”通用性”先于”个性化”被验证了。对一个想做”情绪调节 × 音乐”产品的人来说，这是个相当务实的好消息——它意味着你暂时不需要为每个用户建模偏好，也能拿到第一版效应。</p><p>数据背景补充：样本 78% 华裔、平均年龄 22.2 岁、60% 有音乐训练、84% 偏好流行乐。通用性结论能不能迁移到临床人群或中老年用户，还是个开放问题。</p><img src="/3e2e3097/3.webp"><div align="center">图3 · 左：各条件配对 Cohen's d 的森林图示意，整体效应都落在零线右侧；右：唤醒度变化与心率斜率正相关（Pop→Happy trial A, r = 0.52），效价与心率则几乎无关</div><p>一个系统如果对”喜欢古典乐的人”和”喜欢流行乐的人”效果一样，它可能更接近工具，而不是内容。</p><h3 id="五、学术争议、局限与可证伪的未来"><a href="#五、学术争议、局限与可证伪的未来" class="headerlink" title="五、学术争议、局限与可证伪的未来"></a>五、学术争议、局限与可证伪的未来</h3><p>这篇论文在讨论部分给出了相当坦诚的自我审视：</p><ol><li><p><strong>“平静”条件下效价不升反降</strong>（虽不显著）。作者给出两个解释：一是 AffectMachine 此前验证研究里发现过<strong>渗漏效应（bleeding effect）</strong>——唤醒参数会反向影响效价评分；二是效价-唤醒模型本身可能有问题。文献里反复出现”V 形”现象：低唤醒状态下，效价趋向中性、可分性变差。换句话说，**(唤醒&#x3D;1, 效价&#x3D;9) 这一格——“极平静且极愉悦”——可能是整个环状模型里最难达到的一格**，而本研究恰恰把它设成了目标。</p></li><li><p><strong>鸟鸣不是中性刺激</strong>。自然声本身会诱发正性情绪，被试几乎每个 block 都从正效价出发，这可能让干预效应显得更小。作者建议未来改用静音，或在 block 之间加压力诱导任务。</p></li><li><p><strong>没有控制条件</strong>。没有”预作曲固定情绪音乐”或”非自适应 AffectMachine（固定 A&#x2F;V 值）”对照，就无法分离”自适应同调轨迹”和”单纯听音乐”各自的贡献。</p></li><li><p><strong>心率只在 trial 层面汇总</strong>，可能不足以刻画效价；重复测量设计也可能放大 Calm 与 Happy 的对比。</p></li></ol><h3 id="写给同行："><a href="#写给同行：" class="headerlink" title="写给同行："></a>写给同行：</h3><p><strong>配对 Cohen’s d 用的是差值标准差。</strong>前后测相关越高，SD_diff 越小，d 就越大。”整体 d &gt; 1、Pop→Happy d &gt; 2”这种数字，在 between-subjects 口径下会小很多。跨研究比较时不能直接混用——这是所有情绪诱导文献的通病，不只是这篇。</p><p><strong>Block 1 的目标被定义为”离初始自评最远的目标”。</strong>这个 per-protocol 的选择天然给了更大的可移动空间，”初始距离越远效果越好”这条结论有一部分是设计写进去的，不完全是涌现的实证结果。</p><p><strong>被试知道目标是什么</strong>（目标格在 affect grid 上被明确框出）。在没有任何控制条件的情况下，”我想被推到平静”这种需求特征（demand characteristics）无法被排除。</p><p>把它放到当下的文献坐标系里读会更有意思。MIT Media Lab 在 NIME 2026 的研究（Lecamwasam &amp; Ray Chaudhuri，152 人，Suno 对比人类作曲家）发现：人类作曲的音乐在<strong>唤起目标情绪</strong>上更有效，即便被试嘴上说更喜欢 AI。而 AffectMachine 走的是参数化规则路线，输出的是”情绪可控”而非”音乐惊艳”。两条研究合在一起指向同一个问题：<strong>可控性与感染力，可能是一对需要被显式权衡的设计变量</strong>——你很难在同一个系统里同时把两者推到最大。</p><p>与 PNAS 2026 的杜忆团队（You et al.）那篇”音乐减压靠张力—解决结构”的研究对读也有启发：那篇强调音乐<strong>内部的时间结构</strong>，本研究强调音乐在<strong>效价-唤醒空间里的位移</strong>。两套框架目前是互补而非竞争——一个关心”这首歌长什么样”，一个关心”它把你从哪带到哪”。</p><p><strong>作者列出的下一步</strong>：非线性轨迹 vs 线性轨迹；用生理信号替代自评来初始化起点（EEG biofeedback）；加入预作曲 &#x2F; 固定 A&#x2F;V 的非自适应对照；补充 EDA、HRV 等生理通道；心率的时间序列与滞后分析。</p><p><strong>可以马上设计出来的三个可证伪实验</strong>：</p><ul><li>把 Calm 目标从 (1, 9) 改成 (3, 7)，看效价还会不会降——对”V 形效应”解释最直接的检验</li><li>没有任何自评、只靠可穿戴生理信号初始化跑一版，看效果掉多少——这决定它能不能走出实验室</li><li>把线性轨迹换成”先短暂加深、再转向”的非线性轨迹（真实治疗师的操作更接近这样），看”平静”的 4 分钟能不能缩短</li></ul><img src="/3e2e3097/4.webp"><div align="center">图4 · 同调原则的几何表达：从散布的初始状态出发，沿效价-唤醒空间的两条轨迹分别走向"快乐"（右上）与"平静"（右下）</div><p>“整体 Cohen’s d &gt; 2”这种数字，先别急着转发——它是配对设计的 d，不是你能直接跟别的实验比的那个 d。</p><h3 id="写给你"><a href="#写给你" class="headerlink" title="写给你"></a>写给你</h3><p><strong>给研究者</strong>：可以马上搬走三件事。①时间进程是独立于”是否有效”之外的另一个变量——“快乐 2 分钟 &#x2F; 平静 4 分钟”这个不对称性值得在其他 AI-AMG 系统上复现；②报告配对 d 的同时，请给出原始均值差与差值标准差（或补一个 between-subjects 口径），否则跨研究比较会失真；③效价-唤醒模型在低唤醒端的失效，是比”模型准确率”更根本的问题——它在悄悄决定你们设哪些目标、又测不出哪些目标。</p><p><strong>给创业者或产品人</strong>：AffectMachine 是参数化规则系统，不是大模型。它的价值恰恰在于：可控、实时、延迟低于人耳感知阈、不需要版权曲库。如果你的赛道是”情绪调节 × 音乐”，这篇论文给了两条具体的设计启示——先匹配用户此刻的状态，再移动；以及，移动”平静”比移动”兴奋”要多花一倍时间，你的交互节奏和用户预期管理需要按这个来。另一个提醒：这篇没有对照条件，”自适应轨迹优于固定音乐”目前还没有被证明。它是一个有价值的机制验证，不是产品有效性的证据。</p><p><strong>给想理解自己的普通人</strong>：为什么你烦躁的时候听欢快的歌会更烦躁？因为那首歌没有先”接住”你。同调原则说的是：想让人平静下来，得从对方此刻的状态出发。下次想用音乐调节情绪，可以试试先放一首和你现在心情差不多”热”的歌，再慢慢换到更接近你想去的状态的那首。这个顺序，这篇论文第一次用 50 个人把它跑通了——至少在唤醒度这一半上。</p><h3 id="DISCUSSION"><a href="#DISCUSSION" class="headerlink" title="DISCUSSION"></a>DISCUSSION</h3><p>这篇论文留下了一个很具体的悬而未决：把”平静”的目标从 (1, 9) 改成 (3, 7)，效价还会下降吗？</p><p><strong>你最想问作者什么问题？</strong></p><p>配对 Cohen’s d &gt; 2，换成 between-subjects 口径大概是多少？ &#x2F; “先加深再转向”的非线性轨迹，能不能把 4 分钟缩短？ &#x2F; 如果只能靠可穿戴生理信号来定位起点，不用自评，效果会掉多少？</p><h3 id="CITATION-·-如何引用本文"><a href="#CITATION-·-如何引用本文" class="headerlink" title="CITATION · 如何引用本文"></a>CITATION · 如何引用本文</h3><p>Chua, P., Tyszczuk, L., Tay, T. Y., &amp; Agres, K. R. (2026). Emotion Induction through AffectMachine: Testing Subjective and Physiological Responses to Generative Music.<em>IEEE Transactions on Affective Computing</em>(Early Access), pp. 1–15. <a target="_blank" rel="noopener" href="https://doi.org/10.1109/TAFFC.2026.3729220">https://doi.org/10.1109/TAFFC.2026.3729220</a></p><hr><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzA3ODA4OTMwMg==&amp;mid=2257497550&amp;idx=1&amp;sn=77ee1531e432353c52a18631b4ca46da">https://mp.weixin.qq.com/s?__biz=MzA3ODA4OTMwMg==&amp;mid=2257497550&amp;idx=1&amp;sn=77ee1531e432353c52a18631b4ca46da</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/77fb4643.html" rel="prev" title="PAPER REVIEW · 第006期 为什么"有点抢拍"的鼓点最让你想动？Frontiers in Human Neuroscience 2026 论文的硬核解读"> <i class="fa fa-chevron-left"></i> PAPER REVIEW · 第006期 为什么"有点抢拍"的鼓点最让你想动？Frontiers in Human Neuroscience 2026 论文的硬核解读</div><div class="post-nav-item"><a href="/466f593f.html" rel="next" title="PAPER REVIEW · 第008期 "可穿戴情绪解码"硬件层可行，但可信准确率"远低于以往文献报道 · Journal of Neural Engineering论文硬核解读"> PAPER REVIEW · 第008期 "可穿戴情绪解码"硬件层可行，但可信准确率"远低于以往文献报道 · Journal of Neural Engineering论文硬核解读 <i class="fa fa-chevron-right"></i></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TL-DR-%C2%B7-%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">TL;DR · 一句话总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E5%8D%A1%E7%89%87"><span class="nav-number">2.</span> <span class="nav-text">论文卡片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%A0%94%E7%A9%B6%E8%83%8C%E6%99%AF%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E2%80%9D%E7%94%A8%E9%9F%B3%E4%B9%90%E6%94%B9%E5%8F%98%E6%83%85%E7%BB%AA%E2%80%9D%E9%9C%80%E8%A6%81%E4%B8%80%E6%AC%A1%E9%97%AD%E7%8E%AF%E6%A3%80%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text">一、研究背景：为什么”用音乐改变情绪”需要一次闭环检验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1%EF%BC%9AAffectMachine-%E6%80%8E%E4%B9%88%E2%80%9D%E5%85%88%E6%8E%A5%E4%BD%8F%E3%80%81%E5%86%8D%E5%BC%95%E5%AF%BC%E2%80%9D"><span class="nav-number">4.</span> <span class="nav-text">二、实验设计：AffectMachine 怎么”先接住、再引导”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%85%B3%E9%94%AE%E5%8F%91%E7%8E%B0%EF%BC%9A%E6%96%B9%E5%90%91%E5%AF%B9%E4%BA%86%E4%B8%80%E5%8D%8A"><span class="nav-number">5.</span> <span class="nav-text">三、关键发现：方向对了一半</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A0-%E5%A4%9A%E6%95%B0%E4%BA%BA%E7%A1%AE%E5%AE%9E%E8%A2%AB%E6%8E%A8%E5%8A%A8%E4%BA%86"><span class="nav-number">5.1.</span> <span class="nav-text">① 多数人确实被推动了</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A1-%E6%95%88%E5%BA%94%E9%87%8F%E5%BE%88%E5%A4%A7%EF%BC%8C%E4%BD%86%E8%A6%81%E5%B0%8F%E5%BF%83%E5%AE%83%E6%80%8E%E4%B9%88%E7%AE%97%E7%9A%84"><span class="nav-number">5.2.</span> <span class="nav-text">② 效应量很大，但要小心它怎么算的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%91%A2-%E6%97%B6%E9%97%B4%E8%BF%9B%E7%A8%8B%E2%80%94%E2%80%94%E6%9C%AC%E6%96%87%E6%9C%80%E7%8B%AC%E7%89%B9%E7%9A%84%E5%8F%91%E7%8E%B0"><span class="nav-number">5.3.</span> <span class="nav-text">③ 时间进程——本文最独特的发现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%B8%AA%E4%BD%93%E5%B7%AE%E5%BC%82%EF%BC%9A%E8%B0%81%E6%9B%B4%E5%AE%B9%E6%98%93%E8%A2%AB%E6%8E%A8%E5%8A%A8%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">四、个体差异：谁更容易被推动？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AD%A6%E6%9C%AF%E4%BA%89%E8%AE%AE%E3%80%81%E5%B1%80%E9%99%90%E4%B8%8E%E5%8F%AF%E8%AF%81%E4%BC%AA%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="nav-number">7.</span> <span class="nav-text">五、学术争议、局限与可证伪的未来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E7%BB%99%E5%90%8C%E8%A1%8C%EF%BC%9A"><span class="nav-number">8.</span> <span class="nav-text">写给同行：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E7%BB%99%E4%BD%A0"><span class="nav-number">9.</span> <span class="nav-text">写给你</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DISCUSSION"><span class="nav-number">10.</span> <span class="nav-text">DISCUSSION</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CITATION-%C2%B7-%E5%A6%82%E4%BD%95%E5%BC%95%E7%94%A8%E6%9C%AC%E6%96%87"><span class="nav-number">11.</span> <span class="nav-text">CITATION · 如何引用本文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">12.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1376</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">35</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">9.7m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">403:56</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/assets/haru02.model.json"},display:{position:"right",width:208,height:520},mobile:{show:!1},log:!1})</script></body></html>

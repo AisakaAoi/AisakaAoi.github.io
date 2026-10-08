@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="很多人在用 AI 做科研绘图时，第一反应是把论文摘要、研究背景、实验结果全部复制进去。 结果往往是：图看起来很炫，但信息不清楚；元素很多，但逻辑混乱；像一张宣传海报，却不像论文图。 科研绘图和普通 AI 绘图最大的不同在于： 它不是单纯追求“好看”，而是要把 科学结构、机制路径和视觉层级 表达清楚。"><meta property="og:type" content="article"><meta property="og:title" content="GPTImage2做科研绘图：如何写提示词？"><meta property="og:url" content="https://aisakaaoi.github.io/24e19a8f.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="很多人在用 AI 做科研绘图时，第一反应是把论文摘要、研究背景、实验结果全部复制进去。 结果往往是：图看起来很炫，但信息不清楚；元素很多，但逻辑混乱；像一张宣传海报，却不像论文图。 科研绘图和普通 AI 绘图最大的不同在于： 它不是单纯追求“好看”，而是要把 科学结构、机制路径和视觉层级 表达清楚。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/24e19a8f/1.webp"><meta property="og:image" content="https://aisakaaoi.github.io/24e19a8f/2.webp"><meta property="og:image" content="https://aisakaaoi.github.io/24e19a8f/3.webp"><meta property="og:image" content="https://aisakaaoi.github.io/24e19a8f/4.webp"><meta property="og:image" content="https://aisakaaoi.github.io/24e19a8f/5.webp"><meta property="og:image" content="https://aisakaaoi.github.io/24e19a8f/6.webp"><meta property="og:image" content="https://aisakaaoi.github.io/24e19a8f/7.webp"><meta property="og:image" content="https://aisakaaoi.github.io/24e19a8f/8.webp"><meta property="article:published_time" content="2026-05-13T04:00:00.000Z"><meta property="article:modified_time" content="2026-10-06T22:13:33.030Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/24e19a8f/1.webp"><link rel="canonical" href="https://aisakaaoi.github.io/24e19a8f.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>GPTImage2做科研绘图：如何写提示词？ | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">35</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1376</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/24e19a8f.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">GPTImage2做科研绘图：如何写提示词？</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-05-13 12:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T12:00:00+08:00">2026-05-13</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/" itemprop="url" rel="index"><span itemprop="name">🌙逢坂杂谈与搬运</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E5%AD%A6%E6%9C%AF%E6%9D%82%E8%B0%88/" itemprop="url" rel="index"><span itemprop="name">⭐学术杂谈</span></a> </span></span><span id="/24e19a8f.html" class="post-meta-item leancloud_visitors" data-flag-title="GPTImage2做科研绘图：如何写提示词？" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/24e19a8f.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/24e19a8f.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>9.6k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>24 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><p>很多人在用 AI 做科研绘图时，第一反应是把论文摘要、研究背景、实验结果全部复制进去。</p><p>结果往往是：图看起来很炫，但信息不清楚；元素很多，但逻辑混乱；像一张宣传海报，却不像论文图。</p><p>科研绘图和普通 AI 绘图最大的不同在于：</p><p>它不是单纯追求“好看”，而是要把 <strong>科学结构、机制路径和视觉层级</strong> 表达清楚。</p><span id="more"></span><p>一条真正好用的科研绘图提示词，通常要解决几个问题：</p><ol><li>这张图是什么类型？ 是机制图、流程图、系统架构图、材料剖面图、仪器结构图，还是期刊封面图？</li><li>核心对象是什么？ 是电池结构、城市热岛、碳循环、AI 模型、仪器模块，还是实验流程？</li><li>关系应该怎么表达？ 是传输、分层、循环、输入输出、因果链，还是模块连接？</li><li>画面应该怎么组织？ 是从左到右、上下分层、中心放射、剖面结构，还是系统网络？</li><li>视觉风格有什么限制？ 背景、配色、箭头、标签密度、是否避免海报感，都要提前说清楚。</li></ol><p>所以，与其把一大段研究背景塞给模型，不如用“图的结构”去写提示词。</p><p>下面整理几类科研绘图中非常常见、也比较容易复用的提示词模板。你可以直接替换研究对象、结构模块和机制过程来使用。</p><hr><h3 id="01｜材料结构图：钙钛矿-硅叠层太阳能电池"><a href="#01｜材料结构图：钙钛矿-硅叠层太阳能电池" class="headerlink" title="01｜材料结构图：钙钛矿-硅叠层太阳能电池"></a>01｜材料结构图：钙钛矿-硅叠层太阳能电池</h3><p>这类图适合展示多层器件结构，比如太阳能电池、柔性传感器、膜材料、半导体器件、多层涂层等。</p><p>它的重点不是画一个漂亮装置，而是把 <strong>每一层的位置、功能和界面关系</strong> 讲清楚。</p><p><strong>效果图展示</strong></p><img src="/24e19a8f/1.webp"><p><strong>不推荐这样写</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">画一张钙钛矿太阳能电池科研图，要高级一点。</span><br></pre></td></tr></table></figure><p>这句话太空，模型不知道你要画外观、结构、工作原理，还是性能对比。</p><p><strong>推荐提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请生成一张适合论文发表的材料结构示意图，主题是钙钛矿-硅叠层太阳能电池。图中展示从上到下的多层堆叠结构，包括透明电极、电子传输层、钙钛矿吸收层、空穴传输层、硅底电池和背电极。请采用剖面结构图布局，清楚展示不同功能层之间的界面关系，并用简洁标签标注每一层。整体风格要求专业、清晰、适合材料科学论文配图。请使用浅色背景，采用低饱和蓝色、紫色和灰色区分不同材料层。避免夸张 3D 渲染，不要做成商业宣传海报。</span><br></pre></td></tr></table></figure><p><strong>English Prompt</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a publication-ready scientific figure about a perovskite-silicon tandem solar cell layered stack. Show the transparent electrode, electron transport layer, perovskite absorber, hole transport layer, silicon bottom cell, and back electrode in a clean cross-section layout.Use clear labels to identify each functional layer and make the interface relationships easy to understand. Use a clean scientific illustration style with a light background, muted blue, purple, and gray tones. Avoid overly glossy 3D rendering, advertising style, and decorative background.</span><br></pre></td></tr></table></figure><p><strong>提示词规律小总结</strong></p><p>材料结构图的核心是 <strong>层级</strong>。不要只写“画一个太阳能电池”，要写清楚：有哪些层、从上到下怎么排列、每层承担什么功能。</p><hr><h3 id="02｜传输机制图：锂离子电池截面与离子迁移"><a href="#02｜传输机制图：锂离子电池截面与离子迁移" class="headerlink" title="02｜传输机制图：锂离子电池截面与离子迁移"></a>02｜传输机制图：锂离子电池截面与离子迁移</h3><p>能源、材料、电化学方向，经常需要画“结构 + 传输路径”。</p><p>比如锂离子迁移、电子传导、孔道扩散、界面反应、热传输，这类图一定要把“东西怎么流动”画出来。</p><p><strong>效果图展示</strong></p><img src="/24e19a8f/2.webp"><p><strong>不推荐这样写</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">画一个锂电池结构图。</span><br></pre></td></tr></table></figure><p>这样模型很可能只画一个电池外观，或者画一张很泛的科普图。</p><p><strong>推荐提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请生成一张用于论文的锂离子电池截面传输机制图。图中展示正极、隔膜、电解液、负极以及集流体结构，并重点表现锂离子在充放电过程中的迁移路径、电子在外电路中的流动方向，以及电极-电解液界面处的反应区域。请采用横向剖面布局，用箭头表示锂离子迁移和电子传导方向，并在电极界面加入局部放大视图，展示离子嵌入/脱嵌过程。整体风格要求简洁、专业、适合能源材料论文。请使用白色或浅色背景，以蓝色和灰色表示电池结构，橙色或绿色突出离子传输路径。避免复杂背景和过多文字说明。</span><br></pre></td></tr></table></figure><p><strong>English Prompt</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a publication-ready cross-sectional mechanism diagram of lithium-ion battery transport pathways. Show the cathode, separator, electrolyte, anode, and current collectors. Emphasize lithium-ion migration during charge and discharge, electron flow through the external circuit, and interfacial reactions at the electrode-electrolyte boundary.Use a horizontal cross-section layout with arrows for ion migration and electron transport. Add a zoom-in view of ion intercalation and deintercalation at the electrode interface. Use a clean scientific style with a light background and restrained colors.</span><br></pre></td></tr></table></figure><p><strong>提示词规律小总结</strong></p><p>传输机制图不能只写“结构”。一定要写清楚：<strong>传输对象是什么、从哪里到哪里、经过哪些界面、最终导致什么功能结果。</strong></p><hr><h3 id="03｜环境机制图：城市热岛与缓解措施"><a href="#03｜环境机制图：城市热岛与缓解措施" class="headerlink" title="03｜环境机制图：城市热岛与缓解措施"></a>03｜环境机制图：城市热岛与缓解措施</h3><p>环境科学、城市规划、生态工程类图，很适合用“问题机制 + 干预措施”的方式来画。</p><p>这类图的重点不是画一个城市，而是把热源、温度梯度、绿化、水体、反照率、通风廊道这些因素之间的关系讲清楚。</p><p><strong>效果图展示</strong></p><img src="/24e19a8f/3.webp"><p><strong>不推荐这样写</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">画一张城市热岛效应图。</span><br></pre></td></tr></table></figure><p>这句话容易生成一张城市风景图，而不是科研机制图。</p><p><strong>推荐提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请生成一张城市热岛效应及缓解措施的科研示意图。图中展示城市中心建筑密集区、道路硬化地面、热量积累、温度升高，以及郊区或绿色区域温度较低的对比关系。请采用城市横向剖面布局，左侧展示高密度建筑和热量聚集，右侧展示绿色屋顶、城市绿地、水体、浅色铺装和通风廊道等缓解措施。请用箭头表示热量流动、空气流动和降温路径。整体风格要求清晰、专业，适合环境科学论文或政策报告。请使用浅色背景，以橙红色表示高温区域，蓝绿色表示降温和生态干预。避免卡通城市插画风，不要堆积过多装饰元素。</span><br></pre></td></tr></table></figure><p><strong>English Prompt</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a publication-ready scientific figure about urban heat island mechanisms and mitigation interventions. Show dense buildings, impervious surfaces, heat accumulation, elevated urban temperature, and cooler suburban or green areas.Use a horizontal urban cross-section layout. Show mitigation strategies such as green roofs, urban vegetation, water bodies, high-albedo pavement, and ventilation corridors. Use arrows to indicate heat flow, airflow, and cooling pathways. Use orange-red for heat accumulation and blue-green for cooling interventions.</span><br></pre></td></tr></table></figure><p><strong>提示词规律小总结</strong></p><p>环境机制图最好写成：<strong>问题来源 + 传输路径 + 干预措施 + 结果变化</strong>。只写一个环境现象，模型很难知道你想表达机制还是场景。</p><hr><h3 id="04｜系统循环图：全球碳循环"><a href="#04｜系统循环图：全球碳循环" class="headerlink" title="04｜系统循环图：全球碳循环"></a>04｜系统循环图：全球碳循环</h3><p>如果你的研究对象是一个大系统，比如碳循环、氮循环、水循环、微塑料迁移、生态系统能量流，就不要写成单向流程图。</p><p>更适合写成“系统循环图”或“通量图”。</p><p><strong>效果图展示</strong></p><img src="/24e19a8f/4.webp"><p><strong>不推荐这样写</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">画一张全球碳循环图。</span><br></pre></td></tr></table></figure><p>这句话太泛，容易生成一张科普插画，缺少科研图需要的通量关系。</p><p><strong>推荐提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请生成一张全球碳循环科研示意图。图中展示大气、陆地植被、土壤、海洋和人类活动之间的碳储存与碳通量关系，包括光合作用、呼吸作用、海气交换、化石燃料燃烧、土地利用变化和碳汇过程。请采用系统循环图布局，用不同方向的箭头表示碳在大气、海洋和陆地之间的交换路径。可以用箭头粗细或颜色区分主要通量和次要通量，并保持图面结构清楚。整体风格要求适合环境科学或地球系统科学论文。请使用自然科学图谱风格，背景简洁，蓝色表示海洋，绿色表示陆地生态系统，灰色或橙色表示人为排放。避免卡通地球和宣传海报风格。</span><br></pre></td></tr></table></figure><p><strong>English Prompt</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a publication-ready scientific figure about the global carbon cycle with atmospheric, oceanic, and terrestrial carbon fluxes. Show carbon storage and exchange among the atmosphere, vegetation, soil, ocean, and human activities, including photosynthesis, respiration, air-sea exchange, fossil fuel emissions, land-use change, and carbon sinks.Use a system cycle or flux-map layout with directional arrows between reservoirs. Use arrow thickness or color to distinguish major and minor fluxes. Use a clean scientific atlas style suitable for environmental science and Earth system research.</span><br></pre></td></tr></table></figure><p><strong>提示词规律小总结</strong></p><p>系统循环图的关键词是 <strong>reservoirs + fluxes + feedback</strong>。也就是：有哪些库、通量怎么走、有没有反馈回路。</p><hr><h3 id="05｜AI-架构图：Transformer-模型结构"><a href="#05｜AI-架构图：Transformer-模型结构" class="headerlink" title="05｜AI 架构图：Transformer 模型结构"></a>05｜AI 架构图：Transformer 模型结构</h3><p>计算机、AI、信息科学方向也可以用 GPTImage2 做科研图。</p><p>但这类图最怕变成“科技感背景图”。**如果你想要的是论文里的模型结构图，就一定要写 architecture、blocks、data flow，而不是只写 artificial intelligence。</p><p><strong>效果图展示</strong></p><img src="/24e19a8f/5.webp"><p><strong>不推荐这样写</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">画一张 AI 模型结构图，要有科技感。</span><br></pre></td></tr></table></figure><p>这句话很容易生成发光电路板和抽象数据流，但不是可用的论文图。</p><p><strong>推荐提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请生成一张 Transformer 模型架构科研示意图。图中展示输入 token embedding、positional encoding、多头自注意力模块、残差连接、层归一化、前馈神经网络、堆叠编码器模块以及最终输出表示。请采用模块化系统架构图布局，从左到右或从下到上展示数据流。每个模块用简洁矩形或功能块表示，并用箭头连接输入、注意力计算、前馈变换和输出结果。整体风格要求简洁、清晰、适合机器学习论文或学术汇报。请使用白色背景，蓝灰色为主色，少量橙色突出 attention 模块。避免赛博朋克风、发光背景和无意义的数据流装饰。</span><br></pre></td></tr></table></figure><p><strong>English Prompt</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a publication-ready scientific figure about Transformer model architecture with attention and feed-forward blocks. Show input token embeddings, positional encoding, multi-head self-attention, residual connections, layer normalization, feed-forward neural networks, stacked encoder blocks, and final output representation.Use a modular system architecture layout with clear data flow arrows. Represent each component as a clean block. Use a minimal schematic style with a white background, blue-gray palette, and orange accents for the attention module. Avoid cyberpunk style, glowing background, and decorative data streams.</span><br></pre></td></tr></table></figure><p><strong>提示词规律小总结</strong></p><p>AI 架构图不要写“科技感”。要写清楚：<strong>输入是什么、模块有哪些、数据流怎么走、输出是什么。</strong></p><hr><h3 id="06｜工程系统图：IoT-监测架构"><a href="#06｜工程系统图：IoT-监测架构" class="headerlink" title="06｜工程系统图：IoT 监测架构"></a>06｜工程系统图：IoT 监测架构</h3><p>工程、传感器、智慧农业、工业互联网、环境监测方向，经常需要画“从采集到分析”的系统架构。</p><p>这类图的关键是把系统分层，而不是把所有设备堆在一起。</p><p><strong>效果图展示</strong></p><img src="/24e19a8f/6.webp"><p><strong>不推荐这样写</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">画一个物联网监测系统。</span><br></pre></td></tr></table></figure><p>这句话没有说明数据从哪里来、经过哪些层、最后到哪里去。</p><p><strong>推荐提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请生成一张 IoT 监测系统架构科研示意图。图中展示从边缘传感器到云端分析的完整数据链路，包括现场传感器节点、边缘网关、无线通信网络、云数据库、数据分析模型、可视化仪表盘和预警反馈。请采用分层系统架构图布局，从左到右展示数据采集、传输、存储、分析和决策输出。请用箭头表示数据流，并用回路箭头表示反馈控制。整体风格要求干净、专业，适合工程论文和项目汇报。请使用白色背景、扁平矢量风格、统一线宽和简洁标签。避免复杂 3D 场景和商业宣传图风格。</span><br></pre></td></tr></table></figure><p><strong>English Prompt</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a publication-ready scientific figure about an IoT monitoring architecture from edge sensors to cloud analytics. Show field sensor nodes, edge gateway, wireless communication network, cloud database, analytics model, visualization dashboard, and alert feedback.Use a layered system architecture layout from left to right: data acquisition, transmission, storage, analysis, and decision output. Use arrows to show data flow and feedback control loops. Use a clean vector style with a white background and concise labels.</span><br></pre></td></tr></table></figure><p><strong>提示词规律小总结</strong></p><p>系统架构图要写清楚 <strong>层级和数据流</strong>。比如：感知层、传输层、存储层、分析层、应用层。</p><hr><h3 id="07｜仪器结构图：三重四极杆质谱仪"><a href="#07｜仪器结构图：三重四极杆质谱仪" class="headerlink" title="07｜仪器结构图：三重四极杆质谱仪"></a>07｜仪器结构图：三重四极杆质谱仪</h3><p>如果你要介绍实验平台、仪器原理、检测系统，提示词一定要尽量具体。</p><p>仪器图不能只写仪器名字。你要告诉模型里面有哪些模块、样品怎么进入、信号怎么传递、最后怎么检测。</p><p><strong>效果图展示</strong></p><img src="/24e19a8f/7.webp"><p><strong>不推荐这样写</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">画一张质谱仪结构图。</span><br></pre></td></tr></table></figure><p>这句话很容易只生成一个仪器外壳，缺少内部工作原理。</p><p><strong>推荐提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请生成一张三重四极杆质谱仪的技术剖面示意图。图中展示电喷雾离子源、加热毛细管入口、离子漏斗、Q1 质量过滤器、Q2 碰撞池、Q3 质量过滤器、电子倍增检测器和真空泵系统。请用箭头展示离子从样品入口到检测器的运动轨迹，并标注不同真空区域和压力梯度。请采用技术剖面图布局，让仪器内部结构和信号传递路径清晰可见。整体风格要求专业、精确、适合分析化学论文或仪器原理介绍。请使用蓝灰色技术图风格，标签清晰，避免夸张透视和复杂背景。</span><br></pre></td></tr></table></figure><p><strong>English Prompt</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a technical cutaway diagram of a triple quadrupole mass spectrometer. Show the electrospray ionization source, heated capillary inlet, ion funnel, Q1 mass filter, Q2 collision cell, Q3 mass filter, electron multiplier detector, and vacuum pump stages.Show the ion trajectory path from the sample inlet to the detector, and label the pressure gradient across vacuum regions. Use a precise technical cutaway layout with clear labels and arrows. Use a blue-gray scientific engineering style and avoid decorative background.</span><br></pre></td></tr></table></figure><p><strong>提示词规律小总结</strong></p><p>仪器结构图的关键是：<strong>模块名称 + 样品路径 + 信号路径 + 检测输出</strong>。只写仪器名字，模型很难知道你要画外观还是原理。</p><hr><h3 id="08｜实验流程图：高通量筛选工作流"><a href="#08｜实验流程图：高通量筛选工作流" class="headerlink" title="08｜实验流程图：高通量筛选工作流"></a>08｜实验流程图：高通量筛选工作流</h3><p>论文方法概览、基金技术路线、组会汇报，经常需要实验流程图。</p><p>这类图最看重的是：步骤清楚、顺序明确、一眼能看懂。</p><p><strong>效果图展示</strong></p><img src="/24e19a8f/8.webp"><p><strong>不推荐这样写</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">画一个高通量筛选流程图。</span><br></pre></td></tr></table></figure><p>这句话太粗，模型不知道你要展示哪些步骤。</p><p><strong>推荐提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请生成一张高通量筛选实验工作流图。图中依次展示样品准备、自动化加样、反应孵育、板式读数、数据归一化、候选 hit 筛选和二次验证。请采用从左到右的流程图布局，每一步使用独立的小场景或图标化科研元素表示，例如样品管、移液机器人、多孔板、读板仪、数据图表和验证实验。请用箭头连接所有步骤，并保持流程一目了然。整体风格要求现代、简洁、专业，适合方法学论文或项目汇报。请使用白色背景，以蓝灰色为主色，橙色用于突出候选结果。避免复杂背景，不要加入过多文字标签。</span><br></pre></td></tr></table></figure><p><strong>English Prompt</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a publication-ready scientific workflow diagram for laboratory automation in high-throughput screening. Show sample preparation, automated liquid handling, incubation, plate reading, data normalization, hit selection, and secondary validation.Use a left-to-right workflow layout. Represent each step with a clean icon or mini-scene, such as sample tubes, liquid-handling robot, multiwell plate, plate reader, data charts, and validation assay. Connect all steps with arrows and keep the workflow easy to understand.</span><br></pre></td></tr></table></figure><p><strong>提示词规律小总结</strong></p><p>流程图一定要把 <strong>每一步</strong> 写出来。否则模型可能只画一个仪器或一个实验台，而不是完整 workflow。</p><h3 id="一个可以直接套用的科研绘图总模板"><a href="#一个可以直接套用的科研绘图总模板" class="headerlink" title="一个可以直接套用的科研绘图总模板"></a>一个可以直接套用的科研绘图总模板</h3><p>如果你不想每次都从零写，可以直接套下面这个母版。</p><p><strong>中文总模板</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请生成一张用于论文发表的【图的类型】，主题是【研究主题】。图中展示【主体对象】、【关键结构/过程 1】、【关键结构/过程 2】以及【最终结果】。请采用【构图方式】布局，例如从左到右流程图、上下分层机制图、中心场景加局部放大视图、系统架构图、循环通量图或技术剖面图。请通过箭头、局部放大视图、分层结构或模块连接来强化科学逻辑。整体风格要求简洁、专业、适合论文发表或学术汇报，具有清晰的结构层级和良好的可读性。请使用【背景要求】，以【主色】为主色，并用【强调色】突出关键事件。避免过多文字、复杂背景、夸张 3D 渲染、卡通风格和宣传海报感。</span><br></pre></td></tr></table></figure><p><strong>English Master Prompt</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a publication-ready 【type of figure】 about 【research topic】.Show 【main object】, 【key structure/process 1】, 【key structure/process 2】, and 【final outcome】.Use a 【layout type】 composition, such as a left-to-right workflow, layered cross-section, central mechanism with zoom-in panels, system architecture, cycle/flux map, or technical cutaway.Use arrows, zoom-in views, layered structures, or modular connections to clarify the scientific logic.Use a clean, professional scientific illustration style suitable for research papers and academic slides. Keep the background simple, labels readable, and visual hierarchy clear. Avoid excessive text, decorative background, cartoon style, stock-photo look, and overly glossy CGI rendering.</span><br></pre></td></tr></table></figure><p><strong>提示词规律小总结</strong></p><p>真正通用的科研绘图提示词，核心结构其实很稳定：</p><p><strong>图的类型 + 主体对象 + 结构&#x2F;机制链条 + 构图方式 + 风格约束 + 负面限制。</strong></p><p>只要你按这个顺序写，提示词的稳定性会明显高于“想到什么写什么”。</p><h3 id="还有一个容易被忽略的问题：生成之后怎么改？"><a href="#还有一个容易被忽略的问题：生成之后怎么改？" class="headerlink" title="还有一个容易被忽略的问题：生成之后怎么改？"></a>还有一个容易被忽略的问题：生成之后怎么改？</h3><p>提示词写得好，确实能让第一版图更稳定。</p><p>但科研绘图最麻烦的地方，往往不是生成，而是后续修改。</p><p>导师让你改一个箭头、换一个标签、调整配色、把中文改成英文，或者把一整张复杂机制图拆成 PPT 动画时，如果你手里只有一张 PNG，就会很痛苦。</p><p>所以我现在更推荐的工作流是：</p><p><strong>先用 AI 生成科研图初稿，再把它变成可以继续编辑的素材。</strong></p><p>我这次上面用到的案例，主要来自 FigPad Gallery。它里面有很多现成科研图和 prompt，可以直接参考结构去改自己的课题。</p><p>更重要的是，FigPad 不是只生成一张图。**它还支持导出 <strong>PPTX &#x2F; SVG &#x2F; PNG</strong>。</p><p>也就是说，你后面可以继续在 PPT 或矢量软件里改文字、改颜色、挪箭头、拆动画。</p><p>如果你只是想快速得到第一版科研图，GPTImage2 已经很好用。</p><p>但如果你希望这张图后面还能用于论文、组会、基金和答辩，建议一开始就把它当成“可编辑科研素材”来做。</p><hr><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/wGZvC-YAWqDUe7foNRiyAQ">https://mp.weixin.qq.com/s/wGZvC-YAWqDUe7foNRiyAQ</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/823d0bf0.html" rel="prev" title="不用脑电、不用心电,仅靠三路呼吸信号——西南大学张远教授团队IEEE JBHI新作DFCNet解读"><i class="fa fa-chevron-left"></i> 不用脑电、不用心电,仅靠三路呼吸信号——西南大学张远教授团队IEEE JBHI新作DFCNet解读</a></div><div class="post-nav-item"><a href="/1f383373.html" rel="next" title="PQDT全球硕博论文数据库：硕博开题必看">PQDT全球硕博论文数据库：硕博开题必看 <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#01%EF%BD%9C%E6%9D%90%E6%96%99%E7%BB%93%E6%9E%84%E5%9B%BE%EF%BC%9A%E9%92%99%E9%92%9B%E7%9F%BF-%E7%A1%85%E5%8F%A0%E5%B1%82%E5%A4%AA%E9%98%B3%E8%83%BD%E7%94%B5%E6%B1%A0"><span class="nav-number">1.</span> <span class="nav-text">01｜材料结构图：钙钛矿-硅叠层太阳能电池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02%EF%BD%9C%E4%BC%A0%E8%BE%93%E6%9C%BA%E5%88%B6%E5%9B%BE%EF%BC%9A%E9%94%82%E7%A6%BB%E5%AD%90%E7%94%B5%E6%B1%A0%E6%88%AA%E9%9D%A2%E4%B8%8E%E7%A6%BB%E5%AD%90%E8%BF%81%E7%A7%BB"><span class="nav-number">2.</span> <span class="nav-text">02｜传输机制图：锂离子电池截面与离子迁移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03%EF%BD%9C%E7%8E%AF%E5%A2%83%E6%9C%BA%E5%88%B6%E5%9B%BE%EF%BC%9A%E5%9F%8E%E5%B8%82%E7%83%AD%E5%B2%9B%E4%B8%8E%E7%BC%93%E8%A7%A3%E6%8E%AA%E6%96%BD"><span class="nav-number">3.</span> <span class="nav-text">03｜环境机制图：城市热岛与缓解措施</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#04%EF%BD%9C%E7%B3%BB%E7%BB%9F%E5%BE%AA%E7%8E%AF%E5%9B%BE%EF%BC%9A%E5%85%A8%E7%90%83%E7%A2%B3%E5%BE%AA%E7%8E%AF"><span class="nav-number">4.</span> <span class="nav-text">04｜系统循环图：全球碳循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#05%EF%BD%9CAI-%E6%9E%B6%E6%9E%84%E5%9B%BE%EF%BC%9ATransformer-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="nav-number">5.</span> <span class="nav-text">05｜AI 架构图：Transformer 模型结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#06%EF%BD%9C%E5%B7%A5%E7%A8%8B%E7%B3%BB%E7%BB%9F%E5%9B%BE%EF%BC%9AIoT-%E7%9B%91%E6%B5%8B%E6%9E%B6%E6%9E%84"><span class="nav-number">6.</span> <span class="nav-text">06｜工程系统图：IoT 监测架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#07%EF%BD%9C%E4%BB%AA%E5%99%A8%E7%BB%93%E6%9E%84%E5%9B%BE%EF%BC%9A%E4%B8%89%E9%87%8D%E5%9B%9B%E6%9E%81%E6%9D%86%E8%B4%A8%E8%B0%B1%E4%BB%AA"><span class="nav-number">7.</span> <span class="nav-text">07｜仪器结构图：三重四极杆质谱仪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#08%EF%BD%9C%E5%AE%9E%E9%AA%8C%E6%B5%81%E7%A8%8B%E5%9B%BE%EF%BC%9A%E9%AB%98%E9%80%9A%E9%87%8F%E7%AD%9B%E9%80%89%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-number">8.</span> <span class="nav-text">08｜实验流程图：高通量筛选工作流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E5%A5%97%E7%94%A8%E7%9A%84%E7%A7%91%E7%A0%94%E7%BB%98%E5%9B%BE%E6%80%BB%E6%A8%A1%E6%9D%BF"><span class="nav-number">9.</span> <span class="nav-text">一个可以直接套用的科研绘图总模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%98%E6%9C%89%E4%B8%80%E4%B8%AA%E5%AE%B9%E6%98%93%E8%A2%AB%E5%BF%BD%E7%95%A5%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A%E7%94%9F%E6%88%90%E4%B9%8B%E5%90%8E%E6%80%8E%E4%B9%88%E6%94%B9%EF%BC%9F"><span class="nav-number">10.</span> <span class="nav-text">还有一个容易被忽略的问题：生成之后怎么改？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">11.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1376</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">35</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">9.7m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">403:56</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/assets/haru02.model.json"},display:{position:"right",width:208,height:520},mobile:{show:!1},log:!1})</script></body></html>

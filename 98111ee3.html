@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="摘要： 通过回顾国内外睡眠监测技术的发展历程，比较多种监测技术的原理、效果及应用，分析其优势与局限，发现包括多导睡眠监测仪、下颌运动监测、毫米波雷达、智能腕表及微动敏感床垫等在内的睡眠监测技术，主要利用各类传感器采集身体运动、心率、呼吸频率及环境数据，识别不同睡眠阶段并生成详细报告，同时提供个性化改善建议，以帮助用户调整生活习惯，及时识别潜在健康风险。目前，睡眠监测技术已在个人健康管理、医疗诊断及"><meta property="og:type" content="article"><meta property="og:title" content="【综述】国内外睡眠监测技术研究进展"><meta property="og:url" content="https://aisakaaoi.github.io/98111ee3.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="摘要： 通过回顾国内外睡眠监测技术的发展历程，比较多种监测技术的原理、效果及应用，分析其优势与局限，发现包括多导睡眠监测仪、下颌运动监测、毫米波雷达、智能腕表及微动敏感床垫等在内的睡眠监测技术，主要利用各类传感器采集身体运动、心率、呼吸频率及环境数据，识别不同睡眠阶段并生成详细报告，同时提供个性化改善建议，以帮助用户调整生活习惯，及时识别潜在健康风险。目前，睡眠监测技术已在个人健康管理、医疗诊断及"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/98111ee3/1.webp"><meta property="og:image" content="https://aisakaaoi.github.io/98111ee3/2.webp"><meta property="og:image" content="https://aisakaaoi.github.io/98111ee3/3.webp"><meta property="article:published_time" content="2026-09-11T04:00:00.000Z"><meta property="article:modified_time" content="2026-10-08T01:13:44.400Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/98111ee3/1.webp"><link rel="canonical" href="https://aisakaaoi.github.io/98111ee3.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>【综述】国内外睡眠监测技术研究进展 | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">35</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1376</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/98111ee3.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">【综述】国内外睡眠监测技术研究进展</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-09-11 12:00:00" itemprop="dateCreated datePublished" datetime="2026-09-11T12:00:00+08:00">2026-09-11</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/" itemprop="url" rel="index"><span itemprop="name">⭐SCNU BCI团队</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/" itemprop="url" rel="index"><span itemprop="name">💫学习报告</span></a> </span></span><span id="/98111ee3.html" class="post-meta-item leancloud_visitors" data-flag-title="【综述】国内外睡眠监测技术研究进展" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/98111ee3.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/98111ee3.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>8.5k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>21 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><p><strong>摘要：</strong> 通过回顾国内外睡眠监测技术的发展历程，比较多种监测技术的原理、效果及应用，分析其优势与局限，发现包括多导睡眠监测仪、下颌运动监测、毫米波雷达、智能腕表及微动敏感床垫等在内的睡眠监测技术，主要利用各类传感器采集身体运动、心率、呼吸频率及环境数据，识别不同睡眠阶段并生成详细报告，同时提供个性化改善建议，以帮助用户调整生活习惯，及时识别潜在健康风险。目前，睡眠监测技术已在个人健康管理、医疗诊断及睡眠研究等领域广泛应用，并日益呈现便利化与智能化趋势。未来研究应积极推进多模态数据融合，研发更高精度传感器以提升监测准确性，同时开展针对特殊人群的专项应用，并通过政府与企业加大投入，共同推动睡眠监测技术的持续发展。</p><span id="more"></span><p><strong>吴雨颖 姚佳妮 秦臻 施涵 崔宇轩 曹世华</strong></p><p><strong>杭州师范大学公共卫生与护理学院 移动健康管理系统教育部工程研究中心， 杭州 311121</strong></p><p><strong>通信作者：曹世华， Email：<a href="mailto:&#99;&#x73;&#x68;&#64;&#x68;&#122;&#110;&#x75;&#x2e;&#101;&#100;&#117;&#x2e;&#x63;&#x6e;">&#99;&#x73;&#x68;&#64;&#x68;&#122;&#110;&#x75;&#x2e;&#101;&#100;&#117;&#x2e;&#x63;&#x6e;</a></strong></p><p>充足的睡眠是保持身心健康必不可少的条件，睡眠监测对个人健康和医疗发展意义重大，既可以帮助人们了解睡眠、调整作息，也是诊断睡眠障碍疾病、制订治疗方案的关键［1］。睡眠监测技术是借助脑电、眼电、肌电等多种数据与设备，对睡眠时人体的行为和生理信号进行监测与分析，全方位了解睡眠状态的技术体系［2］，对维护身体健康、监测睡眠质量具有重要作用。</p><p>睡眠监测技术的发展历程见证了科学技术的不断进步与创新，国外在这方面起步早、研究深。20世纪初，德国科学家汉斯·伯格发明脑电图并引入美国用于睡眠脑电记录，开启了睡眠研究［3］。在20世纪中期，美国芝加哥大学学者发现快速眼动（rapid eye movement，REM）睡眠，并将睡眠划分为REM和非REM两大阶段，构建起现代睡眠科学的基础［4］。20世纪后期，阻塞性睡眠呼吸暂停（obstructive sleep apnea，OSA）得到深入研究，美国成立多个睡眠相关机构，研究者愈发关注睡眠，推动了相关研究及设备的发展［5］。国内的睡眠研究起步较晚，多导睡眠监测（polysomnography，PSG）的引进奠定了国内睡眠监测技术的基础［6］。20世纪90年代，随着国内市场需求日益增长以及大众对睡眠健康关注度的提升，国家鼓励研发低成本、易操作的睡眠监测设备［7］。21世纪初，睡眠监测设备开始朝着智能化、便携化方向发展，非接触式睡眠监测技术发展迅猛［8］。浙江大学团队研发的高精度无创脑机接口技术已成熟应用，具有非接触、高精度、轻量化、易操作等特点的基于毫米波雷达、光学相机与AI技术的监测手段研究也取得重大突破［9］。目前国内睡眠监测技术飞速发展，技术应用不断普及。</p><p>睡眠监测技术作为健康管理与临床康复的关键环节，其发展水平直接影响睡眠障碍诊疗与康复干预效果。当前国内外睡眠监测技术路线呈现多元化趋势，国外聚焦算法精度提升（如AI深度学习优化分期准确率），国内侧重场景化落地，如绑定神经康复、老年护理等方面，但缺乏系统性整合分析。文献分析显示，现有研究存在三大不足：首先，特殊人群（如老人、儿童）因接触式设备不适导致监测失败；其次，医院级PSG设备昂贵、复杂，消费级可穿戴设备准确率不足，难以满足临床与家庭场景需求；最后，单一技术（如毫米波雷达、PSG）数据孤立，缺乏多模态整合。因此，本文对国内外主流睡眠监测技术，如PSG、毫米波雷达、智能腕表、基于摄像头等技术进行横向对比，揭示技术差异与互补性，提出”多模态-无感化-智能化”创新框架，旨在为睡眠监测设备的研发方向提供理论支撑与实践路径，推动技术从实验室走向真实康复场景。</p><h3 id="一、国内外主流睡眠监测技术概述"><a href="#一、国内外主流睡眠监测技术概述" class="headerlink" title="一、国内外主流睡眠监测技术概述"></a>一、国内外主流睡眠监测技术概述</h3><p>本文以中国知网（CNKI）及Web of Science数据库为文献来源，英文检索式为：TS&#x3D;(“Sleep quality assessment” OR “sleep monitoring equipment” OR “sleep monitoring technology” OR “wearable devices”)；中文检索式为：SU%&#x3D;(‘睡眠监测系统’+’睡眠监测技术’+’睡眠监测仪’+’睡眠监测设备’)。检索时间为建库至2025年8月30日，文献类型限定为期刊论文，语种限定为中英文，最终纳入251篇（图1）。通过文献分析，总结国内外主流睡眠监测技术主要包括PSG、下颌运动监测、毫米波雷达监测、智能腕表监测、微动敏感床垫监测、基于摄像头的睡眠监测（图2）。</p><img src="/98111ee3/1.webp"><div align="center">图1 文献筛选流程图</div><img src="/98111ee3/2.webp"><div align="center">图2 国内外主流睡眠监测技术</div><h4 id="（一）PSG"><a href="#（一）PSG" class="headerlink" title="（一）PSG"></a>（一）PSG</h4><p>PSG是国际公认的用于睡眠监测的”金标准”。PSG具有多个高精度传感器，通过监测人体脑电波活动、呼吸模式、心率、血氧饱和度、脉率、体位、鼻气流以及肌肉张力和眼球运动等多个维度的动态变化，全面捕捉睡眠期间的细微改变。Landry等［10］采用PRISMA框架对Medline、Embase、Web of Science中收录的文献进行了综述，系统回顾了关于Ⅲ型和Ⅳ型便携式睡眠监测设备（portable sleep monitors，PSM）对儿童睡眠呼吸暂停的诊断准确性，强调了Ⅲ型PSM在监测中重度儿童睡眠呼吸暂停方面的潜力。目前，国内外医疗机构与企业的技术创新发展倾向于智能化、自动化和便捷式。澳大利亚瑞思迈公司推出的ResMed AirSense11可监测呼吸频率、呼吸暂停、低氧血症等指标，在护理睡眠呼吸暂停低通气综合征患者中该设备数据能协助医护人员调节氧疗浓度与时长，依据患者呼吸暂停及低氧发作规律，在高发时段加强巡视，预防并发症［11］。德国SOMNOmedics公司推出的施曼诺V6多导睡眠监测系统采用无线遥测技术，拥有高准确率的自动分析软件系统，用户在睡眠监测室内可自由活动；面对儿童、成人以及神经疾病、癫痫等特殊疾病的患者，也能捕捉睡眠期发作的脑电异常，记录脑电活动与睡眠周期［12-14］。</p><p>国内的上海赫赫友铭医疗器械有限公司推出万脉SF-A9，通过血氧饱和度、胸&#x2F;腹运动、脉搏、脉搏波、鼾声、压力式气流、持续气道正压通气压力滴定、体位、体动等导联［15］，可接入心音、呼气末二氧化碳分压等参数，协助护理人员监测呼吸功能，判断心脏功能状态，为护理评估提供更丰富的数据，为诊断和治疗提供有力支持。</p><h4 id="（二）下颌运动监测"><a href="#（二）下颌运动监测" class="headerlink" title="（二）下颌运动监测"></a>（二）下颌运动监测</h4><p>下颌运动监测是通过多种电子、无线等仪器，对下颌运动进行记录和分析，不仅可用于口颌系统疾病分析诊断和疗效评估，还能对睡眠情况进行监测，为诊断睡眠呼吸暂停等疾病提供依据。Sunrise设备作为下颌运动睡眠监测领域的革新性成果，其工作原理是基于对下颌运动的精准捕捉，通过对脑干中枢驱动下三叉神经运动核活动变化的敏锐捕捉，对睡眠监测技术做出创新性改变［16］。下颌运动模式通过对细微下颌运动的精确测量，结合气流、血氧饱和度等传统生物信号，并借助先进的AI算法，对人体、下颌运动及呼吸暂停信号展开深度分析。基于此，对于居家OSA患者，社区护士可通过设备记录的下颌运动数据（侧卧时运动幅度降低）评估其侧卧睡姿的依从性［17］，并据此针对性指导患者调整睡眠姿势。该技术体系为OSA等多种睡眠相关呼吸障碍的监测提供了一种新方法［18］。同时，Sunrise设备重量仅3 g，携带便利，其非侵入式的监测方式能够有效减少对睡眠的干扰，操作流程便捷易懂，显著提升了设备的普及性。Sunrise设备成功解决了家庭睡眠呼吸暂停监测数据无法使用的难题，临床应用中可精准捕捉各类细微的医学指标变化，为医疗诊断提供坚实可靠的依据［19］。</p><p>在国内，下颌运动睡眠监测技术发展较晚，早期主要依赖进口设备，后来随着科技发展，国内企业开始进行自主研发。清华长庚睡眠医学中心研发的无线口内颏舌肌肌电采集装置［20］，通过采集颏舌肌肌电信号，可在吞咽障碍患者睡眠期间精确捕捉吞咽过程中的肌电活动时序与强度，并评估其OSA相关的颏舌肌功能［21］。万脉医疗制造的SF-A系列通过对下颌电等多项生理信号进行分析来评估睡眠，为睡眠障碍疾病的辅助诊断提供有力证据［22］。</p><h4 id="（三）毫米波雷达睡眠监测"><a href="#（三）毫米波雷达睡眠监测" class="headerlink" title="（三）毫米波雷达睡眠监测"></a>（三）毫米波雷达睡眠监测</h4><p>现阶段关于非接触式生命体征监测的雷达研究主要包括雷达类型和雷达频段高低两个方面。在雷达类型方面，早期研究采用连续波多普勒雷达，由心跳与呼吸所引起的胸部运动产生的发射和接收波形之间相位差提取生命体征［23］。但由于连续波雷达系统成本低、构造简易，且无法同时区分不同距离多个对象，因此目前研究较多的是具备区分不同距离多个目标能力的宽带雷达或调频连续波雷达。在雷达频段高低方面，低频频段（&lt;6 GHz）系统虽集成度高，但受限于天线尺寸与带宽，信号分辨率较低［24］。高频毫米波雷达（24~300 GHz）在生命体征监测上优势突出，其高分辨率能精准捕捉胸部细微位移，抗干扰能力强，可在复杂环境下稳定工作，但存在穿透性差、成本高、精度随着监测距离增加而下滑等不足［25］。</p><p>谷歌Nest Hub睡眠监控中的Soli毫米波雷达主要通过两阶段实现监测：首先通过自适应波束锁定监测区域，继而基于微动手势识别与雷达频谱进行分类，精准分析无人、清醒和睡眠三种状态［26］。此外，Nest Hub还具备监测分析睡眠障碍的能力，可借助Soli雷达和麦克风协同工作，对咳嗽和打鼾进行监测，为居家护理提供异常呼吸事件预警。</p><p>清华大学清雷科技基于毫米波雷达技术研发了QS600和超低负荷睡眠障碍AI诊断系统。其QS600通过发射与接收毫米波信号并分析信号变化来获取人体呼吸等生理参数，联合腕式血氧仪实现睡眠呼吸暂停低通气指数（apnea-hypopnea index，AHI）、氧减指数及睡眠分期的精准量化评估［27］，为慢病护理团队提供动态病情追踪依据。清雷科技研发的另一款超低负荷诊断系统（二类医疗器械）突破传统PSG局限，通过AI算法实现低成本、高依从性的睡眠障碍筛查，大幅降低社区睡眠初筛的护理人力负担，可高效覆盖高风险人群的早期干预。</p><h4 id="（四）智能腕表"><a href="#（四）智能腕表" class="headerlink" title="（四）智能腕表"></a>（四）智能腕表</h4><p>近年来，国外智能腕表市场发展态势迅猛，全球可穿戴腕表市场处于不断扩张阶段［28］，苹果推出的智能腕表可利用AI协助健康睡眠监测，为社区慢病管理提供连续的睡眠质量追踪数据；三星的Galaxy Watch获得美国食品药品监督管理局批准用于睡眠呼吸暂停监测，成为美国首家在手表上提供睡眠呼吸暂停监测功能的公司［29］。该功能借助手表生物活性传感器监测血氧水平，判断用户是否存在呼吸暂停和睡眠障碍，使居家老年护理中夜间呼吸事件实时预警成为可能［30］，显著降低家庭护理中因未及时干预引发的急性心血管事件风险［31］。</p><p>国内智能腕表品牌众多，小米智能腕表睡眠监测主要采用两种技术：一是体动记录仪法，通过内置的高精度三轴加速度传感器ADXL362，以高采样率持续监测用户夜间肢体活动的强度、频率和模式，通过特定算法识别睡眠与觉醒状态，进而区分浅睡与深睡阶段。其优势在于能够实现长期、无扰的睡眠习惯记录，尤其适用于群体性睡眠节律评估。在养老机构中，该技术为护理员提供了老年人睡眠紊乱的客观量化依据，有助于及时发现节律异常并实施干预，提升睡眠健康管理的科学性和效率［32］。二是利用LED光和光电传感器捕捉血液流动变化，计算心率，追踪用户浅睡、深睡和REM睡眠三种不同睡眠阶段，为术后居家康复患者提供睡眠结构异常的早期识别依据。同时，通过内置高精度感应芯片，以蓝牙为媒介与手机连接进行数据传输监测生命体征，可用于睡眠监测与房颤的临床辅助监测，协助社区护士开展大规模人群房颤初筛［33］。</p><h4 id="（五）微动敏感床垫"><a href="#（五）微动敏感床垫" class="headerlink" title="（五）微动敏感床垫"></a>（五）微动敏感床垫</h4><p>微动敏感床垫是一种具有创新性和发展潜力的健康监测设备，其原理是在特制床垫内安置微动敏感压力传感器，捕捉用户心率、脉搏、呼吸和其他身体运动所产生的细微变化，从而进行睡眠监测。其核心技术与体动记录仪相似，都是通过非接触式传感捕捉人体在睡眠中的生理信号和动作，再通过算法分析睡眠阶段。与常规睡眠监测技术相比，该技术无需进行额外的操作或穿戴外部设备，使用者可在家庭、医院、养老院等各种场所自然地休息和入睡，轻松完成睡眠监测［34］，它不仅可帮助用户了解自身健康状况，同时为医疗行业提供了有力支持。国外研发的微动敏感床垫通过压力感受器感知用户身体变化，能准确识别呼吸用力性微觉醒，评估睡眠质量，监测心血管功能，用于神经与精神系统症状的辅助分析［35］。国内首款融合AI与物联网技术的数字健康智能床垫T11PRO，可根据用户不同体型、睡姿和健康状况进行智能调节，显著降低失能老人居家护理中的压力性损伤风险。T11PRO依托大数据平台，借助AI算法，搭配多个传感器和气囊支撑单元，精准跟踪记录用户体位、体温、心率等的细微变化［36］。</p><p>腾飞科技企业制造的智能睡眠监测床垫采用”Body+”先进压力传感睡眠监测技术，通过监测心率变异性来反映自主神经系统的状态，使用高频采样方式采集人体心跳、呼吸、身体运动混叠信号，并分析睡眠情况［37］，为心内科慢病管理团队提供昼夜节律失衡的量化依据［38］。</p><h4 id="（六）基于摄像头的睡眠监测"><a href="#（六）基于摄像头的睡眠监测" class="headerlink" title="（六）基于摄像头的睡眠监测"></a>（六）基于摄像头的睡眠监测</h4><p>基于摄像头的睡眠监测技术是通过计算机视觉算法对人体图像进行非接触式分析，核心原理包括红外或可见光摄像头捕捉体动、呼吸起伏等动态特征，结合光流法、姿态估计及深度学习模型，实现睡眠分期与状态识别。该技术以无感化、低成本为优势，在多场景中展现出应用潜力。</p><p>在婴幼儿监护领域，联通”G7宝宝看护器”等设备通过实时图像分析，监测婴儿呼吸异常与体动风险，提升居家安全性。Wang等［39］基于从视频中测量的生理信号（脉搏、呼吸）和动作，提取出基于摄像头的特征集，用于评估四类睡眠分期（清醒、快速眼动、浅睡、深睡），并提出了三种优化策略，以提高睡眠分期的准确性。曾进等［40］基于以cortex-A9为内核的嵌入式平台Zedboard，以红外摄像头为监测载体，在支持向量机等分类算法框架下，搭建了具有成本低、灵活性强、易于维护、低功耗、实用性强等特点的睡眠姿势实时监测系统，实现对睡眠姿势的长期自动化监测。</p><p>基于摄像头的非接触式睡眠分期是睡眠医学的新价值流，同时也为未来的优化和实施提供了临床和技术方面的见解，后续在技术层面需突破隐私保护与弱光环境适应性瓶颈。未来发展方向包括多模态融合（如结合脑电、心电等生理信号以增强准确性）及轻量化嵌入式算法优化。例如Zhu等［41］采用基于摄像头的光电容积脉搏波（photoplethysmography，PPG）技术，实现睡眠状态下心率等生理参数的非接触式检测，并据此评估睡眠质量。随着增强现实（augmented reality，AR）技术的介入，该领域有望向智能干预延伸，如通过AR反馈调整睡眠环境，构建”监测-分析-干预”闭环体系，为睡眠障碍治疗及康复管理提供新路径。</p><h3 id="二、睡眠监测技术的对比"><a href="#二、睡眠监测技术的对比" class="headerlink" title="二、睡眠监测技术的对比"></a>二、睡眠监测技术的对比</h3><p>国内外主流睡眠监测技术对比见表1。</p><img src="/98111ee3/3.webp"><h4 id="（一）接触式监测技术"><a href="#（一）接触式监测技术" class="headerlink" title="（一）接触式监测技术"></a>（一）接触式监测技术</h4><p><strong>1. PSG：</strong> 同步采集脑电、眼电、肌电、心电、血氧及呼吸等多维生理信号，临床数据完整性高，适用于复杂睡眠障碍的病理分析，可全面评估睡眠分期与呼吸事件（如阻塞性睡眠呼吸暂停综合征）［42］。其优势在于数据完整性（敏感度&gt;90%）［12］，支持癫痫、神经性疾病等特殊患者的精细化诊断。但存在设备复杂、需专业操作、高成本及患者舒适性差等问题，主要适用于实验室环境下的临床诊断。</p><p><strong>2. 下颌运动监测：</strong> 通过颏部传感器记录下颌肌电活动，间接反映呼吸努力度与觉醒事件，实现无创便携式监测。其对AHI的检测与PSG监测结果具有高度一致性［43］，但因无法区分睡眠分期且操作门槛低，常作为便携式PSG的辅助模块，适用于社区医疗机构的OSA快速筛查及呼吸障碍动态监测。</p><p><strong>3. 智能腕表：</strong> 智能腕表依托PPG与加速度传感器，通过算法推算心率、体动及睡眠分期。其便捷性与低成本适合家庭场景，但受限于单点信号采集［42］，对非REM-3期及REM期的误判率较高［44-45］，适用于慢病患者日常健康追踪及轻症睡眠障碍人群睡眠节律的长期趋势分析。现阶段该类可穿戴监测手段实现的功能仍较简单，睡眠质量判别效果有限。未来有望通过从测得的脉搏波信号中提取呼吸信号及心率变异性参数，实现对睡眠状况更全面的评估。</p><h4 id="（二）非接触式监测技术"><a href="#（二）非接触式监测技术" class="headerlink" title="（二）非接触式监测技术"></a>（二）非接触式监测技术</h4><p><strong>1. 毫米波雷达睡眠监测：</strong> 通过分析人体微动引起的多普勒频移，非接触式提取心率、呼吸频率及体动信号。其优势在于无感监测（空间分辨率&lt;5 cm）且具有高抗干扰特性［46］，能保障复杂环境下的数据稳定性。但对环境反射干扰敏感，且无法获取脑电信号，适用于长期睡眠行为学追踪或特殊人群（如婴幼儿、老年人）监护。</p><p><strong>2. 微动敏感床垫：</strong> 通过压电传感器阵列检测压力分布变化，解析心冲击图与呼吸波形。其非侵入性优于PSG［47］，无需在受试者体表粘贴电极即可实现无干扰监测；无穿戴设计可解决受试者依从性不足的问题，同时可与医院信息系统无缝对接，适用于长期卧床患者的连续监测。微动敏感床垫采集信号易受翻身动作影响，现阶段主要用于住院患者多参数监护与养老机构健康预警。此外，其体积较大，使用成本偏高。</p><h3 id="三、睡眠监测技术的挑战和对策"><a href="#三、睡眠监测技术的挑战和对策" class="headerlink" title="三、睡眠监测技术的挑战和对策"></a>三、睡眠监测技术的挑战和对策</h3><h4 id="（一）睡眠监测的挑战"><a href="#（一）睡眠监测的挑战" class="headerlink" title="（一）睡眠监测的挑战"></a>（一）睡眠监测的挑战</h4><p><strong>1. 设备方面：</strong> PSG虽能够精准采集多项生理参数，但必须由专业人员进行操作和分析，同时设备体积庞大，成本较高，难以在基层医疗机构和家庭普及，主要集中在大型医院和专业睡眠研究机构，应用范围受限。此外，数据记录需连接众多导联线和传感器，使用过程复杂，不利于患者入眠，舒适度较低［48］。微动敏感床垫虽然无需额外佩戴设备，能让用户自然入睡，但部分对睡眠环境较为敏感的用户可能会因为床垫内安置的微动敏感压力传感器而感觉不适。同时，微动敏感床垫与其他检测技术相比，在数据解读和分析上的便捷性较低。</p><p><strong>2. 技术方面：</strong> 毫米波雷达睡眠监测技术与下颌运动监测技术均具备创新性，但前者区分不同距离目标时存在技术局限，会降低监测数据的分辨率与准确性［49］；对于下颌运动监测技术，当REM睡眠阶段受神经调节异常、药物等因素作用而出现肌纤维频繁收缩时，监测信号可能变弱或难以被识别［50］。由此可见，实际应用场景下两种技术的稳定性与准确度仍需结合不同人群、各类睡眠环境开展进一步验证。智能腕表在市场上虽广泛应用，但其监测睡眠的准确性有待考量。与PSG相比，根据体动记录仪法或PPG判断睡眠、浅睡眠及REM睡眠阶段的准确性较低，难以作为临床诊断的可靠依据。</p><h4 id="（二）睡眠监测的对策"><a href="#（二）睡眠监测的对策" class="headerlink" title="（二）睡眠监测的对策"></a>（二）睡眠监测的对策</h4><p><strong>1. 产品创新与研发投入：</strong> 目前，国外仍在不断完善传统PSG技术，并增加创新睡眠监测技术的研发投入，如下颌运动监测技术。我国应加大科研投入，鼓励企业和科研机构深入开展技术研发与创新，推动睡眠监测技术便携化、智能化发展。如在无创脑机接口技术、非接触式睡眠监测技术等方面进一步深入研究，实现更多技术突破。</p><p><strong>2. 加强新型睡眠监测技术的开发与应用：</strong> 睡眠监测技术在引入AI技术及图像处理技术后，正经历着快速的发展和创新。市场上涌现出众多采用先进技术的睡眠监测设备，其中深度学习算法的应用使得监测精度和智能化水平显著提升。AI技术及图像处理技术的引入不仅提高了睡眠监测的便捷性和准确性，还为睡眠障碍的早期发现和干预提供了更强大的技术支持。Zhang等［51］基于PSG数据及AI技术，开发并验证了一个稳定且实用的基于网络的列线图模型，用于预测OSA患者发病的概率，帮助临床医生识别高危患者，以便早期诊断和治疗。</p><h3 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h3><p>睡眠监测技术在我国医疗领域意义重大，能精准诊断睡眠呼吸暂停、失眠等疾病，为个性化治疗提供依据，改善睡眠干预效果。目前，睡眠监测技术正朝着智能化、便利化的方向发展。本文依托CNKI和Web of Science中的文献，虽覆盖面较广，但可能未完全囊括其他数据库或灰色文献中的相关成果，导致个别前沿睡眠监测技术的呈现不够全面。未来应拓展检索范围与语种，纳入多源数据库及非正式出版物，以提高综述的完整性与代表性。</p><p>未来研究应聚焦多源数据融合，将心率变异性、皮肤电活动等生理信号与既有睡眠指标整合，以提高睡眠状态评估的全面性与临床判别力。同时，建议政府与企业加大研发投入，促进产学研协同创新，尽快制订全国统一标准，确保数据可比性与互操作性。此外，还应强化监管，以保障设备质量与消费者权益，在合规与安全前提下推进医疗与科研机构间数据共享，深化临床价值挖掘，服务于更广泛人群。</p><hr><p><strong>参考文献见本刊网站</strong></p><p>引用本文：吴雨颖, 姚佳妮, 秦臻, 等. 国内外睡眠监测技术研究进展[J]. 数字医学与健康, 2026, 4(4):377-383. DOI: 10.3760&#x2F;cma.j.cn101909-20250814-00145.</p><hr><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/tLC9xXdLVh_kLz1aRuhmgA">https://mp.weixin.qq.com/s/tLC9xXdLVh_kLz1aRuhmgA</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/ee148fb6.html" rel="prev" title="可穿戴 HRV/EDA + 个性化音乐推荐的闭环干预系统，已有原型可参考。"><i class="fa fa-chevron-left"></i> 可穿戴 HRV/EDA + 个性化音乐推荐的闭环干预系统，已有原型可参考。</a></div><div class="post-nav-item"><a href="/66508f71.html" rel="next" title="一篇神经反馈实验的硬核解读：戴上耳机就能"调高"多巴胺？"> 一篇神经反馈实验的硬核解读：戴上耳机就能"调高"多巴胺？ <i class="fa fa-chevron-right"></i></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9B%BD%E5%86%85%E5%A4%96%E4%B8%BB%E6%B5%81%E7%9D%A1%E7%9C%A0%E7%9B%91%E6%B5%8B%E6%8A%80%E6%9C%AF%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">一、国内外主流睡眠监测技术概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89PSG"><span class="nav-number">1.1.</span> <span class="nav-text">（一）PSG</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E4%B8%8B%E9%A2%8C%E8%BF%90%E5%8A%A8%E7%9B%91%E6%B5%8B"><span class="nav-number">1.2.</span> <span class="nav-text">（二）下颌运动监测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E6%AF%AB%E7%B1%B3%E6%B3%A2%E9%9B%B7%E8%BE%BE%E7%9D%A1%E7%9C%A0%E7%9B%91%E6%B5%8B"><span class="nav-number">1.3.</span> <span class="nav-text">（三）毫米波雷达睡眠监测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E6%99%BA%E8%83%BD%E8%85%95%E8%A1%A8"><span class="nav-number">1.4.</span> <span class="nav-text">（四）智能腕表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%BA%94%EF%BC%89%E5%BE%AE%E5%8A%A8%E6%95%8F%E6%84%9F%E5%BA%8A%E5%9E%AB"><span class="nav-number">1.5.</span> <span class="nav-text">（五）微动敏感床垫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E5%85%AD%EF%BC%89%E5%9F%BA%E4%BA%8E%E6%91%84%E5%83%8F%E5%A4%B4%E7%9A%84%E7%9D%A1%E7%9C%A0%E7%9B%91%E6%B5%8B"><span class="nav-number">1.6.</span> <span class="nav-text">（六）基于摄像头的睡眠监测</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%9D%A1%E7%9C%A0%E7%9B%91%E6%B5%8B%E6%8A%80%E6%9C%AF%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-number">2.</span> <span class="nav-text">二、睡眠监测技术的对比</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E6%8E%A5%E8%A7%A6%E5%BC%8F%E7%9B%91%E6%B5%8B%E6%8A%80%E6%9C%AF"><span class="nav-number">2.1.</span> <span class="nav-text">（一）接触式监测技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E9%9D%9E%E6%8E%A5%E8%A7%A6%E5%BC%8F%E7%9B%91%E6%B5%8B%E6%8A%80%E6%9C%AF"><span class="nav-number">2.2.</span> <span class="nav-text">（二）非接触式监测技术</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%9D%A1%E7%9C%A0%E7%9B%91%E6%B5%8B%E6%8A%80%E6%9C%AF%E7%9A%84%E6%8C%91%E6%88%98%E5%92%8C%E5%AF%B9%E7%AD%96"><span class="nav-number">3.</span> <span class="nav-text">三、睡眠监测技术的挑战和对策</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E7%9D%A1%E7%9C%A0%E7%9B%91%E6%B5%8B%E7%9A%84%E6%8C%91%E6%88%98"><span class="nav-number">3.1.</span> <span class="nav-text">（一）睡眠监测的挑战</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E7%9D%A1%E7%9C%A0%E7%9B%91%E6%B5%8B%E7%9A%84%E5%AF%B9%E7%AD%96"><span class="nav-number">3.2.</span> <span class="nav-text">（二）睡眠监测的对策</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%B0%8F%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">四、小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1376</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">35</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">9.7m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">403:56</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/assets/haru02.model.json"},display:{position:"right",width:208,height:520},mobile:{show:!1},log:!1})</script></body></html>

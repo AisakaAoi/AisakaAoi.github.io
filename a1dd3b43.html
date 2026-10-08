@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="这两天很多同学都在问 Claude Science效果如何。官方介绍里提到，它可以把研究者常用的 PubMed、Jupyter、R、终端、HPC、图表生成、手稿修改、artifact 记录和 reviewer agent 放到一个研究环境里。 但官方介绍是一回事，实际效果如何？我们今天来测试一下。我本地下载并完整操作了一遍 Claude Science，让它写一篇 CKD，也就是慢性肾脏病相关的文"><meta property="og:type" content="article"><meta property="og:title" content="实测 Claude Science 写文献综述：它强在哪儿？"><meta property="og:url" content="https://aisakaaoi.github.io/a1dd3b43.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="这两天很多同学都在问 Claude Science效果如何。官方介绍里提到，它可以把研究者常用的 PubMed、Jupyter、R、终端、HPC、图表生成、手稿修改、artifact 记录和 reviewer agent 放到一个研究环境里。 但官方介绍是一回事，实际效果如何？我们今天来测试一下。我本地下载并完整操作了一遍 Claude Science，让它写一篇 CKD，也就是慢性肾脏病相关的文"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/1.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/2.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/3.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/4.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/5.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/6.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/7.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/8.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/9.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/10.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/11.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/12.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/13.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/14.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/15.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a1dd3b43/16.webp"><meta property="article:published_time" content="2026-07-02T02:39:38.000Z"><meta property="article:modified_time" content="2026-10-06T17:44:22.248Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/a1dd3b43/1.webp"><link rel="canonical" href="https://aisakaaoi.github.io/a1dd3b43.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>实测 Claude Science 写文献综述：它强在哪儿？ | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">35</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1376</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/a1dd3b43.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">实测 Claude Science 写文献综述：它强在哪儿？</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-07-02 10:39:38" itemprop="dateCreated datePublished" datetime="2026-07-02T10:39:38+08:00">2026-07-02</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/" itemprop="url" rel="index"><span itemprop="name">🌙逢坂杂谈与搬运</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E5%AD%A6%E6%9C%AF%E6%9D%82%E8%B0%88/" itemprop="url" rel="index"><span itemprop="name">⭐学术杂谈</span></a> </span></span><span id="/a1dd3b43.html" class="post-meta-item leancloud_visitors" data-flag-title="实测 Claude Science 写文献综述：它强在哪儿？" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/a1dd3b43.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/a1dd3b43.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>7.9k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>20 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><p>这两天很多同学都在问 Claude Science效果如何。官方介绍里提到，它可以把研究者常用的 PubMed、Jupyter、R、终端、HPC、图表生成、手稿修改、artifact 记录和 reviewer agent 放到一个研究环境里。</p><p><strong>但官方介绍是一回事，实际效果如何？</strong>我们今天来测试一下。我本地下载并完整操作了一遍 Claude Science，让它写一篇 CKD，也就是慢性肾脏病相关的文献综述。中间我把几个关键步骤都截了图，下面这篇就是一次比较完整的实测拆解。</p><p>我给它的任务非常简单：<strong>“给我写一份 CKD 相关的文献综述。”</strong> 这个题目很适合测试医学综述能力。</p><p><strong>我主要拆四件事：第一，Claude Science 写综述的流程是什么；第二，它到底搜索和使用了哪些数据；第三，它为什么给我一种“像写代码一样写综述”的感觉；第四，最终生成的 CKD 综述质量怎么样。最后一部分我不会用个人医学判断下结论，而是用 Codex 对它生成的 <code>CKD_review.md</code> 做结构化评分和审查。</strong></p><span id="more"></span><h3 id="先说结论：它强的不是“会写”，而是把综述拆成了可复核流程"><a href="#先说结论：它强的不是“会写”，而是把综述拆成了可复核流程" class="headerlink" title="先说结论：它强的不是“会写”，而是把综述拆成了可复核流程"></a>先说结论：它强的不是“会写”，而是把综述拆成了可复核流程</h3><p>这次实测最明显的感受是：<strong>Claude Science 写综述的核心，不是文笔多好，而是它把综述写作拆成了几个可以检查的步骤。</strong> 它不是一上来就写正文，而是先计划、再检索、再核验、再做图，最后才写综述。</p><table><thead><tr><th>环节</th><th>它做了什么</th><th>产生了什么</th></tr></thead><tbody><tr><td>计划</td><td>先拆任务，而不是直接写正文</td><td><code>plan_ckd_346ccda9.json</code></td></tr><tr><td>检索</td><td>调用 OpenAlex、PubMed、CrossRef 等来源</td><td>文献题录、PMID、DOI</td></tr><tr><td>核验</td><td>检查 DOI、PMID、题名是否对应</td><td>清洗后的参考文献集</td></tr><tr><td>结构化</td><td>保存参考文献表</td><td><code>references.csv</code>、 <code>references.json</code></td></tr><tr><td>图表</td><td>生成流行病学图、KDIGO 热图、RCT 森林图</td><td>3 张 PNG 图</td></tr><tr><td>写作</td><td>根据文献表和图表生成综述正文</td><td><code>CKD_review.md</code></td></tr><tr><td>自查</td><td>reviewer&#x2F;checks 检查图表和引用问题</td><td>修正图表和嵌入标记</td></tr><tr><td>迭代</td><td>根据追问补充肾脏替代治疗章节</td><td>参考文献从 25 条扩展到 34 条</td></tr></tbody></table><p>这和普通聊天式 AI 最大的区别是：普通 AI 往往只给你一篇文字，而 Claude Science 这次交付的是一组可追踪的中间产物，包括计划文件、参考文献表、图表、Markdown 正文，以及它如何得到这些内容的过程记录。</p><h3 id="这次最像-Vibe-Coding-的地方：它在用写代码的方式写综述"><a href="#这次最像-Vibe-Coding-的地方：它在用写代码的方式写综述" class="headerlink" title="这次最像 Vibe Coding 的地方：它在用写代码的方式写综述"></a>这次最像 Vibe Coding 的地方：它在用写代码的方式写综述</h3><p>我自己这次最强烈的感受是：<strong>Claude Science 不是在“生成一篇综述”，它更像是在用写代码的方式搭一篇综述。</strong></p><p>这其实是我之前做 Vibe Coding 的时候一直在想的事情：什么时候能有一款科研产品，像我们写代码一样，先搭项目框架，再补模块内容；中间所有文件都可以被追踪；哪里不满意，就改哪里；某一章需要扩展，就在现有基础上继续迭代，而不是每次都重新开一个空白文档。</p><p>这次 Claude Science 的体验很接近这个方向。它先生成计划文件，就像先搭项目结构；再生成 <code>references.csv</code> 和 <code>references.json</code>，像项目里的数据文件；三张图是图像资产；<code>CKD_review.md</code> 是最终文稿；中间的 Notebook &#x2F; Python 执行过程，则像构建脚本。它不是把综述当成一次性文本，而是把综述当成一个可以持续修改的“工程”。</p><p>更明显的是最后的追加修改。第一版综述生成以后，我又要求它“扩展肾衰竭与肾脏替代治疗”。很多产品到这一步会有一个问题：它只能重新开始搜、重新生成一篇，前面的结构、图表、参考文献管理基本都断掉了。但 Claude Science 不是这样。它是在已有 <code>CKD_review.md</code>、参考文献表和上下文的基础上，继续搜索 RRT 相关文献，然后把这一章扩展进去。</p><p>这个体验很重要。因为真实写综述从来不是“一次生成就结束”。我们经常是先搭一版框架，再根据导师意见、组会反馈、文献更新，反复扩展某一章、收缩某一节、替换某几篇文献。如果 AI 工具每次修改都要从零开始，它其实很难进入真实科研工作流；如果它能像写代码一样在已有工程上迭代，价值就完全不一样了。</p><img src="/a1dd3b43/1.webp"><div align="center">Claude Science 接到 CKD 综述任务后，先生成计划，而不是直接写正文</div><h3 id="第一步：它先把“写综述”拆成一个计划"><a href="#第一步：它先把“写综述”拆成一个计划" class="headerlink" title="第一步：它先把“写综述”拆成一个计划"></a>第一步：它先把“写综述”拆成一个计划</h3><p>我输入任务以后，它没有马上开始写“慢性肾脏病是一种全球性公共卫生问题”这种标准开头，而是先生成了一个计划文件：<code>plan_ckd_346ccda9.json</code>。这个计划把 CKD 综述拆成 5 个步骤：检索核心文献、整理并校验参考文献、制作关键数据图表、撰写综述正文、整合并交付综述文档。</p><h3 id="第二步：它把-CKD-题目拆成多个检索模块"><a href="#第二步：它把-CKD-题目拆成多个检索模块" class="headerlink" title="第二步：它把 CKD 题目拆成多个检索模块"></a>第二步：它把 CKD 题目拆成多个检索模块</h3><p>接下来，它开始写代码检索。我在过程里看到，它不是只搜一个笼统的 “chronic kidney disease review”，而是把 CKD 拆成多个证据模块：流行病学与疾病负担、KDIGO 临床实践指南、CKD 诊断与管理、发病机制和纤维化、SGLT2 抑制剂临床试验、finerenone 相关临床试验、GLP-1RA &#x2F; semaglutide &#x2F; FLOW 研究，以及肾衰竭与肾脏替代治疗。</p><p>也就是说，它先把一个大题目拆成了多个证据块。这一步很像我们自己写综述时应该做的事情：不是把论文题目当成检索式，而是先问“这篇综述需要哪些证据块？”</p><img src="/a1dd3b43/2.webp"><div align="center">它把 CKD 综述拆成 targeted queries，并准备调用开放数据库</div><h3 id="第三步：OpenAlex-失败后，它切换到-PubMed-和-CrossRef"><a href="#第三步：OpenAlex-失败后，它切换到-PubMed-和-CrossRef" class="headerlink" title="第三步：OpenAlex 失败后，它切换到 PubMed 和 CrossRef"></a>第三步：OpenAlex 失败后，它切换到 PubMed 和 CrossRef</h3><p>一开始，它准备调用 OpenAlex、PubMed 和 CrossRef。但真实过程并不顺利，OpenAlex 这一步遇到了错误，后面 OpenAlex 仍然不稳定。Agent自动切换到 PubMed &#x2F; NCBI E-utilities 和 CrossRef。</p><img src="/a1dd3b43/3.webp"><div align="center">OpenAlex 返回 503 后，它改用 PubMed 和 CrossRef 继续检索</div><p>这个细节很真实。好的 Agent 不应该假装一切顺利，而是要能说明哪里失败了，然后切换到可行路径。最终这次真正支撑综述的主力来源，是 PubMed 和 CrossRef。</p><h3 id="第四步：PubMed-返回的是题录元数据，不是“灵感”"><a href="#第四步：PubMed-返回的是题录元数据，不是“灵感”" class="headerlink" title="第四步：PubMed 返回的是题录元数据，不是“灵感”"></a>第四步：PubMed 返回的是题录元数据，不是“灵感”</h3><p>它用 PubMed 跑完 CKD 主题检索以后，明确说要拉取完整元数据，包括 DOI、PMID、题名、期刊、作者和年份。这些信息非常关键，因为综述不是散文，综述要能追到文献。</p><p>这一步抓到的核心文献包括 KDIGO 2024 CKD 临床实践指南、GBD 2017 CKD 疾病负担研究、Hill 2016 CKD 全球患病率荟萃分析，以及 DAPA-CKD、EMPA-KIDNEY、CREDENCE、FIDELIO-DKD、FIGARO-DKD、FLOW 等关键临床试验。</p><img src="/a1dd3b43/4.webp"><div align="center">PubMed 检索返回 CKD 指南、综述、临床试验等核心文献</div><p>这个节点说明，它不是在靠模型记忆硬写。至少在这次任务里，它的主体证据链来自 PubMed 返回的真实题录。</p><h3 id="第五步：它发现“记忆里的-PMID”有问题，于是改用检索结果"><a href="#第五步：它发现“记忆里的-PMID”有问题，于是改用检索结果" class="headerlink" title="第五步：它发现“记忆里的 PMID”有问题，于是改用检索结果"></a>第五步：它发现“记忆里的 PMID”有问题，于是改用检索结果</h3><p>这次实测里，我觉得最值得拿出来讲的，是它在整理参考文献时发现有几个从模型记忆里带出来的 PMID 不对，解析以后对应到了无关论文。于是它明确改口：后续只使用实际检索返回的 PMID、DOI、题名三元组。</p><img src="/a1dd3b43/5.webp"><div align="center">它发现记忆里的 PMID 有误，改用 PubMed 实际检索结果</div><p>这一步非常关键。我们用 AI 写综述，最怕的不是它写得慢，而是它写得非常顺，但参考文献是假的。很多 AI 生成的参考文献看起来很真，作者、期刊、年份、DOI 都像真的，但一查可能根本不存在，或者题名对不上。Claude Science 这次比较好的地方是：它没有继续相信模型记忆，而是回到数据库实际返回结果。</p><h3 id="第六步：它用-CrossRef-再核-DOI"><a href="#第六步：它用-CrossRef-再核-DOI" class="headerlink" title="第六步：它用 CrossRef 再核 DOI"></a>第六步：它用 CrossRef 再核 DOI</h3><p>有 PMID 还不够。后面它又用 CrossRef 对 DOI 做了一轮核验：先把 PubMed 返回的文献整理成一个候选参考文献集，然后逐条检查 DOI 能不能解析，期刊名和文献记录是否对应。</p><img src="/a1dd3b43/6.webp"><div align="center">它用 CrossRef 检查 DOI 是否能解析到正确期刊和文献</div><p>第一版里，它整理了 25 条 verified references。后面我追加“肾衰竭与肾脏替代治疗”以后，最终 <code>CKD_review.md</code> 扩展到 34 条参考文献。我又用 PubMed 官方 E-utilities 批量查了一遍最终文档里的 34 个 PMID，都能返回题录。所以至少从“文献是否存在”这个层面看，这次结果比较稳。</p><p>但这里要强调一句：<strong>PMID 存在，不等于正文每一句都被这篇文献精准支撑。</strong> 投稿前仍然要逐句核对。</p><h3 id="第七步：它把参考文献保存成结构化文件"><a href="#第七步：它把参考文献保存成结构化文件" class="headerlink" title="第七步：它把参考文献保存成结构化文件"></a>第七步：它把参考文献保存成结构化文件</h3><p>核验完以后，它没有只把参考文献塞到正文最后，而是保存了两个结构化文件：<code>references.csv</code> 和 <code>references.json</code>。第一版参考文献表是 25 行、11 个字段。</p><img src="/a1dd3b43/7.webp"><div align="center">核验后，它生成了 references.csv 和 references.json</div><p>这一步很有价值。如果参考文献只存在正文末尾，就很难管理。但如果它变成一张表，后面就可以继续筛选、排序、去重、补字段。AI 写综述真正有价值的地方，也许不只是替我们“写完”，而是帮我们把文献工作变成可以管理的对象。</p><h3 id="第八步：它用不同类型的数据生成了三张综述图"><a href="#第八步：它用不同类型的数据生成了三张综述图" class="headerlink" title="第八步：它用不同类型的数据生成了三张综述图"></a>第八步：它用不同类型的数据生成了三张综述图</h3><p>文献表整理好以后，它开始做图。这次它生成了三张图：图 1 是 CKD 全球流行病学，主要基于 GBD 2017 和 Hill 2016；图 2 是 KDIGO CGA 风险分级热图，主要基于 KDIGO 2024；图 3 是关键随机对照试验主要复合终点森林图，主要基于 CREDENCE、DAPA-CKD、EMPA-KIDNEY、FIDELIO-DKD、FIGARO-DKD 和 FLOW。</p><table><thead><tr><th>图</th><th>内容</th><th>主要数据来源</th></tr></thead><tbody><tr><td>图 1</td><td>CKD 全球流行病学：患病率、死亡趋势、不同分期患病率</td><td>GBD 2017、Hill 2016</td></tr><tr><td>图 2</td><td>KDIGO CGA 风险分级热图</td><td>KDIGO 2024 指南</td></tr><tr><td>图 3</td><td>关键 RCT 主要复合终点森林图</td><td>CREDENCE、DAPA-CKD、EMPA-KIDNEY、FIDELIO-DKD、FIGARO-DKD、FLOW</td></tr></tbody></table><img src="/a1dd3b43/8.webp"><div align="center">图 1：CKD 全球流行病学图，使用 GBD 和 Hill 2016 数据</div><p>图 1 对应综述里的“流行病学与疾病负担”部分，它不是单纯画一个装饰图，而是试图把全球患病率、死亡趋势和 CKD 分期患病率放到一张图里。</p><img src="/a1dd3b43/9.webp"><div align="center">图 2：KDIGO CGA 风险分级热图</div><p>图 2 对应诊断、分期和风险评估部分。它把 GFR 分级和白蛋白尿分级组合成风险热图，这对 CKD 综述来说是一个很核心的视觉信息。</p><img src="/a1dd3b43/10.webp"><div align="center">图 3：关键随机对照试验主要复合终点森林图</div><p>图 3 对应治疗进展部分。它把 SGLT2 抑制剂、非甾体 MRA 和 GLP-1RA 相关关键试验放在一张森林图里，这个思路是对的，因为 CKD 近几年治疗进展的核心确实离不开这些大型 RCT。</p><p>但这里也要提醒大家：<strong>AI 生成图表不等于图表可以直接发表。</strong> 只要涉及数值、风险比、置信区间、指南分级，就必须回到原文核对。医学综述里的图，错一个数字，性质就完全不同。</p><h3 id="第九步：它先生成图和文献，再写正文"><a href="#第九步：它先生成图和文献，再写正文" class="headerlink" title="第九步：它先生成图和文献，再写正文"></a>第九步：它先生成图和文献，再写正文</h3><p>三张图生成以后，它才进入完整写作。这一步它做了几件事：保存三张图，读取参考文献数据，生成参考文献列表文本，把图嵌入正文，再根据参考文献编号写综述正文。</p><img src="/a1dd3b43/11.webp"><div align="center">三张图和参考文献表生成后，它才开始写完整综述</div><p>这个顺序很值得注意。很多同学以为 AI 写综述的顺序是“先写文章，再补参考文献”，但这其实很危险。更稳的顺序应该是“先整理证据，再写正文”。Claude Science 这次更接近后者。</p><h3 id="第十步：Reviewer-checks-发现问题，并触发修正"><a href="#第十步：Reviewer-checks-发现问题，并触发修正" class="headerlink" title="第十步：Reviewer&#x2F;checks 发现问题，并触发修正"></a>第十步：Reviewer&#x2F;checks 发现问题，并触发修正</h3><p>写完以后，它没有直接结束，而是启动了一轮 reviewer&#x2F;checks。这轮检查里，它发现了两个问题：一个是 KDIGO 热图需要和官方 CGA 分级完全一致；另一个是图 1 的 Panel C 需要用 Hill 2016 的分期患病率数据修正。</p><img src="/a1dd3b43/12.webp"><div align="center">Reviewer/checks 发现图表问题，并修正图 1 和 KDIGO 热图</div><p>医学综述最怕“看起来对”：图很漂亮，但数据来源不清楚；段落很完整，但引用不一定支撑；术语很专业，但细节可能错。Claude Science 这轮 reviewer&#x2F;checks 不能替代专家审稿，但至少说明它不是“一生成就交付”，而是会做一轮基础检查，并根据检查结果修改。</p><h3 id="第十一步：它还修了-artifact-嵌入标记"><a href="#第十一步：它还修了-artifact-嵌入标记" class="headerlink" title="第十一步：它还修了 artifact 嵌入标记"></a>第十一步：它还修了 artifact 嵌入标记</h3><p>这次还有一个很实际的小问题。Claude Science 里的图表是 artifact，在它自己的环境里可以显示，但导出到普通 Markdown、Word 或 PDF 工作流时，可能会出现类似 {{artifact:...}} 这样的内部标记。它后来发现嵌入标记有问题，又重新生成文档，把图表标记修正。</p><img src="/a1dd3b43/13.webp"><div align="center">它修正图表 artifact 的嵌入标记，并重新生成文档</div><p>这个细节也提醒我们：Claude Science 内部 artifact 很方便，但如果要把结果迁移到其他写作环境，还需要把 artifact 转成通用图片或文档资源。也就是说，它已经把“研究工程”跑起来了，但最后交付到具体写作场景时，仍然需要做一次格式整理。</p><h3 id="第十二步：第一版交付是-25-条参考文献，追加后扩展到-34-条"><a href="#第十二步：第一版交付是-25-条参考文献，追加后扩展到-34-条" class="headerlink" title="第十二步：第一版交付是 25 条参考文献，追加后扩展到 34 条"></a>第十二步：第一版交付是 25 条参考文献，追加后扩展到 34 条</h3><p>第一版完成时，它给出的交付信息是：一篇完整中文 CKD 综述，约 12,000 字，6 个主要章节，3 张图表，25 条经核验参考文献，同时保留 CKD_review.md、references.csv、references.json 和三张 PNG 图。</p><img src="/a1dd3b43/14.webp"><div align="center">第一版交付：CKD_review.md、参考文献表和三张图</div><p>后面我又让它扩展“肾衰竭与肾脏替代治疗”。这一步最有意思的地方，不是它又多写了一章，而是它没有推倒重来。它是在现有综述的基础上继续工作：重新去 PubMed 搜 RRT 相关文献，把新的文献补进参考文献体系，再把这一部分扩展成一个独立章节。</p><img src="/a1dd3b43/15.webp"><div align="center">追加扩展肾衰竭与肾脏替代治疗时，它又回到 PubMed 检索 RRT 文献</div><p>最终版本里，“肾衰竭与肾脏替代治疗”包括治疗时机与模式选择、血液透析与血液透析滤过、腹膜透析、肾移植、保守肾脏管理、全球可及性与不平等。最终参考文献扩展到了 34 条。这个体验很像在一个已经存在的代码项目里新增模块，而不是每次需求变化都重新创建一个项目。</p><img src="/a1dd3b43/16.webp"><div align="center">最终文档里的参考文献预览，包含 DOI 和 PMID</div><hr><h3 id="它到底搜索和使用了哪些数据？"><a href="#它到底搜索和使用了哪些数据？" class="headerlink" title="它到底搜索和使用了哪些数据？"></a>它到底搜索和使用了哪些数据？</h3><p>把整个过程和最终文档合在一起看，这次 Claude Science 用到的数据大致可以拆成几类。</p><table><thead><tr><th>数据类型</th><th>主要来源</th><th>用在综述哪里</th><th>例子</th></tr></thead><tbody><tr><td>文献题录元数据</td><td>PubMed &#x2F; NCBI E-utilities</td><td>全文参考文献基础</td><td>PMID、DOI、题名、期刊、作者、年份</td></tr><tr><td>DOI 元数据</td><td>CrossRef</td><td>核验参考文献真实性</td><td>DOI 是否能解析、期刊名是否对应</td></tr><tr><td>指南与共识</td><td>KDIGO 2024 等</td><td>诊断、分期、风险评估、治疗原则</td><td>KDIGO CGA 分级、eGFR、白蛋白尿</td></tr><tr><td>流行病学数据</td><td>GBD 2017、Hill 2016</td><td>疾病负担、图 1</td><td>全球患病率、死亡趋势、CKD 分期患病率</td></tr><tr><td>关键 RCT 数据</td><td>NEJM &#x2F; Lancet 等临床试验</td><td>治疗进展、图 3</td><td>DAPA-CKD、EMPA-KIDNEY、CREDENCE、FIDELIO-DKD、FIGARO-DKD、FLOW</td></tr><tr><td>肾替代治疗文献</td><td>PubMed 检索 RRT 主题</td><td>第 6 章</td><td>血液透析滤过、腹膜透析、血管通路、肾移植、保守管理</td></tr><tr><td>综述和机制文献</td><td>PubMed 返回的高质量综述</td><td>发病机制、挑战与展望</td><td>纤维化、RAAS、糖尿病肾病、心肾代谢</td></tr></tbody></table><p>这说明它不是简单用一个数据库搜几篇文章就开写，而是把不同类型的数据放到了不同功能位置：指南支撑“怎么诊断、怎么分期”，流行病学数据支撑“这个病有多重要”，RCT 数据支撑“哪些治疗真的改变了预后”，RRT 文献支撑“进入肾衰竭以后怎么管理”，综述和机制文献支撑“为什么会发生、未来问题在哪里”。</p><hr><h3 id="它是怎么把数据写成综述的？"><a href="#它是怎么把数据写成综述的？" class="headerlink" title="它是怎么把数据写成综述的？"></a>它是怎么把数据写成综述的？</h3><p>从这次流程看，它大概是这样完成转换的。</p><table><thead><tr><th>输入</th><th>中间处理</th><th>输出到正文</th></tr></thead><tbody><tr><td>CKD 这个大题目</td><td>拆成流行病学、机制、诊断、治疗、RRT 等模块</td><td>综述章节框架</td></tr><tr><td>PubMed 题录</td><td>提取 PMID、DOI、作者、期刊、年份</td><td>参考文献表和正文引用</td></tr><tr><td>CrossRef DOI 检查</td><td>排除无法对应的 DOI &#x2F; 题录问题</td><td>更可靠的参考文献集</td></tr><tr><td>GBD &#x2F; Hill 数据</td><td>转换成图 1</td><td>流行病学与疾病负担部分</td></tr><tr><td>KDIGO 指南</td><td>转换成 CGA 热图</td><td>诊断、分期与风险评估部分</td></tr><tr><td>RCT 风险比</td><td>转换成森林图</td><td>治疗进展部分</td></tr><tr><td>RRT 文献</td><td>追加检索并扩写</td><td>肾衰竭与肾脏替代治疗章节</td></tr></tbody></table><p>这个思路是对的。一篇综述不是把文献堆在一起，而是把不同证据放到不同位置，形成一个论述结构。Claude Science 这次比较值得借鉴的地方，就是它把“写综述”拆成了一个更像研究助理会做的流程：先拆问题，再找证据，再核文献，再画图，最后写正文。</p><hr><h3 id="Codex-对最终-CKD-综述的结构化评分"><a href="#Codex-对最终-CKD-综述的结构化评分" class="headerlink" title="Codex 对最终 CKD 综述的结构化评分"></a>Codex 对最终 CKD 综述的结构化评分</h3><p>由于我不是肾脏病或医学综述领域专家，所以最后这部分我没有用个人专业判断直接给结论，而是把 Claude Science 生成的 CKD_review.md 交给 Codex 做结构化审查。Codex 主要检查了它的章节完整度、文献真实性、证据相关性、图表可用性、检索透明度和投稿可用性。</p><p>最终文档的标题是《慢性肾脏病(CKD)研究进展综述》，结构包括摘要、引言、流行病学与疾病负担、发病机制与病理生理、诊断分期与风险评估、治疗进展、肾衰竭与肾脏替代治疗、挑战与展望、参考文献。文件本身是 207 行、16,101 个字符，包含 34 条参考文献、3 个图表 artifact 标记。Codex 还用 PubMed 官方 E-utilities 批量核查了最终文档里的 34 个 PMID，均能返回题录。</p><p>Codex 的评分结果如下：</p><table><thead><tr><th>维度</th><th>Codex 评分</th><th>主要原因</th></tr></thead><tbody><tr><td>结构完整度</td><td>8 &#x2F; 10</td><td>章节完整，适合作为 CKD 领域综述框架</td></tr><tr><td>文献真实性</td><td>8 &#x2F; 10</td><td>PMID 和 DOI 级别比较稳，但仍需逐句核对</td></tr><tr><td>文献代表性</td><td>7.5 &#x2F; 10</td><td>关键指南和核心 RCT 抓得不错，但检索范围仍需人工确认</td></tr><tr><td>综述深度</td><td>6 &#x2F; 10</td><td>更像研究进展概述，批判性综合还不够</td></tr><tr><td>图表价值</td><td>7 &#x2F; 10</td><td>图表类型选得对，但数据必须人工复核</td></tr><tr><td>检索透明度</td><td>5 &#x2F; 10</td><td>最终文档没有完整写出检索式、日期、纳排标准</td></tr><tr><td>投稿可用性</td><td>5 &#x2F; 10</td><td>可以作为初稿，不能直接投稿</td></tr><tr><td>组会&#x2F;入门可用性</td><td>8 &#x2F; 10</td><td>很适合快速了解领域和搭综述框架</td></tr></tbody></table><p>Codex 给出的总体判断是：这篇综述已经明显超过“AI 随便写一篇”的水平，但还没有到“可以放心投稿”的水平。它最大的价值是帮研究者快速搭起综述框架、整理证据链和生成初稿；真正用于投稿前，还需要领域专家逐句核对、补充检索策略、强化批判性综合，并重新检查图表数据。</p><hr><h3 id="它最值得借鉴的地方"><a href="#它最值得借鉴的地方" class="headerlink" title="它最值得借鉴的地方"></a>它最值得借鉴的地方</h3><p>这次实测里，最值得借鉴的不是某一句话写得多漂亮，而是它的流程。第一，它先计划再写作；第二，它先拿 PubMed 题录、DOI、PMID，再组织文字；第三，它承认模型记忆会错，发现 PMID 不对以后回到实际检索结果；第四，它把参考文献结构化保存；第五，它有一轮 reviewer&#x2F;checks，至少发现了图表数据和分级问题，并触发修改。</p><hr><h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>这次实测得到的判断是：Claude Science更像是一个能帮你把综述第一版搭起来，并且在已有基础上继续迭代的研究助理。它能帮你快速完成领域文献初筛、参考文献整理、综述框架搭建、初稿生成、图表草稿和一轮基础自查，也能在你要求扩展某一章节时继续补证据、补内容，而不是每次都回到空白状态。</p><p>如果只是想快速了解一个新领域，它已经非常有帮助。如果想写一篇真正能投稿的综述，它已经完成了前 60% 到 75% 的工作。</p><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/zXN92yhSewXnKijZhJddUA">https://mp.weixin.qq.com/s/zXN92yhSewXnKijZhJddUA</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/8463a5ef.html" rel="prev" title="如何精准搜索文献：以知网、Google Scholar、Pubmed为例"><i class="fa fa-chevron-left"></i> 如何精准搜索文献：以知网、Google Scholar、Pubmed为例</a></div><div class="post-nav-item"><a href="/87e24c0.html" rel="next" title="研究生开题报告怎么写？">研究生开题报告怎么写？ <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E8%AF%B4%E7%BB%93%E8%AE%BA%EF%BC%9A%E5%AE%83%E5%BC%BA%E7%9A%84%E4%B8%8D%E6%98%AF%E2%80%9C%E4%BC%9A%E5%86%99%E2%80%9D%EF%BC%8C%E8%80%8C%E6%98%AF%E6%8A%8A%E7%BB%BC%E8%BF%B0%E6%8B%86%E6%88%90%E4%BA%86%E5%8F%AF%E5%A4%8D%E6%A0%B8%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">先说结论：它强的不是“会写”，而是把综述拆成了可复核流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E6%AC%A1%E6%9C%80%E5%83%8F-Vibe-Coding-%E7%9A%84%E5%9C%B0%E6%96%B9%EF%BC%9A%E5%AE%83%E5%9C%A8%E7%94%A8%E5%86%99%E4%BB%A3%E7%A0%81%E7%9A%84%E6%96%B9%E5%BC%8F%E5%86%99%E7%BB%BC%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">这次最像 Vibe Coding 的地方：它在用写代码的方式写综述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%AE%83%E5%85%88%E6%8A%8A%E2%80%9C%E5%86%99%E7%BB%BC%E8%BF%B0%E2%80%9D%E6%8B%86%E6%88%90%E4%B8%80%E4%B8%AA%E8%AE%A1%E5%88%92"><span class="nav-number">3.</span> <span class="nav-text">第一步：它先把“写综述”拆成一个计划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%AE%83%E6%8A%8A-CKD-%E9%A2%98%E7%9B%AE%E6%8B%86%E6%88%90%E5%A4%9A%E4%B8%AA%E6%A3%80%E7%B4%A2%E6%A8%A1%E5%9D%97"><span class="nav-number">4.</span> <span class="nav-text">第二步：它把 CKD 题目拆成多个检索模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9AOpenAlex-%E5%A4%B1%E8%B4%A5%E5%90%8E%EF%BC%8C%E5%AE%83%E5%88%87%E6%8D%A2%E5%88%B0-PubMed-%E5%92%8C-CrossRef"><span class="nav-number">5.</span> <span class="nav-text">第三步：OpenAlex 失败后，它切换到 PubMed 和 CrossRef</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9APubMed-%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AF%E9%A2%98%E5%BD%95%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%8C%E4%B8%8D%E6%98%AF%E2%80%9C%E7%81%B5%E6%84%9F%E2%80%9D"><span class="nav-number">6.</span> <span class="nav-text">第四步：PubMed 返回的是题录元数据，不是“灵感”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E5%AE%83%E5%8F%91%E7%8E%B0%E2%80%9C%E8%AE%B0%E5%BF%86%E9%87%8C%E7%9A%84-PMID%E2%80%9D%E6%9C%89%E9%97%AE%E9%A2%98%EF%BC%8C%E4%BA%8E%E6%98%AF%E6%94%B9%E7%94%A8%E6%A3%80%E7%B4%A2%E7%BB%93%E6%9E%9C"><span class="nav-number">7.</span> <span class="nav-text">第五步：它发现“记忆里的 PMID”有问题，于是改用检索结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E6%AD%A5%EF%BC%9A%E5%AE%83%E7%94%A8-CrossRef-%E5%86%8D%E6%A0%B8-DOI"><span class="nav-number">8.</span> <span class="nav-text">第六步：它用 CrossRef 再核 DOI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E6%AD%A5%EF%BC%9A%E5%AE%83%E6%8A%8A%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E4%BF%9D%E5%AD%98%E6%88%90%E7%BB%93%E6%9E%84%E5%8C%96%E6%96%87%E4%BB%B6"><span class="nav-number">9.</span> <span class="nav-text">第七步：它把参考文献保存成结构化文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E6%AD%A5%EF%BC%9A%E5%AE%83%E7%94%A8%E4%B8%8D%E5%90%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90%E4%BA%86%E4%B8%89%E5%BC%A0%E7%BB%BC%E8%BF%B0%E5%9B%BE"><span class="nav-number">10.</span> <span class="nav-text">第八步：它用不同类型的数据生成了三张综述图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B9%9D%E6%AD%A5%EF%BC%9A%E5%AE%83%E5%85%88%E7%94%9F%E6%88%90%E5%9B%BE%E5%92%8C%E6%96%87%E7%8C%AE%EF%BC%8C%E5%86%8D%E5%86%99%E6%AD%A3%E6%96%87"><span class="nav-number">11.</span> <span class="nav-text">第九步：它先生成图和文献，再写正文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E6%AD%A5%EF%BC%9AReviewer-checks-%E5%8F%91%E7%8E%B0%E9%97%AE%E9%A2%98%EF%BC%8C%E5%B9%B6%E8%A7%A6%E5%8F%91%E4%BF%AE%E6%AD%A3"><span class="nav-number">12.</span> <span class="nav-text">第十步：Reviewer&#x2F;checks 发现问题，并触发修正</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%AE%83%E8%BF%98%E4%BF%AE%E4%BA%86-artifact-%E5%B5%8C%E5%85%A5%E6%A0%87%E8%AE%B0"><span class="nav-number">13.</span> <span class="nav-text">第十一步：它还修了 artifact 嵌入标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E6%AD%A5%EF%BC%9A%E7%AC%AC%E4%B8%80%E7%89%88%E4%BA%A4%E4%BB%98%E6%98%AF-25-%E6%9D%A1%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%EF%BC%8C%E8%BF%BD%E5%8A%A0%E5%90%8E%E6%89%A9%E5%B1%95%E5%88%B0-34-%E6%9D%A1"><span class="nav-number">14.</span> <span class="nav-text">第十二步：第一版交付是 25 条参考文献，追加后扩展到 34 条</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%83%E5%88%B0%E5%BA%95%E6%90%9C%E7%B4%A2%E5%92%8C%E4%BD%BF%E7%94%A8%E4%BA%86%E5%93%AA%E4%BA%9B%E6%95%B0%E6%8D%AE%EF%BC%9F"><span class="nav-number">15.</span> <span class="nav-text">它到底搜索和使用了哪些数据？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%83%E6%98%AF%E6%80%8E%E4%B9%88%E6%8A%8A%E6%95%B0%E6%8D%AE%E5%86%99%E6%88%90%E7%BB%BC%E8%BF%B0%E7%9A%84%EF%BC%9F"><span class="nav-number">16.</span> <span class="nav-text">它是怎么把数据写成综述的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Codex-%E5%AF%B9%E6%9C%80%E7%BB%88-CKD-%E7%BB%BC%E8%BF%B0%E7%9A%84%E7%BB%93%E6%9E%84%E5%8C%96%E8%AF%84%E5%88%86"><span class="nav-number">17.</span> <span class="nav-text">Codex 对最终 CKD 综述的结构化评分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%83%E6%9C%80%E5%80%BC%E5%BE%97%E5%80%9F%E9%89%B4%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="nav-number">18.</span> <span class="nav-text">它最值得借鉴的地方</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">19.</span> <span class="nav-text">写在最后</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">20.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1376</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">35</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">9.7m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">403:56</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/assets/haru02.model.json"},display:{position:"right",width:208,height:520},mobile:{show:!1},log:!1})</script></body></html>

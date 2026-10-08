@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="该论文发表于 IEEE Transactions on Biomedical Engineering（中科院二区top，IF：4.4），题目为《DoC-Informer: Automated Discrimination of Disorders of Consciousness under Adaptive EEG Settings》。 武汉大学计算机学院杨丰源、皮龙霖为共同第一作者，陈丹教"><meta property="og:type" content="article"><meta property="og:title" content="IEEE TBME | DoC-Informer：自适应脑电配置下的意识障碍自动识别"><meta property="og:url" content="https://aisakaaoi.github.io/da62e508.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="该论文发表于 IEEE Transactions on Biomedical Engineering（中科院二区top，IF：4.4），题目为《DoC-Informer: Automated Discrimination of Disorders of Consciousness under Adaptive EEG Settings》。 武汉大学计算机学院杨丰源、皮龙霖为共同第一作者，陈丹教"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/da62e508/1.webp"><meta property="og:image" content="https://aisakaaoi.github.io/da62e508/2.webp"><meta property="og:image" content="https://aisakaaoi.github.io/da62e508/3.webp"><meta property="og:image" content="https://aisakaaoi.github.io/da62e508/4.webp"><meta property="og:image" content="https://aisakaaoi.github.io/da62e508/5.webp"><meta property="og:image" content="https://aisakaaoi.github.io/da62e508/6.webp"><meta property="og:image" content="https://aisakaaoi.github.io/da62e508/7.webp"><meta property="og:image" content="https://aisakaaoi.github.io/da62e508/8.webp"><meta property="og:image" content="https://aisakaaoi.github.io/da62e508/9.webp"><meta property="og:image" content="https://aisakaaoi.github.io/da62e508/10.webp"><meta property="og:image" content="https://aisakaaoi.github.io/da62e508/11.webp"><meta property="og:image" content="https://aisakaaoi.github.io/da62e508/12.webp"><meta property="og:image" content="https://aisakaaoi.github.io/da62e508/13.webp"><meta property="article:published_time" content="2026-09-16T13:32:16.000Z"><meta property="article:modified_time" content="2026-10-08T01:31:05.170Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/da62e508/1.webp"><link rel="canonical" href="https://aisakaaoi.github.io/da62e508.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>IEEE TBME | DoC-Informer：自适应脑电配置下的意识障碍自动识别 | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">35</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1376</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/da62e508.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">IEEE TBME | DoC-Informer：自适应脑电配置下的意识障碍自动识别</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-09-16 21:32:16" itemprop="dateCreated datePublished" datetime="2026-09-16T21:32:16+08:00">2026-09-16</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/" itemprop="url" rel="index"><span itemprop="name">⭐SCNU BCI团队</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/" itemprop="url" rel="index"><span itemprop="name">💫学习报告</span></a> </span></span><span id="/da62e508.html" class="post-meta-item leancloud_visitors" data-flag-title="IEEE TBME | DoC-Informer：自适应脑电配置下的意识障碍自动识别" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/da62e508.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/da62e508.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>4.6k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>12 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><img src="/da62e508/1.webp"><p>该论文发表于 IEEE Transactions on Biomedical Engineering（中科院二区top，IF：4.4），题目为《DoC-Informer: Automated Discrimination of Disorders of Consciousness under Adaptive EEG Settings》。</p><p>武汉大学计算机学院杨丰源、皮龙霖为共同第一作者，陈丹教授为通讯作者。合作单位包括燕山大学电气工程学院、南方医科大学珠江医院康复医学科及首都医科大学宣武医院康复医学科。</p><p>论文链接：<a target="_blank" rel="noopener" href="https://doi.org/10.1109/TBME.2026.3668768">https://doi.org/10.1109/TBME.2026.3668768</a></p><span id="more"></span><h3 id="论文概要"><a href="#论文概要" class="headerlink" title="论文概要"></a>论文概要</h3><p>脑电电极不齐，模型还能可靠地区分意识状态吗？DoC-Informer 将这一临床采集难题作为研究出发点：先从每个通道提取时间特征，再结合电极三维坐标学习通道间关系，最后整合较长时间范围内的动态信息；训练时随机遮蔽通道，使模型减少对固定电极组合的依赖。</p><p>研究使用两个医院队列、共156名意识障碍患者的静息态脑电数据开展受试者独立的五折交叉验证。模型在两个数据集上的准确率分别为77.45%和77.32%，并在单通道缺失、脑区通道缺失及低密度电极配置下保持较高的相对性能。论文的核心贡献，是将电极空间位置先验与深度学习结合，让意识状态识别适应不完整的脑电输入[1]。</p><h3 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h3><h4 id="从行为评估走向脑电辅助识别"><a href="#从行为评估走向脑电辅助识别" class="headerlink" title="从行为评估走向脑电辅助识别"></a>从行为评估走向脑电辅助识别</h4><p>意识障碍（disorders of consciousness，DoC）涵盖多种严重意识受损状态。该文关注无反应觉醒综合征（UWS）与最小意识状态（MCS）的区分，这一判断与治疗方案和预后评估密切相关。临床通常使用修订版昏迷恢复量表（CRS-R），但患者状态波动及评估者判断差异会影响评估的一致性。脑电具有无创、便携、时间分辨率高等优势，为补充行为评估提供了客观信号。</p><h4 id="现实采集条件与固定通道模型之间的矛盾"><a href="#现实采集条件与固定通道模型之间的矛盾" class="headerlink" title="现实采集条件与固定通道模型之间的矛盾"></a>现实采集条件与固定通道模型之间的矛盾</h4><p>传统机器学习方法依赖人工设计的频谱、复杂度或连接性特征；深度学习虽能自动提取特征，却常要求固定数量与排列的电极。临床中，颅骨缺损可能限制电极放置，设备条件可能限制通道数，运动伪迹、电极移位和信号丢失也会造成数据缺口。通道一旦缺失，原有空间关系或输入维度就可能被破坏。</p><p>因此，本文要解决的并非仅是完整脑电下的分类精度，而是如何将“数量和组合可变的脑电通道”映射为UWS或MCS。研究借鉴临床人员结合电极位置解读局部记录的思路，用空间先验帮助模型整合剩余通道中的信息。</p><h3 id="研究方法"><a href="#研究方法" class="headerlink" title="研究方法"></a>研究方法</h3><h4 id="整体框架"><a href="#整体框架" class="headerlink" title="整体框架"></a>整体框架</h4><p>DoC-Informer 采用CNN与Transformer结合的结构，依次完成浅层时间特征编码、空间关系建模、长程时间关系建模以及二分类。这里的“通道独立”不是忽略通道之间的联系，而是避免网络被固定的通道数量与排列绑定：前端逐通道提取特征，后端根据实际电极位置学习联系。</p><img src="/da62e508/2.webp"><div align="center">图1 DoC-Informer整体框架</div><h4 id="浅层时间特征编码"><a href="#浅层时间特征编码" class="headerlink" title="浅层时间特征编码"></a>浅层时间特征编码</h4><p>模型使用两条并行的一维时间卷积路径：标准卷积捕捉局部细节，空洞卷积在不改变卷积核大小的情况下扩大感受野，观察更宽的时间范围。两条路径均对各脑电通道独立处理，随后将特征拼接，经池化、Dropout和1×1卷积压缩与融合。这样得到的特征保留通道身份，又为后续注意力建模降低了计算规模。</p><img src="/da62e508/3.webp"><div align="center">图2 浅层时间特征编码模块</div><h4 id="空间与时间分层建模"><a href="#空间与时间分层建模" class="headerlink" title="空间与时间分层建模"></a>空间与时间分层建模</h4><p>空间Transformer首先引入电极的三维坐标。坐标来自标准10–20电极系统，经归一化和位置编码后与脑电特征相加。与简单的通道序号相比，坐标能够表达电极在头皮上的实际空间位置；即使部分通道不在输入中，模型仍可依据剩余电极的位置学习通道间依赖。</p><p>在每个时间切片上，空间注意力整合不同通道的特征，再沿通道维度平均池化，生成不再依赖通道数量的表示。时间Transformer接着将各时间位置作为输入单元，学习跨时间的关联，最终由全连接分类器输出UWS或MCS。整个过程可以理解为先比较“同一时刻不同位置的信号”，再观察“这些信息随时间怎样变化”。</p><img src="/da62e508/4.webp"><div align="center">图3 融合电极位置编码的时空表示建模</div><h4 id="通道遮蔽训练"><a href="#通道遮蔽训练" class="headerlink" title="通道遮蔽训练"></a>通道遮蔽训练</h4><p>训练时，模型在时间切片上随机遮蔽通道特征，模拟不完整脑电，促使网络从多个通道分布的信息中学习，而不是依赖某几个固定电极；同时设置补偿机制，避免某个时间步全部通道均不可用。该策略与电极位置编码配合，提高缺失输入下的适应能力。主实验采用0.2的遮蔽概率，其选择依据见后文参数实验。</p><h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><h4 id="数据与评估设置"><a href="#数据与评估设置" class="headerlink" title="数据与评估设置"></a>数据与评估设置</h4><p>数据集A来自南方医科大学珠江医院，包含105名患者，其中UWS 74名、MCS 31名，采用30通道、1000 Hz采样；数据集B来自首都医科大学宣武医院，包含51名患者，其中UWS 14名、MCS 37名，采用26通道、2048 Hz采样。预处理包括平均重参考、1–45 Hz带通滤波、降采样至250 Hz、Autoreject伪迹处理，以及划分不重叠的10秒脑电片段。</p><p>实验按受试者独立设置进行五折交叉验证，测试受试者的数据不参与训练。模型使用交叉熵损失和Adam优化器，初始学习率0.0004、批量大小16，并结合学习率衰减与早停。比较对象为GA-SVM及EEGNet、EEG-Conformer、EEG-Deformer、STPA-Net、STAnet、SST-EmotionNet。评估同时报告准确率、F1和AUC，以从不同角度观察分类表现。两个队列分别开展评估，不应将其理解为“在一家医院训练、直接迁移到另一家医院测试”。</p><h4 id="完整通道下的识别性能"><a href="#完整通道下的识别性能" class="headerlink" title="完整通道下的识别性能"></a>完整通道下的识别性能</h4><p>DoC-Informer在两个数据集上的三项指标均高于所比较的基线。数据集A的准确率、F1和AUC分别为0.7745、0.8389和0.7562；数据集B分别为0.7732、0.8825和0.7354。相较准确率最高的基线EEG-Deformer，准确率分别增加4.19和2.40个百分点。</p><div align="center">表1 不同模型的意识状态识别性能</div><img src="/da62e508/5.webp"><p>配对t检验显示，多数比较达到统计显著性，但并非全部：例如数据集A中，相比EEG-Deformer的准确率和F1，其p值分别为0.06和0.07。另一方面，模型的计算量为293.96 M FLOPs，高于原文效率表中所列的其他模型，因此不能把较好的识别性能直接等同于最低计算成本。</p><h4 id="单个通道缺失时的稳定性"><a href="#单个通道缺失时的稳定性" class="headerlink" title="单个通道缺失时的稳定性"></a>单个通道缺失时的稳定性</h4><p>缺失实验先用完整通道训练，再在测试阶段移除指定通道。对于不能直接处理可变通道的深度学习基线，研究以零填充缺失位置。论文用相对性能保留率（RPR）衡量稳定性：将缺失配置下的性能除以完整配置下的性能，再对相应缺失情况取平均。因此，RPR接近100%代表性能接近完整通道水平，并不表示分类准确率接近100%。</p><img src="/da62e508/6.webp"><div align="center">图4 逐个移除通道后的识别性能</div><p>单通道移除时，DoC-Informer在两个数据集、三项指标上的RPR为99.95%–99.99%，而深度学习基线约为95%–97%。这说明在所测试的单电极缺失情形中，模型的平均相对性能损失很小。</p><div align="center">表2 单通道移除后的相对性能保留率</div><img src="/da62e508/7.webp"><h4 id="整组脑区通道缺失时的表现"><a href="#整组脑区通道缺失时的表现" class="headerlink" title="整组脑区通道缺失时的表现"></a>整组脑区通道缺失时的表现</h4><p>研究进一步按电极名称将通道划分为Fp、F、FC、C、P、O、T七组，逐组移除。DoC-Informer的RPR为97.15%–99.29%，总体高于基线约89%–91%的水平。这一结果反映的是跨移除情形的平均保留率，不能推断每一个脑区移除后的损失都小于3%。</p><img src="/da62e508/8.webp"><div align="center">图5 移除不同脑区通道后的识别性能</div><div align="center">表3 脑区通道移除后的相对性能保留率</div><img src="/da62e508/9.webp"><p>图5还显示，移除前额Fp组电极时下降最明显，提示该组信号对当前模型的判别较重要。这为简化电极配置提供了线索，但属于模型在当前数据上的观察，不能单凭电极移除实验确定某一脑区对意识的因果作用。</p><h4 id="低密度电极配置的可行性"><a href="#低密度电极配置的可行性" class="headerlink" title="低密度电极配置的可行性"></a>低密度电极配置的可行性</h4><p>研究模拟三种配置：（a）8通道，（b）16通道，以及（c）仅使用额区电极。数据集A中，8通道和仅额区配置各项RPR均超过97%，16通道配置约为100%；数据集B中，三种配置各项RPR均超过95%。相比之下，所比较基线的保留率大体处于75%–88%。这些结果支持进一步探索更简便的床旁采集方案。</p><div align="center">表4 数据集A在三种低密度配置下的性能保留率</div><img src="/da62e508/10.webp"><div align="center">表5 数据集B在三种低密度配置下的性能保留率</div><img src="/da62e508/11.webp"><p>读表时应区分相对值与绝对值。例如数据集B在8通道配置下的准确率RPR为95.43%，乘以完整通道准确率77.32%，对应准确率约73.79%。个别配置的RPR略超过100%，仅表示该次减少通道后性能略有改善。这里采用既有记录的通道子集模拟稀疏配置，尚不能直接等同于在相应便携设备上完成了前瞻性临床验证。</p><h4 id="消融实验揭示模块贡献"><a href="#消融实验揭示模块贡献" class="headerlink" title="消融实验揭示模块贡献"></a>消融实验揭示模块贡献</h4><p>删除空间Transformer后，数据集A和B的准确率分别从0.7745、0.7732降至0.7194、0.7130，是准确率下降最明显的变体。删除时间Transformer也会降低性能，其中数据集A的AUC从0.7562降至0.6788。两项结果说明，通道间空间关系与较长时间范围内的动态信息都对分类有贡献。</p><div align="center">表6 各模块与训练策略的消融结果</div><img src="/da62e508/12.webp"><p>去掉空洞卷积、位置编码或遮蔽训练也会降低表中各项指标。不过，采用固定顺序位置编码的变体在数据集A上的AUC为0.7658，高于完整模型的0.7562。因此，更准确的结论是完整模型取得了较均衡的总体表现，而非每个指标都必然最优。</p><h4 id="遮蔽概率的影响"><a href="#遮蔽概率的影响" class="headerlink" title="遮蔽概率的影响"></a>遮蔽概率的影响</h4><p>遮蔽并非越强越好。实验将概率从0增加到0.8，结果呈现非单调变化：适中的遮蔽有助于泛化，0.2附近的准确率与AUC表现较好；过高概率会丢失过多空间信息，0.7时性能明显下降，0.8时训练未能收敛。数据集A的F1峰值并不恰好位于0.2，论文据综合表现将0.2作为默认参数。</p><img src="/da62e508/13.webp"><div align="center">图6 不同通道遮蔽概率对模型性能的影响</div><h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>DoC-Informer通过逐通道时间卷积、电极三维位置编码、空间与时间Transformer以及通道遮蔽训练，将“利用哪些电极”与“如何整合脑电信息”联系起来。两个临床队列的实验表明，这种设计既能提高UWS与MCS分类表现，也能在所测试的缺失通道与低密度配置下保留较多判别能力。对脑电算法研究而言，值得学习的是把采集条件的变化纳入模型结构和训练过程，而不只追求完整数据上的指标。</p><p>进一步应用仍需扩大样本、开展跨中心迁移及真实稀疏设备验证，并提高模型可解释性。当前研究聚焦UWS与MCS二分类；论文提出未来可结合fMRI&#x2F;PET等信息，并扩展至昏迷和脱离最小意识状态等类别。现有结果支持其作为脑电辅助评估方法继续研究，尚不足以证明可替代临床综合评估。</p><p>代码已公开：<a target="_blank" rel="noopener" href="https://github.com/pilonglin/docinformer">https://github.com/pilonglin/docinformer</a>。研究数据未公开；有学术使用需求的研究者可联系通讯作者，在合理申请并签订适当数据使用协议的条件下申请获取。</p><p>参考文献：</p><p>Yang, F., Pi, L., Chen, D., Liang, Z., Wang, Y., Zhang, Y. (2026). DoC-Informer: Automated Discrimination of Disorders of Consciousness under Adaptive EEG Settings. IEEE Transactions on Biomedical Engineering. DOI: 10.1109&#x2F;TBME.2026.3668768.</p><p>——END——</p><p>撰稿人：尹越</p><p>审核人：邱丽娜</p><hr><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://www.scholat.com/teamwork/showPostMessage.html?id=18295">https://www.scholat.com/teamwork/showPostMessage.html?id=18295</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/9a1f89fc.html" rel="prev" title="PAPER REVIEW· 第004期：听同一首陌生的曲子，不同人为什么能"想"到差不多的故事？Nature Communications 2026论文硬核解读"> <i class="fa fa-chevron-left"></i> PAPER REVIEW· 第004期：听同一首陌生的曲子，不同人为什么能"想"到差不多的故事？Nature Communications 2026论文硬核解读</div><div class="post-nav-item"><a href="/f20bd021.html" rel="next" title="四篇论文把"音乐让你爽"从问卷题，变成电极题：戴上 32-128 个电极听 20 秒音乐，深度学习能以 93%+ 的准确率读出你的愉悦度与唤醒度"> 四篇论文把"音乐让你爽"从问卷题，变成电极题：戴上 32-128 个电极听 20 秒音乐，深度学习能以 93%+ 的准确率读出你的愉悦度与唤醒度 <i class="fa fa-chevron-right"></i></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E6%A6%82%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">论文概要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E8%83%8C%E6%99%AF"><span class="nav-number">2.</span> <span class="nav-text">研究背景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E8%A1%8C%E4%B8%BA%E8%AF%84%E4%BC%B0%E8%B5%B0%E5%90%91%E8%84%91%E7%94%B5%E8%BE%85%E5%8A%A9%E8%AF%86%E5%88%AB"><span class="nav-number">2.1.</span> <span class="nav-text">从行为评估走向脑电辅助识别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8E%B0%E5%AE%9E%E9%87%87%E9%9B%86%E6%9D%A1%E4%BB%B6%E4%B8%8E%E5%9B%BA%E5%AE%9A%E9%80%9A%E9%81%93%E6%A8%A1%E5%9E%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E7%9F%9B%E7%9B%BE"><span class="nav-number">2.2.</span> <span class="nav-text">现实采集条件与固定通道模型之间的矛盾</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">研究方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E6%A1%86%E6%9E%B6"><span class="nav-number">3.1.</span> <span class="nav-text">整体框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%85%E5%B1%82%E6%97%B6%E9%97%B4%E7%89%B9%E5%BE%81%E7%BC%96%E7%A0%81"><span class="nav-number">3.2.</span> <span class="nav-text">浅层时间特征编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E4%B8%8E%E6%97%B6%E9%97%B4%E5%88%86%E5%B1%82%E5%BB%BA%E6%A8%A1"><span class="nav-number">3.3.</span> <span class="nav-text">空间与时间分层建模</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E9%81%93%E9%81%AE%E8%94%BD%E8%AE%AD%E7%BB%83"><span class="nav-number">3.4.</span> <span class="nav-text">通道遮蔽训练</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">4.</span> <span class="nav-text">实验结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%8E%E8%AF%84%E4%BC%B0%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.1.</span> <span class="nav-text">数据与评估设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E9%80%9A%E9%81%93%E4%B8%8B%E7%9A%84%E8%AF%86%E5%88%AB%E6%80%A7%E8%83%BD"><span class="nav-number">4.2.</span> <span class="nav-text">完整通道下的识别性能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E4%B8%AA%E9%80%9A%E9%81%93%E7%BC%BA%E5%A4%B1%E6%97%B6%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="nav-number">4.3.</span> <span class="nav-text">单个通道缺失时的稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B4%E7%BB%84%E8%84%91%E5%8C%BA%E9%80%9A%E9%81%93%E7%BC%BA%E5%A4%B1%E6%97%B6%E7%9A%84%E8%A1%A8%E7%8E%B0"><span class="nav-number">4.4.</span> <span class="nav-text">整组脑区通道缺失时的表现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%8E%E5%AF%86%E5%BA%A6%E7%94%B5%E6%9E%81%E9%85%8D%E7%BD%AE%E7%9A%84%E5%8F%AF%E8%A1%8C%E6%80%A7"><span class="nav-number">4.5.</span> <span class="nav-text">低密度电极配置的可行性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B6%88%E8%9E%8D%E5%AE%9E%E9%AA%8C%E6%8F%AD%E7%A4%BA%E6%A8%A1%E5%9D%97%E8%B4%A1%E7%8C%AE"><span class="nav-number">4.6.</span> <span class="nav-text">消融实验揭示模块贡献</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%81%AE%E8%94%BD%E6%A6%82%E7%8E%87%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">4.7.</span> <span class="nav-text">遮蔽概率的影响</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">5.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1376</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">35</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">9.7m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">403:56</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/assets/haru02.model.json"},display:{position:"right",width:208,height:520},mobile:{show:!1},log:!1})</script></body></html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="这两天看到不少人在讨论一个问题： 现在做科研绘图，到底哪家模型更好用？ 有人觉得 GPT Image 2 性价比高，有人觉得 Nano Banana 速度快、风格好，也有人说科研图不能只看“好不好看”，关键要看能不能真的用于论文、综述、组会和基金本子。 这次我们通过实测来给出结论。"><meta property="og:type" content="article"><meta property="og:title" content="科研绘图哪家强？GPT Image2 vs Nano Banana"><meta property="og:url" content="https://aisakaaoi.github.io/58e496d4.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="这两天看到不少人在讨论一个问题： 现在做科研绘图，到底哪家模型更好用？ 有人觉得 GPT Image 2 性价比高，有人觉得 Nano Banana 速度快、风格好，也有人说科研图不能只看“好不好看”，关键要看能不能真的用于论文、综述、组会和基金本子。 这次我们通过实测来给出结论。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/1.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/2.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/3.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/4.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/5.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/6.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/7.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/8.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/9.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/10.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/11.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/12.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/13.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/14.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/15.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/16.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/17.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/18.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/19.webp"><meta property="og:image" content="https://aisakaaoi.github.io/58e496d4/20.webp"><meta property="article:published_time" content="2026-05-25T04:00:00.000Z"><meta property="article:modified_time" content="2026-10-06T21:23:18.677Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/58e496d4/1.webp"><link rel="canonical" href="https://aisakaaoi.github.io/58e496d4.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>科研绘图哪家强？GPT Image2 vs Nano Banana | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">35</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1376</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/58e496d4.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">科研绘图哪家强？GPT Image2 vs Nano Banana</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-05-25 12:00:00" itemprop="dateCreated datePublished" datetime="2026-05-25T12:00:00+08:00">2026-05-25</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/" itemprop="url" rel="index"><span itemprop="name">🌙逢坂杂谈与搬运</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E5%AD%A6%E6%9C%AF%E6%9D%82%E8%B0%88/" itemprop="url" rel="index"><span itemprop="name">⭐学术杂谈</span></a> </span></span><span id="/58e496d4.html" class="post-meta-item leancloud_visitors" data-flag-title="科研绘图哪家强？GPT Image2 vs Nano Banana" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/58e496d4.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/58e496d4.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>8k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>20 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><p>这两天看到不少人在讨论一个问题：</p><p><strong>现在做科研绘图，到底哪家模型更好用？</strong></p><p>有人觉得 GPT Image 2 性价比高，有人觉得 Nano Banana 速度快、风格好，也有人说科研图不能只看“好不好看”，关键要看能不能真的用于论文、综述、组会和基金本子。</p><p>这次我们通过<strong>实测</strong>来给出结论。</p><span id="more"></span><p>整个流程是这样：</p><ol><li>我先选出 10 个真实科研绘图场景，尽量覆盖医学、生物、材料、能源、化学、AI、环境和社会科学。</li><li>用 Codex 执行整套评测流程，分别调用两个图像模型生成图片。</li><li>两个模型使用同一套提示词，避免因为 prompt 不公平导致偏差。</li><li><strong>最后让 Claude 扮演一位「 Nature 编辑」，从科研论文图的角度给每张图打分。</strong></li></ol><h3 id="科研图最怕的，从来不是不够炫"><a href="#科研图最怕的，从来不是不够炫" class="headerlink" title="科研图最怕的，从来不是不够炫"></a>科研图最怕的，从来不是不够炫</h3><p>很多同学第一次用 AI 画科研图，都会被那种“哇，好高级”的视觉冲击骗到。背景很亮，光效很多，细胞很立体，颜色很梦幻。</p><p>但你真的把它放进论文或者组会 PPT 里，问题马上就来了。期刊编辑更关注专业性和准确性。</p><p>这次评测的评委是Claude 。按下面 8 个维度打分：科学逻辑、信息层级、论文布局、文字可读性、箭头和因果关系、学科表达可信度、科研图感，以及后续修改成本等。</p><p>每项 1-5 分，总分 40 分。</p><p>下面我们具体看一下各个场景下的结果：</p><hr><h3 id="01｜生物医学机制图：炎症促进组织纤维化及药物干预"><a href="#01｜生物医学机制图：炎症促进组织纤维化及药物干预" class="headerlink" title="01｜生物医学机制图：炎症促进组织纤维化及药物干预"></a>01｜生物医学机制图：炎症促进组织纤维化及药物干预</h3><p>这一类图最常见于医学、药理、病理、肿瘤、免疫方向。</p><p>它的核心不是“画几个细胞”，而是要把上游炎症、中游信号、下游纤维化结果画清楚。</p><p><strong>GPT Image 2 效果图</strong></p><img src="/58e496d4/1.webp"><p><strong>Nano Banana 效果图</strong></p><img src="/58e496d4/2.webp"><p><strong>本次提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a professional scientific mechanism figure about inflammation-driven tissue fibrosis and pharmacological intervention. Show inflammatory cell recruitment, macrophage activation, cytokine release, fibroblast activation, extracellular matrix deposition, and a drug blocking the TGF-beta signaling axis. Use a layered left-to-right causal layout with clear activation and inhibition arrows, restrained colors, sparse academic labels, and a publication-ready white-background schematic style.</span><br></pre></td></tr></table></figure><p><strong>Nature 编辑评价</strong></p><p>GPT Image 2 的优势在于机制链条更完整。它不仅画出了炎症细胞、巨噬细胞、成纤维细胞、ECM 沉积，还把 TGF-β&#x2F;Smad 这种分子层级的通路拆出来了。</p><p>Nano Banana 的图更像一个概念概览，视觉上也能看，但机制深度明显不够。</p><p><strong>这一组小结</strong></p><p>生物医学机制图最重要的是因果链。谁激活谁，谁抑制谁，最后导致什么病理结果，都要画得足够清楚。</p><hr><h3 id="02｜分子生物机制图：CRISPR-Cas9-基因编辑"><a href="#02｜分子生物机制图：CRISPR-Cas9-基因编辑" class="headerlink" title="02｜分子生物机制图：CRISPR-Cas9 基因编辑"></a>02｜分子生物机制图：CRISPR-Cas9 基因编辑</h3><p>这一类图考验的是分支逻辑。</p><p>CRISPR 图不能只画 Cas9 和 DNA，它必须表达：识别 PAM、结合目标 DNA、产生双链断裂，以及 NHEJ &#x2F; HDR 两条修复路径。</p><p><strong>GPT Image 2 效果图</strong></p><img src="/58e496d4/3.webp"><p><strong>Nano Banana 效果图</strong></p><img src="/58e496d4/4.webp"><p><strong>本次提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a publication-ready CRISPR-Cas9 genome editing mechanism figure. Show Cas9-guide RNA complex formation, PAM recognition, target DNA binding, double-strand break formation, and two downstream repair branches: NHEJ leading to indels and HDR leading to precise insertion or correction. Use a clean layered mechanism layout, concise labels, clear branch arrows, and a flat vector-like scientific style on a white background.</span><br></pre></td></tr></table></figure><p><strong>Nature 编辑评价</strong></p><p>这一组 GPT Image 2 得分 39，几乎接近满分。</p><p>Claude 认为它的编号、分支路径、NHEJ&#x2F;HDR 区分、PAM 标注都比较清楚。Nano Banana 的问题主要是布局比较散，视觉层级不稳定，看的人需要自己“猜”顺序。</p><p><strong>这一组小结</strong></p><p>分子机制图不能只画对象，要画出步骤和分支。尤其是 NHEJ &#x2F; HDR 这种路径差异，必须用明确的分叉结构表达出来。</p><hr><h3 id="03｜实验流程图：单细胞-RNA-seq-从样本到分析"><a href="#03｜实验流程图：单细胞-RNA-seq-从样本到分析" class="headerlink" title="03｜实验流程图：单细胞 RNA-seq 从样本到分析"></a>03｜实验流程图：单细胞 RNA-seq 从样本到分析</h3><p>流程图最怕的不是画不出仪器，而是步骤顺序乱。</p><p>单细胞 RNA-seq 至少要能表达：组织处理、单细胞悬液、微流控捕获、建库测序、UMAP 聚类、marker gene 分析和细胞类型注释。</p><p><strong>GPT Image 2 效果图</strong></p><img src="/58e496d4/5.webp"><p><strong>Nano Banana 效果图</strong></p><img src="/58e496d4/6.webp"><p><strong>本次提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a stepwise experimental workflow figure for single-cell RNA sequencing. Show tissue dissociation, viable single-cell suspension, microfluidic droplet capture, barcoding and library preparation, sequencing, UMAP clustering, marker gene analysis, and cell-type annotation. Use a left-to-right modular workflow with separate visual zones, clear arrows, minimal text, and a journal methods-figure style.</span><br></pre></td></tr></table></figure><p><strong>Nature 编辑评价</strong></p><p>GPT Image 2 的流程更像论文 methods overview，一路从左到右走，读者不太会迷路。</p><p>Nano Banana 给了更多生物学上下文，比如组织、动物、细胞状态，但两行式布局打断了流程感。对于组会汇报，Nano 的图可能也能讲；但对于论文方法图，GPT 更稳。</p><p><strong>这一组小结</strong></p><p>实验流程图的第一原则是顺序。读者不应该猜下一步在哪里。</p><hr><h3 id="04｜Graphical-Abstract：LNP-mRNA-递送与免疫激活"><a href="#04｜Graphical-Abstract：LNP-mRNA-递送与免疫激活" class="headerlink" title="04｜Graphical Abstract：LNP-mRNA 递送与免疫激活"></a>04｜Graphical Abstract：LNP-mRNA 递送与免疫激活</h3><p>Graphical Abstract 最难的是“一张图讲完整故事”。</p><p>不是元素越多越好，而是要让读者知道：左边是什么策略，中间发生什么过程，右边得到什么生物学结果。</p><p><strong>GPT Image 2 效果图</strong></p><img src="/58e496d4/7.webp"><p><strong>Nano Banana 效果图</strong></p><img src="/58e496d4/8.webp"><p><strong>本次提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a scientific graphical abstract for lipid nanoparticle mRNA delivery and immune activation. Show ionizable lipid nanoparticle assembly around mRNA cargo, intramuscular injection, cellular uptake, endosomal escape, mRNA release into cytoplasm, antigen translation, MHC presentation, B-cell antibody response, and CD8 T-cell activation. Use a balanced graphical-abstract composition with clear causal flow, sparse labels, and a polished biomedical vector style.</span><br></pre></td></tr></table></figure><p><strong>Nature 编辑评价</strong></p><p>GPT 用编号把 LNP 组装、注射、摄取、内体逃逸、抗原翻译、免疫激活串起来。</p><p>Nano Banana 内容也不少，甚至补充了淋巴结等背景，但画面明显更挤，文字和箭头更容易互相打架。</p><p><strong>这一组小结</strong></p><p>Graphical Abstract 的关键不是把所有元素都塞进去，而是让读者一眼看懂研究故事。</p><hr><h3 id="05｜材料科学机制图：光热抗菌材料破坏生物膜"><a href="#05｜材料科学机制图：光热抗菌材料破坏生物膜" class="headerlink" title="05｜材料科学机制图：光热抗菌材料破坏生物膜"></a>05｜材料科学机制图：光热抗菌材料破坏生物膜</h3><p>材料图很容易翻车。</p><p>因为你不能只画“材料”和“细菌”，必须画出材料怎么伤害细菌。</p><p><strong>GPT Image 2 效果图</strong></p><img src="/58e496d4/9.webp"><p><strong>Nano Banana 效果图</strong></p><img src="/58e496d4/10.webp"><p><strong>本次提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a publication-ready mechanism schematic for a photothermal antibacterial nanomaterial disrupting bacterial biofilm. Show nanomaterial attachment to biofilm, near-infrared light irradiation, local heat generation, bacterial membrane damage, increased permeability, intracellular leakage, and biofilm collapse. Include one small zoom-in inset for membrane rupture, use blue-green for bacteria and orange-red for heat damage, with clean arrows and a white background.</span><br></pre></td></tr></table></figure><p><strong>Nature 编辑评价</strong></p><p>这一组 GPT 得分 39。Claude 特别提到，GPT 的膜破裂局部放大图、808 nm 近红外照射、升温、细胞内容物泄漏这些细节都比较到位。</p><p>Nano Banana 的图科学方向没错，但圆形布局让阅读顺序不够明确。</p><p><strong>这一组小结</strong></p><p>材料机制图不能只画结果，要把材料、刺激、局部反应、细胞损伤和最终效果串起来。</p><hr><h3 id="06｜能源器件结构图：锂硫电池穿梭效应与抑制策略"><a href="#06｜能源器件结构图：锂硫电池穿梭效应与抑制策略" class="headerlink" title="06｜能源器件结构图：锂硫电池穿梭效应与抑制策略"></a>06｜能源器件结构图：锂硫电池穿梭效应与抑制策略</h3><p>能源器件图考验的是剖面结构和过程箭头。</p><p>锂硫电池如果只画几个电极，那不够；它要把多硫化物穿梭、锂离子迁移、隔膜或中间层抑制机制讲清楚。</p><p><strong>GPT Image 2 效果图</strong></p><img src="/58e496d4/11.webp"><p><strong>Nano Banana 效果图</strong></p><img src="/58e496d4/12.webp"><p><strong>本次提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a scientific device schematic of a lithium-sulfur battery showing the polysulfide shuttle effect and suppression strategy. Show sulfur cathode, separator, electrolyte, lithium metal anode, lithium-ion migration, polysulfide diffusion, shuttle pathway, and a modified interlayer or catalytic host suppressing polysulfides. Use a clean cross-sectional layout with arrows for ion transport and shuttle inhibition, suitable for an energy materials review figure.</span><br></pre></td></tr></table></figure><p><strong>Nature 编辑评价</strong></p><p>GPT Image 2 的图更像 review 文章里的 schematic，主图加对比 panel，读起来轻松。</p><p>Nano Banana 给了更多机制细节，但有点太满，标签和箭头堆在一起，反而降低了信息传达效率。</p><p><strong>这一组小结</strong></p><p>能源器件图要同时讲结构和传输。结构不清楚，传输路径就没有落点；箭头不清楚，机制就讲不出来。</p><hr><h3 id="07｜化学合成路线图：小分子药物多步合成"><a href="#07｜化学合成路线图：小分子药物多步合成" class="headerlink" title="07｜化学合成路线图：小分子药物多步合成"></a>07｜化学合成路线图：小分子药物多步合成</h3><p>这一组是 Nano Banana 翻车最明显的一组。</p><p>化学路线图不是“画几个分子”就行，它对反应条件、结构变化、产率、催化循环都有比较高要求。</p><p><strong>GPT Image 2 效果图</strong></p><img src="/58e496d4/13.webp"><p><strong>Nano Banana 效果图</strong></p><img src="/58e496d4/14.webp"><p><strong>本次提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a professional chemistry research figure showing a multi-step synthetic route for a hypothetical small-molecule kinase inhibitor. Show starting material, three key intermediates, reaction arrows, concise reaction conditions, catalysts, yields, and final target compound. Add a small side panel summarizing a key catalytic cycle. Use a clean white-background journal reaction-scheme layout with compact spacing, consistent typography, and restrained colors.</span><br></pre></td></tr></table></figure><p><strong>Nature 编辑评价</strong></p><p>Claude 给 GPT 33 分，Nano 只有 16 分。</p><p>这也提醒我们：化学图、真实数据图、精确结构图，AI 目前仍然不能直接当最终稿。它可以帮你搭视觉方案，但最终还是要回到专业工具里核对。</p><p><strong>这一组小结</strong></p><p>越是精确学科图，越不能只看“像不像”。结构、条件、产率、原子连接这些内容，都需要人工专业校对。</p><hr><h3 id="08｜AI-架构图：科研-Agent-从文献检索到报告生成"><a href="#08｜AI-架构图：科研-Agent-从文献检索到报告生成" class="headerlink" title="08｜AI 架构图：科研 Agent 从文献检索到报告生成"></a>08｜AI 架构图：科研 Agent 从文献检索到报告生成</h3><p>这类图对 AI 模型其实很友好。</p><p>因为它本质上是模块、箭头、输入输出、反馈环。</p><p><strong>GPT Image 2 效果图</strong></p><img src="/58e496d4/15.webp"><p><strong>Nano Banana 效果图</strong></p><img src="/58e496d4/16.webp"><p><strong>本次提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a professional AI research-agent architecture diagram. Show user research question input, literature search module, paper retrieval and ranking, citation graph analysis, note extraction, evidence synthesis, draft report generation, human review, and final manuscript-ready output. Use a modular system-architecture layout with boxes, arrows, data stores, and feedback loops. Keep it clean, publication-ready, and suitable for an AI methods paper.</span><br></pre></td></tr></table></figure><p><strong>Nature 编辑评价</strong></p><p>GPT 的优势在于阶段编号和颜色分区。</p><p>Nano Banana 也画出了核心模块，但箭头走向、反馈环、数据存储的表达没有那么清楚。如果是 AI 论文方法图，我会更倾向 GPT 这一版。</p><p><strong>这一组小结</strong></p><p>AI 架构图不要追求“科技感”。真正重要的是输入是什么、模块有哪些、数据流怎么走、输出是什么。</p><hr><h3 id="09｜环境科学过程图：微塑料从城市径流进入河流和海洋"><a href="#09｜环境科学过程图：微塑料从城市径流进入河流和海洋" class="headerlink" title="09｜环境科学过程图：微塑料从城市径流进入河流和海洋"></a>09｜环境科学过程图：微塑料从城市径流进入河流和海洋</h3><p>环境过程图考验“大尺度叙事”。</p><p>从城市源头到河流，再到海洋和食物网，读者必须一眼看到空间路径。</p><p><strong>GPT Image 2 效果图</strong></p><img src="/58e496d4/17.webp"><p><strong>Nano Banana 效果图</strong></p><img src="/58e496d4/18.webp"><p><strong>本次提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a scientific process overview figure showing microplastic transport from urban runoff into rivers and the ocean. Show sources such as road dust, synthetic textiles, plastic waste, stormwater drains, wastewater treatment, river transport, sediment deposition, marine uptake, and food-web exposure. Use a landscape process-flow layout from city to river to ocean, with clear arrows, restrained colors, and sparse academic labels.</span><br></pre></td></tr></table></figure><p><strong>Nature 编辑评价</strong></p><p>GPT 这张比较符合“从城市到海洋”的空间阅读顺序。</p><p>Nano Banana 内容也丰富，但切成多个 panel 后，连续迁移路径被打断了。对于环境科学这类“大过程”，连续性很重要。</p><p><strong>这一组小结</strong></p><p>环境过程图最好写清楚来源、传输路径、沉积或暴露位置，以及最终生态结果。</p><hr><h3 id="10｜社会科学研究设计图：在线学习干预随机对照实验"><a href="#10｜社会科学研究设计图：在线学习干预随机对照实验" class="headerlink" title="10｜社会科学研究设计图：在线学习干预随机对照实验"></a>10｜社会科学研究设计图：在线学习干预随机对照实验</h3><p>最后我特意选了一个非理工场景。</p><p>很多人以为科研绘图只属于医学、材料、生物，其实社会科学、教育心理、管理学也经常需要研究设计图。</p><p><strong>GPT Image 2 效果图</strong></p><img src="/58e496d4/19.webp"><p><strong>Nano Banana 效果图</strong></p><img src="/58e496d4/20.webp"><p><strong>本次提示词</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create a clean research design diagram for a randomized controlled trial of an online learning intervention. Show participant recruitment, baseline survey, random assignment, intervention group using an adaptive learning platform, control group using standard materials, post-test assessment, follow-up survey, and outcome analysis for learning gains and engagement. Use a CONSORT-inspired flowchart style with clear branches, minimal labels, and a professional social-science journal aesthetic.</span><br></pre></td></tr></table></figure><p><strong>Nature 编辑评价</strong></p><p>GPT Image 2 这里又赢得比较明显。它更像 CONSORT 风格研究流程图，随机分组、干预组、对照组、随访、结局分析都比较规整。</p><p>Nano Banana 的人物插画更亲和，但占了太多空间，对严肃研究设计图来说，信息密度不够。</p><p><strong>这一组小结</strong></p><p>社会科学研究设计图也需要科研图逻辑。招募、随机分组、干预、随访、结局分析，这些节点必须清楚。</p><hr><h3 id="这轮测试给我的最大感受"><a href="#这轮测试给我的最大感受" class="headerlink" title="这轮测试给我的最大感受"></a>这轮测试给我的最大感受</h3><p>但如果你把标准换成 Nature 编辑视角，就会发现 AI 科研图真正难的不是生成，而是：能不能把科研逻辑稳定地画清楚。</p><p>这次 GPT Image 2 的优势主要集中在三点。</p><p>第一，流程更稳。它更容易按编号、分支、模块去组织画面。</p><p>第二，文字和标注更可控。虽然还不能说完全没有问题，但整体比 Nano Banana 更接近论文图需求。</p><p>第三，论文感更强。白底、低饱和配色、简洁结构、稀疏标注，这些都更接近真正可以放进文章或综述里的图。</p><p>Nano Banana 的优势则在于：它生成速度通常更轻快，画面更有概念感，对一些早期脑暴、视觉草图、风格探索仍然有价值。</p><p>我在实际的科研场景不会只锁定一个大模型的能力，对于画图场景，我往往会同时使用两个模型，通过「赛马」机制选取最符合自己品味和要求的那张图。</p><hr><h3 id="但问题来了：科研人真的要自己到处切模型吗？"><a href="#但问题来了：科研人真的要自己到处切模型吗？" class="headerlink" title="但问题来了：科研人真的要自己到处切模型吗？"></a>但问题来了：科研人真的要自己到处切模型吗？</h3><p>这也是我做完这次评测后，最想说的一点。</p><p>今天 GPT Image 2 在这 10 个场景里表现更稳，但这并不代表我们以后永远只用一个模型。</p><p>因为模型会更新，任务也会变化。</p><p>有的场景可能需要 GPT 的结构能力，有的场景可能需要 Nano Banana 的速度和风格探索，有的场景可能还要用其他图像模型来做参考风格、局部重绘、草图扩展。</p><p>除了大模型「选择恐惧症」以外，我还观察到我们实验室的同学存在以下「困境」：</p><ol><li>没有一个稳定的GPT和Gemin账号；</li><li>多个平台充值，成本太高；</li><li>GPT和Gemini生成的图没有办法微调；每次修改一部分都需要重新「抽卡」。<br>4.无法导出图片为SVG；导出为可编辑PPT。</li><li>不会写准确的提示词</li></ol><hr><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/tqtTeUn8GOiiUn2FgjqFeA">https://mp.weixin.qq.com/s/tqtTeUn8GOiiUn2FgjqFeA</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/cb61e3cd.html" rel="prev" title="Adam之后选哪个？浙大团队对23种优化器做了迄今最系统的评测"><i class="fa fa-chevron-left"></i> Adam之后选哪个？浙大团队对23种优化器做了迄今最系统的评测</a></div><div class="post-nav-item"><a href="/c589eae6.html" rel="next" title="Brain-X | 华南理工/麻省理工团队：面向EEG基础模型的大规模数据集">Brain-X | 华南理工/麻省理工团队：面向EEG基础模型的大规模数据集 <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%91%E7%A0%94%E5%9B%BE%E6%9C%80%E6%80%95%E7%9A%84%EF%BC%8C%E4%BB%8E%E6%9D%A5%E4%B8%8D%E6%98%AF%E4%B8%8D%E5%A4%9F%E7%82%AB"><span class="nav-number">1.</span> <span class="nav-text">科研图最怕的，从来不是不够炫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#01%EF%BD%9C%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6%E6%9C%BA%E5%88%B6%E5%9B%BE%EF%BC%9A%E7%82%8E%E7%97%87%E4%BF%83%E8%BF%9B%E7%BB%84%E7%BB%87%E7%BA%A4%E7%BB%B4%E5%8C%96%E5%8F%8A%E8%8D%AF%E7%89%A9%E5%B9%B2%E9%A2%84"><span class="nav-number">2.</span> <span class="nav-text">01｜生物医学机制图：炎症促进组织纤维化及药物干预</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02%EF%BD%9C%E5%88%86%E5%AD%90%E7%94%9F%E7%89%A9%E6%9C%BA%E5%88%B6%E5%9B%BE%EF%BC%9ACRISPR-Cas9-%E5%9F%BA%E5%9B%A0%E7%BC%96%E8%BE%91"><span class="nav-number">3.</span> <span class="nav-text">02｜分子生物机制图：CRISPR-Cas9 基因编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03%EF%BD%9C%E5%AE%9E%E9%AA%8C%E6%B5%81%E7%A8%8B%E5%9B%BE%EF%BC%9A%E5%8D%95%E7%BB%86%E8%83%9E-RNA-seq-%E4%BB%8E%E6%A0%B7%E6%9C%AC%E5%88%B0%E5%88%86%E6%9E%90"><span class="nav-number">4.</span> <span class="nav-text">03｜实验流程图：单细胞 RNA-seq 从样本到分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#04%EF%BD%9CGraphical-Abstract%EF%BC%9ALNP-mRNA-%E9%80%92%E9%80%81%E4%B8%8E%E5%85%8D%E7%96%AB%E6%BF%80%E6%B4%BB"><span class="nav-number">5.</span> <span class="nav-text">04｜Graphical Abstract：LNP-mRNA 递送与免疫激活</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#05%EF%BD%9C%E6%9D%90%E6%96%99%E7%A7%91%E5%AD%A6%E6%9C%BA%E5%88%B6%E5%9B%BE%EF%BC%9A%E5%85%89%E7%83%AD%E6%8A%97%E8%8F%8C%E6%9D%90%E6%96%99%E7%A0%B4%E5%9D%8F%E7%94%9F%E7%89%A9%E8%86%9C"><span class="nav-number">6.</span> <span class="nav-text">05｜材料科学机制图：光热抗菌材料破坏生物膜</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#06%EF%BD%9C%E8%83%BD%E6%BA%90%E5%99%A8%E4%BB%B6%E7%BB%93%E6%9E%84%E5%9B%BE%EF%BC%9A%E9%94%82%E7%A1%AB%E7%94%B5%E6%B1%A0%E7%A9%BF%E6%A2%AD%E6%95%88%E5%BA%94%E4%B8%8E%E6%8A%91%E5%88%B6%E7%AD%96%E7%95%A5"><span class="nav-number">7.</span> <span class="nav-text">06｜能源器件结构图：锂硫电池穿梭效应与抑制策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#07%EF%BD%9C%E5%8C%96%E5%AD%A6%E5%90%88%E6%88%90%E8%B7%AF%E7%BA%BF%E5%9B%BE%EF%BC%9A%E5%B0%8F%E5%88%86%E5%AD%90%E8%8D%AF%E7%89%A9%E5%A4%9A%E6%AD%A5%E5%90%88%E6%88%90"><span class="nav-number">8.</span> <span class="nav-text">07｜化学合成路线图：小分子药物多步合成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#08%EF%BD%9CAI-%E6%9E%B6%E6%9E%84%E5%9B%BE%EF%BC%9A%E7%A7%91%E7%A0%94-Agent-%E4%BB%8E%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2%E5%88%B0%E6%8A%A5%E5%91%8A%E7%94%9F%E6%88%90"><span class="nav-number">9.</span> <span class="nav-text">08｜AI 架构图：科研 Agent 从文献检索到报告生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#09%EF%BD%9C%E7%8E%AF%E5%A2%83%E7%A7%91%E5%AD%A6%E8%BF%87%E7%A8%8B%E5%9B%BE%EF%BC%9A%E5%BE%AE%E5%A1%91%E6%96%99%E4%BB%8E%E5%9F%8E%E5%B8%82%E5%BE%84%E6%B5%81%E8%BF%9B%E5%85%A5%E6%B2%B3%E6%B5%81%E5%92%8C%E6%B5%B7%E6%B4%8B"><span class="nav-number">10.</span> <span class="nav-text">09｜环境科学过程图：微塑料从城市径流进入河流和海洋</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10%EF%BD%9C%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E8%AE%BE%E8%AE%A1%E5%9B%BE%EF%BC%9A%E5%9C%A8%E7%BA%BF%E5%AD%A6%E4%B9%A0%E5%B9%B2%E9%A2%84%E9%9A%8F%E6%9C%BA%E5%AF%B9%E7%85%A7%E5%AE%9E%E9%AA%8C"><span class="nav-number">11.</span> <span class="nav-text">10｜社会科学研究设计图：在线学习干预随机对照实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E8%BD%AE%E6%B5%8B%E8%AF%95%E7%BB%99%E6%88%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%84%9F%E5%8F%97"><span class="nav-number">12.</span> <span class="nav-text">这轮测试给我的最大感受</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%86%E9%97%AE%E9%A2%98%E6%9D%A5%E4%BA%86%EF%BC%9A%E7%A7%91%E7%A0%94%E4%BA%BA%E7%9C%9F%E7%9A%84%E8%A6%81%E8%87%AA%E5%B7%B1%E5%88%B0%E5%A4%84%E5%88%87%E6%A8%A1%E5%9E%8B%E5%90%97%EF%BC%9F"><span class="nav-number">13.</span> <span class="nav-text">但问题来了：科研人真的要自己到处切模型吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">14.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1376</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">35</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">9.7m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">403:56</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/assets/haru02.model.json"},display:{position:"right",width:208,height:520},mobile:{show:!1},log:!1})</script></body></html>

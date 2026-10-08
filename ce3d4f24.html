@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="最近我系统整理了一批 GitHub 上和论文写作相关的 AI Skills。只筛选我觉得研究生、博士和青年教师真的值得收藏的项目。 论文写作 Skills 到底是什么？简单说，Skills 不是一个单独的提示词，而是一组相对稳定的工作流程。它会告诉 AI：面对某类任务，应该按照什么步骤做、检查什么、输出什么格式、哪些地方不能瞎编。 比如写文献综述，不是直接让 AI “帮我写一篇综述”，而是让它先明"><meta property="og:type" content="article"><meta property="og:title" content="GitHub 上最值得收藏的 AI 学术写作SKILL盘点"><meta property="og:url" content="https://aisakaaoi.github.io/ce3d4f24.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="最近我系统整理了一批 GitHub 上和论文写作相关的 AI Skills。只筛选我觉得研究生、博士和青年教师真的值得收藏的项目。 论文写作 Skills 到底是什么？简单说，Skills 不是一个单独的提示词，而是一组相对稳定的工作流程。它会告诉 AI：面对某类任务，应该按照什么步骤做、检查什么、输出什么格式、哪些地方不能瞎编。 比如写文献综述，不是直接让 AI “帮我写一篇综述”，而是让它先明"><meta property="og:locale" content="zh_CN"><meta property="article:published_time" content="2026-05-27T20:25:02.000Z"><meta property="article:modified_time" content="2026-10-06T20:37:09.589Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><link rel="canonical" href="https://aisakaaoi.github.io/ce3d4f24.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>GitHub 上最值得收藏的 AI 学术写作SKILL盘点 | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">35</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1376</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/ce3d4f24.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">GitHub 上最值得收藏的 AI 学术写作SKILL盘点</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-05-28 04:25:02" itemprop="dateCreated datePublished" datetime="2026-05-28T04:25:02+08:00">2026-05-28</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/" itemprop="url" rel="index"><span itemprop="name">🌙逢坂杂谈与搬运</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E5%AD%A6%E6%9C%AF%E6%9D%82%E8%B0%88/" itemprop="url" rel="index"><span itemprop="name">⭐学术杂谈</span></a> </span></span><span id="/ce3d4f24.html" class="post-meta-item leancloud_visitors" data-flag-title="GitHub 上最值得收藏的 AI 学术写作SKILL盘点" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/ce3d4f24.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/ce3d4f24.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>5k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>13 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><p>最近我系统整理了一批 GitHub 上和论文写作相关的 AI Skills。只筛选我觉得研究生、博士和青年教师真的值得收藏的项目。</p><h3 id="论文写作-Skills-到底是什么？"><a href="#论文写作-Skills-到底是什么？" class="headerlink" title="论文写作 Skills 到底是什么？"></a>论文写作 Skills 到底是什么？</h3><p>简单说，Skills 不是一个单独的提示词，而是一组相对稳定的工作流程。它会告诉 AI：面对某类任务，应该按照什么步骤做、检查什么、输出什么格式、哪些地方不能瞎编。</p><p>比如写文献综述，不是直接让 AI “帮我写一篇综述”，而是让它先明确研究问题，再整理文献脉络，再区分不同学派、方法和争议，最后形成一个有论证结构的综述。</p><p><strong>这也是我觉得 Skills 比普通 prompt 更值得关注的地方。普通 prompt 解决的是“这一次怎么问”，Skills 解决的是“这类问题以后都怎么处理”。</strong></p><span id="more"></span><h3 id="我筛选时主要看什么？"><a href="#我筛选时主要看什么？" class="headerlink" title="我筛选时主要看什么？"></a>我筛选时主要看什么？</h3><p>我没有只看 star 数。因为学术写作这件事，最重要的不是项目看起来多热闹，而是它能不能真的放进论文流程里。我主要看四点：第一，是否覆盖真实论文写作场景；第二，是否有清晰步骤，而不是只给空泛指令；第三，是否强调引用、事实和审稿检查；第四，是否适合普通研究生上手。</p><p>下面这些项目，是我觉得目前比较值得收藏的一批。截至 2026 年 5 月 28 日，star 数和仓库状态我也重新看了一遍。</p><table><thead><tr><th>项目</th><th>适合场景</th><th>我会怎么用</th></tr></thead><tbody><tr><td>academic-research-skills</td><td>完整论文工作流</td><td>从 research 到 write、review、revise、finalize 跑一遍</td></tr><tr><td>AI-Research-SKILLs</td><td>AI &#x2F; ML &#x2F; 工程研究</td><td>做实验设计、代码分析、论文写作的综合助手</td></tr><tr><td>Research-Paper-Writing-Skills</td><td>机器学习论文</td><td>写 CV、NLP、ML 类论文时参考结构和表达</td></tr><tr><td>claude-prism</td><td>本地科学写作工作台</td><td>LaTeX、Python、论文材料都在本地组织</td></tr><tr><td>academic-paper-skills</td><td>普通论文写作</td><td>用 strategist 和 composer 拆解选题、结构和写作</td></tr><tr><td>AI-research-feedback</td><td>模拟审稿</td><td>写完后让 AI 从 reviewer 角度挑问题</td></tr><tr><td>econ-writing-skill</td><td>经济学、管理学、社科论文</td><td>改善论文叙事、论证和经济学写作风格</td></tr><tr><td>slr-prisma</td><td>系统综述</td><td>按 PRISMA 2020 写 systematic review</td></tr><tr><td>lit-review</td><td>文献综述</td><td>把“文献摘要拼接”改成“问题驱动论证”</td></tr></tbody></table><h3 id="如果只推荐一个，我会先看-academic-research-skills"><a href="#如果只推荐一个，我会先看-academic-research-skills" class="headerlink" title="如果只推荐一个，我会先看 academic-research-skills"></a>如果只推荐一个，我会先看 academic-research-skills</h3><p>这个项目目前是这类仓库里热度最高的一个。它最有价值的地方，不是说能让 AI 直接写完一篇论文，而是把论文写作拆成了 research、write、review、revise、finalize 几个阶段。</p><p>这很接近真实论文写作。真正写论文的人都知道，论文不是从空白页直接变成最终稿的。更常见的情况是：先读文献，发现问题，再搭结构，写初稿，被导师或审稿意见打回来，再反复修改。</p><p>所以我会把它当成一个“论文流程模板”来看。你不一定要完全照搬，但可以学习它怎么设置检查点，尤其是 integrity check、review 和 revise 这些环节。AI 写作最怕的不是写得慢，而是写得很顺，但里面有事实错误、引用不准、逻辑跳跃。</p><h3 id="如果你是-AI-ML-工程方向，可以重点看-AI-Research-SKILLs"><a href="#如果你是-AI-ML-工程方向，可以重点看-AI-Research-SKILLs" class="headerlink" title="如果你是 AI &#x2F; ML &#x2F; 工程方向，可以重点看 AI-Research-SKILLs"></a>如果你是 AI &#x2F; ML &#x2F; 工程方向，可以重点看 AI-Research-SKILLs</h3><p>AI-Research-SKILLs 更偏综合型研究助手。它不只关注论文文字，还会涉及实验、代码、研究分析和工程任务。对 AI、机器学习、计算机方向的同学来说，这类项目会更贴近日常。</p><p>因为很多工程论文的写作，文字只是最后一步。前面还有实验设计、消融实验、结果分析、代码复现、图表整理。这个项目更适合放在“整个研究项目管理”里，而不是只在写摘要时打开。</p><p>我的建议是：如果你的论文和模型、实验、benchmark、代码仓库强相关，可以优先研究这个。如果你只是想写一篇普通综述，它可能有点重。</p><h3 id="Research-Paper-Writing-Skills-更适合机器学习论文"><a href="#Research-Paper-Writing-Skills-更适合机器学习论文" class="headerlink" title="Research-Paper-Writing-Skills 更适合机器学习论文"></a>Research-Paper-Writing-Skills 更适合机器学习论文</h3><p>这个项目的定位比较明确，主要面向 ML &#x2F; CV &#x2F; NLP 论文写作。它的好处是场景更集中，不像综合项目那么大而全。</p><p>机器学习论文有一套很固定的表达习惯：problem setting、method、experiment、ablation、limitation、comparison。很多同学写英文论文时，最大问题不是不会英语，而是不熟悉这个领域的论文叙事方式。</p><p>所以这类 Skill 的价值，是帮你把“我做了一个方法”翻译成更像论文的结构：为什么这个问题重要，现有方法哪里不够，你的方法解决了什么，实验结果怎么支撑结论。</p><h3 id="claude-prism-更像一个本地科学写作工作台"><a href="#claude-prism-更像一个本地科学写作工作台" class="headerlink" title="claude-prism 更像一个本地科学写作工作台"></a>claude-prism 更像一个本地科学写作工作台</h3><p>claude-prism 不是单纯的写作 prompt，而是更像一个本地科学写作 workspace。它强调 LaTeX、Python、本地文件和科学写作技能的结合。</p><p>这类项目我会推荐给已经有一定技术基础的人。它不一定适合第一次接触 AI 写作的同学，但对于经常处理 LaTeX、图表、实验数据、论文项目文件的人来说，它的方向是对的。</p><p>因为论文写作最后一定会落到文件管理：哪些图是最新的，哪些结果来自哪个脚本，哪些段落对应哪个实验，哪些引用需要更新。如果所有东西散在聊天窗口里，后期很容易乱。</p><h3 id="academic-paper-skills-更适合普通研究生上手"><a href="#academic-paper-skills-更适合普通研究生上手" class="headerlink" title="academic-paper-skills 更适合普通研究生上手"></a>academic-paper-skills 更适合普通研究生上手</h3><p>academic-paper-skills 的优点是没有那么吓人。它把论文写作拆成 strategist 和 composer 两类角色：一个负责规划，一个负责写作。</p><p>这个思路其实很适合普通研究生。很多论文写不下去，不是因为不会写句子，而是因为一开始没有想清楚：这篇文章到底要回答什么问题？核心贡献是什么？每一节承担什么功能？</p><p>所以我会建议大家先用 strategist 做论文结构，不要一上来就让 AI 写全文。先把研究问题、论证链条、章节功能、目标期刊风格梳理清楚，再进入具体写作，会稳很多。</p><h3 id="写完以后，一定要做模拟审稿"><a href="#写完以后，一定要做模拟审稿" class="headerlink" title="写完以后，一定要做模拟审稿"></a>写完以后，一定要做模拟审稿</h3><p>这里我比较推荐 AI-research-feedback。它的用途不是帮你写，而是帮你看。</p><p>这一步很重要。因为 AI 写作最容易让人产生一种错觉：文字很顺，所以论文应该没问题。但审稿人看的不是你句子顺不顺，而是问题是否重要、方法是否可信、证据是否充分、结论有没有过度延伸。</p><p>我建议大家把它放在论文初稿完成后使用。让 AI 分别从 reviewer、editor、methodologist 的角度提问题，再把这些问题当成修改清单。它不能替代真实审稿，但可以提前暴露很多低级问题。</p><h3 id="社科、经管方向不要只看通用写作工具"><a href="#社科、经管方向不要只看通用写作工具" class="headerlink" title="社科、经管方向不要只看通用写作工具"></a>社科、经管方向不要只看通用写作工具</h3><p>如果你是经济学、管理学、公共政策或其他社科方向，可以看看 econ-writing-skill。</p><p>社科论文和工程论文的写法差异很大。很多时候，社科论文更看重问题意识、叙事张力、因果识别、文献对话和论证节奏。不是把句子润色得更“高级”就够了。</p><p>这个项目的价值在于，它更关注经济学论文的写作传统和表达方式。对于经管方向的同学，我会把它当成一个“学术写作风格校准器”。</p><h3 id="写综述的同学，可以重点收藏这两个"><a href="#写综述的同学，可以重点收藏这两个" class="headerlink" title="写综述的同学，可以重点收藏这两个"></a>写综述的同学，可以重点收藏这两个</h3><p>如果你在写系统综述，可以看 slr-prisma。它围绕 PRISMA 2020 来组织 systematic literature review，更适合医学、公共卫生、教育、管理等需要规范综述流程的方向。</p><p>如果你写的是普通文献综述，我更推荐 lit-review。它强调 problem-driven，也就是不要把文献综述写成“张三说了什么，李四说了什么，王五又说了什么”。</p><p>好的文献综述应该回答：这个问题为什么重要？已有研究形成了哪些共识？哪里存在冲突？方法上有什么不足？你的研究准备从哪里切入？</p><p>这也是很多同学写综述最容易卡住的地方。真正困难的不是整理文献，而是把文献组织成一个有问题意识的论证。</p><h3 id="额外推荐：论文写完以后，别忘了科研图"><a href="#额外推荐：论文写完以后，别忘了科研图" class="headerlink" title="额外推荐：论文写完以后，别忘了科研图"></a>额外推荐：论文写完以后，别忘了科研图</h3><p>前面这些 Skills 主要解决的是论文写作本身。但真正写过论文的同学都知道，论文不是只有文字。很多时候，一篇文章能不能让审稿人快速看懂，还很依赖图。</p><p>比如机制图、实验流程图、graphical abstract、方法框架图、研究设计图、数据分析流程图，这些都不是可有可无的装饰。尤其是综述、基金本子、组会汇报和毕业论文，图做不好，整篇文章的表达都会显得散。</p><p>所以这里我额外推荐一个我们自己开源的科研绘图提示词库：awesome-research-figure-prompts。</p><p>如果你习惯直接看整理好的中文版本，也可以看这份飞书文档：科研绘图提示词库。</p><p>它不是论文写作 Skill，所以我没有把它硬塞进上面的榜单里。但它很适合和这些论文写作 Skills 搭配使用。比如你用前面的工具完成了文献综述和论文大纲，接下来想做一张 CRISPR-Cas9 机制图、单细胞 RNA-seq 实验流程图、药物递送 graphical abstract、生信分析 workflow，或者基金申请里的研究思路图，就可以从这个仓库或飞书文档里找提示词模板再改。</p><p>我觉得它最适合这几类场景：写综述时画机制图，做组会汇报时画流程图，写基金本子时画研究路线图，写毕业论文时画实验设计图，以及想用 AI 画科研图但不知道 prompt 怎么写的时候。这个仓库的价值就在这里：它给了一批可以直接改的科研图提示词模板。</p><h3 id="我不建议大家怎么用这些-Skills？"><a href="#我不建议大家怎么用这些-Skills？" class="headerlink" title="我不建议大家怎么用这些 Skills？"></a>我不建议大家怎么用这些 Skills？</h3><p>我不建议大家把它们当成“自动写论文神器”。这条路风险很大，也不负责任。</p><p>更稳妥的用法是：让 AI 帮你搭结构、整理文献脉络、检查逻辑漏洞、模拟审稿意见、改进表达和图表说明。真正的研究判断、数据真实性、方法选择、引用核查，仍然必须由你自己负责。</p><p>AI 可以帮你省掉很多机械劳动，但它不能替你承担学术责任。</p><h3 id="如果只想先收藏-4-个，我会这样选"><a href="#如果只想先收藏-4-个，我会这样选" class="headerlink" title="如果只想先收藏 4 个，我会这样选"></a>如果只想先收藏 4 个，我会这样选</h3><p>如果你不想研究这么多项目，可以先按“写作 + 综述 + 审稿 + 科研图”这四步来选：</p><table><thead><tr><th>需求</th><th>推荐</th></tr></thead><tbody><tr><td>想搭一套完整论文工作流</td><td>academic-research-skills</td></tr><tr><td>想写文献综述</td><td>lit-review 或 slr-prisma</td></tr><tr><td>想模拟审稿和找问题</td><td>AI-research-feedback</td></tr><tr><td>想做论文图、机制图、graphical abstract</td><td>awesome-research-figure-prompts</td></tr></tbody></table><p>这个组合会比较实用。先把论文结构跑顺，再把综述写扎实，写完后做一轮模拟审稿，最后补上关键科研图。对大多数研究生来说，这已经比单纯让 AI “帮我润色一下”有用得多。</p><h3 id="文中提到的项目地址"><a href="#文中提到的项目地址" class="headerlink" title="文中提到的项目地址"></a>文中提到的项目地址</h3><table><thead><tr><th>项目</th><th>地址</th></tr></thead><tbody><tr><td>academic-research-skills</td><td><a target="_blank" rel="noopener" href="https://github.com/Imbad0202/academic-research-skills">https://github.com/Imbad0202/academic-research-skills</a></td></tr><tr><td>AI-Research-SKILLs</td><td><a target="_blank" rel="noopener" href="https://github.com/Orchestra-Research/AI-Research-SKILLs">https://github.com/Orchestra-Research/AI-Research-SKILLs</a></td></tr><tr><td>Research-Paper-Writing-Skills</td><td><a target="_blank" rel="noopener" href="https://github.com/Master-cai/Research-Paper-Writing-Skills">https://github.com/Master-cai/Research-Paper-Writing-Skills</a></td></tr><tr><td>claude-prism</td><td><a target="_blank" rel="noopener" href="https://github.com/delibae/claude-prism">https://github.com/delibae/claude-prism</a></td></tr><tr><td>academic-paper-skills</td><td><a target="_blank" rel="noopener" href="https://github.com/lishix520/academic-paper-skills">https://github.com/lishix520/academic-paper-skills</a></td></tr><tr><td>AI-research-feedback</td><td><a target="_blank" rel="noopener" href="https://github.com/claesbackman/AI-research-feedback">https://github.com/claesbackman/AI-research-feedback</a></td></tr><tr><td>econ-writing-skill</td><td><a target="_blank" rel="noopener" href="https://github.com/hanlulong/econ-writing-skill">https://github.com/hanlulong/econ-writing-skill</a></td></tr><tr><td>slr-prisma</td><td><a target="_blank" rel="noopener" href="https://github.com/keemanxp/slr-prisma">https://github.com/keemanxp/slr-prisma</a></td></tr><tr><td>lit-review</td><td><a target="_blank" rel="noopener" href="https://github.com/Bethww/lit-review">https://github.com/Bethww/lit-review</a></td></tr><tr><td>awesome-research-figure-prompts</td><td><a target="_blank" rel="noopener" href="https://github.com/Figpad/awesome-research-figure-prompts">https://github.com/Figpad/awesome-research-figure-prompts</a></td></tr><tr><td>科研绘图提示词库飞书文档</td><td><a target="_blank" rel="noopener" href="https://scno2rldl9zi.feishu.cn/docx/NxzEdn3OwozMnnxgEesc2H5xnVe">https://scno2rldl9zi.feishu.cn/docx/NxzEdn3OwozMnnxgEesc2H5xnVe</a></td></tr></tbody></table><hr><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/uL_ceXmXMBZ1o1C5cqATzg">https://mp.weixin.qq.com/s/uL_ceXmXMBZ1o1C5cqATzg</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/47695e3f.html" rel="prev" title="学术前沿 | 26万小时EEG实测：脑电大模型真实水平，只能和通用时序模型打个平手"><i class="fa fa-chevron-left"></i> 学术前沿 | 26万小时EEG实测：脑电大模型真实水平，只能和通用时序模型打个平手</a></div><div class="post-nav-item"><a href="/ec2ba4be.html" rel="next" title="为什么脑电大模型还读不懂你的大脑？26万小时脑电数据给出的答案">为什么脑电大模型还读不懂你的大脑？26万小时脑电数据给出的答案 <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C-Skills-%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">论文写作 Skills 到底是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%91%E7%AD%9B%E9%80%89%E6%97%B6%E4%B8%BB%E8%A6%81%E7%9C%8B%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">我筛选时主要看什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E5%8F%AA%E6%8E%A8%E8%8D%90%E4%B8%80%E4%B8%AA%EF%BC%8C%E6%88%91%E4%BC%9A%E5%85%88%E7%9C%8B-academic-research-skills"><span class="nav-number">3.</span> <span class="nav-text">如果只推荐一个，我会先看 academic-research-skills</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%98%AF-AI-ML-%E5%B7%A5%E7%A8%8B%E6%96%B9%E5%90%91%EF%BC%8C%E5%8F%AF%E4%BB%A5%E9%87%8D%E7%82%B9%E7%9C%8B-AI-Research-SKILLs"><span class="nav-number">4.</span> <span class="nav-text">如果你是 AI &#x2F; ML &#x2F; 工程方向，可以重点看 AI-Research-SKILLs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Research-Paper-Writing-Skills-%E6%9B%B4%E9%80%82%E5%90%88%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AE%BA%E6%96%87"><span class="nav-number">5.</span> <span class="nav-text">Research-Paper-Writing-Skills 更适合机器学习论文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#claude-prism-%E6%9B%B4%E5%83%8F%E4%B8%80%E4%B8%AA%E6%9C%AC%E5%9C%B0%E7%A7%91%E5%AD%A6%E5%86%99%E4%BD%9C%E5%B7%A5%E4%BD%9C%E5%8F%B0"><span class="nav-number">6.</span> <span class="nav-text">claude-prism 更像一个本地科学写作工作台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#academic-paper-skills-%E6%9B%B4%E9%80%82%E5%90%88%E6%99%AE%E9%80%9A%E7%A0%94%E7%A9%B6%E7%94%9F%E4%B8%8A%E6%89%8B"><span class="nav-number">7.</span> <span class="nav-text">academic-paper-skills 更适合普通研究生上手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E5%AE%8C%E4%BB%A5%E5%90%8E%EF%BC%8C%E4%B8%80%E5%AE%9A%E8%A6%81%E5%81%9A%E6%A8%A1%E6%8B%9F%E5%AE%A1%E7%A8%BF"><span class="nav-number">8.</span> <span class="nav-text">写完以后，一定要做模拟审稿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BE%E7%A7%91%E3%80%81%E7%BB%8F%E7%AE%A1%E6%96%B9%E5%90%91%E4%B8%8D%E8%A6%81%E5%8F%AA%E7%9C%8B%E9%80%9A%E7%94%A8%E5%86%99%E4%BD%9C%E5%B7%A5%E5%85%B7"><span class="nav-number">9.</span> <span class="nav-text">社科、经管方向不要只看通用写作工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E7%BB%BC%E8%BF%B0%E7%9A%84%E5%90%8C%E5%AD%A6%EF%BC%8C%E5%8F%AF%E4%BB%A5%E9%87%8D%E7%82%B9%E6%94%B6%E8%97%8F%E8%BF%99%E4%B8%A4%E4%B8%AA"><span class="nav-number">10.</span> <span class="nav-text">写综述的同学，可以重点收藏这两个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%9D%E5%A4%96%E6%8E%A8%E8%8D%90%EF%BC%9A%E8%AE%BA%E6%96%87%E5%86%99%E5%AE%8C%E4%BB%A5%E5%90%8E%EF%BC%8C%E5%88%AB%E5%BF%98%E4%BA%86%E7%A7%91%E7%A0%94%E5%9B%BE"><span class="nav-number">11.</span> <span class="nav-text">额外推荐：论文写完以后，别忘了科研图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%91%E4%B8%8D%E5%BB%BA%E8%AE%AE%E5%A4%A7%E5%AE%B6%E6%80%8E%E4%B9%88%E7%94%A8%E8%BF%99%E4%BA%9B-Skills%EF%BC%9F"><span class="nav-number">12.</span> <span class="nav-text">我不建议大家怎么用这些 Skills？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E5%8F%AA%E6%83%B3%E5%85%88%E6%94%B6%E8%97%8F-4-%E4%B8%AA%EF%BC%8C%E6%88%91%E4%BC%9A%E8%BF%99%E6%A0%B7%E9%80%89"><span class="nav-number">13.</span> <span class="nav-text">如果只想先收藏 4 个，我会这样选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%B8%AD%E6%8F%90%E5%88%B0%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80"><span class="nav-number">14.</span> <span class="nav-text">文中提到的项目地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">15.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1376</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">35</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">9.7m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">403:56</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/assets/haru02.model.json"},display:{position:"right",width:208,height:520},mobile:{show:!1},log:!1})</script></body></html>
