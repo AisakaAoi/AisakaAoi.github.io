@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="一直漏掉了“小白必修课”真正应该放在最前面的一篇，生理基础的部分。 讲脑电通常都会从神经生理基础讲起，这当然没问题，只是膜电位、动作电位、突触这些内容，专业书里已经讲得很完整了。这里不打算重新上一遍生理课，我也不是专业做电生理的，如右问题欢迎指正。"><meta property="og:type" content="article"><meta property="og:title" content="脑电小白必修课：EEG到底测到了什么？从一个神经元，到头皮上的几十微伏"><meta property="og:url" content="https://aisakaaoi.github.io/74226585.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="一直漏掉了“小白必修课”真正应该放在最前面的一篇，生理基础的部分。 讲脑电通常都会从神经生理基础讲起，这当然没问题，只是膜电位、动作电位、突触这些内容，专业书里已经讲得很完整了。这里不打算重新上一遍生理课，我也不是专业做电生理的，如右问题欢迎指正。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/74226585/3.webp"><meta property="og:image" content="https://aisakaaoi.github.io/74226585/6.webp"><meta property="og:image" content="https://aisakaaoi.github.io/74226585/9.webp"><meta property="og:image" content="https://aisakaaoi.github.io/74226585/10.webp"><meta property="og:image" content="https://aisakaaoi.github.io/74226585/13.webp"><meta property="og:image" content="https://aisakaaoi.github.io/74226585/14.webp"><meta property="og:image" content="https://aisakaaoi.github.io/74226585/21.webp"><meta property="article:published_time" content="2026-09-19T04:00:00.000Z"><meta property="article:modified_time" content="2026-10-21T00:11:44.113Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/74226585/3.webp"><link rel="canonical" href="https://aisakaaoi.github.io/74226585.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>脑电小白必修课：EEG到底测到了什么？从一个神经元，到头皮上的几十微伏 | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">41</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1567</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/74226585.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">脑电小白必修课：EEG到底测到了什么？从一个神经元，到头皮上的几十微伏</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-09-19 12:00:00" itemprop="dateCreated datePublished" datetime="2026-09-19T12:00:00+08:00">2026-09-19</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/" itemprop="url" rel="index"><span itemprop="name">⭐SCNU BCI团队</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">💫基础知识</span></a> </span></span><span id="/74226585.html" class="post-meta-item leancloud_visitors" data-flag-title="脑电小白必修课：EEG到底测到了什么？从一个神经元，到头皮上的几十微伏" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/74226585.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/74226585.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>4.9k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>12 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><p>一直漏掉了“小白必修课”真正应该放在最前面的一篇，生理基础的部分。</p><p>讲脑电通常都会从神经生理基础讲起，这当然没问题，只是膜电位、动作电位、突触这些内容，专业书里已经讲得很完整了。这里不打算重新上一遍生理课，我也不是专业做电生理的，如右问题欢迎指正。</p><span id="more"></span><p>第一次真正坐到脑电设备前，看着屏幕上一排波形上下起伏，很多人都会有一个很自然的理解：电极贴在头上，设备叫“脑电图”，那这些曲线大概就是大脑里的神经元在放电。</p><img src="/74226585/3.webp"><p>这个理解离真相不算很远，但中间省略了不少东西。</p><p>因为我们最后在头皮上看到的几十微伏，并不是某一个神经元动作电位的“现场直播”，也不是大脑里的电活动原封不动地穿过颅骨跑到了电脑里。真正的过程要绕得多：先从神经元膜两边的离子开始，形成膜电位；神经元之间通过突触不断交换信息，产生大量局部电流；当足够多的神经元在相近时间、以比较一致的空间方向一起活动时，这些微弱的电活动才有机会叠加起来，再经过脑组织、脑脊液、颅骨和头皮一路传播，最终在不同头皮位置之间留下很小的电位差。</p><p>所以在开始讲滤波、频谱、ERP、源定位，甚至各种算法之前，我一直觉得有一件事应该先弄明白：屏幕上那条 EEG 波形，到底是什么东西？</p><p>如果这一步没想清楚，后面很容易把<strong>“电极在哪里”“波形从哪里来”“某个频段代表什么”</strong>这些问题混在一起。</p><h3 id="PART-01-神经元为什么会有“电”？先从膜两边的离子开始"><a href="#PART-01-神经元为什么会有“电”？先从膜两边的离子开始" class="headerlink" title="PART 01 神经元为什么会有“电”？先从膜两边的离子开始"></a>PART 01 神经元为什么会有“电”？先从膜两边的离子开始</h3><p>和很多一样，我刚开始学神经电生理时，最容易让人头大的地方，就是钠离子、钾离子、氯离子、钙离子、离子通道、钠钾泵一下子全冒出来，看起来像突然从脑科学跳到了生物化学。</p><p>其实第一遍不需要把所有细节都背下来，只要先抓住一个基本事实：<strong>神经元的细胞膜把细胞内外分开，而膜两边带电离子的分布并不一样。</strong></p><p>比如钠离子更多在细胞外，钾离子更多在细胞内。细胞膜上又分布着不同类型的离子通道，哪些通道开放、哪些离子能够进出，都会改变膜两边的电荷分布，于是形成膜电位。</p><img src="/74226585/6.webp"><p>所以神经元所谓的“电”，并不是里面藏着一根会通电的细线，更不是细胞凭空产生电能。它本质上是一个电化学过程：<strong>带电粒子在膜两边分布不同，离子通道控制它们的流动，膜两侧由此形成电位差。</strong></p><p>静息状态下的神经元也并不是“没有电”。相反，它一直维持着一个相对稳定的<strong>负膜电位</strong>。钠钾泵和各种漏通道则在背后不断维持这种内外离子分布。</p><p>这里有一个很重要的理解：神经元活动不是从“没电”突然变成“有电”，而是在原本就存在的膜电位基础上不断发生变化。</p><p>后面的动作电位、突触后电位，都是从这个基础上来的。</p><h3 id="PART-02-动作电位很显眼，但头皮-EEG-主要不是在“数动作电位”"><a href="#PART-02-动作电位很显眼，但头皮-EEG-主要不是在“数动作电位”" class="headerlink" title="PART 02 动作电位很显眼，但头皮 EEG 主要不是在“数动作电位”"></a>PART 02 动作电位很显眼，但头皮 EEG 主要不是在“数动作电位”</h3><p>如果只看神经生理教材里最经典的图，动作电位大概是最容易被记住的。</p><p><strong>膜电位达到阈值以后，电压门控钠通道迅速开放，钠离子大量内流，膜电位快速去极化；随后钠通道逐渐失活，钾通道开放，钾离子外流，膜电位重新下降，短暂超极化以后再回到静息水平。</strong></p><p>整个过程只有几毫秒，波形很尖，也很漂亮。</p><img src="/74226585/9.webp"><div align="center">图 ｜动作电位图：绘制细胞膜两侧电压随时间变化的图谱，动作电位从去极化开始，随后再极化，再极化超过静息电位进入高极化，最后膜恢复静止。</div><p>所以刚开始接触 EEG 时，很多人都会自然地想：既然神经元不断产生动作电位，那 EEG 会不会就是很多动作电位叠起来的结果？</p><p>其实不是。</p><p>动作电位当然非常重要，它特别适合沿着轴突快速传播，把一个神经元的信息传到远处。但它持续时间短，单个神经元产生的场又非常弱，而且不同神经元的动作电位在时间和空间上通常没有那么整齐地同步。</p><p>相比之下，<strong>神经元接收到突触输入以后产生的突触后电位</strong>，与头皮 EEG 的关系反而更密切。</p><p>一个神经元收到其他神经元释放的神经递质后，树突和胞体附近的离子通道会发生变化。某些输入让膜电位更容易接近阈值，形成兴奋性突触后电位；另一些输入让膜电位远离阈值，形成抑制性突触后电位。和动作电位相比，这些变化通常更慢、持续时间更长，也更容易在时间和空间上发生叠加。</p><p>如果一定要打个比方，动作电位更像一次非常短促的敲击，来得快、结束得也快；而突触后活动更像一段持续的合奏，单独一个声部并不突出，但很多声部在相近时间一起出现，整体就会变得明显。头皮 EEG 更接近后面这种情况。</p><img src="/74226585/10.webp"><div align="center">图 ｜突触后电位的汇总与动作电位的触发。EPSP（兴奋性突触后电位）推动膜电位接近阈值，IPSP（抑制性突触后电位）抵消这种去极化。两类输入在轴丘—轴突初始段汇总；当净效应达到阈值时，才触发一次短促的动作电位（黄色）。注意：本图表示单个神经元的膜电位变化，并非头皮 EEG 波形。</div><p>所以这里要先纠正一个特别常见的理解：一个 EEG 波峰，并不等于某一批神经元刚刚一起产生了一次动作电位。</p><p>动作电位负责神经元之间快速传递信息；突触后活动形成的跨膜电流更容易在大量神经元之间同步叠加，因此与头皮 EEG 的关系更直接。</p><p><strong>不过严格来说，EEG 测到的不是“突触后电位本身”，而是大量神经元发生突触后活动时形成的细胞外电流与电场。</strong></p><p>这两个概念如果一开始就分清，后面很多东西都会容易不少。</p><h3 id="PART-03-一个神经元太小了，EEG-真正看的是“群体活动”"><a href="#PART-03-一个神经元太小了，EEG-真正看的是“群体活动”" class="headerlink" title="PART 03 一个神经元太小了，EEG 真正看的是“群体活动”"></a>PART 03 一个神经元太小了，EEG 真正看的是“群体活动”</h3><p>如果头皮 EEG 真能把每一个神经元的活动都分开看清楚，那脑科学会简单很多。</p><p>可惜现实不是这样。</p><p>单个神经元产生的电场太小，而且距离头皮很远，中间还隔着脑组织、脑脊液、颅骨和头皮。一个细胞在皮层里再活跃，头皮电极通常也没有办法清楚地告诉你：“刚才是哪一个神经元放电了。”</p><p>真正有机会在头皮上留下明显痕迹的，是<strong>大量神经元一起活动形成的群体效应</strong>。</p><p>这里就要提到皮层中的锥体神经元。很多锥体神经元在皮层里有相对一致的排列方向，主树突大致垂直于皮层表面。当附近一大片神经元在相近时间受到类似的突触输入时，局部会形成比较一致的电流流入和回流，多个微小电场就有机会在空间上彼此叠加。</p><p>反过来，如果所有神经元各自活动，这个早一点、那个晚一点，空间方向又彼此不同，那么很多微弱电场在远处看起来反而会互相抵消。</p><img src="/74226585/13.webp"><div align="center">图 | 神经元活动的同步程度影响头皮 EEG 的幅度。 当不同神经元的突触后活动在时间上彼此错开时，产生的电场在汇总后幅度较小；当一群排列方向相近的锥体神经元近乎同步活动时，其电场能够同相叠加，从而形成更明显的头皮 EEG 信号。改绘自 Bear、Connors & Paradiso, Neuroscience: Exploring the Brain, 4th ed., Figure 19.5。</div><p>所以 EEG 里有一个特别重要的关键词：<strong>同步。</strong></p><p><strong>并不是神经元数量越多，EEG 一定越大；真正重要的是这些神经元活动在时间上是否一致、空间排列是否适合叠加，以及它们离头皮有多远、方向是否有利于被头皮电极观察到。</strong></p><p>这里可以想象一个体育场。</p><p>如果几万人同时聊天，场内当然很热闹，但站在体育场外面，你很难听清其中任何一个人的内容；可如果几万人突然在同一时间喊出同一句口号，哪怕每个人的声音并没有变大，远处一下子就能听见。</p><p>EEG 有一点像站在体育场外面的传感器。它很难告诉你其中某一个神经元刚才做了什么，但当足够多的神经元在相近时间发生方向相对一致的活动时，这种群体同步就有机会在远处留下可以测到的信号。</p><p>所以我觉得一句话特别适合放在这里：EEG 不太擅长告诉我们某一个神经元说了什么，它更擅长告诉我们一群神经元什么时候一起说话。</p><p><strong>我们平时看到的 α 节律、睡眠纺锤波、癫痫样放电，甚至很多 ERP，本质上都不是“某一个细胞特别厉害”，而是某一群神经元在某段时间里形成了足够明显的群体活动。</strong></p><img src="/74226585/14.webp"><h3 id="PART-04-好不容易形成的群体电场，还要穿过一整颗头"><a href="#PART-04-好不容易形成的群体电场，还要穿过一整颗头" class="headerlink" title="PART 04 好不容易形成的群体电场，还要穿过一整颗头"></a>PART 04 好不容易形成的群体电场，还要穿过一整颗头</h3><p>到这里，信号其实还没有到电极。</p><p>神经元群体产生的电活动，不是通过一根看不见的导线直接送到头皮，而是通过周围组织传播。脑组织、脑脊液、颅骨和头皮都具有一定的导电能力，因此皮层活动产生的电场可以向外传播，并最终影响头皮表面的电位分布。</p><p>这个过程叫做<strong>容积传导</strong>。</p><p>不同组织的导电特性不同，尤其颅骨的电导率相对较低，会明显改变电场向外传播的方式。因此，一个原本比较局部的皮层活动，到了头皮以后，往往已经变得更加平滑、更加分散。</p><p>这里可以用一个比较接近实际感觉的比喻：像隔着几层磨砂玻璃去看一盏小灯。</p><p>灯还在那里，但经过几层介质以后，最后看到的已经不再是一个边界特别清楚的小光点，而是一片更宽、更模糊的亮区。</p><p>皮层电活动传播到头皮也有类似的效果。</p><p>这也解释了 EEG 入门里一个特别重要的认识：<strong>某个头皮电极出现明显波形，并不代表这个信号就来自它正下方那一小块皮层。</strong></p><p>比如 C3 电极上看到明显变化，并不能直接写成“C3 正下方皮层活动增强”。同一个脑源可能同时影响多个头皮电极，多个脑源的活动也可能同时混合在同一个头皮电极上。</p><p><strong>所以头皮 EEG 从来不是“一根电极对应一小块脑区”的简单地图。</strong></p><p>这件事一开始可能让人觉得麻烦，但后面很多知识其实都从这里长出来：为什么要做源定位，为什么电极密度会影响空间信息，为什么深部脑源更难在头皮形成清晰分布，也为什么头皮上的峰值位置不能直接等同于真正的脑源位置。</p><p>容积传导本身并不是一个需要“消除”的错误，它就是头皮 EEG 能够存在的物理基础。只不过我们必须知道，它同时也让空间定位变得没那么直接。</p><h3 id="PART-05-最后电极真正测到的，其实只是“这里和那里差多少”"><a href="#PART-05-最后电极真正测到的，其实只是“这里和那里差多少”" class="headerlink" title="PART 05 最后电极真正测到的，其实只是“这里和那里差多少”"></a>PART 05 最后电极真正测到的，其实只是“这里和那里差多少”</h3><p>走到这里，终于来到头皮电极。</p><p>但还有最后一个特别容易被忽略的问题。</p><p>很多人看脑电软件时，会自然理解成：C3 是多少微伏。Fz 是多少微伏。Oz 是多少微伏。</p><p>严格一点说，一个 EEG 通道并不是在测“这个位置自己的电压”，而是在测<strong>两个位置之间的电位差。</strong></p><p>比如：C3 - Reference</p><p>真正表达的是：C3 这个位置，相对于参考位置的电位差是多少。</p><p>所以 EEG 从一开始就是一个“比较值”。</p><p>这也是为什么参考电极非常重要。参考方式一换，很多通道的波形都会跟着发生变化，因为你重新定义了“拿谁来比较”。</p><p>如果以后看到同一段数据换参考以后波形变了，不用觉得奇怪。</p><p><strong>并不是大脑突然变了，而是比较基准变了。</strong></p><p>所以电极最后交给放大器的，并不是“大脑在 C3 产生了 20 μV 的电”，而是两个输入位置之间那一点非常微弱的电位差。放大器再把这个几十微伏量级的差异放大、数字化，最终才变成电脑里的 EEG 曲线。</p><p>这个简单差值背后，已经站着一整条很长的生理链。</p><h3 id="PART-06-再回头看屏幕上的那条波形"><a href="#PART-06-再回头看屏幕上的那条波形" class="headerlink" title="PART 06 再回头看屏幕上的那条波形"></a>PART 06 再回头看屏幕上的那条波形</h3><p>如果现在重新坐回脑电设备前，看着屏幕里的波形，理解应该已经和刚开始有一点不一样了。</p><p>它的起点，是神经元膜两侧带电离子的分布。离子通道开放以后，膜电位发生变化；神经元之间的突触输入又形成各种突触后电位。当大量排列相对一致的神经元在相近时间发生活动时，许多微弱的跨膜电流有机会叠加成群体电场；这个电场继续经过脑组织、脑脊液、颅骨和头皮传播，在头皮形成一片比较平滑的电位分布。最后，电极选择其中两个位置进行比较，放大器把这个微小的差值变成数字，电脑才终于画出我们熟悉的 EEG 波形。</p><img src="/74226585/21.webp"><p>所以屏幕上的几十微伏，不是一个神经元，不是一发动作电位，也不能简单理解成某一块脑区的“直接输出”。</p><p>它更像是：<strong>大量神经元群体活动，经过一整颗头以后，在头皮留下的一种远场结果。</strong></p><p>我一直觉得，EEG 入门第一讲不应该急着背 α、β、θ、δ。频段当然重要，ERP 也重要，后面的滤波、源定位和机器学习都很重要，但如果连手里的信号是什么都没想明白，后面的算法越复杂，反而越容易产生一种错觉：好像只要处理得足够漂亮，我们就能直接看到大脑里发生的一切。</p><p>EEG 没有这么神，但它也没有因此变得没用。</p><p>恰恰相反，这几十微伏之所以有价值，就是因为它虽然已经经过层层传播和混合，却仍然保留着神经元群体活动的时间信息和空间线索。</p><p>所以这一讲如果最后只留下两个认识，我觉得就够了：</p><ol><li><strong>EEG 不是动作电位的合集，它主要和大量神经元同步的突触后电流有关。</strong></li><li><strong>EEG 最终记录的是头皮不同位置之间的电位差，而不是某一个电极下面那块脑组织自己的“电压”。</strong></li></ol><p>这两个概念先立住，后面再去理解参考、电极位置、频谱、ERP 和源定位，会顺很多。因为从这一刻开始，我们已经知道，手里的这条波形究竟是怎么来的。</p><hr><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/MuXOkgn2fZ9MTIob7weL3A">https://mp.weixin.qq.com/s/MuXOkgn2fZ9MTIob7weL3A</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/77fb4643.html" rel="prev" title="PAPER REVIEW · 第006期 为什么"有点抢拍"的鼓点最让你想动？Frontiers in Human Neuroscience 2026 论文的硬核解读"> <i class="fa fa-chevron-left"></i> PAPER REVIEW · 第006期 为什么"有点抢拍"的鼓点最让你想动？Frontiers in Human Neuroscience 2026 论文的硬核解读</div><div class="post-nav-item"><a href="/3e2e3097.html" rel="next" title="PAPER REVIEW · 第007期 AI音乐能把你"送"到平静吗？"快乐"只用了 2 分钟，"平静"走了 4 分钟 · 一篇 IEEE TAFFC 2026论文的硬核解读"> PAPER REVIEW · 第007期 AI音乐能把你"送"到平静吗？"快乐"只用了 2 分钟，"平静"走了 4 分钟 · 一篇 IEEE TAFFC 2026论文的硬核解读 <i class="fa fa-chevron-right"></i></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#PART-01-%E7%A5%9E%E7%BB%8F%E5%85%83%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E2%80%9C%E7%94%B5%E2%80%9D%EF%BC%9F%E5%85%88%E4%BB%8E%E8%86%9C%E4%B8%A4%E8%BE%B9%E7%9A%84%E7%A6%BB%E5%AD%90%E5%BC%80%E5%A7%8B"><span class="nav-number">1.</span> <span class="nav-text">PART 01 神经元为什么会有“电”？先从膜两边的离子开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PART-02-%E5%8A%A8%E4%BD%9C%E7%94%B5%E4%BD%8D%E5%BE%88%E6%98%BE%E7%9C%BC%EF%BC%8C%E4%BD%86%E5%A4%B4%E7%9A%AE-EEG-%E4%B8%BB%E8%A6%81%E4%B8%8D%E6%98%AF%E5%9C%A8%E2%80%9C%E6%95%B0%E5%8A%A8%E4%BD%9C%E7%94%B5%E4%BD%8D%E2%80%9D"><span class="nav-number">2.</span> <span class="nav-text">PART 02 动作电位很显眼，但头皮 EEG 主要不是在“数动作电位”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PART-03-%E4%B8%80%E4%B8%AA%E7%A5%9E%E7%BB%8F%E5%85%83%E5%A4%AA%E5%B0%8F%E4%BA%86%EF%BC%8CEEG-%E7%9C%9F%E6%AD%A3%E7%9C%8B%E7%9A%84%E6%98%AF%E2%80%9C%E7%BE%A4%E4%BD%93%E6%B4%BB%E5%8A%A8%E2%80%9D"><span class="nav-number">3.</span> <span class="nav-text">PART 03 一个神经元太小了，EEG 真正看的是“群体活动”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PART-04-%E5%A5%BD%E4%B8%8D%E5%AE%B9%E6%98%93%E5%BD%A2%E6%88%90%E7%9A%84%E7%BE%A4%E4%BD%93%E7%94%B5%E5%9C%BA%EF%BC%8C%E8%BF%98%E8%A6%81%E7%A9%BF%E8%BF%87%E4%B8%80%E6%95%B4%E9%A2%97%E5%A4%B4"><span class="nav-number">4.</span> <span class="nav-text">PART 04 好不容易形成的群体电场，还要穿过一整颗头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PART-05-%E6%9C%80%E5%90%8E%E7%94%B5%E6%9E%81%E7%9C%9F%E6%AD%A3%E6%B5%8B%E5%88%B0%E7%9A%84%EF%BC%8C%E5%85%B6%E5%AE%9E%E5%8F%AA%E6%98%AF%E2%80%9C%E8%BF%99%E9%87%8C%E5%92%8C%E9%82%A3%E9%87%8C%E5%B7%AE%E5%A4%9A%E5%B0%91%E2%80%9D"><span class="nav-number">5.</span> <span class="nav-text">PART 05 最后电极真正测到的，其实只是“这里和那里差多少”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PART-06-%E5%86%8D%E5%9B%9E%E5%A4%B4%E7%9C%8B%E5%B1%8F%E5%B9%95%E4%B8%8A%E7%9A%84%E9%82%A3%E6%9D%A1%E6%B3%A2%E5%BD%A2"><span class="nav-number">6.</span> <span class="nav-text">PART 06 再回头看屏幕上的那条波形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">7.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1567</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">41</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">10.3m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">429:28</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/assets/haru02.model.json"},display:{position:"right",width:208,height:520},mobile:{show:!1},log:!1})</script></body></html>

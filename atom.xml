@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>逢坂葵的个人博客</title>
+  
+  <subtitle>aoi学院</subtitle>
+  <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://aisakaaoi.github.io/"/>
+  <updated>2026-10-19T17:52:38.273Z</updated>
+  <id>https://aisakaaoi.github.io/</id>
+  
+  <author>
+    <name>Aisaka Aoi</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nature：如何写出高影响力的论文？9个要素，附AI自查提示词</title>
+    <link href="https://aisakaaoi.github.io/b157366e.html"/>
+    <id>https://aisakaaoi.github.io/b157366e.html</id>
+    <published>2026-10-19T04:04:00.000Z</published>
+    <updated>2026-10-19T17:52:38.273Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近，我读到Nature职业专栏（Career Column）的一篇文章，题目是《Essential elements for high-impact scientific writing》，可以翻译为《写出高影响力科研论文的基本要素》，作者是Eric J. Buenz。这个专栏来自Nature职业社区，是科研人员分享职业经验和建议的地方。&lt;/p&gt;
+&lt;img src=&quot;/b157366e/1.webp&quot; class=&quot;&quot;&gt;
+&lt;p&gt;文章不长，一共只有9条建议，但读完以后，有一句话让我特别有共鸣：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;“花了几个月甚至几年收集的数据，值得配上漂亮的图。”&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;「原文：Data collected over months or years deserve beautiful figures.」&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我自己审论文的时候，其实也是“竖着”看的：先看摘要，然后直接去看图。如果摘要和图让我觉得这项研究有意思，我才会回过头，很详细地去读正文。作者在文章里也提到了同样的阅读习惯：很多人快速扫一眼摘要以后，就会直接去看数据和图表。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;也就是说，你花了几年做的研究，能不能被认真读完，很大程度上取决于摘要和图给人的第一印象。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我觉得这篇文章对正在写论文、准备投稿的硕博研究生和老师都很有帮助。所以今天，拆解这篇论文，分享给大家。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;说明：&lt;/strong&gt; 9条建议来自原文，分组方式和提示词是我整理的。这篇文章发表于2019年，当时还没有今天这样的AI写作工具，提示词部分是我补充的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&quot;/b157366e/2.webp&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐学术杂谈" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E5%AD%A6%E6%9C%AF%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何用AI高效找文献、读文献？我的4步工作流</title>
+    <link href="https://aisakaaoi.github.io/57184b6d.html"/>
+    <id>https://aisakaaoi.github.io/57184b6d.html</id>
+    <published>2026-10-18T10:34:00.000Z</published>
+    <updated>2026-10-19T17:50:41.437Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;用AI之前和用AI之后，我找文献、读文献的方法，几乎完全不一样了。&lt;/p&gt;
+&lt;p&gt;我自己评估下来， &lt;strong&gt;用AI检索和阅读文献，效率比以前提升了十几倍。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;回想以前，最卡我时间的地方主要有两个。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一个，是检索文献。&lt;/strong&gt; 检索英文文献的时候，我需要不断地把中文关键词翻译成英文，还要换着不同的说法反复搜。而且要用好几个数据库：先在国内的数据库里检索中文论文，再去国外的数据库检索英文论文。一圈下来，时间就过去了大半。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第二个，是翻译论文。&lt;/strong&gt; 英文论文我读得比较慢。在有AI之前，我用得最多的翻译工具是DeepL，一段一段复制过去翻译，再回到原文对照着看。&lt;/p&gt;
+&lt;p&gt;现在有了AI以后，我发现无论是文献检索，还是文献阅读，速度都有了非常大的提升。&lt;/p&gt;
+&lt;p&gt;先给大家看看我工作的「硬件」。用了扩展屏以后，感觉看文献舒服很多，左侧是英文原文、中间是翻译的中文、再右侧是可以聊天的 AI。如果 AI 干活儿慢了，我可以低头用笔记本干其它活儿。&lt;/p&gt;
+&lt;img src=&quot;/57184b6d/1.webp&quot; class=&quot;&quot;&gt;
+&lt;p&gt;展示完我的「硬件」后，下来分享我的AI 辅助下的工作流程。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐学术杂谈" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E5%AD%A6%E6%9C%AF%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>团队潘家辉教授入选ScholarGPS全球前0.05%顶尖学者榜单</title>
+    <link href="https://aisakaaoi.github.io/ce3dec96.html"/>
+    <id>https://aisakaaoi.github.io/ce3dec96.html</id>
+    <published>2026-10-17T01:00:00.000Z</published>
+    <updated>2026-10-17T19:55:14.661Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;近日，国际学术评价机构ScholarGPS发布了全球前0.05%顶尖学者榜单（Highly Ranked Scholars）。团队潘家辉教授入选近五年顶尖学者榜单（Prior 5 Years），在脑电（EEG）研究领域位列全球第16位，跻身全球前0.05%顶尖科学家行列。&lt;/p&gt;
+&lt;img src=&quot;/ce3dec96/1.webp&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫团队成果" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%9B%A2%E9%98%9F%E6%88%90%E6%9E%9C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>为什么神经调控的新技术，总爱先找初级运动皮层？</title>
+    <link href="https://aisakaaoi.github.io/c313ab90.html"/>
+    <id>https://aisakaaoi.github.io/c313ab90.html</id>
+    <published>2026-10-16T01:28:55.000Z</published>
+    <updated>2026-10-21T00:32:19.645Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;带新人看神经调控论文，经常会碰到一个熟面孔：初级运动皮层，M1。&lt;/p&gt;
+&lt;p&gt;TMS 做它，经颅超声也做它。大脑有那么多值得研究的地方，为什么大家总爱先找这块区域？&lt;/p&gt;
+&lt;p&gt;原因其实很朴素：&lt;strong&gt;刺激之后，它比较容易给你一个能测量的回应。&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫基础知识" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Nature：写论文用AI，哪些能用、哪些不能碰？附声明模板</title>
+    <link href="https://aisakaaoi.github.io/2b60bc92.html"/>
+    <id>https://aisakaaoi.github.io/2b60bc92.html</id>
+    <published>2026-10-15T07:32:00.000Z</published>
+    <updated>2026-10-19T17:49:18.272Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;先问大家一个问题：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;让AI把你的论文大段润色一遍，算不算“安全用法”？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我猜很多同学会说：当然算，又没让它编数据。&lt;/p&gt;
+&lt;p&gt;但按照Nature Portfolio现在的AI政策，“大幅度的文字编辑和写作支持”被放在了 &lt;strong&gt;黄灯，&lt;/strong&gt; 也就是“可以用，但要谨慎、要核查、要声明”的那一档。&lt;/p&gt;
+&lt;p&gt;最近我把三份材料放在一起读了一遍：一篇是 _Nature Methods_ 2026年2月的社论《Using AI responsibly in scientific publishing》，一份是Nature Portfolio的AI编辑政策，还有一份是Nature Portfolio的审稿人指南。为了核对科研图像和声明写法的细节，我又补看了Springer Nature关于稿件准备中使用AI的说明。&lt;/p&gt;
+&lt;p&gt;读完以后，我最大的感受是：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;期刊并不关心你用的是ChatGPT、Claude、YILA还是别的工具，它关心的是AI在你的研究里做了什么。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;材料链接都放在文末，建议感兴趣的老师和同学对照原文看。&lt;/p&gt;
+&lt;img src=&quot;/2b60bc92/1.webp&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐学术杂谈" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E5%AD%A6%E6%9C%AF%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>IJCAI 2026 | 何时适应、如何适应：在线EEG解码中的被试变化检测与原型引导校正</title>
+    <link href="https://aisakaaoi.github.io/9d48e962.html"/>
+    <id>https://aisakaaoi.github.io/9d48e962.html</id>
+    <published>2026-10-15T01:00:00.000Z</published>
+    <updated>2026-10-18T18:02:33.903Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/9d48e962/1.webp&quot; class=&quot;&quot;&gt;
+&lt;p&gt;该论文发表于 International Joint Conference on Artificial Intelligence（IJCAI 2026），题目为《When and How to Adapt: Subject Shifts Detection and Prototype-Guided Correction for Online EEG Decoding》。&lt;/p&gt;
+&lt;p&gt;北京交通大学计算机科学与技术学院硕士研究生张绍琪为此文第一作者。北京交通大学计算机科学与技术学院王晶教授为此文通讯作者。&lt;/p&gt;
+&lt;p&gt;论文链接：&lt;a href=&quot;https://doi.org/10.24963/ijcai.2026/418&quot;&gt;https://doi.org/10.24963/ijcai.2026/418&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Pattern Recognition | 面向跨被试内隐言语识别的三维时空注意力机制</title>
+    <link href="https://aisakaaoi.github.io/f57036fe.html"/>
+    <id>https://aisakaaoi.github.io/f57036fe.html</id>
+    <published>2026-10-15T01:00:00.000Z</published>
+    <updated>2026-10-18T18:02:33.972Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/f57036fe/1.webp&quot; class=&quot;&quot;&gt;
+&lt;p&gt;该论文发表于 Pattern Recognition（中科院1区，IF：9.1），题目为《3D spatiotemporal attention for cross-subject inner speech recognition》。&lt;/p&gt;
+&lt;p&gt;北京科技大学博士研究生吴凌宇和加州大学圣地亚哥分校钟子平(Tzyy-Ping Jung) 教授为本文共同第一作者，北京科技大学文冬教授为本文通讯作者。&lt;/p&gt;
+&lt;p&gt;论文链接：&lt;a href=&quot;https://doi.org/10.1016/j.patcog.2026.114134&quot;&gt;https://doi.org/10.1016/j.patcog.2026.114134&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>导师与我下午茶 | 一路山海，一路选择——导师海外岁月与人生规划分享</title>
+    <link href="https://aisakaaoi.github.io/34ac773f.html"/>
+    <id>https://aisakaaoi.github.io/34ac773f.html</id>
+    <published>2026-10-15T01:00:00.000Z</published>
+    <updated>2026-10-18T18:02:34.064Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/34ac773f/0.webp&quot; class=&quot;&quot;&gt;
+&lt;p&gt;为增进导师与同学们的交流，帮助同学们拓宽国际视野、做好学业与职业规划，脑机交互与混合智能团队于2026年10月14日上午9:00在工科楼343举办了”导师与我下午茶”（上午特别场）活动。本期活动以”一路山海，一路选择——导师海外岁月与人生规划分享”为主题，邀请周成菊老师和石渐蔚老师担任主讲嘉宾，梁艳老师担任特别嘉宾，与同学们围坐一堂，边吃边聊，在轻松愉悦的氛围中，共话海外求学经历，畅谈人生选择智慧。&lt;/p&gt;
+&lt;p&gt;活动伊始，梁艳老师首先介绍了本次活动的背景和初衷，并以一句话为引：”让世界成为你认知的一部分。认知的边界，就是你脚步的边界。你走多远，你的世界就有多大。”由此拉开了本次活动的帷幕。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫团队动态" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%9B%A2%E9%98%9F%E5%8A%A8%E6%80%81/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>头部阵容就位！强脑/微灵/翔宇/华南脑控/脑思/神芯/中科先见/诺尔康/明视/聚芯等齐聚10 .28-29深圳脑机植介入大会</title>
+    <link href="https://aisakaaoi.github.io/b860a7bf.html"/>
+    <id>https://aisakaaoi.github.io/b860a7bf.html</id>
+    <published>2026-10-13T01:52:00.000Z</published>
+    <updated>2026-10-18T19:03:33.558Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/b860a7bf/0.webp&quot; class=&quot;&quot;&gt;
+&lt;p&gt;国产植介入创新力量，重磅集结深圳！迈瑞医疗、威高集团、聚芯医疗、艾柯医疗、强脑科技、微灵医疗、锦波生物、创尔生物等行业大牌企业确认参会，共赴 10 月深圳植介入医疗科技大会。&lt;/p&gt;
+&lt;p&gt;本篇一次性整合大会全套核心资料， &lt;strong&gt;包含完整日程安排、行业大咖阵容、观众观展指引、展商服务细则、酒店平面总图&lt;/strong&gt; 观展、参展所需全部信息一目了然，建议收藏备用！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫新闻" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>给大脑敲敲门：TMS-EEG在意识障碍病房的这些年</title>
+    <link href="https://aisakaaoi.github.io/2778352d.html"/>
+    <id>https://aisakaaoi.github.io/2778352d.html</id>
+    <published>2026-10-12T02:00:00.000Z</published>
+    <updated>2026-10-21T00:22:06.680Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在意识障碍病房，家属常会问：“他听见我们说话了吗？”医生很难凭一次眨眼作答，也不能把没有动作当作没有感受。&lt;/p&gt;
+&lt;p&gt;行为检查需要患者把内部状态变成眼神、动作或语言；从听见指令到做出回应，中间任何一环出了问题，床边就可能等不到答案。&lt;/p&gt;
+&lt;p&gt;研究者于是想换个问法：先不请患者回应，给大脑一个刺激，看看它自己能做些什么。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫基础知识" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>独立成分分析：读懂 EEG 中的 ICA 算法</title>
+    <link href="https://aisakaaoi.github.io/68a71e5a.html"/>
+    <id>https://aisakaaoi.github.io/68a71e5a.html</id>
+    <published>2026-10-09T03:40:00.000Z</published>
+    <updated>2026-10-19T20:03:36.125Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h3&gt;&lt;p&gt;当我们用 EEG（脑电图）记录大脑活动时，很多人会下意识地认为：&lt;/p&gt;
+&lt;p&gt;电极采集到的信号，应该都是脑电信号。&lt;/p&gt;
+&lt;p&gt;但现实并不是这样。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;一次眨眼、一次皱眉、一次轻微的咬牙，甚至一次心跳，都可能在 EEG 中留下明显的痕迹&lt;/strong&gt;。也就是说，电极记录到的并不只是”脑”的活动，而是多种信号混合在一起后的结果。&lt;/p&gt;
+&lt;p&gt;这就引出了一个非常实际的问题：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有没有一种方法，能够把这些混合在一起的信号拆开，尽可能分离出真正有用的脑电活动，并&lt;strong&gt;识别出眼电、肌电等干扰&lt;/strong&gt;？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;答案就是：ICA（Independent Component Analysis，独立成分分析）。&lt;/p&gt;
+&lt;p&gt;它是 EEG 预处理中非常经典的一种方法，尤其常用于伪迹识别与去除。&lt;/p&gt;
+&lt;img src=&quot;/68a71e5a/1.webp&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫基础知识" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>新增报告嘉宾！扬州具身智能与人机交互会议，邀您分享优秀成果！</title>
+    <link href="https://aisakaaoi.github.io/5f6859e1.html"/>
+    <id>https://aisakaaoi.github.io/5f6859e1.html</id>
+    <published>2026-10-08T05:52:00.000Z</published>
+    <updated>2026-10-18T02:40:43.528Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img src=&quot;/5f6859e1/1.webp&quot; class=&quot;&quot;&gt;
+&lt;img src=&quot;/5f6859e1/2.webp&quot; class=&quot;&quot;&gt;
+&lt;img src=&quot;/5f6859e1/3.webp&quot; class=&quot;&quot;&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;原文链接&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫新闻" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Imaging Neuroscience · 京都大学 · 同一批学琴的老人，继续练琴or改打乒乓球，四年后大脑分出了样子</title>
+    <link href="https://aisakaaoi.github.io/d1f9c1e5.html"/>
+    <id>https://aisakaaoi.github.io/d1f9c1e5.html</id>
+    <published>2026-10-07T04:00:00.000Z</published>
+    <updated>2026-10-15T20:36:33.333Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/d1f9c1e5/0.webp&quot; class=&quot;&quot;&gt;
+&lt;h3 id=&quot;📋-一分钟版&quot;&gt;&lt;a href=&quot;#📋-一分钟版&quot; class=&quot;headerlink&quot; title=&quot;📋 一分钟版&quot;&gt;&lt;/a&gt;📋 一分钟版&lt;/h3&gt;&lt;p&gt;2018 年，京都一家老年福利中心开了个口风琴班，一批从没摸过乐器的老人学会了识谱和演奏。项目结束后，有人留下来组了俱乐部，每周练琴、每年登台；有人退出去改打乒乓球、做体操。&lt;strong&gt;4 年后，京都大学团队把 32 位老人召回实验室重新扫描——两组的大脑，分出了样子。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;继续练琴的老人：言语工作记忆 4 年&lt;strong&gt;没有下降&lt;/strong&gt;（停止组掉了 0.5 个标准差），右侧壳核灰质&lt;strong&gt;没有萎缩&lt;/strong&gt;（停止组显著萎缩），小脑做任务时更「省力」。但要说清楚：这不是随机对照试验，两组都是自己选的路——&lt;strong&gt;它是迄今最强的观察性证据，仍不是最终判决。&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一张脑网络图出来之前：Mohawk静息态EEG怎么跑？</title>
+    <link href="https://aisakaaoi.github.io/82d9be96.html"/>
+    <id>https://aisakaaoi.github.io/82d9be96.html</id>
+    <published>2026-10-06T10:27:09.000Z</published>
+    <updated>2026-10-21T00:18:04.647Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;第一次带新人跑 MOHAWK，我通常会先让他看一会儿波形：哪几段被动作弄乱了，哪些导联从头到尾都不大对劲，心里先有个数。等最后那张彩色脑网络图出来，才知道它有几分可信。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MOHAWK 是 Srivas Chennu 开发、以 MATLAB App 形式发布的开源 EEG 分析工具，主要用于重度脑损伤与意识障碍患者的床旁静息态 EEG 分析。&lt;/strong&gt;它把数据清理、功率谱、功能连接和脑网络计算串在一起，让一段段波形变成可以比较的量化线索。&lt;/p&gt;
+&lt;p&gt;软件与源代码见 MOHAWK 官方项目，相关研究见 Chennu 等 2017 年发表于《Brain》 的论文；本文的具体操作和截图，依据 Rajanikant Panda、Paul Hollanders 整理的《EEG Preprocessing and Mohawk Connectivity Analysis》手册。&lt;/p&gt;
+&lt;p&gt;流程跑起来不算复杂，但每走到一个需要人点头的地方，我都建议慢一点：坏导联有没有挑对，ICA 有没有把有用的脑信号一并删掉，最后还剩多少段可用数据？滤波和计算能交给程序，这些取舍和报告里的解释仍要人来做。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫基础知识" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>斯坦福大学Wu Tsai神经科学研究所：音乐节奏为经颅磁刺激（TMS）精准导航</title>
+    <link href="https://aisakaaoi.github.io/572e9524.html"/>
+    <id>https://aisakaaoi.github.io/572e9524.html</id>
+    <published>2026-10-06T04:00:00.000Z</published>
+    <updated>2026-10-15T20:38:31.573Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/572e9524/0.webp&quot; class=&quot;&quot;&gt;
+&lt;h3 id=&quot;📋-一分钟版&quot;&gt;&lt;a href=&quot;#📋-一分钟版&quot; class=&quot;headerlink&quot; title=&quot;📋 一分钟版&quot;&gt;&lt;/a&gt;📋 一分钟版&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;经颅磁刺激（TMS）&lt;/strong&gt;是研究大脑、治疗抑郁的重要工具，但有个老毛病：同一个位置、同一个强度，刺激效果忽大忽小。斯坦福大学 Wu Tsai 神经科学研究所的团队想了个聪明的办法——&lt;strong&gt;先放音乐，让大脑运动皮层跟着节拍「起舞」，再把磁脉冲精确打在节拍前约 0.2 秒的「大脑兴奋窗口」里。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;结果：肌肉反应平均增强&lt;strong&gt;77%&lt;/strong&gt;，19 名被试里 18 人有效；关键的是，对照条件用的是同一首歌、只改变脉冲时机——&lt;strong&gt;排除了「音乐本身有效」的解释，起作用的是「时机」&lt;/strong&gt;。而且效果与你是否懂音乐完全无关。这项技术叫 seTMS，成本几乎为零，下一步瞄准的是让 TMS 治疗抑郁、慢性疼痛更稳定。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>教师们的教学科研AI搭子（第二期）</title>
+    <link href="https://aisakaaoi.github.io/c2a57e87.html"/>
+    <id>https://aisakaaoi.github.io/c2a57e87.html</id>
+    <published>2026-10-05T05:20:00.000Z</published>
+    <updated>2026-10-19T17:42:57.118Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;9月份写完第一期以后，我一直在想：第二期写什么呢？&lt;/p&gt;
+&lt;p&gt;这个问题拖了挺久。直到前段时间，我发了一篇关于国自然项目数据的文章，阅读量接近10万。&lt;/p&gt;
+&lt;p&gt;于是，第二期的主题也有了： &lt;strong&gt;AI在课题申报中，能帮我们做些什么？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;先说说我自己的经历。过去十多年里，我只侥幸承担过一个教育部项目的一个课题负责人。但是多次申报过国社科和国自然败北。面对很低的中标概率，再想到每次准备申请都要花一两个月，后来就没有再继续申报。&lt;/p&gt;
+&lt;p&gt;直到今年国自然项目的一个比较大的变化：青年科学基金（C类）新增资助项目12046项，面上项目新增3400项。再加上现在有 AI，检索资料、整理文献、制作图表这些环节，能省下不少时间。我觉得可以再试试了。&lt;/p&gt;
+&lt;p&gt;今天就和大家分享几个我认为 AI 能帮课题申报提效的场景。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐学术杂谈" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E5%AD%A6%E6%9C%AF%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>音乐训练让听觉脑干编码更强 · 一项被引1900次的音乐脑发现，被296人的重测推翻了</title>
+    <link href="https://aisakaaoi.github.io/ebd66662.html"/>
+    <id>https://aisakaaoi.github.io/ebd66662.html</id>
+    <published>2026-10-05T04:00:00.000Z</published>
+    <updated>2026-10-15T20:36:33.330Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/ebd66662/0.webp&quot; class=&quot;&quot;&gt;
+&lt;h3 id=&quot;📋-一分钟版&quot;&gt;&lt;a href=&quot;#📋-一分钟版&quot; class=&quot;headerlink&quot; title=&quot;📋 一分钟版&quot;&gt;&lt;/a&gt;📋 一分钟版&lt;/h3&gt;&lt;p&gt;「学音乐的孩子，听觉脑干对声音的编码更强」——这条被写进教科书的话，建立在两篇被引合计&lt;strong&gt;1904 次&lt;/strong&gt;的明星研究上。2025 年，明尼苏达大学联合波士顿大学、罗切斯特大学伊斯曼音乐学院、普渡大学、西安大略大学、卡内基梅隆大学，用&lt;strong&gt;6 个实验室、296 名被试、预注册方案&lt;/strong&gt;把它重测了一遍：&lt;strong&gt;五项直接复现分析，全部失败&lt;/strong&gt;。原研究里动辄 d≈1 的大效应，在新数据里缩到了 0.01–0.22。&lt;/p&gt;
+&lt;p&gt;有意思的是对照组：同一批被试里，乐手的旋律辨别力确实显著更强（d = 1.63）——说明测量没坏、分组没错，坏掉的是那条「神经证据」。作者的态度同样值得抄下来：这不妨碍学音乐值得，社交联结、情绪调节、音乐本身的快乐，从来不需要「变聪明」来撑腰。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>文化覆盖面正在成为 AI 音乐产品的隐形竞争力，谁先解决&quot;非西方流派的生成质量&quot;，谁就拿到几十亿潜在用户的母语级体验</title>
+    <link href="https://aisakaaoi.github.io/e224f.html"/>
+    <id>https://aisakaaoi.github.io/e224f.html</id>
+    <published>2026-10-04T04:00:00.000Z</published>
+    <updated>2026-10-15T20:36:33.329Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/e224f/0.webp&quot; class=&quot;&quot;&gt;
+&lt;h3 id=&quot;📋-一分钟版&quot;&gt;&lt;a href=&quot;#📋-一分钟版&quot; class=&quot;headerlink&quot; title=&quot;📋 一分钟版&quot;&gt;&lt;/a&gt;📋 一分钟版&lt;/h3&gt;&lt;p&gt;让 Suno 或 Udio 写一首爵士、一首乡村，它毫不费力；让它写一首印度斯坦古典或土耳其 Makam，它多半会用西方的调性和节奏”假装”一下。阿布扎比穆罕默德·本·扎耶德人工智能大学（MBZUAI）发表在 NAACL 2025 的研究给出了病根：&lt;strong&gt;现有音乐生成数据集约 94% 的时长来自西方音乐，留给南亚、中东、大洋洲、中亚、拉美与非洲的合计只有 5.7%&lt;/strong&gt;——欧洲音乐超过 6000 小时，非洲音乐只有 28 小时。&lt;/p&gt;
+&lt;p&gt;好消息是补救比想象中便宜：给 MusicGen、Mustango 这两个开源模型挂上只占参数量&lt;strong&gt;0.1%&lt;/strong&gt;的”适配器”，用小数据微调，印度斯坦古典的生成质量在 ELO 评分上提升 8%，土耳其 Makam 提升 4%。但作者的结论很清醒：&lt;strong&gt;微调不是万灵药，数据偏见才是根。&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫学习报告" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>博睿康的440页答卷：107个监管之问，一张脑机接口产业“全身体检”</title>
+    <link href="https://aisakaaoi.github.io/3ca746f7.html"/>
+    <id>https://aisakaaoi.github.io/3ca746f7.html</id>
+    <published>2026-10-04T03:33:00.000Z</published>
+    <updated>2026-10-18T18:58:59.004Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;博睿康的440页答卷：&lt;/strong&gt; &lt;strong&gt;107个监管之问，一张脑机接口产业”全身体检”&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;全球首款获批上市的侵入式脑机接口医疗器械背后，公司被问了107个问题——技术先进性、临床有效性、商业化路径、财务真实性、治理规范性，一份问询回复，就是一张脑机接口企业的”上市体检表”。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫新闻" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Nature：科研人如何选择适合自己的AI工具？</title>
+    <link href="https://aisakaaoi.github.io/9b8117b8.html"/>
+    <id>https://aisakaaoi.github.io/9b8117b8.html</id>
+    <published>2026-10-03T09:59:00.000Z</published>
+    <updated>2026-10-19T17:39:51.285Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;现在的科研 AI 工具，真的太多了。&lt;/p&gt;
+&lt;p&gt;ChatGPT、Claude、Gemini、Codex、YILA、WorkBuddy……小红书和公众号上，也经常有人整理“科研人必备的20款AI工具”。&lt;/p&gt;
+&lt;p&gt;工具清单看得越多，很多人反而越不知道应该怎么选。&lt;/p&gt;
+&lt;p&gt;今天，我读到了一篇非常好的文章，网页标题是《AI for research: the ultimate guide to choosing the right tool》，可以翻译为《科研AI：如何选择合适的工具》；它在 _Nature_ 印刷版中的标题则更加直接——《为科研任务选择合适的AI工具》。&lt;/p&gt;
+&lt;p&gt;文章发表在 _Nature_ 作者 Amanda Heidt 采访了多位博士生、科研人员和 AI 产品开发者，集中回答了一个问题： &lt;strong&gt;科研人员究竟应该怎样把AI放进真实的研究流程？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我觉得这篇文章对于正在读硕博的同学和青年教师很有帮助。所以今天，我想带大家完整读一遍这篇文章。同时，在几个适合实操的环节，我也会用学术 Agent 跑一次真实任务，让大家看看这些方法落到具体工作中，究竟能做到什么程度。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
+    
+    <category term="⭐学术杂谈" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E5%AD%A6%E6%9C%AF%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+</feed>
