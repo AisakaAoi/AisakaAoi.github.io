@@ -6,7 +6,7 @@
   <link href="https://aisakaaoi.github.io/atom.xml" rel="self"/>
   
   <link href="https://aisakaaoi.github.io/"/>
-  <updated>2026-10-19T17:52:38.273Z</updated>
+  <updated>2026-10-21T15:27:00.309Z</updated>
   <id>https://aisakaaoi.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>广东省脑机接口产业发展白皮书及图谱发布</title>
+    <link href="https://aisakaaoi.github.io/cea5c738.html"/>
+    <id>https://aisakaaoi.github.io/cea5c738.html</id>
+    <published>2026-10-21T13:12:00.000Z</published>
+    <updated>2026-10-21T15:27:00.309Z</updated>
+    
+    
+    <summary type="html">&lt;img src=&quot;/cea5c738/1.webp&quot; class=&quot;&quot;&gt;
+&lt;p&gt;10月21日上午，在粤港澳大湾区国际脑机接口产业创新大会上，&lt;strong&gt;粤港澳大湾区脑机接口产业创新联盟正式发布《广东省脑机接口产业发展白皮书（2026版）》（下称“白皮书”）及科研、产业、市场、转化四大脑机接口图谱。&lt;/strong&gt;联盟理事长、琶洲实验室常务副主任李远清代表联盟发布成果，并向与会嘉宾介绍了白皮书内容。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="🌙进阶学习" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
+    
+    <category term="💫新闻" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Nature：如何写出高影响力的论文？9个要素，附AI自查提示词</title>
@@ -482,30 +504,6 @@
     <category term="⭐SCNU BCI团队" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/"/>
     
     <category term="💫新闻" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E6%96%B0%E9%97%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Nature：科研人如何选择适合自己的AI工具？</title>
-    <link href="https://aisakaaoi.github.io/9b8117b8.html"/>
-    <id>https://aisakaaoi.github.io/9b8117b8.html</id>
-    <published>2026-10-03T09:59:00.000Z</published>
-    <updated>2026-10-19T17:39:51.285Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;现在的科研 AI 工具，真的太多了。&lt;/p&gt;
-&lt;p&gt;ChatGPT、Claude、Gemini、Codex、YILA、WorkBuddy……小红书和公众号上，也经常有人整理“科研人必备的20款AI工具”。&lt;/p&gt;
-&lt;p&gt;工具清单看得越多，很多人反而越不知道应该怎么选。&lt;/p&gt;
-&lt;p&gt;今天，我读到了一篇非常好的文章，网页标题是《AI for research: the ultimate guide to choosing the right tool》，可以翻译为《科研AI：如何选择合适的工具》；它在 _Nature_ 印刷版中的标题则更加直接——《为科研任务选择合适的AI工具》。&lt;/p&gt;
-&lt;p&gt;文章发表在 _Nature_ 作者 Amanda Heidt 采访了多位博士生、科研人员和 AI 产品开发者，集中回答了一个问题： &lt;strong&gt;科研人员究竟应该怎样把AI放进真实的研究流程？&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;我觉得这篇文章对于正在读硕博的同学和青年教师很有帮助。所以今天，我想带大家完整读一遍这篇文章。同时，在几个适合实操的环节，我也会用学术 Agent 跑一次真实任务，让大家看看这些方法落到具体工作中，究竟能做到什么程度。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="🌙逢坂杂谈与搬运" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/"/>
-    
-    <category term="⭐学术杂谈" scheme="https://aisakaaoi.github.io/categories/%F0%9F%8C%99%E9%80%A2%E5%9D%82%E6%9D%82%E8%B0%88%E4%B8%8E%E6%90%AC%E8%BF%90/%E2%AD%90%E5%AD%A6%E6%9C%AF%E6%9D%82%E8%B0%88/"/>
     
     
   </entry>
