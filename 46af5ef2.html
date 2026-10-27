@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="《看得见的数学：从直觉到工程应用》· 第二篇 一段设备振动记录，在屏幕上通常是一条上下起伏的曲线。工程师想知道的是：最近是否多出了一种周期性振动？它随转速变化，还是一直停在某个频率？直接盯着波形，这些问题往往不容易回答。 问题有时不在于数据不足，而在于当前的表示没有让相关结构显现出来。这一篇从一段合成振动信号出发，观察傅里叶变换怎样改变我们的判断，再借设备维护中的文本检索，讨论词嵌入为什么也与“表"><meta property="og:type" content="article"><meta property="og:title" content="同一份信号，换个坐标看：从傅里叶变换到表示学习"><meta property="og:url" content="https://aisakaaoi.github.io/46af5ef2.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="《看得见的数学：从直觉到工程应用》· 第二篇 一段设备振动记录，在屏幕上通常是一条上下起伏的曲线。工程师想知道的是：最近是否多出了一种周期性振动？它随转速变化，还是一直停在某个频率？直接盯着波形，这些问题往往不容易回答。 问题有时不在于数据不足，而在于当前的表示没有让相关结构显现出来。这一篇从一段合成振动信号出发，观察傅里叶变换怎样改变我们的判断，再借设备维护中的文本检索，讨论词嵌入为什么也与“表"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/46af5ef2/1.webp"><meta property="og:image" content="https://aisakaaoi.github.io/46af5ef2/2.webp"><meta property="og:image" content="https://aisakaaoi.github.io/46af5ef2/3.webp"><meta property="og:image" content="https://aisakaaoi.github.io/46af5ef2/4.webp"><meta property="og:image" content="https://aisakaaoi.github.io/46af5ef2/5.webp"><meta property="article:published_time" content="2026-09-21T07:28:00.000Z"><meta property="article:modified_time" content="2026-10-22T10:01:26.469Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/46af5ef2/1.webp"><link rel="canonical" href="https://aisakaaoi.github.io/46af5ef2.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>同一份信号，换个坐标看：从傅里叶变换到表示学习 | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">57</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1764</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/46af5ef2.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">同一份信号，换个坐标看：从傅里叶变换到表示学习</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-09-21 15:28:00" itemprop="dateCreated datePublished" datetime="2026-09-21T15:28:00+08:00">2026-09-21</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">⭐人工智能 Artificial Intelligence</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">💫未分类</span></a> </span></span><span id="/46af5ef2.html" class="post-meta-item leancloud_visitors" data-flag-title="同一份信号，换个坐标看：从傅里叶变换到表示学习" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/46af5ef2.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/46af5ef2.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>6.4k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>16 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><p>《看得见的数学：从直觉到工程应用》· 第二篇</p><p>一段设备振动记录，在屏幕上通常是一条上下起伏的曲线。工程师想知道的是：最近是否多出了一种周期性振动？它随转速变化，还是一直停在某个频率？直接盯着波形，这些问题往往不容易回答。</p><p>问题有时不在于数据不足，而在于当前的表示没有让相关结构显现出来。这一篇从一段合成振动信号出发，观察傅里叶变换怎样改变我们的判断，再借设备维护中的文本检索，讨论词嵌入为什么也与“表示”有关。所有信号和词语计数都是教学构造，不对应某台设备的真实故障。</p><span id="more"></span><h3 id="一、同一段记录，可以回答不同的问题"><a href="#一、同一段记录，可以回答不同的问题" class="headerlink" title="一、同一段记录，可以回答不同的问题"></a>一、同一段记录，可以回答不同的问题</h3><p>假设每秒采集 512 个振动读数，连续记录 2 秒，得到 1024 个样本。我们人为叠加两个余弦分量：30 Hz、幅度 1；90 Hz、幅度 0.35，再加入标准差为 0.15 的高斯噪声。幅度使用任意单位，避免把教学信号误当作经过标定的加速度。</p><img src="/46af5ef2/1.webp"><div align="center">图1：同一段含噪振动信号的时域波形与单边幅度谱。</div><p>图 1｜左侧只展示最初 0.22 秒，以看清波形；右侧使用完整 2 秒记录。实际计算得到 30 Hz 和 90 Hz 附近的幅度约为 0.999 和 0.344。</p><p>左图适合观察某一时刻有没有突变、幅度是否突然增大。右图则更容易看出整段记录中有哪些周期成分。换成频域之后，我们没有获得新的传感器数据，只是把同一份记录组织成了另一组系数。</p><p>这一步改变了可以提出的工程问题：现在可以比较不同记录在某个频带上的变化。但图中的 90 Hz 峰只能证明这个合成信号含有相应分量，不能直接证明齿轮、轴承或者电机发生了故障。真实诊断还需要转速、工况、安装位置和历史基线等信息。</p><h3 id="二、傅里叶变换究竟在计算什么"><a href="#二、傅里叶变换究竟在计算什么" class="headerlink" title="二、傅里叶变换究竟在计算什么"></a>二、傅里叶变换究竟在计算什么</h3><p>可以先把问题想成“匹配”：拿一个指定频率的波形，与观测逐点相乘再求和。如果两者步调一致，乘积较容易积累；如果快慢不一致，正负贡献就可能相互抵消。</p><p>但只用余弦作模板还不够。同频率的正弦与余弦在整周期上的内积为零，不能因为一次匹配为零，就说这个频率不存在。因此需要同时保留两个相差四分之一周期的方向。复数把这两个方向写进一个系数里。离散傅里叶变换采用下面的约定：[1]</p><script type="math/tex;mode=display">X[k]=\sum_{n=0}^{N-1} x[n]\,e^{-2\pi i\,kn/N},\qquad x[n]=\frac{1}{N}\sum_{k=0}^{N-1} X[k]\,e^{2\pi i\,kn/N}</script><p>$x[n]$ 是第 $n$ 个样本， $N$ 是样本数， $k$ 是频率格点编号， $i$ 是虚数单位。指数项包含余弦和正弦两种匹配。若采样率为 $f_s$ ，格点按未折返的编号写作 $k f_s/N$ ；超过半采样率的部分通常改标为等价的负频率。本文对实信号只画非负频率半边。</p><p>取一个能手算的例子：[1, 0, -1, 0]。当 $N=4$ 、 $k=1$ 时，四个匹配权重为 1, -i, -1, i；逐项相乘并相加得到 2。若采样率为 4 Hz，这对应 1 Hz。对于这个实信号，将正负频率合并，单边幅度为 2×2/4=1，恰好还原输入余弦的幅度。直流和偶数长度下的奈奎斯特频率不应再乘 2。</p><p>这个公式分解的是有限样本，不能替我们恢复采样前已经丢失的信息。它的完整复数系数可以通过逆变换还原原样本；常见的 FFT 则是快速计算 DFT 的算法，并不是另一种额外提取信息的变换。</p><img src="/46af5ef2/2.webp"><div align="center">图2：循环移位改变波形位置，却不改变幅度谱。</div><p>图 2｜把无噪信号循环右移 7 个样本，波形位置明显变化，但两条幅度谱重合。这里采用循环移位，避免把截断边界的变化混进相位演示。</p><p>复数系数有幅度，也有相位。把刚才的四点余弦右移一个样本，变成 [0, 1, 0, -1]，第一个频率系数从 2 变成 -2i：长度相同，方向变了。只保留长度，就分不清这两段序列。</p><p>因此，“傅里叶变换丢失时间信息”需要改得更准确：<strong>完整变换保留信息，只画幅度谱则舍弃了相位。</strong>采用正交归一化后，完整 DFT 还保持欧氏距离；它不会凭空把原来接近的样本变远。工程收益常来自某些规律变得集中、某些运算变得简单，以及随后对特征的合理选择。[2]</p><h3 id="三、频谱里的峰，也可能来自观察方式"><a href="#三、频谱里的峰，也可能来自观察方式" class="headerlink" title="三、频谱里的峰，也可能来自观察方式"></a>三、频谱里的峰，也可能来自观察方式</h3><p>先看采样。以 128 Hz 采样两个零相位余弦，一个是 90 Hz，另一个是 38 Hz，得到的离散样本完全相同。原因是每跨过一个采样间隔，90 Hz 的相位可以写成一个整圈再减去 38 Hz 的相位，而余弦对正负相位取值相同。</p><img src="/46af5ef2/3.webp"><div align="center">图3：采样造成的混叠，以及加窗对频谱泄漏的影响。</div><p>图 3｜左侧的黑点同时落在两条连续曲线上；右侧为 1 秒、30.3 Hz 的合成记录。右图补零只是加密显示曲线，未增加观测时长。</p><p>这里 90 Hz 超过采样率一半的 64 Hz。样本已经无法区分两个来源，再漂亮的频谱也无法替采集系统作出选择。在通常的低通带限采样条件下，需要足够的采样率，并在采样前抑制会混叠进来的高频分量。这个采样前的处理，不能靠采样后删除频谱里的几个点补救。</p><p>再看记录长度。未经补零的 DFT，格点间距由“采样率除以样本数”决定。512 Hz 采样 2 秒，间距为 0.5 Hz；只采 1 秒，则是 1 Hz。它是计算格点的间隔，不能无条件等同于区分相邻物理频率的能力，后者还受窗口、噪声和估计方法影响。</p><p>如果真实频率是 30.3 Hz，1 秒里包含的就不是整数个周期。DFT 用一组整数周期的基表示这段记录，需要把它分配到多个格点，于是出现谱泄漏。把记录首尾接起来看，也可以直观理解有限窗口带来的边界不连续。</p><p>Hann 窗让记录两端逐渐变小，通常降低远处旁瓣，但会拓宽主瓣。图中已经按窗权重之和作幅度归一化；这仍不能保证任意离格频率的峰值都精确等于真实幅度。把 512 个样本补零到 8192 点可以把谱曲线画得更密，却没有补出缺失的后续测量。[3][4]</p><h3 id="四、卷积：为什么换个表示，计算会变简单"><a href="#四、卷积：为什么换个表示，计算会变简单" class="headerlink" title="四、卷积：为什么换个表示，计算会变简单"></a>四、卷积：为什么换个表示，计算会变简单</h3><p>看见波形有噪声，可能会先做平滑。最简单的例子是将当前与前一个读数各取一半。推广到一个长度为 $M$ 的固定卷积核：</p><script type="math/tex;mode=display">y[n]=\sum_{m=0}^{M-1} h[m]\,x[n-m]</script><p>$h[m]$ 是权重， $y[n]$ 是第 $n$ 个输出， $m$ 表示向过去看几个样本。若输入为 [1, 2, 3, 4]，核为 [0.5, 0.5]，第 2 个序号处的输出就是 0.5×3+0.5×2=2.5。假定记录以外为零，完整输出为 [0.5, 1.5, 2.5, 3.5, 2]。</p><p>这一定义描述固定的线性、时不变滤波操作，不能代表所有平滑方法；中值滤波就不是这种线性卷积。怎样处理边界，也属于算法定义的一部分。</p><img src="/46af5ef2/4.webp"><div align="center">图4：移动平均的时域输出、频率响应，以及线性卷积和循环卷积的边界差异。</div><p>图 4｜左、中图使用主线信号及因果 9 点平均；右图使用四点输入的独立手算例子。左图既包含平滑效果，也包含滤波器延迟和起始边界影响。</p><p>对主线信号做 9 点平均，其幅度增益在 30 Hz 处约为 0.605，在 90 Hz 处约为 0.205。原本幅度为 0.35 的 90 Hz 分量，在稳态下只剩约 0.072。如果它正是要观察的异常成分，“波形更平滑”就不一定是好事。这是根据本次卷积核计算出的结果，不是所有低通滤波器的通用数值。</p><p>为什么卷积会变成频域的乘法？设输入长度为 $N$ 、核长度为 $M$ ，将两者补零到共同长度 $L$ ，并保证 $L\geq N+M-1$ 。将卷积代入长度为 $L$ 的 DFT，并令 $r=n-m$ ：</p><script type="math/tex;mode=display">Y[k]=\sum_{n}\Big(\sum_{m}h[m]\,x[n-m]\Big)e^{-2\pi i\,kn/L}=\sum_{m}h[m]\sum_{r}x[r]\,e^{-2\pi i\,k(r+m)/L}=H[k]\,X[k]</script><p>这里 $X$ 、 $H$ 、 $Y$ 分别是输入、核和输出的频域系数。求和可以理解为遍历所有整数位置，有限支持以外为零。关键步骤是把 $n=r+m$ 代入指数，使它拆成两个因子，再把彼此独立的求和分开。仍以四点输入、两点核为例，长度至少取 5，逆变换才能得到上面的五点线性卷积结果。</p><p>如果只用 4 点 FFT 相乘，计算的是循环卷积：最后的 2 绕回开头，与 0.5 相加，得到 [2.5, 1.5, 2.5, 3.5]。这是边界模型不同，不是 FFT 算错。SciPy 的 fftconvolve 提供线性卷积接口，但不能由此推断所有核大小下 FFT 都更快；短核还需比较实际运行成本。[5]</p><h3 id="五、用一次小实验核对这些说法"><a href="#五、用一次小实验核对这些说法" class="headerlink" title="五、用一次小实验核对这些说法"></a>五、用一次小实验核对这些说法</h3><p>下面的代码可直接运行，既检查频谱中的已知分量，也检查两种卷积计算是否一致：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">fs, n = <span class="number">512</span>, <span class="number">1024</span></span><br><span class="line">t = np.arange(n) / fs</span><br><span class="line">rng = np.random.default_rng(<span class="number">21</span>)</span><br><span class="line">x = (np.cos(<span class="number">2</span>*np.pi*<span class="number">30</span>*t)</span><br><span class="line">     + <span class="number">0.35</span>*np.cos(<span class="number">2</span>*np.pi*<span class="number">90</span>*t + <span class="number">0.7</span>)</span><br><span class="line">     + <span class="number">0.15</span>*rng.normal(size=n))</span><br><span class="line"></span><br><span class="line">X = np.fft.rfft(x)</span><br><span class="line"><span class="keyword">for</span> frequency <span class="keyword">in</span> [<span class="number">30</span>, <span class="number">90</span>]:</span><br><span class="line">    k = <span class="built_in">round</span>(frequency*n/fs)</span><br><span class="line">    <span class="built_in">print</span>(frequency, <span class="number">2</span>*<span class="built_in">abs</span>(X[k])/n)</span><br><span class="line"></span><br><span class="line">h = np.ones(<span class="number">9</span>)/<span class="number">9</span></span><br><span class="line">direct = np.convolve(x, h, mode=<span class="string">&#x27;full&#x27;</span>)</span><br><span class="line">length = n + <span class="built_in">len</span>(h) - <span class="number">1</span></span><br><span class="line">via_fft = np.fft.irfft(</span><br><span class="line">    np.fft.rfft(x, n=length)*np.fft.rfft(h, n=length), n=length)</span><br><span class="line">wrong_boundary = np.fft.irfft(X*np.fft.rfft(h, n=n), n=n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;充分补零后的最大差值：&#x27;</span>, np.<span class="built_in">max</span>(<span class="built_in">abs</span>(direct-via_fft)))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;循环卷积与线性结果前段的最大差值：&#x27;</span>,</span><br><span class="line">      np.<span class="built_in">max</span>(<span class="built_in">abs</span>(direct[:n]-wrong_boundary)))</span><br></pre></td></tr></table></figure><div class="table-container"><table><thead><tr><th>检查项</th><th>本次实际运行结果</th><th>可以说明什么</th></tr></thead><tbody><tr><td>30 Hz 单边幅度</td><td>0.999031</td><td>接近构造时的幅度 1，受到有限噪声影响</td></tr><tr><td>90 Hz 单边幅度</td><td>0.344299</td><td>接近构造时的幅度 0.35</td></tr><tr><td>充分补零 FFT 卷积与直接卷积的最大差值</td><td>约 5.55×10⁻¹⁶</td><td>本例中两种算法在浮点精度内一致</td></tr><tr><td>不补零的循环卷积与线性结果前 1024 点的最大差值</td><td>约 0.227585</td><td>边界定义不同，差异远大于舍入误差</td></tr></tbody></table></div><p>这里特意让两个频率落在 DFT 格点上，使读数容易核对。把 90 改成 90.3，再比较不同窗和不同记录长度，会得到更接近实际频谱分析的问题。完整脚本还检查循环移位和混叠例子，原始结果保存在 data/ 文件夹中。</p><h3 id="六、维修记录里的“电机”和“马达”，又该怎样表示"><a href="#六、维修记录里的“电机”和“马达”，又该怎样表示" class="headerlink" title="六、维修记录里的“电机”和“马达”，又该怎样表示"></a>六、维修记录里的“电机”和“马达”，又该怎样表示</h3><p>分析完波形，工程师可能要搜索类似维修记录：查询写“马达异响”，记录却写“电机振动”。如果每个词只是一串字符，或者一个独立的 one-hot 编号，两个不同词之间没有自动出现可用的语义关系。不同 one-hot 向量的内积都是零，无法告诉我们哪些词经常出现在相近场景里。</p><p>词嵌入引入另一种办法：为词分配可调整的向量，让训练任务决定向量中的关系。word2vec 的 CBOW 根据上下文预测中心词，Skip-gram 根据中心词预测附近的词；训练中的预测需求提供了调整向量的信号。GloVe 则利用词与上下文的全局共现统计学习表示。这些是具体训练机制，不是对文本做一次傅里叶分解。[6][7]</p><img src="/46af5ef2/5.webp"><div align="center">图5：从人工构造的词与上下文共现表，计算得到一个二维低秩表示。</div><p>图 5｜左侧计数全部为人为构造。右侧对计数作 log(1+计数) 后执行截断 SVD，是便于复算的分布式表示示例，不是 word2vec 或 GloVe 的训练结果。</p><p>这张图与第一篇的 SVD 接起来了：不同词在不同上下文中的出现情况构成矩阵，低秩近似尝试用更少的坐标描述其中的主要结构。它从表里的统计关系计算坐标，没有预先指定“第一轴代表机械、第二轴代表电气”。颜色仅用于读图，也没有参与分解。[8]</p><p>向量常用余弦相似度比较：</p><script type="math/tex;mode=display">\cos(u,v)=\frac{u\cdot v}{\|u\|\,\|v\|}</script><p>$u$ 、 $v$ 是两个非零向量，分子为内积，分母是长度乘积。例如 [1,1,0] 与 [2,2,0] 的内积为 4，长度乘积也是 4，相似度为 1：它们长短不同，但方向相同。这是向量方向的比较，不是语义正确率。</p><p>在本例经过对数变换的原始六维表示中，“电机”与“马达”的余弦约为 0.994。这个数值来自人为设计的计数，只能演示计算过程，不能充当真实中文语料上的结论。二维截断还会改变距离，不能仅凭图上的两个点靠得近，就断言它们在完整表示里最相似。</p><p>上下文相似也不总等于可互换：反义词可能共享上下文；“电机没有异响”和“电机出现异响”有大量相同词，却表达不同状态。真实维修检索应评估整句、否定和设备实体，而不是把平均词向量的高相似度直接当作答案正确。句子嵌入模型是进一步的建模选择，Sentence-BERT 是相关的原始研究之一。[9]</p><h3 id="七、换表示之后，究竟改变了什么"><a href="#七、换表示之后，究竟改变了什么" class="headerlink" title="七、换表示之后，究竟改变了什么"></a>七、换表示之后，究竟改变了什么</h3><p>傅里叶基由数学定义预先确定，不需要查看训练语料；词嵌入的坐标一般依赖数据和训练目标。完整 DFT 在有限样本上可逆，常见词嵌入训练通常并不以完整重建输入为目标。二者可以共享“让需要的关系更容易计算”的思想，但不能据此把词嵌入叫作文本的频谱。</p><p>工程选择也应回到问题本身。要定位一次冲击发生的时刻，就保留时域或时频信息；要观察稳定的周期，就检查频谱及采样条件。若转速不断变化，整段 FFT 会把不同时刻的频率混在一起，可以考虑短时分析，但更短的窗口又会限制频率辨别能力。</p><p>要提高检索质量，就在具有代表性的维修记录上验证词或句子的表示，并特别检查否定句、缩写和型号差异。某一张向量散点图看起来聚类清楚，不能替代检索评估。类似地，滤波后的波形看起来干净，也不能替代对关键分量是否被保留的检查。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>傅里叶变换让周期结构变得容易读取，让卷积可以通过频域相乘计算；词嵌入则通过数据与训练目标建立另一类可计算的关系。它们的价值需要结合任务来判断。</p><p>每次换表示都值得追问三个具体问题：哪些关系变得容易看见？有没有舍弃相位、细节或上下文？最终改善的是可解释性、计算成本，还是经过验证的任务表现？把这些问题分开，数学工具才会真正帮助工程决策。</p><h3 id="参考资料与复现说明"><a href="#参考资料与复现说明" class="headerlink" title="参考资料与复现说明"></a>参考资料与复现说明</h3><p>以下链接已核对；文中的图、合成实验及数值均为本次原创制作，未引用论文中的性能数据。</p><ol><li>NumPy 官方文档，Discrete Fourier Transform：DFT 定义、符号约定、实输入、幅度与相位。</li><li>SciPy 官方教程，Discrete Fourier Transforms：傅里叶矩阵、归一化、内积关系与循环卷积。</li><li>SciPy 官方教程，Spectral Analysis：有限观察窗口、幅度归一化、谱泄漏等问题。</li><li>SciPy 官方文档，Hann window：窗口定义及频率响应。</li><li>SciPy 官方文档，fftconvolve：使用 FFT 计算线性卷积及输出模式。</li><li>Mikolov 等，2013，Efficient Estimation of Word Representations in Vector Space：CBOW、Skip-gram 与词向量学习。</li><li>Pennington、Socher、Manning，2014，GloVe: Global Vectors for Word Representation：作者项目页，含论文、实现与共现统计方法说明。</li><li>Manning、Raghavan、Schütze，《Introduction to Information Retrieval》，Low-rank approximations：低秩矩阵近似的教材背景。本文的小型计数表及变换选择是独立构造。</li><li>Reimers、Gurevych，2019，Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks：从词级对照进一步阅读句子表示。</li></ol><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Fzq1uSyydOxxBYi75CfpLw">https://mp.weixin.qq.com/s/Fzq1uSyydOxxBYi75CfpLw</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/180b6bd3.html" rel="prev" title="特征挤在一条线上时：用线性代数看懂模型为何难训练"><i class="fa fa-chevron-left"></i> 特征挤在一条线上时：用线性代数看懂模型为何难训练</a></div><div class="post-nav-item"><a href="/fd0708dc.html" rel="next" title="一步该走多远：从调旋钮看懂梯度下降和泰勒展开">一步该走多远：从调旋钮看懂梯度下降和泰勒展开 <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%90%8C%E4%B8%80%E6%AE%B5%E8%AE%B0%E5%BD%95%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%9B%9E%E7%AD%94%E4%B8%8D%E5%90%8C%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">一、同一段记录，可以回答不同的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%A9%B6%E7%AB%9F%E5%9C%A8%E8%AE%A1%E7%AE%97%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">二、傅里叶变换究竟在计算什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%A2%91%E8%B0%B1%E9%87%8C%E7%9A%84%E5%B3%B0%EF%BC%8C%E4%B9%9F%E5%8F%AF%E8%83%BD%E6%9D%A5%E8%87%AA%E8%A7%82%E5%AF%9F%E6%96%B9%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">三、频谱里的峰，也可能来自观察方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%8D%B7%E7%A7%AF%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8D%A2%E4%B8%AA%E8%A1%A8%E7%A4%BA%EF%BC%8C%E8%AE%A1%E7%AE%97%E4%BC%9A%E5%8F%98%E7%AE%80%E5%8D%95"><span class="nav-number">4.</span> <span class="nav-text">四、卷积：为什么换个表示，计算会变简单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E7%94%A8%E4%B8%80%E6%AC%A1%E5%B0%8F%E5%AE%9E%E9%AA%8C%E6%A0%B8%E5%AF%B9%E8%BF%99%E4%BA%9B%E8%AF%B4%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">五、用一次小实验核对这些说法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E7%BB%B4%E4%BF%AE%E8%AE%B0%E5%BD%95%E9%87%8C%E7%9A%84%E2%80%9C%E7%94%B5%E6%9C%BA%E2%80%9D%E5%92%8C%E2%80%9C%E9%A9%AC%E8%BE%BE%E2%80%9D%EF%BC%8C%E5%8F%88%E8%AF%A5%E6%80%8E%E6%A0%B7%E8%A1%A8%E7%A4%BA"><span class="nav-number">6.</span> <span class="nav-text">六、维修记录里的“电机”和“马达”，又该怎样表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E6%8D%A2%E8%A1%A8%E7%A4%BA%E4%B9%8B%E5%90%8E%EF%BC%8C%E7%A9%B6%E7%AB%9F%E6%94%B9%E5%8F%98%E4%BA%86%E4%BB%80%E4%B9%88"><span class="nav-number">7.</span> <span class="nav-text">七、换表示之后，究竟改变了什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%E4%B8%8E%E5%A4%8D%E7%8E%B0%E8%AF%B4%E6%98%8E"><span class="nav-number">9.</span> <span class="nav-text">参考资料与复现说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">10.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1764</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">57</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">10.9m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">452:55</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru02.model.json"},"display":{"position":"right","width":208,"height":520},"mobile":{"show":false},"log":false});</script></body></html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="在前面的文章中，我们已经完成了两件非常重要的事情：首先，把采集到的原始 EEG 经过滤波、去伪迹、重参考、分段等预处理，得到相对干净、可以进一步分析的脑电信号；随后，从这些 EEG 中提取均值、方差、Hjorth 参数、频带功率、时频特征、CSP 空间特征等人工设计的特征，再将它们交给 LDA、SVM、Random Forest 等传统机器学习模型进行分类。 传统机器学习的基本流程可以概括为： \"><meta property="og:type" content="article"><meta property="og:title" content="从 EEG 波形到结果：CNN 如何学习脑电特征"><meta property="og:url" content="https://aisakaaoi.github.io/e159946.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="在前面的文章中，我们已经完成了两件非常重要的事情：首先，把采集到的原始 EEG 经过滤波、去伪迹、重参考、分段等预处理，得到相对干净、可以进一步分析的脑电信号；随后，从这些 EEG 中提取均值、方差、Hjorth 参数、频带功率、时频特征、CSP 空间特征等人工设计的特征，再将它们交给 LDA、SVM、Random Forest 等传统机器学习模型进行分类。 传统机器学习的基本流程可以概括为： \"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/e159946/1.webp"><meta property="og:image" content="https://aisakaaoi.github.io/e159946/2.webp"><meta property="og:image" content="https://aisakaaoi.github.io/e159946/3.webp"><meta property="og:image" content="https://aisakaaoi.github.io/e159946/4.webp"><meta property="og:image" content="https://aisakaaoi.github.io/e159946/5.webp"><meta property="og:image" content="https://aisakaaoi.github.io/e159946/6.webp"><meta property="og:image" content="https://aisakaaoi.github.io/e159946/7.webp"><meta property="og:image" content="https://aisakaaoi.github.io/e159946/8.webp"><meta property="og:image" content="https://aisakaaoi.github.io/e159946/9.webp"><meta property="article:published_time" content="2026-09-16T14:04:00.000Z"><meta property="article:modified_time" content="2026-10-22T20:51:42.295Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/e159946/1.webp"><link rel="canonical" href="https://aisakaaoi.github.io/e159946.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>从 EEG 波形到结果：CNN 如何学习脑电特征 | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">57</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1764</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/e159946.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">从 EEG 波形到结果：CNN 如何学习脑电特征</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-09-16 22:04:00" itemprop="dateCreated datePublished" datetime="2026-09-16T22:04:00+08:00">2026-09-16</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/" itemprop="url" rel="index"><span itemprop="name">⭐SCNU BCI团队</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">💫基础知识</span></a> </span></span><span id="/e159946.html" class="post-meta-item leancloud_visitors" data-flag-title="从 EEG 波形到结果：CNN 如何学习脑电特征" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/e159946.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/e159946.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>18k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>46 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><p>在前面的文章中，我们已经完成了两件非常重要的事情：首先，把采集到的原始 EEG 经过滤波、去伪迹、重参考、分段等预处理，得到相对干净、可以进一步分析的脑电信号；随后，从这些 EEG 中提取均值、方差、Hjorth 参数、频带功率、时频特征、CSP 空间特征等人工设计的特征，再将它们交给 LDA、SVM、Random Forest 等传统机器学习模型进行分类。</p><p>传统机器学习的基本流程可以概括为：</p><script type="math/tex;mode=display">\text{EEG}\rightarrow\text{预处理}\rightarrow\text{人工特征提取}\rightarrow\text{机器学习模型}\rightarrow\text{预测结果}</script><span id="more"></span><p>这套方法并没有因为深度学习出现而过时。在数据量较小、需要较强可解释性或计算资源有限的场景中，人工特征仍然非常有价值。但它带来了一个自然的问题：<strong>如果不再提前规定”什么才是有用特征”，模型能不能直接从 EEG 波形中自己学习？</strong></p><p>本文聚焦其中一种方法：<strong>卷积神经网络（Convolutional Neural Network，CNN）</strong>。CNN 通过可训练的卷积核，从 EEG 中学习局部时间模式和通道组合，再把这些表示交给分类层。这里的“自动”是指特征提取参数可以随任务一起训练，而不是取消预处理和实验设计。</p><p>我们将围绕一个具体问题展开：<strong>一段 EEG 进入 CNN 后，怎样从多通道波形变成类别预测？</strong> 从卷积核、特征图、池化和感受野讲起，再理解时间卷积、空间卷积与时频图输入，再以 EEGNet 这一里程碑式模型理解 EEG 专用 CNN 的设计，最后用一个可运行的运动想象分类网络把数据形状和训练过程串起来。</p><h3 id="一、从人工特征到-CNN：模型究竟在学习什么"><a href="#一、从人工特征到-CNN：模型究竟在学习什么" class="headerlink" title="一、从人工特征到 CNN：模型究竟在学习什么"></a>一、从人工特征到 CNN：模型究竟在学习什么</h3><p>假设经过预处理和分段后，我们得到一段 4 秒 EEG，采样率为 250 Hz，共有 8 个通道，那么一个样本可以表示为：</p><script type="math/tex;mode=display">X\in\mathbb{R}^{8\times1000}</script><p>其中 8 表示 EEG 通道数量，1000 表示每个通道的时间采样点。</p><p>在传统机器学习中，我们通常不会直接把 $8\times1000=8000$ 个采样点全部送入分类器，而是先进行特征工程。例如每个通道提取 Alpha 功率、Beta 功率、RMS、Hjorth Mobility，再加入 CSP 等空间特征，最终将一个 EEG 样本表示为：</p><script type="math/tex;mode=display">\mathbf{f}\in\mathbb{R}^{D}</script><p>如果最后得到 100 个特征，那么实际上完成了：</p><script type="math/tex;mode=display">[8,1000]\rightarrow[100]</script><p>这里最关键的一步就是：</p><script type="math/tex;mode=display">\text{EEG}\rightarrow\text{Feature}</script><p>深度学习则试图让这一过程本身参与训练：</p><script type="math/tex;mode=display">\text{EEG}\rightarrow\underbrace{\text{Neural Network}}_{\text{自动学习表示}}\rightarrow\text{Feature}\rightarrow\text{Prediction}</script><p>例如网络可能逐层完成：</p><script type="math/tex;mode=display">[8,1000]\rightarrow[32,500]\rightarrow[64,250]\rightarrow[64]\rightarrow[2]</script><p>中间的 [32,500]、[64,250] 和 [64] 都可以看作模型学习到的不同层次表示。</p><p>这里需要注意，所谓”自动学习特征”并不是研究者什么都不需要设计。输入窗口长度、采样率、预处理、网络结构、卷积核大小、损失函数和数据划分方式仍然需要人为确定。深度学习减少的是对具体人工统计特征的依赖，而不是取消信号处理和实验设计。</p><img src="/e159946/1.webp"><p>图 1　人工特征与 CNN 的两条解码路线，传统方法先设计 PSD、CSP、Hjorth 等特征；CNN 在训练中同时学习特征提取与分类参数。</p><p>最简单的神经网络可以从一个神经元开始理解。假设输入为：</p><script type="math/tex;mode=display">\mathbf{x}=[x_1,x_2,\ldots,x_D]^T</script><p>一个神经元首先进行线性组合：</p><script type="math/tex;mode=display">z=\mathbf{w}^{T}\mathbf{x}+b=w_1x_1+w_2x_2+\cdots+w_Dx_D+b</script><p>其中 $w_i$ 是模型需要学习的权重， $b$ 是偏置。随后再经过非线性激活函数：</p><script type="math/tex;mode=display">y=\sigma(z)</script><p>例如常见的 ReLU：</p><script type="math/tex;mode=display">\operatorname{ReLU}(z)=\max(0,z)</script><p>如果只有线性运算，那么无论连续堆多少个线性层，本质上仍然可以合并成一次线性变换。加入非线性后，网络才能逐层组合出更加复杂的映射关系。</p><p>放到 EEG 中理解，前面的网络层可能对某些局部波形变化敏感，后面的网络层再将多个局部模式组合起来，形成与运动想象、睡眠阶段、情绪状态等任务有关的表示。但不要简单认为”某个神经元就是 Alpha 波神经元”。深度网络中的特征通常是分布式表示，一个任务相关模式往往由多个单元共同编码。</p><p>如果直接把 8 通道、1000 点 EEG 展平：</p><script type="math/tex;mode=display">X\in\mathbb{R}^{8\times1000}\rightarrow\mathbf{x}\in\mathbb{R}^{8000}</script><p>然后使用：</p><script type="math/tex;mode=display">8000\rightarrow512\rightarrow128\rightarrow2</script><p>从理论上当然可以完成分类，但问题非常明显。首先，全连接层没有显式利用 EEG 的时间局部结构。第 100 个采样点和第 101 个采样点在时间上紧邻，但展平以后，模型并没有”相邻采样点应该具有特殊关系”的结构先验。其次，参数数量会迅速增加，仅第一层就有：</p><script type="math/tex;mode=display">8000\times512=4,096,000</script><p>个权重。</p><p>对于很多 EEG 数据集而言，数据规模远小于大型图像或文本数据集，大量参数很容易造成过拟合。因此我们希望模型能够利用 EEG 的一个重要特点：<strong>时间上相邻的采样点通常存在连续关系，而类似的局部波形模式可能出现在不同时间位置。</strong> 卷积神经网络正好能够利用这种结构。</p><h3 id="二、卷积怎样从-EEG-中提取特征"><a href="#二、卷积怎样从-EEG-中提取特征" class="headerlink" title="二、卷积怎样从 EEG 中提取特征"></a>二、卷积怎样从 EEG 中提取特征</h3><p>对于单通道 EEG：</p><script type="math/tex;mode=display">x=[x_0,x_1,\ldots,x_{T-1}]</script><p>定义长度为 $K$ 的一维卷积核：</p><script type="math/tex;mode=display">w=[w_0,w_1,\ldots,w_{K-1}]</script><p>卷积核沿时间轴滑动，在位置 $t$ 处可以计算：</p><script type="math/tex;mode=display">y_t=\sum_{k=0}^{K-1}w_kx_{t+k}+b</script><p>这里采用深度学习框架常用的互相关写法，不翻转卷积核；它通常仍被称为“卷积层”。上式暂取步长为 1，并省略边界填充。</p><p>直观来看，卷积核就像一个很短的”波形探测器”。它不断观察 EEG 的局部片段，并根据训练得到的权重判断这一小段信号是否包含与任务相关的模式。</p><p>CNN 与传统数字滤波存在一定直觉上的相似性：二者都对局部信号进行加权组合。但 CNN 卷积核的参数并不是根据 Butterworth、Chebyshev 等滤波器设计方法预先计算，而是通过任务损失和反向传播学习得到。因此可以把卷积核理解为一种<strong>由任务驱动学习出来的局部特征提取器</strong>，但不能把每一个卷积核都严格等价成传统带通滤波器。</p><img src="/e159946/2.webp"><p>图 2　相同的卷积核在不同时间位置共享权重；图中用四个数展示一次无填充卷积的计算。</p><p>这是理解 EEG 深度学习模型非常重要的一步。在 PyTorch 中，一维卷积常见输入格式为：</p><script type="math/tex;mode=display">[B,C,T]</script><p>其中 $B$ 表示 Batch Size， $C$ 表示输入通道数， $T$ 表示时间长度。例如：</p><script type="math/tex;mode=display">[64,8,1000]</script><p>表示一个 Batch 有 64 个样本，每个样本有 8 个 EEG 通道，每个通道包含 1000 个采样点。</p><p>假设第一层使用 32 个卷积核，并通过 padding 保持时间长度不变：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nn.Conv1d(</span><br><span class="line">    in_channels=8,</span><br><span class="line">    out_channels=32,</span><br><span class="line">    kernel_size=25,</span><br><span class="line">    stride=1,</span><br><span class="line">    padding=12</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>那么：</p><script type="math/tex;mode=display">[64,8,1000]\rightarrow[64,32,1000]</script><p>这个 Conv1d 默认同时组合 8 个输入通道的信息，每个输出特征通道对应一组大小为 8 × 25 的权重，而不是给每个电极单独分配一个长度为 25 的核。输入维度和计算约定见 PyTorch Conv1d 文档。</p><p>这里的 32 已经不再表示 32 个物理电极，而是 32 个卷积滤波器产生的 <strong>Feature Maps</strong>。也就是说：</p><script type="math/tex;mode=display">8\text{ 个物理 EEG 通道}\neq32\text{ 个网络特征通道}</script><p>如果后面进行 2 倍池化：</p><script type="math/tex;mode=display">[64,32,1000]\rightarrow[64,32,500]</script><p>第二层卷积再将特征通道从 32 增加到 64：</p><script type="math/tex;mode=display">[64,32,500]\rightarrow[64,64,500]</script><p>继续池化：</p><script type="math/tex;mode=display">[64,64,500]\rightarrow[64,64,250]</script><p>可以看到，随着网络加深，时间维度往往逐渐缩短，而特征通道数量逐渐增加。模型正在把大量原始采样点转换为更加紧凑和抽象的特征表示。</p><p>Pooling 也就是池化。以 Max Pooling 为例：</p><script type="math/tex;mode=display">y_i=\max(x_{2i},x_{2i+1})</script><p>它从局部区域中保留最大响应；Average Pooling 则计算局部平均。</p><p>池化可以降低时间分辨率、减少后续计算量、扩大后续神经元相对于原始 EEG 的感受范围，并提高模型对局部位置轻微变化的容忍度。但池化并不是越多越好。如果任务依赖精确的 ERP 潜伏期，而网络过早进行了大尺度降采样，就可能丢失关键的精细时间信息。</p><p>因此，降采样本质上是在<strong>保留主要模式</strong>和<strong>保留精细时间信息</strong>之间进行权衡。</p><p>Receptive Field，也就是感受野，描述网络中的一个特征点对应原始输入多大的范围。假设第一层卷积核长度为 25，采样率为：</p><script type="math/tex;mode=display">f_s=250\,\mathrm{Hz}</script><p>那么它直接覆盖的时间约为：</p><script type="math/tex;mode=display">\frac{25}{250}=0.1\text{ s}</script><p>随着卷积层和池化层不断堆叠，后面的一个特征点所对应的原始 EEG 范围会越来越大。因此深层 CNN 可以形成一种层次结构：</p><script type="math/tex;mode=display">\text{短时局部波形}\rightarrow\text{局部节律模式}\rightarrow\text{更长时间范围的任务相关模式}</script><p>这也是为什么卷积核大小、网络深度、Stride 和 Pooling 都会影响模型最终能够观察的时间尺度。接下来可以进一步考虑：如果一段 EEG 同时包含多种时间尺度，是否可以让多个卷积分支分别观察？</p><p>EEG 同时包含不同时间尺度的信息。较慢的 Delta 活动与较快的 Beta 活动具有完全不同的周期，如果所有特征都使用同一个时间窗口观察，并不一定是最有效的设计。</p><p>因此很多 EEG 网络会采用多尺度卷积：</p><script type="math/tex;mode=display">X\rightarrow \begin{cases} \operatorname{Conv}_{k=15}(X)\\ \operatorname{Conv}_{k=31}(X)\\ \operatorname{Conv}_{k=63}(X) \end{cases}</script><p>各分支应通过合适的 padding 或其他对齐方式保持时间长度一致，再沿特征通道维拼接：</p><script type="math/tex;mode=display">F=\operatorname{Concat}(F_{15},F_{31},F_{63})</script><p>较短卷积核更关注短时间局部变化，较长卷积核拥有更大的时间观察范围。但不能机械地说”15 点卷积核就是 Gamma，63 点卷积核就是 Alpha”。卷积核最终的频率响应由学习到的权重、采样率和前后层结构共同决定。多尺度卷积更准确的理解是：<strong>让网络同时拥有不同时间尺度的观察窗口。</strong></p><img src="/e159946/3.webp"><p>图 3　三条并行分支提取不同时间尺度的模式，再沿特征通道维拼接。</p><h3 id="三、时间、通道与时频图：CNN-怎样观察-EEG"><a href="#三、时间、通道与时频图：CNN-怎样观察-EEG" class="headerlink" title="三、时间、通道与时频图：CNN 怎样观察 EEG"></a>三、时间、通道与时频图：CNN 怎样观察 EEG</h3><p>多通道 EEG 不仅包含时间信息，也包含空间信息。假设：</p><script type="math/tex;mode=display">X\in\mathbb{R}^{C\times T}</script><p>时间卷积主要沿 $T$ 方向寻找局部时间模式，而空间滤波则试图学习不同 EEG 通道之间的组合关系，例如：</p><script type="math/tex;mode=display">z(t)=\sum_{c=1}^{C}w_cx_c(t)</script><p>这和上一篇介绍 CSP 时的空间滤波思想存在一定联系。</p><p>因此一些经典 EEG CNN 会先学习时间特征，再学习通道之间的空间组合：</p><script type="math/tex;mode=display">\text{EEG}\rightarrow\text{Temporal Convolution}\rightarrow\text{Spatial Convolution}\rightarrow\text{Feature}</script><p>例如 EEGNet 就包含类似设计思想：时间卷积负责学习时间/频率相关模式，Depthwise Convolution 进一步学习空间滤波关系。CNN 学到的空间权重并不等价于传统 CSP，但二者体现了一个共同思想：<strong>多通道 EEG 的信息不仅存在于单个通道内部，也存在于通道之间的组合关系。</strong></p><p>这种设计在 EEGNet 中得到了紧凑而清晰的实现。下一章将单独介绍它，观察时间滤波、空间组合和特征融合怎样连接成一个完整的 EEG CNN。</p><p>一维 CNN 的单个样本可以表示为 [C,T] EEG，而我们在上一篇已经介绍过 STFT 和 CWT。经过时频变换：</p><script type="math/tex;mode=display">x(t)\rightarrow S(f,t)</script><p>单通道 EEG 可以得到：</p><script type="math/tex;mode=display">[F,T_{tf}]</script><p>形式的时频表示，多通道则可能得到：</p><script type="math/tex;mode=display">[C,F,T_{tf}]</script><p>这里 $T_{tf}$ 是时频变换后的时间帧数，未必等于原始采样点数。加入 batch 维后，常见输入为 [B,C,F,T_tf]；复数时频系数应先明确取幅值、功率或拆分实虚部等表示方式。</p><p>这时就可以使用二维 CNN 在时频平面上寻找局部模式，例如某个频率范围突然增强、某种频率活动持续一段时间，或者时间与频率共同形成的局部结构。</p><p>因此：</p><script type="math/tex;mode=display">\text{Raw EEG}\rightarrow\text{CWT/STFT}\rightarrow\text{Time-Frequency Map}\rightarrow\text{2D CNN}</script><p>是一条常见路线。</p><p>但需要特别强调：<strong>把 EEG 转换成二维矩阵，并不意味着 EEG 就真的变成了自然图像。</strong> 自然图像的横纵轴主要对应空间位置，而 EEG 时频图的两个轴分别表示时间和频率，物理意义完全不同。因此不能因为 Shape 类似图像，就无条件照搬所有计算机视觉假设。</p><p>CNN 擅长提取局部模式，但一个输出位置能利用多少输入信息，取决于网络的感受野。卷积核较短、层数较少时，模型可能难以覆盖任务所需的较长时间范围。</p><p>在 CNN 内部，可以通过更长的卷积核、更多卷积层、多尺度分支或空洞卷积扩大观察范围。空洞卷积在相邻卷积采样位置之间留出间隔，能在不增加核内权重数量的情况下扩大覆盖范围，但也要注意过于稀疏的采样可能遗漏局部细节。</p><p>另一方面，池化和全局汇聚会压缩时间信息。全局平均池化擅长概括“某类响应整体有多强”，却不一定保留“它准确发生在哪个时间点”。如果目标是识别精细 ERP 潜伏期，应谨慎设置池化尺度和分类头。</p><p>实时 BCI 还需要考虑因果性：对称 padding 的普通卷积可能使用当前时刻之后的采样点。离线窗口分类可以在窗口收集完成后计算，但若要求逐点实时输出，就需要因果卷积或明确允许的延迟。</p><p>因此，设计 CNN 时应先确定：<strong>任务需要多长的上下文，以及哪些时间位置关系必须保留下来。</strong></p><h3 id="四、EEGNet：Deep-Learning-in-BCI-的里程碑式模型"><a href="#四、EEGNet：Deep-Learning-in-BCI-的里程碑式模型" class="headerlink" title="四、EEGNet：Deep Learning in BCI 的里程碑式模型"></a>四、EEGNet：Deep Learning in BCI 的里程碑式模型</h3><p><strong>大部分初学者学习深度学习在脑机接口当中的应用都绕不开EEGNet——这个堪称里程碑式的模型。如果读者打算从事DL in BCI方面的研究工作建议反复研读这篇文章，彻底理解时间卷积和空间卷积到底在做什么？原理是什么？这篇论文都讲的十分清楚。对于刚入门深度学习应用到脑机接口当中的读者去读一些前沿的EEG model paper肯定会晕头转向，其实他们的设计原型都来自于EEGNet和ConvNet这些经典的文章。读到这里的读者属实不容易，最近文章篇章写的有一点长全部都是干货，整理文章的同时也消耗了大量的时间。下面将介绍一下个人的见解，也对读到这里所有读者表示感谢。现在百分之九十或者以上EEG model的设计都是借助于计算机视觉，自然语言处理等其他前沿领域的模型架构设计，各位朋友不妨去研读一些其他领域前沿的文章寻找设计思路。</strong></p><p>在理解 CNN 的基本运算之后，EEGNet 是一个值得单独认识的模型。<strong>我们可以将 EEGNet 称为 Deep Learning in BCI（脑机接口中的深度学习）的里程碑式模型</strong>：它的重要意义，在于把 EEG 特征提取的领域知识与紧凑的卷积结构结合起来，探索同一种网络架构在不同 BCI 范式中的适用性。</p><p>EEGNet的论文复现代码仓库在链接<a target="_blank" rel="noopener" href="https://github.com/XCZchaos/python-implementation-of-motion-imagination-classification/tree/main">https://github.com/XCZchaos/python-implementation-of-motion-imagination-classification/tree/main</a> 当中的New train folder文件夹当中，读者可以自己试着跑一下，一般的显卡都能进行实验无高配置要求。</p><p>Lawhern 等人在《EEGNet: A Compact Convolutional Network for EEG-based Brain-Computer Interfaces》中，围绕 P300、错误相关负波 ERN、运动相关皮层电位 MRCP 和感觉运动节律 SMR 四类范式进行了比较。“里程碑式”是对其方法意义的概括，并不是指它在所有数据集上都取得最高准确率；跨范式适用也不等于一个训练好的模型可以不经适配直接识别所有任务。参见 EEGNet 原始论文。</p><img src="/e159946/4.webp"><p>原论文 Figure 1：时间卷积、深度空间卷积、可分离卷积和分类层的连接方式。图中以 $D=1$ 示意空间滤波器的连接；下文数值示例使用 $D=2$ 。来源：Lawhern 等，EEGNet，Figure 1。</p><h4 id="1-先看懂输入：电极通道与特征通道不是一回事"><a href="#1-先看懂输入：电极通道与特征通道不是一回事" class="headerlink" title="1. 先看懂输入：电极通道与特征通道不是一回事"></a>1. 先看懂输入：电极通道与特征通道不是一回事</h4><p>理解 EEGNet，先不要急着背网络层名称，而要弄清输入张量的每一维。单个样本原本是一个“电极 × 时间”矩阵，加入 batch 维和网络特征通道维后，采用 PyTorch 的通道优先格式表示为：</p><script type="math/tex;mode=display">X\in\mathbb{R}^{B\times1\times C\times T}</script><p>其中 $B$ 是样本数， $C$ 是电极数， $T$ 是采样点数，中间的 1 表示输入暂时只有一个特征平面。这个 1 <strong>不是 EEG 只有一个电极</strong>，因为电极已经单独放在 $C$ 这一维上。</p><p>例如 [16,1,22,1000] 表示一次输入 16 段 EEG，每段包含 22 个电极、1000 个时间点。可以把单个样本想象成一张表：每一行是一根电极的波形，每一列是同一时刻所有电极的测量值。</p><p>在这张表上，时间卷积沿着一行观察前后采样点，空间卷积则在同一个时间位置组合不同行的信息。这两种操作的方向不同，回答的问题也不同。</p><p>下面沿用前文示例的采样率 $f_s=250\,\mathrm{Hz}$ 和 $T=1000$ ，即 4 秒 EEG，选择 $C=22$ 、 $F_1=8$ 、 $D=2$ 、 $F_2=16$ 。这些数值用于演示，不是对所有任务的最优配置。 $F_1$ 表示时间滤波器数量， $D$ 表示每个时间滤波器对应的空间滤波器数量， $F_2$ 表示后续融合后的特征通道数。</p><h4 id="2-时间卷积：在每个电极上寻找局部波形模式"><a href="#2-时间卷积：在每个电极上寻找局部波形模式" class="headerlink" title="2. 时间卷积：在每个电极上寻找局部波形模式"></a>2. 时间卷积：在每个电极上寻找局部波形模式</h4><p><strong>时间卷积（Temporal Convolution）主要回答：这一小段波形在时间上呈现什么模式？</strong> 它的卷积核形状为 $(1,K)$ ：高度为 1，说明一次只处理一个电极；宽度为 $K$ ，说明一次观察连续 $K$ 个采样位置。</p><p>先用一个极小的例子理解加权计算。某个电极的局部信号为：</p><script type="math/tex;mode=display">x=[2,4,3,1],\qquad w=[1,0,-1]</script><p>暂不考虑 padding 和偏置，步长为 1，第一次计算得到 $2-3=-1$ ，窗口右移一个点后得到 $4-1=3$ 。这组示意权重对窗口前后的变化敏感。真实网络中的权重并不固定为这三个数，而是在训练中更新。</p><p>对于 EEGNet 的第 $f$ 个时间核，可以把计算写为：</p><script type="math/tex;mode=display">H_{b,f,c,t}=\sum_{k=0}^{K-1}a_{f,k}\,\widetilde{X}_{b,0,c,t+k}</script><p>这里 $\widetilde{X}$ 表示经过边界填充的输入，公式使用框架常用的互相关写法，并省略偏置。最值得观察的是权重 $a_{f,k}$ 的下标：它不带电极编号 $c$ ，也不带时间位置 $t$ 。这意味着<strong>同一个时间核会用于所有电极，并在时间轴上的各位置重复使用</strong>。</p><p>共享的是权重，不是输出。不同电极的输入波形不同，即使用同一组权重，得到的响应也会不同。例如，某个时间核对一类振荡比较敏感，那么 C3 和 C4 上这种振荡的差异仍然可以保留在输出中，供后面的空间卷积继续利用。</p><p>若使用 8 个长度为 125 的时间核，并通过 same padding 保持时间长度，形状变化为：</p><script type="math/tex;mode=display">[B,1,22,1000]\rightarrow[B,8,22,1000]</script><p>此时电极数仍然为 22，只是每根电极现在都有 8 种时间滤波响应。忽略偏置，卷积权重数为：</p><script type="math/tex;mode=display">F_1K=8\times125=1000</script><p>参数数量不需要再乘 22，因为每个时间核在电极之间共享。125 点在 250 Hz 下对应约 0.5 秒的观察窗口，但“0.5 秒时间核”不等于“固定提取某一个频带”。训练后的权重才决定实际频率响应。</p><p>如果想分析时间核偏好哪些频率，可以对权重序列计算频率响应：</p><script type="math/tex;mode=display">A_f(\nu)=\sum_{k=0}^{K-1}a_{f,k}e^{-j2\pi\nu k/f_s}</script><p>观察其幅度随频率 $\nu$ 的变化，比仅根据核长度给它贴上“Alpha 滤波器”的标签更合理。这仍然只是理解网络第一步的工具，最终预测还受到后续空间组合、非线性和分类层影响。</p><h4 id="3-空间卷积：把多个电极组合成新的信号"><a href="#3-空间卷积：把多个电极组合成新的信号" class="headerlink" title="3. 空间卷积：把多个电极组合成新的信号"></a>3. 空间卷积：把多个电极组合成新的信号</h4><p>时间卷积之后，我们已经知道各电极上存在怎样的时间响应。接下来的问题是：<strong>哪些电极的响应应该共同增强，哪些应该相互抵消，才能突出任务差异？</strong> 这就是这里的空间卷积（Spatial Convolution）要学习的内容。</p><p>EEGNet 使用覆盖全部电极、但只占一个时间位置的 $(C,1)$ 卷积核。对某一种时间特征，空间滤波可以写为：</p><script type="math/tex;mode=display">Z_{b,f,d,t}=\sum_{c=1}^{C}v_{f,d,c}\,\overline{H}_{b,f,c,t}</script><p>其中 $\overline{H}$ 是前一步时间响应经过归一化后的结果， $f$ 指时间滤波器， $d$ 指该时间特征对应的第几个空间滤波器。权重 $v_{f,d,c}$ 在不同电极上可以不同，但同一组空间权重会在各个时间位置重复使用。</p><p>例如，只用三个电极说明：</p><script type="math/tex;mode=display">z(t)=0.8h_{C3}(t)-0.6h_{C4}(t)+0.1h_{Cz}(t)</script><p>这组示意权重会突出 C3 与 C4 响应的某种差异，并少量加入 Cz 的信息。它不是训练得到的实际脑电结论，也不意味着正权重代表兴奋、负权重代表抑制。权重表达的是模型中的线性组合关系。</p><p>空间核把 22 行电极响应组合为一行，因此形状中的电极维从 22 变成 1：</p><script type="math/tex;mode=display">[B,8,22,1000]\rightarrow[B,16,1,1000]</script><p>这里的 16 来自 $F_1D=8\times2$ ，不是原来的 22 根电极中只留下了 16 根，也不是只剩下一根电极。每个输出特征都是多个电极经过加权组合后的新信号。</p><p>“空间”在这里主要指电极间的组合。它并不自动利用电极在头皮上的三维距离，也不是沿着头皮图像逐像素滑动。输入通道顺序必须固定，因为训练好的权重与电极位置一一对应。空间滤波权重也不能直接当作脑源活动图来解释。</p><p>这与 CSP 都使用多通道加权组合，但学习目标不同：CSP 围绕类别间的方差关系求投影，EEGNet 的空间权重则随分类损失端到端更新。</p><img src="/e159946/5.webp"><p>图 4　时间卷积沿波形滑动并保留电极维；空间卷积在同一时间位置组合各电极。图中的 F₁D 表示 F₁×D 个特征通道。</p><h4 id="4-Depthwise-与-Separable：怎样减少参数并分开学习不同关系"><a href="#4-Depthwise-与-Separable：怎样减少参数并分开学习不同关系" class="headerlink" title="4. Depthwise 与 Separable：怎样减少参数并分开学习不同关系"></a>4. Depthwise 与 Separable：怎样减少参数并分开学习不同关系</h4><p><strong>时间卷积、空间卷积描述“沿哪个轴处理”；depthwise、pointwise 描述“怎样连接特征通道”。</strong> 它们不是同一层面的分类，所以一个卷积既可以是空间卷积，也可以是 depthwise 卷积。</p><p>EEGNet 的空间卷积采用 depthwise 连接方式：每一种时间特征单独学习自己的空间滤波器，不在这一步混合不同时间特征。 $D=2$ 表示每一种时间特征学习两套电极权重。因此，8 种时间特征会产生 16 种时空特征。</p><p>忽略偏置，这一步只有：</p><script type="math/tex;mode=display">F_1DC=8\times2\times22=352</script><p>个空间卷积权重。若改成普通卷积，同样从 8 个输入特征通道映射到 16 个输出特征通道、使用 $(22,1)$ 的核，每个输出都会连接全部 8 个输入，参数量变成 $16\times8\times22=2816$ 。两者不仅参数数量不同，允许学习的连接关系也不同。</p><p>在 PyTorch 中，这种分组可以用下面的层表达；此处只是关键层示意：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from torch import nn</span><br><span class="line"></span><br><span class="line">spatial = nn.Conv2d(</span><br><span class="line">    in_channels=8,</span><br><span class="line">    out_channels=16,</span><br><span class="line">    kernel_size=(22, 1),</span><br><span class="line">    groups=8,</span><br><span class="line">    bias=False,</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>groups=8 将输入特征通道分成 8 组，每组一个输入、两个输出。注意，这里被分组的是网络特征通道，不是 22 个物理电极；每组内部的空间核仍然覆盖全部 22 根电极。</p><p>随后，可分离卷积（Separable Convolution）把“每条特征自身的时间变化”和“特征之间的融合”分两步完成：先对每个输入特征单独做时间卷积，再通过 $(1,1)$ 的逐点卷积混合特征通道。这个先后关系可在EEGNet 作者实现中核对。</p><p>设输入有 $M=16$ 个特征通道，时间核长 $L=16$ ，输出通道数仍为 $F_2=16$ ，则可写为：</p><script type="math/tex;mode=display">U_{b,m,t}=\sum_{\ell=0}^{L-1}q_{m,\ell}\,\widetilde{Z}_{b,m,t+\ell}</script><script type="math/tex;mode=display">V_{b,o,t}=\sum_{m=1}^{M}p_{o,m}\,U_{b,m,t}</script><p>这里省略了已为 1 的电极维，并把 $(f,d)$ 合并为特征编号 $m$ 。第一式的每条特征有自己的时间核；第二式在同一时间位置把所有特征做加权融合， $o$ 是输出特征编号。</p><p>$(1,1)$ 看起来很小，但它仍然可以连接全部输入特征通道：核的二维尺寸只描述电极和时间两个轴，并没有把特征通道维限制为 1。</p><p>这两步共需要的卷积权重数为：</p><script type="math/tex;mode=display">ML+MF_2=16\times16+16\times16=512</script><p>而一次普通时间卷积需要 $MF_2L=4096$ 个权重。在这个例子中，可分离卷积的权重数是普通卷积的八分之一。这些都是按指定形状推导的局部层参数量，不包含归一化、分类层，也不能直接当作整个网络的总参数量。</p><img src="/e159946/6.webp"><p>图 5　先逐通道提取时间模式，再用逐点卷积混合特征通道；下方数字仅比较这一层的卷积权重数。</p><h4 id="5-把-EEGNet-串起来：每一层保留了什么"><a href="#5-把-EEGNet-串起来：每一层保留了什么" class="headerlink" title="5. 把 EEGNet 串起来：每一层保留了什么"></a>5. 把 EEGNet 串起来：每一层保留了什么</h4><p>先看论文中的原始形状表。它用 $C$ 、 $T$ 、 $F_1$ 、 $D$ 、 $F_2$ 和 $N$ 分别表示电极数、时间点数、时间滤波器数、每个时间滤波器对应的空间滤波器数、融合后的特征通道数和类别数。</p><img src="/e159946/7.webp"><p>原论文 Table 2：EEGNet 各层的核尺寸、参数量和输出形状。来源：Lawhern 等，EEGNet，Table 2。</p><p>下面的中文表格把符号代入 22 通道、1000 点的教学示例，采样率取 250 Hz，第一层时间核长 125，后续时间核长 16。原论文的表格以 128 Hz 数据为背景，第一层时间核长 64；因此下面的数值表不是原论文实验配置的直接复现。卷积沿时间采用 same padding，空间核采用 valid，池化的步长等于核长。</p><div class="table-container"><table><thead><tr><th>阶段</th><th>关键操作</th><th>输出形状</th></tr></thead><tbody><tr><td>输入</td><td>22 通道、4 秒 EEG，采样率 250 Hz</td><td>[B, 1, 22, 1000]</td></tr><tr><td>时间卷积</td><td>8 个 (1,125) 时间核</td><td>[B, 8, 22, 1000]</td></tr><tr><td>归一化</td><td>Batch Normalization</td><td>[B, 8, 22, 1000]</td></tr><tr><td>深度空间卷积</td><td>(22,1) 核，8 组，每组 2 个输出</td><td>[B, 16, 1, 1000]</td></tr><tr><td>归一化与激活</td><td>Batch Normalization、ELU</td><td>[B, 16, 1, 1000]</td></tr><tr><td>池化与正则化</td><td>(1,4) 平均池化、Dropout</td><td>[B, 16, 1, 250]</td></tr><tr><td>逐通道时间卷积</td><td>16 组 (1,16) 时间核</td><td>[B, 16, 1, 250]</td></tr><tr><td>逐点卷积</td><td>(1,1) 核融合为 16 个特征通道</td><td>[B, 16, 1, 250]</td></tr><tr><td>归一化与激活</td><td>Batch Normalization、ELU</td><td>[B, 16, 1, 250]</td></tr><tr><td>池化与正则化</td><td>(1,8) 平均池化、Dropout</td><td>[B, 16, 1, 31]</td></tr><tr><td>展平</td><td>合并特征与时间维</td><td>[B, 496]</td></tr><tr><td>二分类</td><td>496 维表示映射到两个类别分数</td><td>[B, 2]</td></tr></tbody></table></div><p>第二次池化后是 31 而不是 31.25，因为默认不补齐尾部、采用向下取整： $\lfloor250/8\rfloor=31$ 。因此展平维度是 $16\times31=496$ 。作者实现中的输入布局采用通道后置格式，阅读或移植代码时须换算维度顺序。上述主干层次参见作者实现。</p><p>Batch Normalization 用于调整中间特征的数值分布，并带有可学习的缩放和平移参数；它不是对原始 EEG 的去伪迹操作。训练时使用 batch 统计量并更新运行统计量，默认推理模式使用保存的运行统计量，所以验证和测试要调用 model.eval()。</p><p>ELU 提供非线性。例如取 $\alpha=1$ 时，正输入保持原值，负输入映射为 $e^x-1$ 。它让网络能够表达仅靠线性时间滤波和空间加权无法得到的映射。EEGNet 的这段结构不是每做一次卷积就立即加一个激活：时间卷积与空间卷积之间有归一化，但非线性激活在空间组合之后。</p><p>平均池化压缩时间轴，Dropout 在训练阶段随机丢弃部分响应以减轻过拟合。池化后的值是网络特征响应的平均，不应直接称为某个频带的功率；如果没有平方或相应能量计算，平均响应与平均功率不是同一个量。</p><p>上述 EEGNet 结构在展平后接分类层；作者实现最后还用 Softmax 输出概率。若用 PyTorch 的 CrossEntropyLoss 训练，则应让模型返回 logits，由损失函数处理归一化；需要展示概率时再计算 Softmax。后面的简化 CNN 示例使用全局平均池化，而本章结构采用展平，这两种分类头不能混为一谈。</p><img src="/e159946/8.webp"><p>图 6　EEGNet 从多通道 EEG 到分类输出的形状变化，以 22 通道、1000 个采样点为例追踪各层形状；图中省略归一化、激活和 Dropout。</p><h4 id="6-怎样选择参数，并理解模型真正学到了什么"><a href="#6-怎样选择参数，并理解模型真正学到了什么" class="headerlink" title="6. 怎样选择参数，并理解模型真正学到了什么"></a>6. 怎样选择参数，并理解模型真正学到了什么</h4><p>EEGNet- $F_1,D$ 的命名突出时间滤波器数和每个时间特征的空间滤波器数。因此 EEGNet-8,2 的含义不是“8 根电极、2 个类别”，而是 8 种时间滤波和每种时间滤波下的 2 种空间组合。论文中的紧凑设计与这些连接方式有关。参见原论文的网络结构说明。</p><p>实际设置时，应把卷积核长度换算成秒，再考虑任务。相同的 64 点时间核，在 128 Hz 下约为 0.5 秒，在 250 Hz 下约为 0.256 秒，覆盖的时间不同。改变采样率后，不能只修改输入长度而不检查时间核和池化尺度。</p><p>池化之后，后续卷积处理的也不是原始采样点。以本章示例为例，第一次池化的步长为 4，后续相邻特征位置对应原始输入中相隔 4 个采样点。第二段长度为 16 的时间核会覆盖更长的原始时间范围，而且它的完整感受野还包括前面卷积和池化的覆盖，不能仅用 $16/250$ 秒来解释。</p><p>增大 $F_1$ 或 $D$ 可以增加候选特征，也会增加拟合自由度。应在训练和验证数据内选择这些参数，而不是根据测试集反复调整。电极数量、顺序、参考方式、窗口长度和缩放规则也必须在训练与实际使用时对应。</p><p>最后，EEGNet 的结构让时间滤波和空间组合更容易被分别检查，但“容易检查”不等于“自动获得生理解释”。一个有判别力的响应可能来自任务相关节律，也可能来自眼电或肌电。应结合输入质量、滤波器响应、空间模式和独立验证判断模型使用的信息。</p><p>把这章连起来理解，EEGNet 学习的是：<strong>先以多种时间模式观察每根电极，再为各类时间响应学习空间组合，随后汇总并融合这些特征，最终服务于分类任务。</strong> 这也是它作为 Deep Learning in BCI 里程碑式模型最值得理解的设计思想。</p><h3 id="五、CNN-如何训练，以及怎样判断它是否有效"><a href="#五、CNN-如何训练，以及怎样判断它是否有效" class="headerlink" title="五、CNN 如何训练，以及怎样判断它是否有效"></a>五、CNN 如何训练，以及怎样判断它是否有效</h3><p>使用 CNN 之前，仍然要做好信号质量控制。CNN 可以减少人工特征工程，但 EEG 中仍然可能存在电源噪声、电极脱落、运动伪迹、眼电、肌电、基线漂移、坏通道、参考差异和设备差异。</p><p>模型并不知道哪些变化是”脑活动”，哪些变化是”采集问题”。更危险的是，如果某种伪迹恰好与标签相关，模型可能非常成功地利用伪迹完成分类。例如类别 A 总是在实验前半段采集，类别 B 总是在后半段采集，而后半段电极阻抗发生系统性变化，模型就可能利用这种非任务因素。</p><p>因此：<strong>深度学习减少的是人工特征设计，不等于取消信号质量控制。</strong></p><p>假设分类器最终输出：</p><script type="math/tex;mode=display">\hat{\mathbf{y}}=[\hat{p}_1,\hat{p}_2,\ldots,\hat{p}_K]</script><p>分类任务常使用 Cross Entropy Loss：</p><script type="math/tex;mode=display">\mathcal{L}=-\sum_{k=1}^{K}y_k\log\hat{p}_k</script><p>这里 $K$ 是类别数， $y_k$ 是真实类别的独热编码， $\hat{p}_k$ 是模型经 Softmax 得到的第 $k$ 类概率。实际使用 PyTorch 的 CrossEntropyLoss 时，应传入未经过 Softmax 的 logits 和整数类别标签，由损失函数在内部完成相应计算。</p><p>模型首先执行 Forward：</p><script type="math/tex;mode=display">X\rightarrow\hat{y}</script><p>根据真实标签计算 Loss：</p><script type="math/tex;mode=display">\mathcal{L}(\hat{y},y)</script><p>再通过 Backpropagation 计算：</p><script type="math/tex;mode=display">\frac{\partial\mathcal{L}}{\partial\theta}</script><p>其中 $\theta$ 表示网络中的可学习参数。优化器根据梯度更新参数：</p><script type="math/tex;mode=display">\theta\leftarrow\theta-\eta\frac{\partial\mathcal{L}}{\partial\theta}</script><p>其中 $\eta$ 是 Learning Rate。这个更新式表示基本梯度下降；后面的示例使用 Adam，其具体更新规则不同，但同样依赖反向传播得到的梯度。</p><p>整个训练过程不断重复：</p><script type="math/tex;mode=display">\text{Forward}\rightarrow\text{Loss}\rightarrow\text{Backward}\rightarrow\text{Update}</script><p>所谓”模型自动学习 EEG 特征”，本质上就是网络参数在训练过程中不断朝着降低任务损失的方向更新。</p><p>假设训练集有：</p><script type="math/tex;mode=display">N=6400</script><p>个 EEG 样本，Batch Size 为：</p><script type="math/tex;mode=display">B=64</script><p>那么一个 Epoch 大约包含：</p><script type="math/tex;mode=display">\frac{6400}{64}=100</script><p>个 Iteration。</p><p>Batch 是一次送入模型的数据数量；Iteration 通常对应一次参数更新；Epoch 表示整个训练集大致被模型遍历一遍。因此训练 50 个 Epoch，大约会进行：</p><script type="math/tex;mode=display">50\times100=5000</script><p>次参数更新。</p><p>这里的训练 epoch 指遍历训练集的一轮，不是 EEG 分析中分段得到的一个 epoch。上述更新次数假设每个 batch 更新一次，未使用梯度累积。</p><p>Epoch 越多并不意味着模型一定越好。训练时间过长反而可能导致过拟合。</p><p>假设：</p><script type="math/tex;mode=display">ACC_{train}=99\%</script><p>但：</p><script type="math/tex;mode=display">ACC_{test}=65\%</script><p>模型可能很好地记住了训练数据，却没有学习到能够推广到新数据的规律。</p><p>EEG 特别容易出现过拟合，因为样本数量有限、个体差异明显、同一受试者内部样本高度相似，而且网络参数量可能很大。常见缓解方法包括 Dropout、Weight Decay、Early Stopping、合理的数据增强、减小模型和增加训练数据。</p><p>但这些方法都无法修复一个更加根本的问题：<strong>数据泄漏。</strong></p><p>假设有 20 个受试者，每个人都有大量 EEG Epoch。如果把所有 Epoch 混在一起随机划分：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">所有人的所有 Epoch</span><br><span class="line">        ↓</span><br><span class="line">Random Split</span><br><span class="line">        ↓</span><br><span class="line">Train / Test</span><br></pre></td></tr></table></figure><p>同一个受试者的数据就可能同时出现在训练集和测试集。模型可能利用个体脑电基线、头型与电极接触差异、个体频谱特征、设备或 Session 特征，而不是真正的任务相关脑活动。这样的随机划分不能用来证明模型能泛化到新受试者；即使只评价已见受试者的新试次，也要防止同一试次的重叠片段跨集合出现。</p><p>如果研究目标是跨受试者 BCI，更合理的是：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Subject 01–16 → Train</span><br><span class="line">Subject 17–18 → Validation</span><br><span class="line">Subject 19–20 → Test</span><br></pre></td></tr></table></figure><p>确保：</p><script type="math/tex;mode=display">S_{train}\cap S_{test}=\varnothing</script><p>如果使用 Leave-One-Subject-Out，则每次令一个受试者作为测试集：</p><script type="math/tex;mode=display">S_i\rightarrow Test,\qquad S_{\neg i}\rightarrow Train</script><p>然后轮流进行。每一轮的验证与调参都应在剩余受试者内完成，留出的测试受试者不能用于早停或选择模型。</p><p>所以一个随机 Epoch 划分得到的 95% Accuracy，不能直接与跨受试者实验得到的 75% Accuracy 比较，它们回答的是不同的泛化问题。</p><p>假设 90% 样本属于类别 A，只有 10% 属于类别 B。模型如果全部预测 A：</p><script type="math/tex;mode=display">ACC=90\%</script><p>看起来很高，但实际上完全无法识别 B。</p><p>因此 EEG 分类还应该结合 Precision、Recall/Sensitivity、Specificity、F1-score、Macro-F1、Cohen’s Kappa 和 Confusion Matrix 等指标。对于多分类或类别明显不均衡的任务，Macro-F1 往往比单独 Accuracy 更能反映各类别是否都得到了合理识别。</p><h3 id="六、把流程串起来：左右手运动想象的-CNN-示例"><a href="#六、把流程串起来：左右手运动想象的-CNN-示例" class="headerlink" title="六、把流程串起来：左右手运动想象的 CNN 示例"></a>六、把流程串起来：左右手运动想象的 CNN 示例</h3><p>现在把本文内容串起来。先明确解码任务，以及要评价同一受试者的新试次、跨 session，还是新受试者。按对应层级划分训练集、验证集和测试集，并确保重叠窗口不会跨集合出现。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">采集 EEG → 数据质量检查 → 按目标层级划分 Train / Validation / Test</span><br><span class="line">    ↓</span><br><span class="line">预处理与分段：固定处理规则，学习型参数仅在训练数据上拟合</span><br><span class="line">    ↓</span><br><span class="line">输入张量 [B, C, T]，或时频张量 [B, C, F, T_tf]</span><br><span class="line">    ↓</span><br><span class="line">CNN 特征提取 → 特征汇聚 → 分类层 → logits</span><br><span class="line">    ↓</span><br><span class="line">训练集：计算损失 → 反向传播 → 更新参数</span><br><span class="line">验证集：选择结构、超参数和停止训练的时机</span><br><span class="line">测试集：模型确定后进行独立评价</span><br></pre></td></tr></table></figure><p>例如，若用每个通道的均值和标准差缩放输入，应只在训练集上估计这些统计量，再应用到验证集和测试集。数据增强只用于训练数据；验证和测试时应切换到 model.eval()，使 Dropout 等模块按推理方式工作。</p><p>固定参数的逐记录处理可以提前计算，但不能让待评价数据参与跨样本参数估计或模型选择。CNN 是否有效，最终要看它能否在与目标场景一致的独立数据上保持表现。</p><img src="/e159946/9.webp"><p>图 7　CNN 的训练、验证与独立测试图，以跨受试者划分为例，训练集更新参数，验证集用于模型选择，测试集用于最终独立评价。</p><p>假设每个样本包含 22 个通道、1000 个采样点，采样率为 250 Hz，对应 4 秒 EEG。标签采用整数编码：0 表示左手运动想象，1 表示右手运动想象。</p><p>下面使用一个简化的一维 CNN。它不是 EEGNet 的复现，也不表示适合所有运动想象数据集，而是用来说明<strong>输入、卷积特征、汇聚、分类与损失如何连接</strong>。</p><div class="table-container"><table><thead><tr><th>步骤</th><th>操作</th><th>输出形状</th></tr></thead><tbody><tr><td>输入</td><td>22 通道 EEG</td><td>[B, 22, 1000]</td></tr><tr><td>第一层</td><td>Conv1d：32 个核，核长 25，padding 12；ReLU</td><td>[B, 32, 1000]</td></tr><tr><td>第一次池化</td><td>Average Pooling，核长和步长均为 2</td><td>[B, 32, 500]</td></tr><tr><td>第二层</td><td>Conv1d：64 个核，核长 15，padding 7；ReLU</td><td>[B, 64, 500]</td></tr><tr><td>第二次池化</td><td>Average Pooling，核长和步长均为 2</td><td>[B, 64, 250]</td></tr><tr><td>特征汇聚</td><td>对时间维做全局平均，随后展平</td><td>[B, 64]</td></tr><tr><td>分类层</td><td>Linear：64 → 2</td><td>[B, 2]</td></tr></tbody></table></div><p>默认 groups=1 的 Conv1d 在沿时间滑动的同时会混合所有输入通道。因此，这个例子把时间模式和通道组合一起学习，并未像某些 EEG CNN 那样把两种操作显式拆开。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">from torch import nn</span><br><span class="line"></span><br><span class="line">class EEGCNN(nn.Module):</span><br><span class="line">    def __init__(self, n_channels=22, n_classes=2):</span><br><span class="line">        super().__init__()</span><br><span class="line">        self.features = nn.Sequential(</span><br><span class="line">            nn.Conv1d(n_channels, 32, kernel_size=25, padding=12),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.AvgPool1d(kernel_size=2),</span><br><span class="line">            nn.Conv1d(32, 64, kernel_size=15, padding=7),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.AvgPool1d(kernel_size=2),</span><br><span class="line">            nn.AdaptiveAvgPool1d(1),</span><br><span class="line">            nn.Flatten(start_dim=1),</span><br><span class="line">        )</span><br><span class="line">        self.classifier = nn.Sequential(</span><br><span class="line">            nn.Dropout(p=0.25),</span><br><span class="line">            nn.Linear(64, n_classes),</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    def forward(self, x):</span><br><span class="line">        return self.classifier(self.features(x))</span><br><span class="line"></span><br><span class="line">torch.manual_seed(42)</span><br><span class="line">model = EEGCNN()</span><br><span class="line">criterion = nn.CrossEntropyLoss()</span><br><span class="line">optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)</span><br><span class="line"></span><br><span class="line"># 随机张量只验证形状和训练步骤，不代表真实 EEG 或分类性能。</span><br><span class="line"># 实际使用时替换为训练集预处理后的一个 batch。</span><br><span class="line">x = torch.randn(8, 22, 1000)</span><br><span class="line">y = torch.tensor([0, 1, 0, 1, 0, 1, 0, 1], dtype=torch.long)</span><br><span class="line"></span><br><span class="line">model.train()</span><br><span class="line">optimizer.zero_grad()</span><br><span class="line">logits = model(x)          # [8, 2]，未经 Softmax 的类别分数</span><br><span class="line">loss = criterion(logits, y)</span><br><span class="line">loss.backward()</span><br><span class="line">optimizer.step()</span><br><span class="line"></span><br><span class="line">model.eval()</span><br><span class="line">with torch.no_grad():</span><br><span class="line">    logits = model(x)</span><br><span class="line">    probabilities = torch.softmax(logits, dim=1)</span><br><span class="line">    predicted_class = logits.argmax(dim=1)</span><br><span class="line"></span><br><span class="line">print(logits.shape)        # torch.Size([8, 2])</span><br><span class="line">print(probabilities.shape) # torch.Size([8, 2])</span><br></pre></td></tr></table></figure><p>训练时，交叉熵的梯度会从分类层传回前面的卷积层，同时更新分类权重和特征提取权重。这样，卷积核才逐渐成为与任务有关的特征提取器。</p><p>CrossEntropyLoss 接收原始 logits，不应先对输入做 Softmax；只有需要展示概率时才显式调用 Softmax。整数标签形状为 [B]，类别编号应落在 0 到 n_classes-1。这一约定见 PyTorch CrossEntropyLoss 文档。</p><p>上面的推理仍使用同一批随机输入，只用于演示 API。实际实验必须另外准备验证和测试数据，不能用这次输出评价模型泛化能力。</p><h3 id="七、理解-CNN-的能力，也理解它的边界"><a href="#七、理解-CNN-的能力，也理解它的边界" class="headerlink" title="七、理解 CNN 的能力，也理解它的边界"></a>七、理解 CNN 的能力，也理解它的边界</h3><p>深度学习出现以后，传统 EEG 特征并没有失去意义。传统特征往往具有明确先验和更直接的解释。例如 $P_{\alpha}$ 具有明确的频带含义，CSP 具有明确的空间滤波和方差判别思想；而深度网络中的 Feature_37 通常没有如此直接的生理解释。</p><p>因此实际研究中完全可以结合二者：</p><script type="math/tex;mode=display">\mathrm{Raw\ EEG}\rightarrow CNN</script><p>同时：</p><script type="math/tex;mode=display">EEG\rightarrow PSD/CSP/Hjorth</script><p>最后进行特征融合：</p><script type="math/tex;mode=display">\mathrm{Feature}_{\mathrm{deep}}\oplus \mathrm{Feature}_{\mathrm{handcrafted}}\rightarrow Classifier</script><p>理解传统信号处理和特征工程，还能够帮助我们判断深度模型可能利用了什么信息，而不是把神经网络当成一个完全不可理解的黑盒。</p><p>增加卷积层、特征通道和分类层宽度，会提高模型容量，但也可能带来过拟合、更高的计算开销和更大的实时延迟。小规模 EEG 数据集不一定适合很深、很宽的 CNN。</p><p>可以先建立规模适中的 CNN 基线，再根据训练与验证结果调整卷积核、感受野和正则化强度。比较结构时，应使用相同的数据划分和评价标准。</p><blockquote><p>更复杂的 CNN ≠ 更可靠的结果。</p></blockquote><p>真正需要关注的是模型是否在独立数据上学到了能够泛化的任务相关模式。</p><p>上一篇文章中，特征的定义主要由研究者提前确定：</p><script type="math/tex;mode=display">EEG\rightarrow\boxed{\text{人工设计特征}}\rightarrow\text{分类器}</script><p>本文中，CNN 的卷积参数和分类参数通过同一个任务损失一起优化：</p><script type="math/tex;mode=display">EEG\rightarrow\boxed{\text{CNN 学习表示}}\rightarrow\text{特征汇聚}\rightarrow\text{分类层}</script><p>因此，CNN 带来的变化不是仅仅替换最后的分类器，而是<strong>让特征提取本身也成为训练的一部分</strong>。这就是本文所讨论的表示学习。</p><p>不过，优化目标是降低任务损失，并不保证每个卷积核都对应一个明确的脑电节律。解释模型时仍应结合输入质量、频率响应、消融实验和跨数据验证，不能只根据某张特征图就下生理结论。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这篇文章围绕 CNN 说明了 EEG 自动特征学习的基本过程：卷积核沿时间寻找局部模式，多通道权重学习通道组合；激活函数提供非线性，池化和特征汇聚压缩表示，分类层把这些表示转换为类别分数。</p><p><strong>从人工特征到 CNN，改变的是特征形成的方式。高质量输入、合理的数据划分和可靠的验证，仍然是脑机接口解码的基础。</strong></p><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/l2VyCHr_2JrMmEkwCVp_IQ">https://mp.weixin.qq.com/s/l2VyCHr_2JrMmEkwCVp_IQ</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/9a1f89fc.html" rel="prev" title="PAPER REVIEW· 第004期：听同一首陌生的曲子，不同人为什么能"想"到差不多的故事？Nature Communications 2026论文硬核解读"> <i class="fa fa-chevron-left"></i> PAPER REVIEW· 第004期：听同一首陌生的曲子，不同人为什么能"想"到差不多的故事？Nature Communications 2026论文硬核解读</div><div class="post-nav-item"><a href="/f20bd021.html" rel="next" title="四篇论文把"音乐让你爽"从问卷题，变成电极题：戴上 32-128 个电极听 20 秒音乐，深度学习能以 93%+ 的准确率读出你的愉悦度与唤醒度"> 四篇论文把"音乐让你爽"从问卷题，变成电极题：戴上 32-128 个电极听 20 秒音乐，深度学习能以 93%+ 的准确率读出你的愉悦度与唤醒度 <i class="fa fa-chevron-right"></i></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BB%8E%E4%BA%BA%E5%B7%A5%E7%89%B9%E5%BE%81%E5%88%B0-CNN%EF%BC%9A%E6%A8%A1%E5%9E%8B%E7%A9%B6%E7%AB%9F%E5%9C%A8%E5%AD%A6%E4%B9%A0%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">一、从人工特征到 CNN：模型究竟在学习什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%8D%B7%E7%A7%AF%E6%80%8E%E6%A0%B7%E4%BB%8E-EEG-%E4%B8%AD%E6%8F%90%E5%8F%96%E7%89%B9%E5%BE%81"><span class="nav-number">2.</span> <span class="nav-text">二、卷积怎样从 EEG 中提取特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%97%B6%E9%97%B4%E3%80%81%E9%80%9A%E9%81%93%E4%B8%8E%E6%97%B6%E9%A2%91%E5%9B%BE%EF%BC%9ACNN-%E6%80%8E%E6%A0%B7%E8%A7%82%E5%AF%9F-EEG"><span class="nav-number">3.</span> <span class="nav-text">三、时间、通道与时频图：CNN 怎样观察 EEG</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81EEGNet%EF%BC%9ADeep-Learning-in-BCI-%E7%9A%84%E9%87%8C%E7%A8%8B%E7%A2%91%E5%BC%8F%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">四、EEGNet：Deep Learning in BCI 的里程碑式模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%85%88%E7%9C%8B%E6%87%82%E8%BE%93%E5%85%A5%EF%BC%9A%E7%94%B5%E6%9E%81%E9%80%9A%E9%81%93%E4%B8%8E%E7%89%B9%E5%BE%81%E9%80%9A%E9%81%93%E4%B8%8D%E6%98%AF%E4%B8%80%E5%9B%9E%E4%BA%8B"><span class="nav-number">4.1.</span> <span class="nav-text">1. 先看懂输入：电极通道与特征通道不是一回事</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%97%B6%E9%97%B4%E5%8D%B7%E7%A7%AF%EF%BC%9A%E5%9C%A8%E6%AF%8F%E4%B8%AA%E7%94%B5%E6%9E%81%E4%B8%8A%E5%AF%BB%E6%89%BE%E5%B1%80%E9%83%A8%E6%B3%A2%E5%BD%A2%E6%A8%A1%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">2. 时间卷积：在每个电极上寻找局部波形模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%A9%BA%E9%97%B4%E5%8D%B7%E7%A7%AF%EF%BC%9A%E6%8A%8A%E5%A4%9A%E4%B8%AA%E7%94%B5%E6%9E%81%E7%BB%84%E5%90%88%E6%88%90%E6%96%B0%E7%9A%84%E4%BF%A1%E5%8F%B7"><span class="nav-number">4.3.</span> <span class="nav-text">3. 空间卷积：把多个电极组合成新的信号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Depthwise-%E4%B8%8E-Separable%EF%BC%9A%E6%80%8E%E6%A0%B7%E5%87%8F%E5%B0%91%E5%8F%82%E6%95%B0%E5%B9%B6%E5%88%86%E5%BC%80%E5%AD%A6%E4%B9%A0%E4%B8%8D%E5%90%8C%E5%85%B3%E7%B3%BB"><span class="nav-number">4.4.</span> <span class="nav-text">4. Depthwise 与 Separable：怎样减少参数并分开学习不同关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E6%8A%8A-EEGNet-%E4%B8%B2%E8%B5%B7%E6%9D%A5%EF%BC%9A%E6%AF%8F%E4%B8%80%E5%B1%82%E4%BF%9D%E7%95%99%E4%BA%86%E4%BB%80%E4%B9%88"><span class="nav-number">4.5.</span> <span class="nav-text">5. 把 EEGNet 串起来：每一层保留了什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E6%80%8E%E6%A0%B7%E9%80%89%E6%8B%A9%E5%8F%82%E6%95%B0%EF%BC%8C%E5%B9%B6%E7%90%86%E8%A7%A3%E6%A8%A1%E5%9E%8B%E7%9C%9F%E6%AD%A3%E5%AD%A6%E5%88%B0%E4%BA%86%E4%BB%80%E4%B9%88"><span class="nav-number">4.6.</span> <span class="nav-text">6. 怎样选择参数，并理解模型真正学到了什么</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81CNN-%E5%A6%82%E4%BD%95%E8%AE%AD%E7%BB%83%EF%BC%8C%E4%BB%A5%E5%8F%8A%E6%80%8E%E6%A0%B7%E5%88%A4%E6%96%AD%E5%AE%83%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88"><span class="nav-number">5.</span> <span class="nav-text">五、CNN 如何训练，以及怎样判断它是否有效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%8A%8A%E6%B5%81%E7%A8%8B%E4%B8%B2%E8%B5%B7%E6%9D%A5%EF%BC%9A%E5%B7%A6%E5%8F%B3%E6%89%8B%E8%BF%90%E5%8A%A8%E6%83%B3%E8%B1%A1%E7%9A%84-CNN-%E7%A4%BA%E4%BE%8B"><span class="nav-number">6.</span> <span class="nav-text">六、把流程串起来：左右手运动想象的 CNN 示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E7%90%86%E8%A7%A3-CNN-%E7%9A%84%E8%83%BD%E5%8A%9B%EF%BC%8C%E4%B9%9F%E7%90%86%E8%A7%A3%E5%AE%83%E7%9A%84%E8%BE%B9%E7%95%8C"><span class="nav-number">7.</span> <span class="nav-text">七、理解 CNN 的能力，也理解它的边界</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">9.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1764</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">57</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">10.9m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">452:55</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru02.model.json"},"display":{"position":"right","width":208,"height":520},"mobile":{"show":false},"log":false});</script></body></html>

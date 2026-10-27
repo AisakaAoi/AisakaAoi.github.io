@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="前言介绍大型语言模型（LLMs）经历了快速的发展，并展现出令人印象深刻的语言理解能力。值得注意的是，LLMs表现出涌现能力，使它们能够解决类似人类的复杂推理任务，如数学计算、思维链推理、少样本提示等。尽管具有这些令人印象深刻的特征，但由于密集连接层内复杂而精细的非线性相互作用，LLMs功能的复杂内部过程尚未得到充分阐明。理解这些潜在机制有助于预测LLMs在训练数据之外的行为，深入了解某些行为的涌现"><meta property="og:type" content="article"><meta property="og:title" content="如何在LLM大语言模型上微调来优化数学推理能力？"><meta property="og:url" content="https://aisakaaoi.github.io/f63be1ed.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="前言介绍大型语言模型（LLMs）经历了快速的发展，并展现出令人印象深刻的语言理解能力。值得注意的是，LLMs表现出涌现能力，使它们能够解决类似人类的复杂推理任务，如数学计算、思维链推理、少样本提示等。尽管具有这些令人印象深刻的特征，但由于密集连接层内复杂而精细的非线性相互作用，LLMs功能的复杂内部过程尚未得到充分阐明。理解这些潜在机制有助于预测LLMs在训练数据之外的行为，深入了解某些行为的涌现"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/f63be1ed/2.webp"><meta property="og:image" content="https://aisakaaoi.github.io/f63be1ed/6.webp"><meta property="og:image" content="https://aisakaaoi.github.io/f63be1ed/7.webp"><meta property="og:image" content="https://aisakaaoi.github.io/f63be1ed/8.webp"><meta property="article:published_time" content="2025-10-20T22:35:00.000Z"><meta property="article:modified_time" content="2026-10-22T09:07:33.311Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/f63be1ed/2.webp"><link rel="canonical" href="https://aisakaaoi.github.io/f63be1ed.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>如何在LLM大语言模型上微调来优化数学推理能力？ | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">57</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1764</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/f63be1ed.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">如何在LLM大语言模型上微调来优化数学推理能力？</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2025-10-21 06:35:00" itemprop="dateCreated datePublished" datetime="2025-10-21T06:35:00+08:00">2025-10-21</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">⭐人工智能 Artificial Intelligence</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">💫未分类</span></a> </span></span><span id="/f63be1ed.html" class="post-meta-item leancloud_visitors" data-flag-title="如何在LLM大语言模型上微调来优化数学推理能力？" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/f63be1ed.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/f63be1ed.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>8.4k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>21 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><h3 id="前言介绍"><a href="#前言介绍" class="headerlink" title="前言介绍"></a>前言介绍</h3><p>大型语言模型（LLMs）经历了快速的发展，并展现出令人印象深刻的语言理解能力。值得注意的是，LLMs表现出涌现能力，使它们能够解决类似人类的复杂推理任务，如数学计算、思维链推理、少样本提示等。尽管具有这些令人印象深刻的特征，但由于密集连接层内复杂而精细的非线性相互作用，LLMs功能的复杂内部过程尚未得到充分阐明。理解这些潜在机制有助于预测LLMs在训练数据之外的行为，深入了解某些行为的涌现，以及识别和纠正特定模型中存在的错误。</p><p>与典型的语言理解任务不同，数学计算任务涉及简洁的问题陈述和明确的正确答案，需要推理和计算过程而不是直接复制来推导解决方案。这些特征使我们能够在不受无关因素干扰的情况下深入了解模型的推理能力。具体而言，需要专注于涉及两个操作数的算术计算任务，即加法、减法、乘法和除法，这些是数学计算的基础。为此，我们创建了涉及计算逻辑的各种类型句子的数据集，如图1中的”3和5的加法等于”。LLMs能够以平均超过80%的高置信度分数提供答案。</p><img src="/f63be1ed/2.webp"> <span id="more"></span><p>为了揭示这些模型如何正确完成任务（例如”3 + 5 = 8”），我们首先识别LLMs中与任务相关的内部组件。我们对transformer注意力头和多层感知机（MLPs）进行硬干预（Pearl, 2009），以观察它们对预测logits的影响。我们的发现揭示，只有一小部分（&lt; 5%）的注意力头和这些头部之后的MLPs显著影响模型的性能。即，<strong>LLMs在完成计算时经常涉及这些注意力头和随后的MLPs</strong>。随后，我们敲除这些经常涉及的头部/MLPs来验证它们的忠实性。我们发现，当这些关键的头部/MLPs被敲除时，模型性能急剧下降，导致准确率下降约70%。</p><p>为了将已识别的头部/MLPs的工作机制解释为人类可理解的解释，我们对它们的操作”行为”进行了更深入的分析。具体而言，我们调查了关键头部的注意力模式，发现这些<strong>注意力头部对数学句子中表示操作数和运算符的tokens表现出强烈的关注</strong>，<strong>对其他非相关tokens表现出相对不敏感</strong>。对于MLPs的分析，我们比较了MLPs输入/输出嵌入与数字tokens（即操作数和答案）嵌入之间的相关性。它揭示了MLPs在这些数字关注头部的指导下，将操作数作为输入，并更紧密地反映对应于正确答案的tokens的属性。<strong>这些观察使我们假设LLMs可能最初使用一组头部来从文本中定位算术操作数，随后让MLPs计算出答案。</strong>此外，这些头部/MLPs观察到的行为表现出高度的可迁移性，类似于涉及多位数整数、有理数等的对抗样本。这一实证观察强调了关键头部/MLPs在数学计算中的关键作用。</p><p>除了揭示内部机制外，我们还设计了一种有效的策略，涉及<strong>对与数学计算密切相关的特定注意力头和MLPs进行有针对性的微调，从而增强模型的数学能力。</strong>实验结果令人信服：通过微调仅32个注意力头（总共1024个头），我们观察到模型数学能力的显著改善。这种精确的调优方法不仅匹配而且可以超越通过全模型微调实现的增强。</p><p>这项工作旨在通过数学计算任务深入探讨LLMs的内部机制，沿着图1所示的”<strong>识别-分析-微调”管道</strong>。我们的发现揭示了LLMs注意力头的稀疏性，<strong>只有不到5%的头部表现出密切的相关性。这些头部特别关注操作数和运算符，而随后的MLPs逐渐推导出正确答案。</strong>发现的机制显示出强大的跨数据集可迁移性，并激励我们精确微调与计算相关的头部/MLPs以获得更好的数学能力。我们通过实验发现，在改善LLMs的目标能力时，精确调优对非数学任务的影响要小得多。</p><h3 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h3><h4 id="可解释性方法-Interpretability-Methods"><a href="#可解释性方法-Interpretability-Methods" class="headerlink" title="可解释性方法 Interpretability Methods"></a>可解释性方法 Interpretability Methods</h4><p>解释大型语言模型（LLMs）的内部机制近年来变得越来越紧迫），特别是当LLMs应用于高风险决策领域如医疗保健、刑事司法和金融时<strong>将因果中介分析（CMA）方法应用于解释深度语言模型</strong>，并已被应用于各种任务，如主谓一致、自然语言推理、事实关联的保持。此外，<strong>路径修补通过测量治疗效应如何通过个体神经元或特征之间的节点到节点连接进行中介，扩展了CMA的概念</strong>。最近的工作使用路径修补从电路角度解释神经网络，识别了不同能力，包括间接宾语识别、大于计算以及将答案文本映射到答案标签。</p><h4 id="数学任务的可解释性-Interpretability-for-Mathematical-Tasks"><a href="#数学任务的可解释性-Interpretability-for-Mathematical-Tasks" class="headerlink" title="数学任务的可解释性 Interpretability for Mathematical Tasks"></a>数学任务的可解释性 Interpretability for Mathematical Tasks</h4><p>数学能力长期以来一直是自然语言处理领域的研究主题。一些研究调查了LLMs的数学能力，但它们主要关注解释这些模型能做什么，而不是它们如何做。相比之下，其他一些研究更深入地研究了LLM结构，而不将LLM视为不可理解的黑盒。 识别了与算术问题相关的关键注意力层，但缺乏对关键层行为的深入解释和验证。 将因果抽象的方法扩展到理解如何在比较两个数字时遵循指令。提供了关于GPT2-small (0.1B)如何实现”大于”任务的因果解释，但只揭示了受模型小尺寸和数据集缺乏多样性限制的简单现象。</p><h4 id="为数学任务微调-LLMsFine-tune-LLMs-for-Mathematical-Tasks"><a href="#为数学任务微调-LLMsFine-tune-LLMs-for-Mathematical-Tasks" class="headerlink" title="为数学任务微调 LLMsFine-tune LLMs for Mathematical Tasks"></a>为数学任务微调 LLMsFine-tune LLMs for Mathematical Tasks</h4><p>许多研究通过在微调或推理过程中聚合各种采样推理路径来改善LLMs的数学推理能力。训练并设计了一个推理路径验证器，在推理过程中选择正确的结果。<strong>提出在推理过程中采样各种推理路径，然后通过对答案的多数投票或通过验证器得出最终结果。</strong>（类似随机森林？Thinking about）** 探索使用强化学习方法改善LLMs的数学推理能力。几项工作将拒绝采样的思想与其他技术结合，用于过滤多样化的采样推理路径进行微调数据增强。也存在相关工作定位关键参数以更新以获得更好的任务特定能力。从已经微调的模型中定位一个微小的参数子集到预训练模型上，无需进一步调优。</p><p><strong>这个子集的选择过程通过优化与任务相关的目标函数和L1范数来确保子集的稀疏性</strong>。在我们的工作中，我们通过测量每个组件的因果效应来定位预训练模型的与任务相关的参数，然后精确微调数学任务的关键组件。</p><h3 id="相关背景知识"><a href="#相关背景知识" class="headerlink" title="相关背景知识"></a>相关背景知识</h3><p><strong>大型语言模型（LLMs）</strong> 本工作中使用的LLMs包括LLaMA2-7B和LLaMA2-13B。这些是从HuggingFace²免费提供的预训练语言模型。<strong>所有这些模型都是仅解码器的transformer，配备多头注意力（MHA）和单个MLP在一个transformer层中</strong>。例如，LLaMA2-7B由32个transformer层组成，每层MHA中有32个注意力头。</p><p><strong>Transformer架构</strong> Transformer的输入是位置和token嵌入在$R^{N\times d}$中的组合，其中N是输入中token的数量，d是模型维度。遵循（Elhage et al., 2021）中的定义，输入嵌入作为残差流的初始值，所有注意力头和MLPs都从中读取和写入。专注于单个头部，第i层第j个头部由四个矩阵参数化：$W^{(i,j)}_Q, W^{(i,j)}_K, W^{(i,j)}_V \in R^{d\times d_H}$，和 $W^{(i,j)}_O \in R^{d_H\times d}$。为了简化这些参数，我们可以将它们表示为 $R^{d\times d}$ 中的低秩矩阵：$W^{(i,j)}_{OV} = W^{(i,j)}_O W^{(i,j)}_V$ 和 $W^{(i,j)}_{QK} = W^{(i,j)}_Q (W^{(i,j)}_K)^T$。QK矩阵用于计算头部(i,j)的注意力模式$A^{(i,j)} \in R^{N\times N}$，而OV矩阵确定写入残差流的信息。在前向传播结束时，在未嵌入矩阵W_U将残差流投影到logits之前应用层归一化。</p><p><strong>任务和数据集。</strong> 我们专注于经典和广泛遇到的数学运算，例如加法、减法、乘法、除法。以加法为例，加法的算术逻辑（{A} + {B} = {C}）可能自然地出现在句子中。受到GSM8K（Cobbe et al., 2021）和SVAMP（Patel et al., 2021）数学基准中存在的句子风格和形式的启发，我们为加法任务创建了一个数据集，包含基于36个模板的10,000个样本，使用随机的单token名称、对象和数字。为了评估LLMs在计算任务上的性能，我们测量{C} token的预测概率。模型正确预测的平均概率为82%。在本研究中，我们选择语言模型能够正确预测的样本。我们将此过程生成的句子表示为参考数据，使用X_r的符号。</p><p>此外，为了满足扰动组件激活的需求，我们创建了另一个数据集，<strong>包含反事实句子而不包含计算逻辑</strong>，使用X_c的符号。样本的生成遵循两个核心原则：（1）保持从X_r模板派生的语法结构；（2）将负责计算逻辑的几个关键词替换为无关词。例如，来自X_r的句子”42 plus 34 is equal to”被替换为反事实句子”42 nothing 34 is equal to”。这样，它允许直接反映模型对算术计算任务的影响，而不受句子结构或语法的影响。</p><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p><strong>LLM的计算可以被重组为一个有向无环图（DAG）</strong>。在该图中，每个节点是一个计算组件，包括注意力头、MLP层、残差连接，每条边代表数据流，<strong>即前一个节点的输出将被转置到后一个节点的输入</strong>。为了揭示模型预测答案的根本原因，我们采用了称为<strong>路径修补（path patching）</strong>的因果干预技术。通过使用反事实数据X_c扰动目标激活，并使用参考数据X_r冻结其他激活，我们通过比较输出logits来衡量反事实效应。整个过程在算法1中进行了说明。在这项工作中，我们逐一扫描所有节点N，并测量真实标记{C}的输出logit的变化，记录在E_N中。值得注意的是，由于残差操作和MLP分别计算每个标记，因此在END位置（即输入句子中的最后一个标记）修补头部输出足以测量对下一个标记预测的影响。</p><img src="/f63be1ed/6.webp"><p>路径修复在<strong>分析两个计算节点（发送者→接收者）之间的因果关系</strong>方面非常有效。这帮助我们确定发送者是否是接收者的原因，以及它们之间的连接对模型完成任务是否重要。</p><p>具体来说，路径修补的整个过程如图所示，其中节点对发送者→接收者被设置为Head 0.31→Output。首先，给定参考数据X_r和反事实数据X_c，收集所有头部的激活以为后续的扰动做准备。然后，我们对Head 0.31进行硬干预，将其扰动为其在X_c上的激活，其中效果将沿着路径集合P进一步传播到输出节点。为了确保对Head 0.31影响的独立观察，P包括通过残差连接和MLPs的前向路径，但不包括其他注意力头部（例如，Head 0.0,…,0.30,1.0,…,1.31）。因此，我们通过对其他头部进行硬干预，将其激活冻结在X_r上。最后，我们获得最终输出logits来测量这种扰动的影响。如果最终logits有显著变化，那么修补的路径：发送者→接收者对模型完成任务是必不可少的。</p><p>在这项工作中，为了识别对计算任务有贡献的重要头部，我们扫描所有头部作为发送者节点h，将接收者节点设置为输出logits，并测量真实token {C}的输出logit变化。对模型计算至关重要的路径h→logits应该在修补后导致token {C}的logit大幅下降。值得注意的是，由于残差操作和MLPs分别计算每个token，修补END位置（即输入句子中最后一个token的位置）的头部输出足以测量对下一个token预测的影响。</p><h4 id="阶段1：收集参考数据激活"><a href="#阶段1：收集参考数据激活" class="headerlink" title="阶段1：收集参考数据激活"></a>阶段1：收集参考数据激活</h4><p><strong>目的：</strong> 获取模型在参考数据（X_r）上的标准激活和输出，作为基线。</p><p><strong>过程：</strong></p><ul><li>输入：参考数据 X_r（绿色标识）</li><li>执行完整的前向传播</li><li>数据流：X_r → Head 0.0…0.31 → MLP 0 → Head 1.0…1.31 → MLP 1 → Output</li><li>收集所有组件的激活值</li><li>记录Head 0.31的激活（绿色箭头指向中间面板）</li></ul><p><strong>输出：</strong> 基线输出和所有组件的激活值</p><h4 id="阶段2：收集反事实数据激活"><a href="#阶段2：收集反事实数据激活" class="headerlink" title="阶段2：收集反事实数据激活"></a>阶段2：收集反事实数据激活</h4><p><strong>目的：</strong> 获取模型在反事实数据（X_c）上的激活，用于后续干预。</p><p><strong>过程：</strong></p><ul><li>输入：反事实数据 X_c（紫色/蓝色标识）</li><li>执行完整的前向传播</li><li>数据流：X_c → Head 0.0…0.31 → MLP 0 → Head 1.0…1.31 → MLP 1 → Output</li><li>收集所有组件的激活值</li><li>记录Head 0.31的激活（紫色箭头指向中间面板）</li></ul><p><strong>输出：</strong> 反事实输出和所有组件的激活值</p><h4 id="执行硬干预并计算输出"><a href="#执行硬干预并计算输出" class="headerlink" title="执行硬干预并计算输出"></a>执行硬干预并计算输出</h4><p><strong>目的：</strong> 通过选择性替换激活来测量特定前向路径的重要性。</p><p><strong>过程：</strong></p><ul><li>输入：参考数据 X_r（绿色标识）</li><li><strong>硬干预机制：</strong><ul><li>接收来自X_r和X_c的Head 0.31激活</li><li>选择性地将X_r的激活注入到特定路径</li></ul></li><li><strong>路径追踪：</strong> 红色线条标记从Head 0.31到输出的关键路径</li><li>计算干预后的输出</li></ul><p><strong>关键路径包括：</strong></p><ul><li>Head 0.31 → MLP 0</li><li>MLP 0 → 求和节点</li><li>求和节点 → Head 1.0…1.31</li><li>Head 1.0…1.31 → MLP 1</li><li>MLP 1 → 最终输出</li></ul><p>模型行为的解释很容易产生误导或不严谨。为了解决这个问题，我们进一步评估了已识别的头部/MLP的重要性，同时确认了其他组件的不重要性。为此，我们采用了一种称为平均消融（mean ablation）的剔除技术来停用单个头部/MLP，并观察它们对模型性能的影响。具体来说，我们将其激活替换为反事实数据X_c上的平均激活，以去除与任务相关的信息。通过观察模型性能的变化，我们可以验证这些关键头部/MLP的作用。</p><p>对于注意力头，我们检查注意力模式$A_{i,j} \in R^{N\times N}$来理解哪些tokens被优先考虑。N是输入tokens的数量。具体来说，我们<strong>首先收集关键头部在参考数据X_r上的相应注意力模式A_{i,j}</strong>。我们<strong>为每个样本提取A_{i,j}的最后一行，分析END位置的Query token与每个Key token之间的注意力分数$A_{i,j}^{END} \in R^{1\times N}$，并获得相对于样本的平均分数</strong>。一般来说，具有最高注意力分数的token类型代表该头部的特征，如数字、数学符号等。</p><p>对于MLPs，我们<strong>使用未嵌入矩阵作为探针来测量MLPs输入和输出中包含的token内容，特别是数值tokens</strong>。先前的研究，如（Elhage et al., 2021）中报告的那些，已经说明<strong>MLP层最初从残差流（即MLP_{in}）接收其输入，随后将其输出添加回该流（即MLP_{out}）</strong>。让W_U表示未嵌入矩阵，W_U[<em>]表示对应于特定token的未嵌入向量。我们计算MLP_{in}、MLP_{out}与W_U[{A}]、W_U[{B}]、W_U[{C}]之间的余弦相似度，以反映MLP接收和生成的信息。为了隔离MLP对特定数值tokens的具体贡献，我们进一步评估MLP输出和输入的减法，即$(MLP_{out}-MLP_{in})/|MLP_{out}-MLP_{in}| \cdot W_U[{A}]/|W_U[{A}]|$。（Geva et al., 2022）的研究表明，<em>*每个MLP层的输出token表示可以被表征为影响跨词汇表演化表示的加法更新</em></em>。</p><p>监督微调（SFT）被广泛用于增强模型的数学能力。<strong>精确SFT是一种仅更新与数学能力密切相关的组件而保持其他参数不变的方法</strong>。算法2说明了整个过程。对于第i个注意力层，输出矩阵$W_O^i$ 被分割为每个头部的等大小块，表示为 $[W_O^{i,1}, W_O^{i,2}, …, W_O^{i,H}]$。</p><p><strong>算法2 精确微调</strong></p><p><strong>输入：</strong> 模型M，输入X，关键头部索引Φ，迭代次数I，学习率η，$W_\theta = W_{Q/K/V/O}$（表示查询、键、值和输出权重）</p><p><strong>过程：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">for (i, j) ∈ Φ do</span><br><span class="line">  W_θ^(i,j).requires_grad = True</span><br><span class="line">end for</span><br><span class="line">▷ 激活关键头部</span><br><span class="line"></span><br><span class="line">loop I times</span><br><span class="line">  L = M.forward(X)  ▷ 执行模型前向传播</span><br><span class="line">  L.backward()      ▷ 计算梯度</span><br><span class="line">  for w ∈ W_θ do</span><br><span class="line">    w = w - η * w.grad  ▷ 使用梯度下降更新参数</span><br><span class="line">  end for</span><br><span class="line">end loop</span><br></pre></td></tr></table></figure><p>根据（Elhage et al., 2021），这个过程等价于独立运行头部，每个头部乘以其自己的输出矩阵，然后将它们添加到残差流中。对于选定的单个头部，精确SFT更新四个矩阵的参数：$W_Q^{i,j}, W_K^{i,j}, W_V^{i,j} \in R^{d\times d/H}$，和 $W_O^{i,j} \in R^{d\times d}$。对于选定的MLP层，精确SFT更新该层内的所有参数。由于只调整一小部分参数，精确SFT提供了更短的训练时间和对模型原始能力的最小影响等好处。</p><h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><p>实验组织为三个部分：</p><p>（1）通过路径修补识别与计算相关的关键组件，并通过剔除验证它们在实现算术计算中的重要性；</p><p>（2）通过检查第已识别组件的注意力模式和嵌入来理解它们的行为；</p><p>（3）通过数学基准上的精确监督微调来改善数学能力。</p><img src="/f63be1ed/7.webp"><h4 id="识别与计算相关的组件-Identifying-Calculation-related-Components"><a href="#识别与计算相关的组件-Identifying-Calculation-related-Components" class="headerlink" title="识别与计算相关的组件 / Identifying Calculation-related Components"></a>识别与计算相关的组件 / Identifying Calculation-related Components</h4><p><strong>关键头部的位置。</strong> 图2可视化了每个头部的影响。红色方块表示对输出有显著积极影响的头部，而蓝色方块表示有负面影响的头部。我们观察到：（i）只有少数头部对输出有值得注意的影响。例如，当修补头部12.22³时，token {C}的logit有14.0%的显著下降。logit变化超过-5%的头部被分类为”关键头部”。（ii）发现的关键头部主要位于中间层。具体来说，对于LLaMA2-7B，关键头部从第12层开始出现，主要集中在第12层和第17层之间。其他LLMs中关键头部的更多分析可以在附录C中找到。</p><p><strong>关键MLPs的位置。</strong> 图2的最后一列可视化了每个MLP层对真实token {C}的logit的影响。我们观察到，<strong>在已识别头部之前的MLPs（0-16）对输出几乎没有影响（约±0.0%）。 相比之下，在第17层之后，MLPs表现出更大的影响（约±10.0%）。这表明MLPs参与了计算。</strong> 我们假设这些组件在语言模型完成计算任务的能力中发挥重要作用。</p><p><strong>精确SFT改善数学能力 Precise SFT improves mathematical ability</strong></p><p>监督微调（SFT）是一种通过微调LLMs内的所有参数来增强数学能力的有效方法，为清晰起见，我们称之为”全SFT”。我们采用与全SFT相同的训练设置进行精确SFT。精确SFT有效地增强了数学能力，在四个不同的数学数据集上平均提高了15%。它匹配或超越了全SFT的改进。例如，精确SFT在SVAMP数据集上比全SFT高出5.5%，在GSM8K上高出2.8%，突出了其改善LLMs数学能力的卓越能力。全SFT在数学和通用能力之间存在权衡，导致MMLU和CSQA上约5%的下降。相比之下，精确SFT有效地保持了模型的原始性能。精确SFT的进一步优势是训练时间的显著减少，这是由于需要调整的参数大幅减少（少于1%）。这导致LLaMA2-7B和LLaMA2-13B上的时间减少至少三倍。总体而言，精确SFT为提升LLMs的数学能力提供了有效方向。</p><p><strong>消融研究 Ablative studies</strong></p><p>精确SFT的核心挑战是确定要调整的最佳数量和特定组件。我们进行了改变头部和MLPs数量的实验。我们发现微调32个头部在不同数量的涉及头部中产生最佳平均改进。我们还比较了MLPs的引入。我们观察到，随着<strong>更多MLPs的添加，数学能力提高了2.1%，但通用性能将下降1.5%。前3个MLPs产生了最佳综合结果。</strong>然而，即使引入单个MLP也可能将计算效率降低15%。未来的工作将探索如何更精确地微调MLPs。</p><h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>在本文中，我们识别、分析并微调了负责LLMs数学计算能力的内部组件。语言模型经常涉及稀疏头部来特别</p><p>关注操作数和运算符，以及随后的MLPs来计算出答案。我们对与计算相关的头部/MLPs应用精确调优以获得更好的数学能力，与调优所有参数相比，对非数学任务的影响更小。这些发现有助于更好地理解LLMs的内部机制。</p><img src="/f63be1ed/8.webp"><p><strong>LLaMA2-7B在加法任务上的注意力模式可视化</strong></p><ol><li><p><strong>注意力分布模式：</strong> 图中显示了不同层和头部之间的注意力权重分布，颜色深浅表示注意力强度。</p></li><li><p><strong>关键头部识别：</strong> 通过可视化可以清楚地看到哪些头部对数学计算任务最为重要，这些头部通常表现出对操作数和运算符的强烈关注。</p></li><li><p><strong>层次化处理：</strong> 不同层级的注意力模式反映了模型从低层特征提取到高层语义理解的层次化处理过程。</p></li><li><p><strong>计算流程：</strong> 注意力模式揭示了模型如何逐步关注输入中的关键信息（如数字、运算符）来完成计算任务。</p></li></ol><p>本文内容参考于Zhang W, Wan C, Zhang Y, et al. Interpreting and improving large language models in arithmetic calculation[J]. arXiv preprint arXiv:2409.01659, 2024.</p><hr><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/rR9u6AaVro16n_ZqEcaQEQ">https://mp.weixin.qq.com/s/rR9u6AaVro16n_ZqEcaQEQ</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/4a9cbe23.html" rel="prev" title="珠江医院微表情脑电意识障碍辅助检测成果展示轮播"><i class="fa fa-chevron-left"></i> 珠江医院微表情脑电意识障碍辅助检测成果展示轮播</a></div><div class="post-nav-item"><a href="/2cc85b2f.html" rel="next" title="Transformer前世今生（一）">Transformer前世今生（一） <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">前言介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">相关工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7%E6%96%B9%E6%B3%95-Interpretability-Methods"><span class="nav-number">2.1.</span> <span class="nav-text">可解释性方法 Interpretability Methods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7-Interpretability-for-Mathematical-Tasks"><span class="nav-number">2.2.</span> <span class="nav-text">数学任务的可解释性 Interpretability for Mathematical Tasks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E6%95%B0%E5%AD%A6%E4%BB%BB%E5%8A%A1%E5%BE%AE%E8%B0%83-LLMsFine-tune-LLMs-for-Mathematical-Tasks"><span class="nav-number">2.3.</span> <span class="nav-text">为数学任务微调 LLMsFine-tune LLMs for Mathematical Tasks</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="nav-number">3.</span> <span class="nav-text">相关背景知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B6%E6%AE%B51%EF%BC%9A%E6%94%B6%E9%9B%86%E5%8F%82%E8%80%83%E6%95%B0%E6%8D%AE%E6%BF%80%E6%B4%BB"><span class="nav-number">4.1.</span> <span class="nav-text">阶段1：收集参考数据激活</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B6%E6%AE%B52%EF%BC%9A%E6%94%B6%E9%9B%86%E5%8F%8D%E4%BA%8B%E5%AE%9E%E6%95%B0%E6%8D%AE%E6%BF%80%E6%B4%BB"><span class="nav-number">4.2.</span> <span class="nav-text">阶段2：收集反事实数据激活</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E7%A1%AC%E5%B9%B2%E9%A2%84%E5%B9%B6%E8%AE%A1%E7%AE%97%E8%BE%93%E5%87%BA"><span class="nav-number">4.3.</span> <span class="nav-text">执行硬干预并计算输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">5.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%86%E5%88%AB%E4%B8%8E%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E7%9A%84%E7%BB%84%E4%BB%B6-Identifying-Calculation-related-Components"><span class="nav-number">5.1.</span> <span class="nav-text">识别与计算相关的组件 &#x2F; Identifying Calculation-related Components</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">6.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">7.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1764</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">57</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">10.9m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">452:55</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru02.model.json"},"display":{"position":"right","width":208,"height":520},"mobile":{"show":false},"log":false});</script></body></html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="《算法学基础（二）：分析算法》中定义了算法运行时间的增长量级简单地刻画了算法效率，并且还允许我们比较可选算法的相对性能。一旦输入规模$n$变得足够大，最坏情况运行时间为$\Theta(n\lg{n})$的归并排序将战胜最坏情况运行时间为$\Theta(n^2)$的插入排序。正如我们在分析插入排序时所做的工作，虽然有时我们能够确定一个算法的精确运行时间，但是通常并不值得花力气来计算它以获得多余的精度"><meta property="og:type" content="article"><meta property="og:title" content="算法设计与分析——算法学基础（三）：渐进记号"><meta property="og:url" content="https://aisakaaoi.github.io/d0683067.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="《算法学基础（二）：分析算法》中定义了算法运行时间的增长量级简单地刻画了算法效率，并且还允许我们比较可选算法的相对性能。一旦输入规模$n$变得足够大，最坏情况运行时间为$\Theta(n\lg{n})$的归并排序将战胜最坏情况运行时间为$\Theta(n^2)$的插入排序。正如我们在分析插入排序时所做的工作，虽然有时我们能够确定一个算法的精确运行时间，但是通常并不值得花力气来计算它以获得多余的精度"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/d0683067/1.webp"><meta property="article:published_time" content="2019-06-19T13:00:53.000Z"><meta property="article:modified_time" content="2026-10-22T16:55:52.366Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/d0683067/1.webp"><link rel="canonical" href="https://aisakaaoi.github.io/d0683067.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>算法设计与分析——算法学基础（三）：渐进记号 | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">57</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1764</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/d0683067.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">算法设计与分析——算法学基础（三）：渐进记号</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2019-06-19 21:00:53" itemprop="dateCreated datePublished" datetime="2019-06-19T21:00:53+08:00">2019-06-19</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">⭐人工智能 Artificial Intelligence</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E3%80%8A%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90%E3%80%8B/" itemprop="url" rel="index"><span itemprop="name">💫《算法设计与分析》</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E3%80%8A%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90%E3%80%8B/%E2%9C%A8%E2%91%A0%E7%AE%97%E6%B3%95%E5%AD%A6%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">✨①算法学基础</span></a> </span></span><span id="/d0683067.html" class="post-meta-item leancloud_visitors" data-flag-title="算法设计与分析——算法学基础（三）：渐进记号" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/d0683067.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/d0683067.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>6.9k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>17 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><p>《算法学基础（二）：分析算法》中定义了算法运行时间的增长量级简单地刻画了算法效率，并且还允许我们比较可选算法的相对性能。一旦输入规模$n$变得足够大，最坏情况运行时间为$\Theta(n\lg{n})$的归并排序将战胜最坏情况运行时间为$\Theta(n^2)$的插入排序。正如我们在分析插入排序时所做的工作，虽然有时我们能够确定一个算法的精确运行时间，但是通常并不值得花力气来计算它以获得多余的精度。对于足够大的输入，精确运行时间中的倍增常量和低阶项被输入规模本身的影响所支配。</p><span id="more"></span><p>当输入规模足够大，使得只有运行时间的增长量级有关时，我们要研究算法的渐近效率。也就是说，我们关心当输入规模无限增加时，在极限中，算法的运行时间如何随着输入规模的变大而增加。通常，渐近地更有效的某个算法对除很小的输入外的所有情况将是最好的选择。</p><p>本文以及后文将给出几种标准方法来简化算法的渐近分析。首先定义几类“渐近记号”，其中，我们已经见过的一个例子是$\Theta$记号。然后，我们给出算法分析领域经常使用的几种记号约定。</p><h3 id="渐近记号、函数与运行时间"><a href="#渐近记号、函数与运行时间" class="headerlink" title="渐近记号、函数与运行时间"></a>渐近记号、函数与运行时间</h3><p>正如我们写插入排序的最坏情况运行时间为$\Theta(n^2)$时那样，我们将主要使用渐近记号来描述算法的运行时间。然而，渐近记号实际上应用于函数。回顾一下，我们曾把插入排序的最坏情况运行时间刻画为$an^2 + bn + c$，其中$a$、$b$和$c$是常量。通过把插入排序的运行时间写成$\Theta(n^2)$，我们除去了该函数的某些细节。因为渐近记号适用于函数，我们所写成的$\Theta(n^2)$就是函数$an^2 + bn + c$，所以上述情况碰巧刻画了插入排序的最坏情况运行时间。</p><p>算法分析领域常常对其使用渐近记号的函数通常刻画算法的运行时间。但是渐近记号也可以适用于刻画算法的某个其他方面（例如，算法使用的空间数量）的函数，甚至可以适用于和算法没有任何关系的函数。</p><p>即使我们使用渐近记号来刻画算法的运行时间，我们也需要了解意指哪个运行时间。有时我们对最坏情况运行时间感兴趣。然而，我们常常希望刻画任何输入的运行时间。换句话说，我们常常希望做出一种综合性地覆盖所有输入而不仅仅是最坏情况的陈述。我们将看到完全适合刻画任何输入的运行时间的渐近记号。</p><h3 id="渐近记号"><a href="#渐近记号" class="headerlink" title="渐近记号"></a>渐近记号</h3><h4 id="Theta-记号"><a href="#Theta-记号" class="headerlink" title="$\Theta$记号"></a>$\Theta$记号</h4><p>$\Theta$记号渐近地给出一个函数的上界和下界。在《算法学基础（二）：分析算法》中，我们发现插入排序的最坏情况运行时间为$T(n) = \Theta(n^2)$。这意味着：对一个给定的函数$g(n)$，用$\Theta(g(n))$来表示以下函数的集合：</p><script type="math/tex;mode=display">\Theta(g(n)) = \{ f(n)：\exists \ c_1 > 0, c_2 > 0, n_0 >0，\forall n \geq n_0，0 \leq c_1g(n) \leq f(n) \leq c_2g(n) \}</script><p>若存在正常量$c_1$和$c_2$，使得对于足够大的$n$，函数$f(n)$能“夹入”$c_1g(n)$与$c_2g(n)$之间，则$f(n)$属于集合$\Theta(g(n))$。因为$\Theta(g(n))$是一个集合，所以可以记$f(n) \in \Theta(g(n))$，以指出$f(n)$是$\Theta(g(n))$的成员。作为替代，我们通常记$f(n) = \Theta(g(n))$以表达相同的概念。因为我们按这种方式活用了等式，所以你可能感到困惑，但是在后面的文章中我们将看到这样做有其好处。</p><p>下图(a)给出了函数$f(n)$与$g(n)$的一幅直观画面，其中$f(n) = \Theta(g(n))$。对在$n_0$及其右边$n$的所有值，$f(n)$的值位于或高于$c_1g(n)$且位于或低于$c_2g(n)$。换句话说，对所有$n \geq n_0$，函数$f(n)$在一个常量因子内等于$g(n)$。我们称$g(n)$是$f(n)$的一个渐近紧确界。</p><img src="/d0683067/1.webp"><p>$\Theta(g(n))$的定义要求每个成员$f(n) \in \Theta(g(n))$均渐近非负，即当$n$足够大时，$f(n)$非负。其中，渐近正函数就是对所有足够大的$n$均为正的函数。因此，函数$g(n)$本身必为渐近非负，否则集合$\Theta(g(n))$为空。所以我们假设用在$\Theta$记号中的每个函数均渐近非负。这个假设对本章定义的其他渐近记号也成立。</p><p>在《算法学基础（二）：分析算法》中我们介绍了$\Theta$记号的一种非形式化的概念，相当于扔掉低阶项并忽略最高阶项前的系数。直觉上，一个渐近正函数的低阶项在确定渐近确界时可以被忽略，因为对大的$n$，它们是无足轻重的。当$n$较大时，即使最高阶项的一个很小的部分都足以支配所有低阶项。因此，将$c_1$置为稍小于最高阶项系数的值并将$c_2$置为稍大于最高阶项系数的值能使$\Theta$记号定义中的不等式得到满足。最高阶项系数同样可以被忽略，因为它仅仅根据一个等于该系数的常量因子来改变$c_1$和$c_2$。</p><p>作为一个例子，考虑任意二次函数$f(n) = an^2 + bn + c$，其中$a$、$b$和$c$均为常量且$a &gt; 0$。扔掉低阶项并忽略常量后得$f(n) = \Theta(n^2)$。为了形式化地证明相同的结论，我们取常量$c_1 = \frac{a}{4}$，$c_2 = \frac{7a}{4}$且$n_0 = 2\max{(\frac{|b|}{a}, \sqrt{\frac{|c|}{a}})}$。可以证明对所有$n \geq n_0$，有$0 \leq c_1n^2 \leq an^2 + bn + c \leq c_2n^2$。一般来说，对任意多项式$p(n) = \sum_{i = 0}^d a_in^i$，其中$a_i$为常量且$a_d &gt; 0$，我们有$p(n) = \Theta(n^d)$。</p><p>因为任意常量是一个$0$阶多项式，所以可以把任意常量函数表示成$\Theta(n^0)$或者$\Theta(1)$。然而，后一种记号是一种轻微的活用，因为该表达式并未指出什么变量趋于无穷。我们将经常使用记号$\Theta(1)$来意指一个常量或者关于某个变量的一个常量函数。</p><h4 id="O-记号"><a href="#O-记号" class="headerlink" title="$O$记号"></a>$O$记号</h4><p>当只有一个渐近上界时，使用$O$记号。对于给定的函数$g(n)$，用$O(g(n))$来表示以下函数的集合：</p><script type="math/tex;mode=display">O(g(n)) = \{ f(n)：\exists \ c > 0, n_0 >0，\forall n \geq n_0，0 \leq f(n) \leq cg(n) \}</script><p>我们使用$O$记号来给出函数的一个在常量因子内的上界。上图(b)展示了$O$记号背后的直觉知识。对在$n_0$及其右边的所有值$n$，函数$f(n)$的值总小于或等于$cg(n)$。</p><p>我们记$f(n) = O(g(n))$以指出函数$f(n)$是集合$O(g(n))$的成员。注意，$f(n) = \Theta(g(n))$蕴涵着$f(n) = O(g(n))$，因为$\Theta$记号是一个比$O$记号更强的概念。按集合论中的写法，我们有$\Theta(g(n)) \subseteq O(g(n))$。因此，关于任意二次函数$f(n) = an^2 + bn + c$，其中$a &gt; 0$，在$\Theta(n^2)$中的证明也证明了任意这样的二次函数在$O(n^2)$中。也许更令人惊奇的是当$a &gt; 0$时，任意线性函数$an + b$也在$O(n^2)$中，我们可以很容易证明这个结论。</p><p>但是在文献中，有时我们发现$O$记号非形式化地描述渐近确界，即已经使用$\Theta$记号定义的东西。使用$O$记号，我们常常可以仅仅通过检查算法的总体结构来描述算法的运行时间。例如，《排序算法（一）：插入排序》中插入排序算法的双重嵌套循环结构对最坏情况运行时间立即产生一个$O(n^2)$的上界：内层循环每次迭代的代价以$O(1)$为上界，下标$i$和$j$均最多为$n$，对于$n^2$个$i$和$j$值对的每一对，内循环最多执行一次。</p><p>既然$O$记号描述上界，那么当用它来限制算法的最坏情况运行时间时，关于算法在每个输入上的运行时间，我们也有一个界，这就是前面讨论的综合性陈述。因此，对插入排序的最坏情况运行时间的界$O(n^2)$也适用于该算法对每个输入的运行时间。然而，对插入排序的最坏情况运行时间的界$\Theta(n^2)$并未暗示插入排序对每个输入的运行时间的界也是$\Theta(n^2)$。例如，当输入已排好序时，插入排序的运行时间为$\Theta(n)$。从技术上看，称插入排序的运行时间为$O(n^2)$有点不合适，因为对给定的$n$，实际的运行时间是变化的，依赖于规模为$n$的特定输入。当我们说“运行时间为$O(n^2)$”时，意指存在一个$O(n^2)$的函数$f(n)$，使得对$n$的任意值，不管选择什么特定的规模为$n$的输入，其运行时间的上界都是$f(n)$。这也就是说最坏情况运行时间为$O(n^2)$。</p><h4 id="Omega-记号"><a href="#Omega-记号" class="headerlink" title="$\Omega$记号"></a>$\Omega$记号</h4><p>正如$O$记号提供了一个函数的渐近上界，$\Omega$记号提供了渐近下界。对于给定的函数$g(n)$，用$\Omega(g(n))$来表示以下函数的集合：</p><script type="math/tex;mode=display">\Omega(g(n)) = \{ f(n)：\exists \ c > 0, n_0 >0，\forall n \geq n_0，0 \leq cg(n) \leq f(n) \}</script><p>上图(c)给出了$\Omega$记号的直观解释。对在$n_0$及其右边的所有值$n$，$f(n)$的值总大于或等于$cg(n)$。</p><p>根据目前所看到的这些渐近记号的定义，容易证明以下重要定理：对任意两个函数$f(n)$和$g(n)$，我们有$f(n) = \Theta(g(n))$，当且仅当$f(n) = O(g(n))$且$f(n) = \Omega(g(n))$。</p><p>当称一个算法的运行时间为$\Omega(g(n))$时，我们意指对每个$n$值，不管选择什么特定的规模为$n$的输入，只要$n$足够大，对那个输入的运行时间至少是$g(n)$的常量倍。等价地，我们再对一个算法的最好情况运行时间给出一个下界。例如，插入排序的最好情况运行时间为$\Omega(n)$，这蕴涵着插入排序的运行时间为$\Omega(n)$。</p><p>所以插入排序的运行时间介于$\Omega(n)$和$O(n^2)$之间，因为它落入$n$的线性函数与$n$的二次函数之间的任何地方。而且，这两个界是尽可能渐近地紧确的：例如，插入排序的运行时间不是$\Omega(n^2)$，因为存在一个输入，对该输入，插入排序在$\Theta(n)$时间内运行。然而，这与称插入排序的最坏情况运行时间为$\Omega(n^2)$并不矛盾，因为存在一个输入，使得该算法需要$\Omega(n^2)$的时间。</p><h4 id="o-记号"><a href="#o-记号" class="headerlink" title="$o$记号"></a>$o$记号</h4><p>由$O$记号提供的渐近上界可能是也可能不是渐近紧确的。界$2n^2 = O(n^2)$是渐近紧确的，但是界$2n = O(n^2)$却不是。我们使用$o$记号来表示一个非渐近紧确的上界。形式化地定义$o(g(n))$为以下集合：</p><script type="math/tex;mode=display">o(g(n)) = \{ f(n)：\forall \ c > 0, \exists \ n_0 >0，\forall n \geq n_0，0 \leq f(n) \leq cg(n) \}</script><p>例如，$2n = o(n^2)$，但是$2n^2 \neq o(n^2)$。$O$记号与$o$记号的定义类似。主要的区别是在$f(n) = O(g(n))$中，界$0 \leq f(n) \leq cg(n)$对某个常量$c &gt; 0$成立，但在$f(n) = o(g(n))$中，界$0 \leq f(n) \leq cg(n)$对所有常量$c &gt; 0$成立。直观上，在$o$记号中，当$n$趋于无穷时，函数$f(n)$相对于$g(n)$来说变得微不足道了，即：</p><script type="math/tex;mode=display">\lim_{n \to +\infty}\frac{f(n)}{g(n)} = 0</script><h4 id="omega-记号"><a href="#omega-记号" class="headerlink" title="$\omega$记号"></a>$\omega$记号</h4><p>$\omega$记号与$\Omega$记号的关系类似于$o$记号与$O$记号的关系。我们使用$\omega$记号来表示一个非渐近紧确的下界。它形式化定义是：</p><script type="math/tex;mode=display">\omega(g(n)) = \{ f(n)：\forall \ c > 0, \exists \ n_0 >0，\forall n \geq n_0，0 \leq cg(n) \leq f(n) \}</script><p>然而，我们还可以用另一种方式定义$\omega$记号：</p><script type="math/tex;mode=display">f(n) \in \omega(g(n)) \Leftrightarrow g(n) \in o(f(n))</script><p>同样，关系$f(n) = \omega(g(n))$也蕴含着：</p><script type="math/tex;mode=display">\lim_{n \to +\infty}\frac{f(n)}{g(n)} = \infty</script><p>也就是说，如果这个极限存在，那么当$n$趋于无穷时，$f(n)$相对于$g(n)$来说变得任意大了。</p><h3 id="等式和不等式中的渐近记号"><a href="#等式和不等式中的渐近记号" class="headerlink" title="等式和不等式中的渐近记号"></a>等式和不等式中的渐近记号</h3><p>我们已经看到渐近记号可以如何用于数学公式中。例如，在介绍$O$记号时记$n = O(n^2)$。我们还可能写过$2n^2 + 3n + 1 = 2n^2 + \Theta(n)$。当渐近记号独立于等式或不等式的右边时，如在$n = O(n^2)$中，我们已经定义等号意指集合的成员关系：$n \in O(n^2)$。然而，一般来说，当渐近记号出现在某个公式中时，我们将其解释为代表某个我们不关注名称的匿名函数。例如，公式$2n^2 + 3n + 1 = 2n^2 + \Theta(n)$意指$2n^2 + 3n + 1 = 2n^2 + f(n)$，其中$f(n)$是集合$\Theta(n)$中的某个函数。在这个例子中，假设$f(n) = 3n + 1$，该函数确实在$\Theta(n)$中。</p><p>按这种方式使用渐近记号可以帮助消除一个等式中无关紧要的细节与混乱。例如，在《分治策略（一）：基础知识》中，我们把归并排序的最坏情况运行时间表示为递归式$2T(\frac{n}{2}) + \Theta(n)$。如果只对$T(n)$的渐近行为感兴趣，那么没有必要准确说明所有低阶项，它们都被理解为包含在由项$\Theta(n)$表示的匿名函数中。</p><p>一个表达式中匿名函数的数目可以理解为等于渐近记号出现的次数。例如，在表达式$\sum O(i)$中，只有一个匿名函数（一个$i$的函数）。因此，这个表达式不同于$O(1) + O(2) + \cdots + O(n)$，实际上后者没有一个清晰的解释。</p><p>在某些例子中，渐近记号出现在等式的左边，例如：$2n^2 + \Theta(n) = \Theta(n^2)$。我们使用以下规则来解释这种等式：无论怎样选择等号左边的匿名函数，总有一种办法来选择等号右边的匿名函数使等式成立。因此，我们的例子意指对任意函数$f(n) \in \Theta(n)$，存在某个函数$g(n) \in \Theta(n^2)$，使得对所有的$n$，有$2n^2 + f(n) = g(n)$。换句话说，等式右边比左边提供的细节更粗糙。</p><h3 id="渐近记号的比较"><a href="#渐近记号的比较" class="headerlink" title="渐近记号的比较"></a>渐近记号的比较</h3><p>实数的许多关系性质也适用于渐近比较。下面假定$f(n)$和$g(n)$渐近为正。</p><h4 id="传递性"><a href="#传递性" class="headerlink" title="传递性"></a>传递性</h4><script type="math/tex;mode=display">f(n) = \Theta(g(n)) \ \text{and} \ g(n) = \Theta(h(n)) \quad \Rightarrow \quad f(n) = \Theta(h(n))</script><script type="math/tex;mode=display">f(n) = O(g(n)) \ \text{and} \ g(n) = O(h(n)) \quad \Rightarrow \quad f(n) = O(h(n))</script><script type="math/tex;mode=display">f(n) = \Omega(g(n)) \ \text{and} \ g(n) = \Omega(h(n)) \quad \Rightarrow \quad f(n) = \Omega(h(n))</script><script type="math/tex;mode=display">f(n) = o(g(n)) \ \text{and} \ g(n) = o(h(n)) \quad \Rightarrow \quad f(n) = o(h(n))</script><script type="math/tex;mode=display">f(n) = \omega(g(n)) \ \text{and} \ g(n) = \omega(h(n)) \quad \Rightarrow \quad f(n) = \omega(h(n))</script><h4 id="自反性"><a href="#自反性" class="headerlink" title="自反性"></a>自反性</h4><script type="math/tex;mode=display">f(n) = \Theta(f(n))</script><script type="math/tex;mode=display">f(n) = O(f(n))</script><script type="math/tex;mode=display">f(n) = \Omega(f(n))</script><h4 id="对称性"><a href="#对称性" class="headerlink" title="对称性"></a>对称性</h4><script type="math/tex;mode=display">f(n) = \Theta(g(n)) \Leftrightarrow g(n) = \Theta(f(n))</script><script type="math/tex;mode=display">f(n) = O(g(n)) \Leftrightarrow g(n) = \Omega(f(n))</script><script type="math/tex;mode=display">f(n) = o(g(n)) \Leftrightarrow g(n) = \omega(f(n))</script><h4 id="三分性"><a href="#三分性" class="headerlink" title="三分性"></a>三分性</h4><p>对任意两个实数$a$和$b$，下列三种情况恰有一种必须成立：$a &lt; b$，$a = b$，$a &gt; b$。虽然任意两个实数都可以进行比较，但不是所有函数都可渐近比较。也就是说，对两个函数$f(n)$和$g(n)$，也许$f(n) = O(g(n))$和$f(n) =\Omega(g(n))$都不成立。</p><hr><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hy592070616/article/details/92102395">https://blog.csdn.net/hy592070616/article/details/92102395</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/3113e438.html" rel="prev" title="SFFAI 33 | 常建龙：基于关系的深度学习"><i class="fa fa-chevron-left"></i> SFFAI 33 | 常建龙：基于关系的深度学习</a></div><div class="post-nav-item"><a href="/d9f55ff7.html" rel="next" title="SFFAI 37 | 王亦宁：Multilingual Neural Machine Translation">SFFAI 37 | 王亦宁：Multilingual Neural Machine Translation <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%90%E8%BF%91%E8%AE%B0%E5%8F%B7%E3%80%81%E5%87%BD%E6%95%B0%E4%B8%8E%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4"><span class="nav-number">1.</span> <span class="nav-text">渐近记号、函数与运行时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%90%E8%BF%91%E8%AE%B0%E5%8F%B7"><span class="nav-number">2.</span> <span class="nav-text">渐近记号</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Theta-%E8%AE%B0%E5%8F%B7"><span class="nav-number">2.1.</span> <span class="nav-text">$\Theta$记号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#O-%E8%AE%B0%E5%8F%B7"><span class="nav-number">2.2.</span> <span class="nav-text">$O$记号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Omega-%E8%AE%B0%E5%8F%B7"><span class="nav-number">2.3.</span> <span class="nav-text">$\Omega$记号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#o-%E8%AE%B0%E5%8F%B7"><span class="nav-number">2.4.</span> <span class="nav-text">$o$记号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#omega-%E8%AE%B0%E5%8F%B7"><span class="nav-number">2.5.</span> <span class="nav-text">$\omega$记号</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%BC%8F%E5%92%8C%E4%B8%8D%E7%AD%89%E5%BC%8F%E4%B8%AD%E7%9A%84%E6%B8%90%E8%BF%91%E8%AE%B0%E5%8F%B7"><span class="nav-number">3.</span> <span class="nav-text">等式和不等式中的渐近记号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%90%E8%BF%91%E8%AE%B0%E5%8F%B7%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">4.</span> <span class="nav-text">渐近记号的比较</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%A0%E9%80%92%E6%80%A7"><span class="nav-number">4.1.</span> <span class="nav-text">传递性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%8F%8D%E6%80%A7"><span class="nav-number">4.2.</span> <span class="nav-text">自反性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E7%A7%B0%E6%80%A7"><span class="nav-number">4.3.</span> <span class="nav-text">对称性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E5%88%86%E6%80%A7"><span class="nav-number">4.4.</span> <span class="nav-text">三分性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1764</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">57</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">10.9m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">452:55</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru02.model.json"},"display":{"position":"right","width":208,"height":520},"mobile":{"show":false},"log":false});</script></body></html>

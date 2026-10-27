@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="《看得见的数学：从直觉到工程应用》· 第四篇 假设我们要做一个很小的图标生成器。训练文件夹里放着许多 32×32 的灰度图：圆、方块、三角形，位置和大小略有不同。我们希望程序每次按下按钮，都能生成一张像这个集合、但不一定与某张训练图完全相同的新图。 这比“给图片分个类”多了一层困难。分类只需回答“它像圆还是三角形”；生成却要决定 1024 个像素分别多亮，而且这些决定必须彼此配合。扩散模型采用了一"><meta property="og:type" content="article"><meta property="og:title" content="从一团噪声到一张图：扩散模型到底学会了什么"><meta property="og:url" content="https://aisakaaoi.github.io/e856cd87.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="《看得见的数学：从直觉到工程应用》· 第四篇 假设我们要做一个很小的图标生成器。训练文件夹里放着许多 32×32 的灰度图：圆、方块、三角形，位置和大小略有不同。我们希望程序每次按下按钮，都能生成一张像这个集合、但不一定与某张训练图完全相同的新图。 这比“给图片分个类”多了一层困难。分类只需回答“它像圆还是三角形”；生成却要决定 1024 个像素分别多亮，而且这些决定必须彼此配合。扩散模型采用了一"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/e856cd87/1.webp"><meta property="og:image" content="https://aisakaaoi.github.io/e856cd87/2.webp"><meta property="og:image" content="https://aisakaaoi.github.io/e856cd87/3.webp"><meta property="og:image" content="https://aisakaaoi.github.io/e856cd87/4.webp"><meta property="og:image" content="https://aisakaaoi.github.io/e856cd87/5.webp"><meta property="article:published_time" content="2026-09-22T09:47:00.000Z"><meta property="article:modified_time" content="2026-10-22T10:26:43.652Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/e856cd87/1.webp"><link rel="canonical" href="https://aisakaaoi.github.io/e856cd87.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>从一团噪声到一张图：扩散模型到底学会了什么 | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">57</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1764</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/e856cd87.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">从一团噪声到一张图：扩散模型到底学会了什么</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-09-22 17:47:00" itemprop="dateCreated datePublished" datetime="2026-09-22T17:47:00+08:00">2026-09-22</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">⭐人工智能 Artificial Intelligence</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">💫未分类</span></a> </span></span><span id="/e856cd87.html" class="post-meta-item leancloud_visitors" data-flag-title="从一团噪声到一张图：扩散模型到底学会了什么" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/e856cd87.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/e856cd87.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>5.4k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>14 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><p>《看得见的数学：从直觉到工程应用》· 第四篇</p><p>假设我们要做一个很小的图标生成器。训练文件夹里放着许多 32×32 的灰度图：圆、方块、三角形，位置和大小略有不同。我们希望程序每次按下按钮，都能生成一张像这个集合、但不一定与某张训练图完全相同的新图。</p><p>这比“给图片分个类”多了一层困难。分类只需回答“它像圆还是三角形”；生成却要决定 1024 个像素分别多亮，而且这些决定必须彼此配合。扩散模型采用了一条乍看绕远的路：<strong>先学会怎样把图片有控制地弄乱，再学习怎样一步步逆着走回来。</strong></p><span id="more"></span><h3 id="一、模型要学的不是一张图，而是一批图的规律"><a href="#一、模型要学的不是一张图，而是一批图的规律" class="headerlink" title="一、模型要学的不是一张图，而是一批图的规律"></a>一、模型要学的不是一张图，而是一批图的规律</h3><p>一张具体的圆形图标叫一个<strong>样本</strong>。把许多样本放在一起，我们会看到某些变化很常见：圆可能稍大或稍小，中心可能偏几格；而“左上角半个圆、右下角一条无关直线”在训练集中从没出现。</p><p><strong>概率分布</strong>就是对这些可能性的整体描述。它不只是“每个像素的平均亮度”，还包含像素之间怎样共同变化。圆的上边缘向上移动时，下边缘通常也会跟着移动；如果分别随机生成每个像素，这种配合就会消失。</p><img src="/e856cd87/1.webp"><p>图 1｜左侧是合成图标样本；右侧把每张图压成两个坐标，只用于画出“密集区域与稀疏区域”。真实 32×32 图像有 1024 个维度，二维图中的距离、团块形状和空白区域不能直接当成真实图像空间的几何事实。</p><p>在数学上，一张 32×32 灰度图可以排成一列 1024 个数，因此是一处 1024 维空间中的点。训练集只给了我们有限个点，生成模型要根据这些点学习“哪里像合理图标”。以后从这个规律中抽出一个新点，才叫生成。</p><p>这里的“抽”很重要。生成模型通常不是给同一个输入永远输出同一张图，而是描述一个带随机性的过程。随机不等于毫无规则：掷骰子有随机性，但点数仍只会在 1 到 6 之间；图标生成也应有变化，同时大多落在数据允许的区域。</p><h3 id="二、随机过程：让图片一小步一小步地变化"><a href="#二、随机过程：让图片一小步一小步地变化" class="headerlink" title="二、随机过程：让图片一小步一小步地变化"></a>二、随机过程：让图片一小步一小步地变化</h3><p>如果只给干净图加一次巨大噪声，输入与原图之间几乎没有可利用的关系，恢复会很困难。扩散模型把这件事拆成许多小步：每一步保留上一张图的大部分内容，再加入一点新的随机噪声。状态会随步骤变化，这样的一串随机状态叫<strong>随机过程</strong>。</p><p>常见的前向一步可以写成：[1][2]</p><script type="math/tex;mode=display">x_t=\sqrt{1-\beta_t}\,x_{t-1}+\sqrt{\beta_t}\,\varepsilon_t.</script><p>$x_{t-1}$ 是加噪前的图， $x_t$ 是第 $t$ 步的图； $\varepsilon_t$ 是这一轮新抽出的标准高斯噪声，每个位置大体围绕 0 波动，方差为 1； $\beta_t$ 是这一小步的噪声率。</p><p>看一个像素的数字例子。若旧值为 0.8，噪声率为 0.04，这次恰好抽到的噪声为 −0.5，那么新值约为 √0.96×0.8 + √0.04×(−0.5) = 0.684。这里的 0.04 控制的是新增噪声的<strong>方差份额</strong>，并不是“随机替换 4% 的像素”。平方根正是为了让系数平方后对应方差。</p><img src="/e856cd87/2.webp"><p>图 2｜上排是同一合成图标在四个噪声等级下的结果；下排是二维玩具分布。越往右，原有结构越难辨认，整体越接近简单的高斯噪声。上下两排共享同一原理，但二维散点不是图像像素的真实投影。</p><p>这个过程还有一个简单性质：下一步怎样变化，只需要知道当前状态，不必重新查看更早的所有状态。这叫<strong>马尔可夫性</strong>。它是这里采用的数学结构，不代表所有现实随机过程都没有长时记忆。</p><p>前向加噪不需要训练。我们自己规定噪声率，也知道每次加了什么噪声。真正需要模型学习的是反方向。</p><h3 id="三、许多小步，可以合并成一次计算"><a href="#三、许多小步，可以合并成一次计算" class="headerlink" title="三、许多小步，可以合并成一次计算"></a>三、许多小步，可以合并成一次计算</h3><p>逐步加噪适合解释过程，但训练时如果为了得到第 700 步的图，必须先算完前 699 步，会很浪费。好消息是，高斯噪声经过线性组合后仍是高斯噪声，许多小步可以合并。</p><p>令 $\alpha_t=1-\beta_t$ ，再把从第 1 步到第 $t$ 步的 $\alpha$ 全部相乘，记作 $\bar\alpha_t$ 。它可理解为到这一时刻还保留了多少“信号强度”。于是可以直接写成：[2]</p><script type="math/tex;mode=display">x_t=\sqrt{\bar\alpha_t}\,x_0+\sqrt{1-\bar\alpha_t}\,\varepsilon.</script><p>$x_0$ 是干净图， $\varepsilon$ 是一次新抽的标准高斯噪声。假设累计保留率为 0.36，某个干净像素是 0.8，本次噪声仍为 −0.5，那么结果是 0.6×0.8 + 0.8×(−0.5)=0.08。信号系数和噪声系数的平方加起来等于 1。</p><img src="/e856cd87/3.webp"><p>图 3｜左图显示两种系数此消彼长；右图固定一个干净像素，重复抽取噪声。每个噪声等级得到的是一团可能值，而不是一条确定轨迹。虚线是理论均值，带状区域表示约一个标准差。</p><p>这条公式回答“给定原图，在时刻 $t$ 可能看到怎样的带噪图”。它不能告诉我们某次随机抽样必然得到哪个数，也不表示有限步之后会严格变成标准高斯分布。只有当 $\bar\alpha_t$ 足够接近 0，原图贡献才小到可以近似忽略。工程上要检查噪声日程的终点是否真的做到了这一点。</p><h3 id="四、去噪没有唯一答案"><a href="#四、去噪没有唯一答案" class="headerlink" title="四、去噪没有唯一答案"></a>四、去噪没有唯一答案</h3><p>现在把方向倒过来。看到一张带噪图，我们能不能直接减去噪点，找回原图？问题是，我们并不知道哪些明暗来自原图，哪些来自随机噪声。</p><p>想象训练数据里只有两类一维“图标”，干净值分别集中在 −1 和 +1。某次观察到 0，可能是 −1 加了正噪声，也可能是 +1 加了负噪声。噪声越大，两种解释越难区分。</p><img src="/e856cd87/4.webp"><p>图 4｜左图噪声较小，观察位置通常能指向附近一类；中图噪声较大，两个来源严重重叠；右图显示在平方误差下的最佳单值估计。靠近中间时，它可能落在两个常见干净值之间。</p><p>如果评价标准是平方误差，那么在已知带噪观察后，最好的单个预测是所有可能答案的<strong>条件平均</strong>。这是一个数学事实。但条件平均未必是一张“典型样本”：两张分别向左、向右偏移的清晰边缘，平均起来可能成为模糊边缘。</p><p>这解释了扩散模型为什么不把任务设置成“一步从纯噪声还原原图”。它在许多噪声等级上学习较小的修正，并在生成时逐步采样。每一步的不确定性较小，也可以保留适当的随机性，让轨迹最终落向某个合理模式，而不是永远停在几个答案的平均位置。</p><p>要小心一个常见说法：“模型只是把图片上的噪点擦掉。”普通去噪往往假设背后有一张已经存在的原图；生成时并没有那张原图。模型利用训练数据学到的分布，决定当前噪声状态更可能朝哪些方向变化。</p><h3 id="五、训练时，答案是我们自己制造的"><a href="#五、训练时，答案是我们自己制造的" class="headerlink" title="五、训练时，答案是我们自己制造的"></a>五、训练时，答案是我们自己制造的</h3><p>扩散模型有一个很实用的训练办法。先从训练集取一张干净图 $x_0$ ，随机抽一个时间 $t$ ，再抽一份噪声 $\varepsilon$ 。用上一节的直接公式得到 $x_t$ 。因为噪声是我们亲手加的，所以正确答案也在手里。</p><p>把带噪图和时间交给神经网络，让它预测那份噪声。DDPM 中常见的简化训练目标是：[2]</p><script type="math/tex;mode=display">L=\mathbb E\left[\left\|\varepsilon-\varepsilon_\theta(x_t,t)\right\|^2\right].</script><p>$\varepsilon$ 是实际加入的噪声； $\varepsilon_\theta(x_t,t)$ 是参数为 $\theta$ 的网络根据带噪图和时间给出的预测；双竖线平方表示把所有像素上的预测差平方后相加； $\mathbb E$ 表示对许多原图、时间和随机噪声取平均。</p><p>例如某个位置实际噪声是 −0.5，模型预测 −0.3，这一位置贡献的平方误差是 (−0.5+0.3)²=0.04。公式告诉我们怎样给一次预测打分，却不能单独说明整张生成图是否自然、是否足够多样，也不能证明模型没有记住训练样本。</p><img src="/e856cd87/5.webp"><p>图 5｜训练时，干净图和噪声答案都已知，可以随机抽任意时刻出题；生成时只有随机噪声，需要从大噪声时刻逐步走回小噪声时刻。图中的网络框代表同一类预测器，流程是概念图，不暗示只有一种网络结构。</p><p>时间 $t$ 不能省略。同一块灰点在轻微噪声和重度噪声下含义不同：前者应少改，后者需要更多依赖训练分布。如果模型不知道当前噪声等级，就像医生只看到一个体温数字，却不知道它来自口腔测量还是环境传感器。</p><p>预测噪声只是常见参数化。其他方法也可以预测干净数据、速度变量或分布的分数；它们能在适当变换下联系起来，但训练权重和数值表现并不完全相同，不能把一个公式说成所有扩散模型的唯一定义。[3]</p><h3 id="六、生成时，为什么能从完全随机开始"><a href="#六、生成时，为什么能从完全随机开始" class="headerlink" title="六、生成时，为什么能从完全随机开始"></a>六、生成时，为什么能从完全随机开始</h3><p>训练完成后，我们先从简单的标准高斯分布抽一张噪声图，把它当作最晚时刻的状态。网络估计当前状态里哪一部分像噪声，采样器再根据反向过程更新到稍早的时刻。反复进行，结构逐渐出现。[1][2]</p><p>这里既有“模型认为该往哪里走”的确定部分，也可能有按反向分布加入的随机部分。换一个随机种子，就相当于换一个起点和沿途抽样，通常会得到不同图片。若再输入“圆形”这样的条件，模型学习的是条件分布：在仍保留合理变化的同时，更偏向圆形区域。</p><p>从更连续的角度看，前向过程可写成让分布逐渐走向噪声的随机微分方程；反向过程依赖各时刻概率密度上升最快的方向，也就是 score。神经网络可以估计这个方向。[3] 这是更高阶但相容的解释；初学时先把它理解成“在每个噪声等级学习回到数据密集区的方向”就够了。二维箭头图能表达方向，却不能证明真实高维图像空间也同样简单。</p><h3 id="七、亲手做一次前向实验"><a href="#七、亲手做一次前向实验" class="headerlink" title="七、亲手做一次前向实验"></a>七、亲手做一次前向实验</h3><p>下面的代码固定一个像素值 0.8，在四个累计保留率下各抽 20,000 次噪声，再比较样本均值、标准差与理论值：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">rng = np.random.default_rng(7)</span><br><span class="line">x0 = 0.8</span><br><span class="line"></span><br><span class="line">for alpha_bar in [1.0, 0.64, 0.25, 0.04]:</span><br><span class="line">    noise = rng.normal(size=20_000)</span><br><span class="line">    xt = np.sqrt(alpha_bar) * x0 + np.sqrt(1-alpha_bar) * noise</span><br><span class="line">    print(alpha_bar,</span><br><span class="line">          round(float(xt.mean()), 3),</span><br><span class="line">          round(float(xt.std()), 3))</span><br></pre></td></tr></table></figure><p>一组实际结果如下。随机种子改变后，末尾数字会略有变化。</p><div class="table-container"><table><thead><tr><th>累计保留率 $\bar\alpha_t$</th><th>理论均值</th><th>实验均值</th><th>理论标准差</th><th>实验标准差</th></tr></thead><tbody><tr><td>1.00</td><td>0.800</td><td>0.800</td><td>0.000</td><td>0.000</td></tr><tr><td>0.64</td><td>0.640</td><td>0.634</td><td>0.600</td><td>0.599</td></tr><tr><td>0.25</td><td>0.400</td><td>0.402</td><td>0.866</td><td>0.866</td></tr><tr><td>0.04</td><td>0.160</td><td>0.168</td><td>0.980</td><td>0.986</td></tr></tbody></table></div><p>你还可以把 20,000 改成 20，观察小样本统计量怎样明显抖动；或者固定同一个 $\bar\alpha_t$ ，更换随机种子，看同一原图产生不同带噪结果。完整脚本还会生成合成图标的像素相关性数据。</p><p>这个实验验证的是前向公式的均值和方差，不是训练一个扩散模型。没有神经网络、反向采样器和新数据评估，就不能据此宣称“已经实现图像生成”。</p><h3 id="八、哪些地方最容易在工程中失效"><a href="#八、哪些地方最容易在工程中失效" class="headerlink" title="八、哪些地方最容易在工程中失效"></a>八、哪些地方最容易在工程中失效</h3><p>第一，<strong>噪声日程不只是装饰参数</strong>。终点噪声不够大，训练使用的终点分布与生成时的标准高斯起点对不上；某些时段变化太急，又会让逆向任务变难。具体日程需要结合数据表示、训练目标和采样器验证。</p><p>第二，<strong>每一步都不完美，误差会沿采样链传播</strong>。减少步数通常能降低延迟，却可能让单步跨得更远。DDIM 展示了在相同训练过程下构造更快的采样路径，并报告了明显加速；这不等于任意模型删掉步骤都不会掉质量。[4]</p><p>第三，<strong>平均误差低不等于生成效果全面优秀</strong>。工程上还要分别检查保真度、多样性、条件遵从、重复样本、延迟和显存。强条件引导常能让结果更贴提示，但也可能牺牲多样性；这是需要通过目标任务评估的取舍，不是单个公式自动给出的结论。</p><p>第四，<strong>模型只能从训练数据提供的证据中学习</strong>。训练集没有覆盖的形状、风格或人群，模型不能靠“随机”自动补齐可靠知识。容量很大的模型还需要检查近重复生成和数据记忆问题。概率模型学的是数据与训练方法共同塑造的分布，并不等于客观世界本身。</p><p>最后，“扩散”来自与非平衡热力学相关的数学灵感，[1] 但图像像素并不是现实中的墨水分子。这个类比帮助我们理解“逐步破坏结构再学习逆过程”，不能代替具体概率模型的定义与验证。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>概率分布回答“哪些完整图片更可能出现”；随机过程回答“状态怎样随步骤和随机性改变”。扩散模型把复杂的数据分布逐步推向简单噪声，再学习逆向的局部规则。训练时，噪声答案由我们自己制造；生成时，从随机噪声出发，模型在许多噪声等级上把状态带回数据更密集的区域。</p><p>最值得带走的不是“噪声里藏着一张图”，而是相反的理解：<strong>开始时并没有一张等待擦出来的唯一图片。图片是在受学习到的概率分布约束的随机反向过程中逐渐形成的。</strong></p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>Sohl-Dickstein 等，Deep Unsupervised Learning using Nonequilibrium Thermodynamics，2015：提出逐步破坏数据分布、再学习反向过程的扩散概率模型框架。</li><li>Ho、Jain、Abbeel，Denoising Diffusion Probabilistic Models，2020：本文前向公式、闭式采样与噪声预测训练目标的主要来源；细节见论文第 2～3 节。</li><li>Song 等，Score-Based Generative Modeling through Stochastic Differential Equations，2021：连续时间的前向与反向 SDE、score 估计及采样框架。</li><li>Song、Meng、Ermon，Denoising Diffusion Implicit Models，ICLR 2021：讨论与 DDPM 相同训练过程下的非马尔可夫生成过程和更快采样。</li></ol><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/2JXNAhAq1hGJABvm8hHsdw">https://mp.weixin.qq.com/s/2JXNAhAq1hGJABvm8hHsdw</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/106c8b52.html" rel="prev" title="PAPER REVIEW · 第010期 脑控音乐离消费级还有多远？不能说话的人，能用意念"唱"出歌吗？"> <i class="fa fa-chevron-left"></i> PAPER REVIEW · 第010期 脑控音乐离消费级还有多远？不能说话的人，能用意念"唱"出歌吗？</div><div class="post-nav-item"><a href="/d3a8b7dc.html" rel="next" title="模型小了，为什么还不一定更快？从量化、剪枝和蒸馏看懂 AI 部署取舍">模型小了，为什么还不一定更快？从量化、剪枝和蒸馏看懂 AI 部署取舍 <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%A8%A1%E5%9E%8B%E8%A6%81%E5%AD%A6%E7%9A%84%E4%B8%8D%E6%98%AF%E4%B8%80%E5%BC%A0%E5%9B%BE%EF%BC%8C%E8%80%8C%E6%98%AF%E4%B8%80%E6%89%B9%E5%9B%BE%E7%9A%84%E8%A7%84%E5%BE%8B"><span class="nav-number">1.</span> <span class="nav-text">一、模型要学的不是一张图，而是一批图的规律</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B%EF%BC%9A%E8%AE%A9%E5%9B%BE%E7%89%87%E4%B8%80%E5%B0%8F%E6%AD%A5%E4%B8%80%E5%B0%8F%E6%AD%A5%E5%9C%B0%E5%8F%98%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">二、随机过程：让图片一小步一小步地变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%AE%B8%E5%A4%9A%E5%B0%8F%E6%AD%A5%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%90%88%E5%B9%B6%E6%88%90%E4%B8%80%E6%AC%A1%E8%AE%A1%E7%AE%97"><span class="nav-number">3.</span> <span class="nav-text">三、许多小步，可以合并成一次计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%8E%BB%E5%99%AA%E6%B2%A1%E6%9C%89%E5%94%AF%E4%B8%80%E7%AD%94%E6%A1%88"><span class="nav-number">4.</span> <span class="nav-text">四、去噪没有唯一答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E8%AE%AD%E7%BB%83%E6%97%B6%EF%BC%8C%E7%AD%94%E6%A1%88%E6%98%AF%E6%88%91%E4%BB%AC%E8%87%AA%E5%B7%B1%E5%88%B6%E9%80%A0%E7%9A%84"><span class="nav-number">5.</span> <span class="nav-text">五、训练时，答案是我们自己制造的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E7%94%9F%E6%88%90%E6%97%B6%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E4%BB%8E%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E5%BC%80%E5%A7%8B"><span class="nav-number">6.</span> <span class="nav-text">六、生成时，为什么能从完全随机开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E4%BA%B2%E6%89%8B%E5%81%9A%E4%B8%80%E6%AC%A1%E5%89%8D%E5%90%91%E5%AE%9E%E9%AA%8C"><span class="nav-number">7.</span> <span class="nav-text">七、亲手做一次前向实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E5%93%AA%E4%BA%9B%E5%9C%B0%E6%96%B9%E6%9C%80%E5%AE%B9%E6%98%93%E5%9C%A8%E5%B7%A5%E7%A8%8B%E4%B8%AD%E5%A4%B1%E6%95%88"><span class="nav-number">8.</span> <span class="nav-text">八、哪些地方最容易在工程中失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">10.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">11.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1764</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">57</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">10.9m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">452:55</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru02.model.json"},"display":{"position":"right","width":208,"height":520},"mobile":{"show":false},"log":false});</script></body></html>

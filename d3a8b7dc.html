@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="《看得见的数学：从直觉到工程应用》· 第五篇 假设我们要把一个表面缺陷分类模型放进边缘相机。实验室里的基线准确率是 92.4%，但模型文件有 80 MB，在目标设备上处理一张图的 P95 延迟是 48 毫秒。产品要求是：模型文件不超过 16 MB，P95 延迟不超过 20 毫秒，准确率下降不超过 1 个百分点。 量化、剪枝和知识蒸馏似乎都能“压缩模型”。但如果只问“哪个压缩率最高”，问题已经问偏了"><meta property="og:type" content="article"><meta property="og:title" content="模型小了，为什么还不一定更快？从量化、剪枝和蒸馏看懂 AI 部署取舍"><meta property="og:url" content="https://aisakaaoi.github.io/d3a8b7dc.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="《看得见的数学：从直觉到工程应用》· 第五篇 假设我们要把一个表面缺陷分类模型放进边缘相机。实验室里的基线准确率是 92.4%，但模型文件有 80 MB，在目标设备上处理一张图的 P95 延迟是 48 毫秒。产品要求是：模型文件不超过 16 MB，P95 延迟不超过 20 毫秒，准确率下降不超过 1 个百分点。 量化、剪枝和知识蒸馏似乎都能“压缩模型”。但如果只问“哪个压缩率最高”，问题已经问偏了"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/d3a8b7dc/1.webp"><meta property="og:image" content="https://aisakaaoi.github.io/d3a8b7dc/2.webp"><meta property="og:image" content="https://aisakaaoi.github.io/d3a8b7dc/3.webp"><meta property="og:image" content="https://aisakaaoi.github.io/d3a8b7dc/4.webp"><meta property="og:image" content="https://aisakaaoi.github.io/d3a8b7dc/5.webp"><meta property="article:published_time" content="2026-09-22T10:53:00.000Z"><meta property="article:modified_time" content="2026-10-22T16:24:30.032Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/d3a8b7dc/1.webp"><link rel="canonical" href="https://aisakaaoi.github.io/d3a8b7dc.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>模型小了，为什么还不一定更快？从量化、剪枝和蒸馏看懂 AI 部署取舍 | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">57</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1764</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/d3a8b7dc.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">模型小了，为什么还不一定更快？从量化、剪枝和蒸馏看懂 AI 部署取舍</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-09-22 18:53:00" itemprop="dateCreated datePublished" datetime="2026-09-22T18:53:00+08:00">2026-09-22</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">⭐人工智能 Artificial Intelligence</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">💫未分类</span></a> </span></span><span id="/d3a8b7dc.html" class="post-meta-item leancloud_visitors" data-flag-title="模型小了，为什么还不一定更快？从量化、剪枝和蒸馏看懂 AI 部署取舍" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/d3a8b7dc.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/d3a8b7dc.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>5.8k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>14 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><p>《看得见的数学：从直觉到工程应用》· 第五篇</p><p>假设我们要把一个表面缺陷分类模型放进边缘相机。实验室里的基线准确率是 92.4%，但模型文件有 80 MB，在目标设备上处理一张图的 P95 延迟是 48 毫秒。产品要求是：模型文件不超过 16 MB，P95 延迟不超过 20 毫秒，准确率下降不超过 1 个百分点。</p><p>量化、剪枝和知识蒸馏似乎都能“压缩模型”。但如果只问“哪个压缩率最高”，问题已经问偏了。工程上真正要回答的是：<strong>改动后少存了什么、少算了什么、硬件能不能利用这种变化，以及任务质量损失了多少。</strong></p><span id="more"></span><h3 id="一、模型“变小”，至少有四种不同含义"><a href="#一、模型“变小”，至少有四种不同含义" class="headerlink" title="一、模型“变小”，至少有四种不同含义"></a>一、模型“变小”，至少有四种不同含义</h3><p>模型有 2000 万个参数，每个参数若用 32 位浮点数保存，单看权重就是 2000万×4字节≈80 MB。把权重改成 8 位整数，理想情况下只需约 20 MB。这是<strong>文件大小</strong>的变化。</p><p>但程序运行时还要保存中间特征、输入输出、算子工作区和运行库自身的数据。80 MB 权重不代表峰值内存就是 80 MB；20 MB 权重也不代表设备只需 20 MB 内存。</p><p>同样，乘加次数减少一半，也不保证延迟减少一半。真实时间还受内存传输、缓存、线程调度、算子启动和硬件支持影响。可以先把几个常见指标分开：</p><div class="table-container"><table><thead><tr><th>指标</th><th>回答的问题</th><th>不能单独说明什么</th></tr></thead><tbody><tr><td>参数量</td><td>模型保存了多少可学习数字</td><td>每个数字占几位、运行时是否快</td></tr><tr><td>文件大小</td><td>下载或存储需要多少空间</td><td>峰值内存、端到端延迟</td></tr><tr><td>运算量</td><td>理论上安排了多少算术工作</td><td>芯片是否高效执行这些工作</td></tr><tr><td>P95 延迟</td><td>95% 的请求能在多久内完成</td><td>高并发吞吐量、能耗和最长尾延迟</td></tr><tr><td>准确率</td><td>在指定测试集上答对多少</td><td>不同缺陷类别的风险、分布变化后的表现</td></tr></tbody></table></div><img src="/d3a8b7dc/1.webp"><p>图 1｜指标和阈值均为合成示例。准确率允许下降 1 个百分点，意思是从 92.4% 最多降到 91.4%，不是下降 1%。</p><p>数学在这里不是替我们决定产品目标，而是帮助我们把目标写成可以检验的约束。若漏掉一个指标，优化就可能只是在报表里成功。</p><h3 id="二、量化：把细密刻度换成有限格子"><a href="#二、量化：把细密刻度换成有限格子" class="headerlink" title="二、量化：把细密刻度换成有限格子"></a>二、量化：把细密刻度换成有限格子</h3><p>浮点数能表示很细的变化，而 8 位整数通常只有 256 个编号。量化的基本动作，是先选一把尺子，把浮点数放到有限格点上；推理时再按尺子解释这些整数。[1]</p><p>常见的仿射量化可以写成：</p><script type="math/tex;mode=display">q=\operatorname{clip}\!\left(\operatorname{round}\!\left(\frac{x}{s}\right)+z,\ q_{\min},q_{\max}\right),\qquad \hat x=s(q-z).</script><p>$x$ 是原来的浮点数， $q$ 是保存的整数； $s$ 是相邻格点之间的距离，叫缩放因子； $z$ 指定浮点数 0 对应哪个整数，叫零点；round 表示取最近整数，clip 把越界值压回可表示范围； $\hat x$ 是还原后的近似值。</p><p>例如用 0～255 表示 −1～1，格距约为 2÷255=0.00784，零点约为 128。原值 0.37 会映射到整数 175，还原为 0.00784×(175−128)≈0.369。误差很小，但不是零。</p><p>量化会产生两类主要误差。数落在两个格点之间时，要被取整，这是<strong>舍入误差</strong>；数超出尺子范围时，只能卡在端点，这是<strong>截断或饱和误差</strong>。范围放得很宽，离群值能留下，但普通值之间的格子变粗；范围收窄，普通值更精细，离群值却会被截断。</p><img src="/d3a8b7dc/2.webp"><p>图 2｜为便于看清格点，左图使用 4 位示意；正文部署讨论以 INT8 为主。右图展示逐张量共享一把尺子与逐通道分别用尺子的差别，并不表示逐通道在所有硬件上都免费。</p><p>如果某一层的四个输出通道数值范围差别很大，全部共用一把尺子，范围最大的通道会决定格距。逐通道量化给每个通道单独选择 $s$ ，往往能减小权重量化误差，但需要保存更多尺度参数，后端也要支持相应计算。</p><p>INT8 权重的理想存储量是 FP32 的四分之一，这是由位数直接得到的数学事实。至于是否更快，则是硬件和软件共同决定的工程结果：激活是否也量化、核心算子有没有整数内核、中间是否频繁量化与反量化、是否有算子回退到浮点，都会改变最终延迟。相关工作展示了整数推理在受支持硬件上的价值，但不能把某篇论文的加速倍数照搬到另一台设备。[1]</p><h3 id="三、剪枝：把一些连接变成零"><a href="#三、剪枝：把一些连接变成零" class="headerlink" title="三、剪枝：把一些连接变成零"></a>三、剪枝：把一些连接变成零</h3><p>剪枝的直觉是：模型里有些连接对当前任务影响较小，可以先去掉，再微调剩余参数。最简单的写法是：</p><script type="math/tex;mode=display">W'=M\odot W.</script><p>$W$ 是原权重， $M$ 是只含 0 和 1 的掩码， $\odot$ 表示对应位置相乘；掩码为 0 的位置会被删成零。例如 [0.01, −0.8, 0.03, 1.2] 按绝对值剪掉一半，得到 [0, −0.8, 0, 1.2]。</p><p>这只是重要性的粗略猜测。一个权重绝对值小，不等于它对所有输入都没用；多个小权重也可能共同形成重要结果。经典剪枝流程通常先训练、再删除、再微调，就是因为删除会改变整个网络，需要让剩余参数重新适应。[2][3]</p><p>更容易被忽略的是零的位置。<strong>非结构化剪枝</strong>可以在矩阵任意位置制造零，选择自由度大；但零散的非零数需要额外索引，普通密集矩阵乘法还可能照常把零算一遍。<strong>结构化剪枝</strong>按通道、块或固定模式删除，选择更受限，却更容易变成尺寸更小的规则矩阵，或者匹配专门的稀疏内核。</p><img src="/d3a8b7dc/3.webp"><p>图 3｜三幅矩阵稀疏率均为 50%。非结构化模式最自由；2:4 模式要求每连续四个权重保留两个；通道剪枝整列删除。图中“容易加速”是结构规律带来的机会，不是对任意设备的保证。</p><p>因此，“剪掉 50% 参数”只严格说明一半位置为零。它不能自动推出文件减半、运算减半或延迟减半。要获得文件收益，需要稀疏存储的数值与索引总量确实更小；要获得速度收益，需要目标运行库识别这种稀疏结构，而且问题规模足以抵消索引和调度开销。</p><h3 id="四、蒸馏：小模型学习老师怎样犹豫"><a href="#四、蒸馏：小模型学习老师怎样犹豫" class="headerlink" title="四、蒸馏：小模型学习老师怎样犹豫"></a>四、蒸馏：小模型学习老师怎样犹豫</h3><p>普通分类训练只告诉模型正确答案，例如“这张图是划痕”。但一个较大的教师模型还会透露：它认为划痕最像，凹坑次之，污渍可能性很低。这种类别之间的关系，是硬标签里没有的信息。</p><p>教师先输出一组未经归一化的分数，叫 logits。温度 softmax 把它们变成概率：[4]</p><script type="math/tex;mode=display">p_i(T)=\frac{\exp(z_i/T)}{\sum_j\exp(z_j/T)}.</script><p>$z_i$ 是第 $i$ 类的分数， $T$ 是温度， $p_i$ 是变换后的概率。若三个分数为 [6,3,1]，温度为 1 时，概率约为 [94.6%, 4.7%, 0.6%]；温度升到 3 后，约为 [64.2%, 23.6%, 12.1%]。最高类别没变，但其他类别之间的关系更清楚。</p><img src="/d3a8b7dc/4.webp"><p>图 4｜左侧概率来自固定 logits [6,3,1]；右侧为概念训练流程。实际蒸馏常把硬标签损失与软目标损失加权组合，温度和权重都需要验证。</p><p>学生模型通常同时学习真实标签和教师的软分布。这里的关键不是把教师参数复制给学生，而是让容量较小、结构更适合部署的学生模仿教师的输出行为。<strong>真正让模型变小的是学生架构，蒸馏只是帮助这个小架构训练。</strong></p><p>蒸馏也没有保证学生一定更好。如果教师在某类缺陷上有系统性错误，学生可能把错误一起学走；训练数据没有覆盖设备现场的光照和材质变化，软标签也不会凭空补全信息；学生容量太小，则可能连教师提供的关系都装不下。</p><h3 id="五、为什么文件缩小了，延迟仍可能不变"><a href="#五、为什么文件缩小了，延迟仍可能不变" class="headerlink" title="五、为什么文件缩小了，延迟仍可能不变"></a>五、为什么文件缩小了，延迟仍可能不变</h3><p>一次推理既要搬数据，也要做计算。Roofline 模型用一个很有用的比值描述这种关系：</p><script type="math/tex;mode=display">I=\frac{\text{运算次数}}{\text{从较慢存储层搬运的字节数}}.</script><p>$I$ 叫运算强度。若每搬一个字节只做很少运算，程序更容易受内存带宽限制；若数据被反复利用、每个字节参与很多运算，程序更可能受计算能力限制。Roofline 给的是特定硬件和工作负载下的性能上界与诊断视角，不是直接预测延迟的万能公式。[5]</p><p>量化能减少搬运字节，也可能使用更高吞吐的整数指令；剪枝能减少有效权重，但不规则访问会增加索引和访存成本；小学生模型可能减少层宽，却因为出现设备不擅长的小算子而利用率下降。模型前后还可能包含图片解码、缩放、数据拷贝和后处理，它们不会因为权重变少自动消失。</p><p>所以部署测试至少要固定：目标芯片、运行库版本、线程数、批大小、输入尺寸和功耗模式；先预热，再报告足够多次运行的 P50 与 P95，而不是只挑最快的一次。对于边缘相机，批大小通常是 1；服务器追求吞吐量时，结论可能不同。MLPerf Inference 也按不同场景分别约束延迟和吞吐量，正是因为一个数字不能代表所有部署方式。[6]</p><h3 id="六、把三种方法放进同一条工程流程"><a href="#六、把三种方法放进同一条工程流程" class="headerlink" title="六、把三种方法放进同一条工程流程"></a>六、把三种方法放进同一条工程流程</h3><p>回到边缘相机场景。一个稳妥的起点不是立刻选压缩算法，而是先锁定基线：同一验证集上的整体与分类型准确率、目标设备上的端到端延迟、峰值内存、文件大小和功耗。之后每次只做可追踪的改动。</p><p>如果模型结构已适合设备，通常可以先尝试后训练 INT8 量化，用代表性校准数据确定激活范围。若少数层误差明显，可以保留较高精度、改用逐通道量化，或进入量化感知训练。若模型架构本身太宽、包含设备不擅长的算子，更合适的学生网络加蒸馏，往往比把原模型硬塞进设备更直接。</p><p>剪枝则要从后端能力反推结构：设备只支持特定块稀疏，就不要只追求论文里漂亮的非结构化稀疏率。每轮剪枝后微调，并重新导出、编译、计时。最后还可以再量化，但组合方法会互相影响：剪枝改变数值分布，量化误差也可能影响微调。</p><p>这是一条常见工作流，不是数学定理，也不是唯一顺序。项目时间、训练数据、部署工具链和可维护性都会改变最优方案。</p><h3 id="七、不要硬凑一个总分：先看-Pareto-前沿"><a href="#七、不要硬凑一个总分：先看-Pareto-前沿" class="headerlink" title="七、不要硬凑一个总分：先看 Pareto 前沿"></a>七、不要硬凑一个总分：先看 Pareto 前沿</h3><p>假设团队得到六个候选版本：</p><div class="table-container"><table><thead><tr><th>方案</th><th>准确率</th><th>P95 延迟</th><th>文件大小</th><th>说明</th></tr></thead><tbody><tr><td>A</td><td>92.4%</td><td>48 ms</td><td>80 MB</td><td>FP32 基线</td></tr><tr><td>B</td><td>92.1%</td><td>24 ms</td><td>20 MB</td><td>INT8</td></tr><tr><td>C</td><td>92.0%</td><td>44 ms</td><td>43 MB</td><td>50% 非结构化剪枝</td></tr><tr><td>D</td><td>92.0%</td><td>18 ms</td><td>12 MB</td><td>结构化剪枝 + INT8</td></tr><tr><td>E</td><td>91.7%</td><td>12 ms</td><td>8 MB</td><td>蒸馏学生 + INT8</td></tr><tr><td>F</td><td>89.7%</td><td>9 ms</td><td>5 MB</td><td>激进 4 位方案</td></tr></tbody></table></div><p>这些仍是合成数据，只用于演示决策。C 比 B 更慢、文件更大、准确率还略低，因此被 B <strong>支配</strong>：没有指标上的补偿理由保留它。D 比 E 更准确，但更慢、更大；E 更省资源，但少了 0.3 个百分点，两者都不能全面击败对方，因此都可能位于 Pareto 前沿。</p><img src="/d3a8b7dc/5.webp"><p>图 5｜点越大表示文件越大；绿色区域同时满足准确率不低于 91.4%、P95 延迟不超过 20 ms、文件不超过 16 MB。D 与 E 都通过验收，最终选择取决于业务更重视质量余量还是速度余量。</p><p>Pareto 前沿不会替团队给“准确率值多少钱、延迟值多少钱”定价。它只先排除全面更差的方案，避免用随意权重拼成一个总分掩盖真实取舍。如果漏检一类缺陷的代价远高于多等 5 毫秒，还应把该类别召回率作为单独约束，而不是埋进平均准确率。</p><h3 id="八、一个不用训练模型的小实验"><a href="#八、一个不用训练模型的小实验" class="headerlink" title="八、一个不用训练模型的小实验"></a>八、一个不用训练模型的小实验</h3><p>配套脚本用 NumPy 构造四个数值范围不同的权重通道，比较逐张量和逐通道模拟量化；它还会比较 50% 非结构化剪枝与 2:4 剪枝，并计算温度为 1 和 3 时的软标签。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">def symmetric_quantize(x, bits=8):</span><br><span class="line">    limit = 2**(bits - 1) - 1</span><br><span class="line">    scale = np.max(np.abs(x)) / limit</span><br><span class="line">    q = np.clip(np.rint(x / scale), -limit, limit)</span><br><span class="line">    return q * scale</span><br><span class="line"></span><br><span class="line">x = np.array([-1.0, -0.37, 0.0, 0.37, 1.0])</span><br><span class="line">print(symmetric_quantize(x, bits=4))</span><br></pre></td></tr></table></figure><p>运行 python code/experiment.py 后，固定随机种子的一组结果如下：</p><div class="table-container"><table><thead><tr><th>实验</th><th>设置</th><th>均方误差</th></tr></thead><tbody><tr><td>量化</td><td>INT8，逐张量</td><td>0.001655</td></tr><tr><td>量化</td><td>INT8，逐通道</td><td>0.000419</td></tr><tr><td>量化</td><td>4 位，逐张量</td><td>0.395368</td></tr><tr><td>量化</td><td>4 位，逐通道</td><td>0.160481</td></tr><tr><td>剪枝后的线性层输出</td><td>50% 非结构化</td><td>3.453592</td></tr><tr><td>剪枝后的线性层输出</td><td>2:4 结构化</td><td>68.970036</td></tr></tbody></table></div><p>两种剪枝都有 50% 的零，但非结构化方法可以在全层范围保留绝对值最大的权重；2:4 方法必须在每个连续四元组中留下两个，因此可能被迫保留较小权重、删掉另一组里的较大权重。在这组构造数据上，非结构化方案保留了约 99.54% 的权重平方和，2:4 保留约 90.39%，所以后者输出误差更大。这不是“2:4 总是更不准”的结论，只说明结构约束会改变可选掩码；它换来的潜在收益是更规则、更可能被硬件利用。</p><p>实验没有调用真实 INT8 内核，也没有使用稀疏矩阵运行库，因此只能比较数值误差，不能比较速度。若在普通 NumPy 里计时，测到的是当前 BLAS、数组大小和机器共同作用的结果，不能冒充目标设备结论。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>量化减少每个数字使用的位数，代价是格点近似和可能的截断；剪枝把部分连接置零，能否加速取决于零的结构和运行时支持；蒸馏让预先设计的小模型学习教师的判断关系，压缩来自学生架构，而不是“知识”本身变成了更少参数。</p><p>数学给出了误差、稀疏率、概率分布和支配关系，让取舍能够被计算；工程测量则告诉我们，这些变化在具体芯片和数据上是否真的兑现。最可靠的决策习惯是：<strong>把质量和系统指标同时写成约束，在目标硬件上测量，再从不能被全面击败的方案中选择。</strong></p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>Jacob 等，Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference，CVPR 2018：整数仿射量化、量化感知训练与移动端推理。</li><li>Han 等，Learning both Weights and Connections for Efficient Neural Networks，NeurIPS 2015：训练、剪枝、再训练的经典流程。</li><li>Han、Mao、Dally，Deep Compression，ICLR 2016：组合剪枝、训练后量化与编码的模型压缩管线。</li><li>Hinton、Vinyals、Dean，Distilling the Knowledge in a Neural Network，2015：温度 softmax 与知识蒸馏。</li><li>Williams、Waterman、Patterson，Roofline: An Insightful Visual Performance Model for Multicore Architectures，Communications of the ACM，2009：运算强度、计算上限与带宽上限。</li><li>MLCommons，MLPerf Inference Benchmark Suite：按部署场景定义性能与准确率测量的官方基准资料。</li></ol><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/5TvXF0utsh9Wx4GND5SUvA">https://mp.weixin.qq.com/s/5TvXF0utsh9Wx4GND5SUvA</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/e856cd87.html" rel="prev" title="从一团噪声到一张图：扩散模型到底学会了什么"><i class="fa fa-chevron-left"></i> 从一团噪声到一张图：扩散模型到底学会了什么</a></div><div class="post-nav-item"><a href="/a6e54316.html" rel="next" title="科研人：如何用AI采集任何互联网数据">科研人：如何用AI采集任何互联网数据 <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%A8%A1%E5%9E%8B%E2%80%9C%E5%8F%98%E5%B0%8F%E2%80%9D%EF%BC%8C%E8%87%B3%E5%B0%91%E6%9C%89%E5%9B%9B%E7%A7%8D%E4%B8%8D%E5%90%8C%E5%90%AB%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">一、模型“变小”，至少有四种不同含义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%87%8F%E5%8C%96%EF%BC%9A%E6%8A%8A%E7%BB%86%E5%AF%86%E5%88%BB%E5%BA%A6%E6%8D%A2%E6%88%90%E6%9C%89%E9%99%90%E6%A0%BC%E5%AD%90"><span class="nav-number">2.</span> <span class="nav-text">二、量化：把细密刻度换成有限格子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%89%AA%E6%9E%9D%EF%BC%9A%E6%8A%8A%E4%B8%80%E4%BA%9B%E8%BF%9E%E6%8E%A5%E5%8F%98%E6%88%90%E9%9B%B6"><span class="nav-number">3.</span> <span class="nav-text">三、剪枝：把一些连接变成零</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E8%92%B8%E9%A6%8F%EF%BC%9A%E5%B0%8F%E6%A8%A1%E5%9E%8B%E5%AD%A6%E4%B9%A0%E8%80%81%E5%B8%88%E6%80%8E%E6%A0%B7%E7%8A%B9%E8%B1%AB"><span class="nav-number">4.</span> <span class="nav-text">四、蒸馏：小模型学习老师怎样犹豫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E6%96%87%E4%BB%B6%E7%BC%A9%E5%B0%8F%E4%BA%86%EF%BC%8C%E5%BB%B6%E8%BF%9F%E4%BB%8D%E5%8F%AF%E8%83%BD%E4%B8%8D%E5%8F%98"><span class="nav-number">5.</span> <span class="nav-text">五、为什么文件缩小了，延迟仍可能不变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%8A%8A%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95%E6%94%BE%E8%BF%9B%E5%90%8C%E4%B8%80%E6%9D%A1%E5%B7%A5%E7%A8%8B%E6%B5%81%E7%A8%8B"><span class="nav-number">6.</span> <span class="nav-text">六、把三种方法放进同一条工程流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E4%B8%8D%E8%A6%81%E7%A1%AC%E5%87%91%E4%B8%80%E4%B8%AA%E6%80%BB%E5%88%86%EF%BC%9A%E5%85%88%E7%9C%8B-Pareto-%E5%89%8D%E6%B2%BF"><span class="nav-number">7.</span> <span class="nav-text">七、不要硬凑一个总分：先看 Pareto 前沿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E4%B8%80%E4%B8%AA%E4%B8%8D%E7%94%A8%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%B0%8F%E5%AE%9E%E9%AA%8C"><span class="nav-number">8.</span> <span class="nav-text">八、一个不用训练模型的小实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">10.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">11.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1764</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">57</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">10.9m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">452:55</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru02.model.json"},"display":{"position":"right","width":208,"height":520},"mobile":{"show":false},"log":false});</script></body></html>

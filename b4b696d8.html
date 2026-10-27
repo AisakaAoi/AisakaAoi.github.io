@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="LangChain 的消息到底是什么 从 Prompt 到 Tool Calling 的数据流不少 LangChain 程序在原型阶段只做一件事：把字符串传给模型，再读取返回文本。等到你加入多轮对话、工具调用、流式输出或多模态输入，原来的写法便开始出现难以解释的问题。模型明明要求调用工具，程序却只看到一句空文本； 历史消息已经保存，角色顺序却错了；流式界面能显示文字，最终保存的对象却缺少工具参数；"><meta property="og:type" content="article"><meta property="og:title" content="LangChain 的消息到底是什么 从 Prompt 到 Tool Calling 的数据流"><meta property="og:url" content="https://aisakaaoi.github.io/b4b696d8.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="LangChain 的消息到底是什么 从 Prompt 到 Tool Calling 的数据流不少 LangChain 程序在原型阶段只做一件事：把字符串传给模型，再读取返回文本。等到你加入多轮对话、工具调用、流式输出或多模态输入，原来的写法便开始出现难以解释的问题。模型明明要求调用工具，程序却只看到一句空文本； 历史消息已经保存，角色顺序却错了；流式界面能显示文字，最终保存的对象却缺少工具参数；"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/b4b696d8/2.webp"><meta property="og:image" content="https://aisakaaoi.github.io/b4b696d8/3.webp"><meta property="og:image" content="https://aisakaaoi.github.io/b4b696d8/4.webp"><meta property="og:image" content="https://aisakaaoi.github.io/b4b696d8/5.webp"><meta property="og:image" content="https://aisakaaoi.github.io/b4b696d8/6.webp"><meta property="og:image" content="https://aisakaaoi.github.io/b4b696d8/7.webp"><meta property="og:image" content="https://aisakaaoi.github.io/b4b696d8/8.webp"><meta property="og:image" content="https://aisakaaoi.github.io/b4b696d8/9.webp"><meta property="og:image" content="https://aisakaaoi.github.io/b4b696d8/10.webp"><meta property="og:image" content="https://aisakaaoi.github.io/b4b696d8/11.webp"><meta property="og:image" content="https://aisakaaoi.github.io/b4b696d8/12.webp"><meta property="og:image" content="https://aisakaaoi.github.io/b4b696d8/13.webp"><meta property="og:image" content="https://aisakaaoi.github.io/b4b696d8/14.webp"><meta property="article:published_time" content="2026-09-10T15:43:00.000Z"><meta property="article:modified_time" content="2026-10-22T09:14:25.360Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/b4b696d8/2.webp"><link rel="canonical" href="https://aisakaaoi.github.io/b4b696d8.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>LangChain 的消息到底是什么 从 Prompt 到 Tool Calling 的数据流 | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">57</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1764</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/b4b696d8.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">LangChain 的消息到底是什么 从 Prompt 到 Tool Calling 的数据流</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-09-10 23:43:00" itemprop="dateCreated datePublished" datetime="2026-09-10T23:43:00+08:00">2026-09-10</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">⭐人工智能 Artificial Intelligence</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-Artificial-Intelligence/%F0%9F%92%AB%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">💫未分类</span></a> </span></span><span id="/b4b696d8.html" class="post-meta-item leancloud_visitors" data-flag-title="LangChain 的消息到底是什么 从 Prompt 到 Tool Calling 的数据流" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/b4b696d8.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/b4b696d8.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>11k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>27 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><h3 id="LangChain-的消息到底是什么-从-Prompt-到-Tool-Calling-的数据流"><a href="#LangChain-的消息到底是什么-从-Prompt-到-Tool-Calling-的数据流" class="headerlink" title="LangChain 的消息到底是什么 从 Prompt 到 Tool Calling 的数据流"></a>LangChain 的消息到底是什么 从 Prompt 到 Tool Calling 的数据流</h3><p>不少 LangChain 程序在原型阶段只做一件事：把字符串传给模型，再读取返回文本。等到你加入多轮对话、工具调用、流式输出或多模态输入，原来的写法便开始出现难以解释的问题。模型明明要求调用工具，程序却只看到一句空文本；</p><p>历史消息已经保存，角色顺序却错了；流式界面能显示文字，最终保存的对象却缺少工具参数；日志中的两段文本完全相同，模型行为仍然不同。</p><p>这些问题的共同原因是把模型交互理解成字符串输入和字符串输出。LangChain v1 把消息定义为模型上下文的基本单元。消息除了内容，还携带角色、工具调用、关联标识、Token 用量和供应商响应信息。</p><p>Prompt 模板负责生成这些消息，聊天模型返回 AIMessage，工具执行结果通过 ToolMessage 回到模型，流式响应则以可合并的 AIMessageChunk 逐步到达。</p><p>本文只解决一个核心问题：这些对象如何组成一条完整的数据流。读完后，你应该能够解释字符串、Message、Prompt Template 和 PromptValue 的区别，正确检查 AIMessage 的结构，手动构造一次工具调用消息链，并知道数据在哪个边界丢失时应该检查什么。</p><span id="more"></span> <img src="/b4b696d8/2.webp"><div align="center">图 1 结构化消息从输入到模型响应与应用消费的整体路径</div><h3 id="实际问题从字符串开始暴露"><a href="#实际问题从字符串开始暴露" class="headerlink" title="实际问题从字符串开始暴露"></a>实际问题从字符串开始暴露</h3><p><strong>单轮文本生成允许直接调用 model.invoke(“解释 Python 列表”)。官方文档把字符串说明为单个用户消息的快捷方式，适合不需要历史和复杂内容的独立请求。问题在于，字符串只能表达内容，不能</strong>回答“谁说的” “这是指令还是工具结果”“这段内容对应哪个工具请求”等问题。</p><p>假设客服应用收到“取消订单”。如果只保存文本，系统无法区分它是用户请求、模型建议、系统规则还是工具返回的执行结果。更危险的情况是，工具返回“订单已取消”，程序把它当成用户消息重新发送；可见文字没有变化，角色却改变了模型对事实来源的判断。</p><img src="/b4b696d8/3.webp"><div align="center">图 2 字符串与结构化消息的信息量差异</div><p>消息对象解决的是上下文语义和关联关系，不是单纯的 Python 封装。它为不同模型供应商提供共同接口，使上层代码能够读取角色、内容块、工具调用和元数据。使用共同接口并不代表所有供应商行为完全一致；</p><p>标准对象保留差异，并把供应商特有信息放入适合的字段，业务层因此可以选择哪些部分需要统一、哪些部分需要显式适配。</p><h3 id="Message-的共同结构"><a href="#Message-的共同结构" class="headerlink" title="Message 的共同结构"></a>Message 的共同结构</h3><p><strong>HumanMessage、AIMessage、SystemMessage 和 ToolMessage 都属于消息体系。最常用的共同字段是 content，它可以是字符串，也可以是内容块列表。</strong></p><p>消息还可以带 id、name、additional_kwargs 和 response_metadata。具体子类再增加自己的结构，例如 AIMessage.tool_calls、AIMessage.usage_metadata 和 ToolMessage.tool_call_id。</p><img src="/b4b696d8/4.webp"><div align="center">图 3 一条消息的类型 内容与元数据结构</div><p>内部数据流值得逐步理解。应用先构造消息或把简写格式转换为消息；聊天模型集成把标准消息翻译成供应商请求；供应商响应再被集成包还原为 AIMessage。因此 AIMessage 不是响应 JSON 的机械复制，而是标准字段和供应商字段的组合。</p><p>跨模型代码应优先读取标准字段，需要诊断特定供应商时再查看 response_metadata。</p><p>调试时建议先打印 type(message).<strong>name</strong> 和 message.type。前者是 Python 类名，后者是 LangChain 序列化与消息识别使用的类型标签。</p><p>之后再检查 content、tool_calls、usage_metadata 和 response_metadata。直接 print(message) 适合快速观察，却<strong>不应</strong>成为稳定的机器解析协议，因为对象的字符串表示不是业务 schema。</p><h3 id="四种核心角色与消息顺序"><a href="#四种核心角色与消息顺序" class="headerlink" title="四种核心角色与消息顺序"></a>四种核心角色与消息顺序</h3><p><strong>SystemMessage 放置系统级行为规则和背景，通常位于消息序列开头。</strong>HumanMessage 表示用户输入。AIMessage 表示模型产生的消息，既可能包含最终文本，也可能包含工具调用请求。</p><p>ToolMessage 表示应用执行某个工具后的结果，并通过 tool_call_id 与对应请求配对。</p><img src="/b4b696d8/5.webp"><div align="center">图 4 四种核心消息的职责和顺序</div><p>消息列表不是数据库记录的任意排序。工具调用的典型顺序是 HumanMessage、包含 tool call 的 AIMessage、对应的 ToolMessage、模型最终 AIMessage。省略中间 AIMessage，只把工具结果放进历史，模型便看不到自己请求了什么。</p><p>工具结果的 call id 不匹配时，某些 provider 会拒绝请求，另一些<strong>错误</strong>可能在集成层出现。具体报错文本属于 provider 行为，需要现场验证。</p><p>系统消息也存在边界。模型是否支持独立 system role、如何处理多条 system message，以及它与 provider 原生 developer 指令的关系，都可能变化。LangChain 提供标准 SystemMessage，却<strong>不能</strong>强迫底层模型采用完全一致的优先级。</p><p>对安全、权限和合规有硬约束的规则<strong>必须</strong>在应用与工具层执行，<strong>不能</strong>只依赖系统消息。</p><h3 id="Prompt-Template-PromptValue-与-Message-的区别"><a href="#Prompt-Template-PromptValue-与-Message-的区别" class="headerlink" title="Prompt Template PromptValue 与 Message 的区别"></a>Prompt Template PromptValue 与 Message 的区别</h3><p><strong>Prompt Template 是生成模型输入的规则，Message 是已经生成的上下文对象。</strong>ChatPromptTemplate 保存角色模板、固定消息和占位符；调用 .invoke() 时，它读取变量并返回 ChatPromptValue。</p><p>ChatPromptValue.to_messages() 可以得到最终消息列表，.to_string() 则给出字符串形式，但对聊天模型而言，消息列表能保留更完整的角色结构。</p><img src="/b4b696d8/6.webp"><div align="center">图 5 Prompt 模板生成 ChatPromptValue 和消息列表</div><p>这解释了一个常见类型<strong>错误</strong>。开发者以为 Prompt 的输出是字符串，于是对结果调用字符串方法；实际输出却是 ChatPromptValue。在 LCEL 管道中，PromptValue 可以继续传给聊天模型，因为模型接口接受这种语言模型输入。</p><p>若下一步是普通 Python 函数，则应先明确它需要 PromptValue、消息列表还是最终字符串，再做显式转换。</p><p>变量校验发生在模板格式化边界。模板含 {question} 而输入字典缺少该键时，会在调用模型前<strong>失败</strong>。这是一件好事，因为<strong>错误</strong>尚未消耗模型请求。只有一个变量时，ChatPromptTemplate.invoke(“内容”) 可以自动注入；工程代码仍建议传字典，以免增加变量后输入语义悄悄变化。</p><p>模板格式也有安全边界。当前 Reference 支持 f-string、mustache 和 jinja2 等格式，并明确建议<strong>不要</strong>接收不可信的 Jinja2 模板。沙箱只能视为尽力保护，<strong>不能</strong>作为执行未知模板的安全保证。</p><p>若用户只提供变量值，应由应用控制模板本身，而不是允许用户提交任意模板代码。</p><h3 id="MessagesPlaceholder-如何插入历史"><a href="#MessagesPlaceholder-如何插入历史" class="headerlink" title="MessagesPlaceholder 如何插入历史"></a>MessagesPlaceholder 如何插入历史</h3><p><strong>多轮 Prompt 通常需要在系统消息与当前问题之间插入历史。</strong>MessagesPlaceholder(“history”) 声明此处接收一组消息。输入可以是 BaseMessage 对象，也可以是可转换的消息简写。</p><p>占位符不会替你查询数据库，也不会决定哪个会话属于哪个用户；应用仍需先读取正确历史，再把它作为 history 变量传入。</p><img src="/b4b696d8/7.webp"><div align="center">图 6 MessagesPlaceholder 对历史消息的插入和窗口限制</div><p>默认情况下，未提供必需 placeholder 会触发 KeyError。设置 optional=True 后，缺省历史被解释为空列表。n_messages 可以限制只取最后若干条消息，但它按消息条数裁剪，不理解业务语义。</p><p>若最后两条刚好把 AI tool call 与 ToolMessage 拆开，得到的上下文可能不合法。因此窗口策略<strong>必须</strong>以对话回合和工具调用配对为单位检查，而<strong>不能</strong>只写一个数字。</p><p>还要区分 Prompt 插入历史与 Agent 状态持久化。Placeholder 只描述“历史放在 Prompt 的哪个位置”，它不会保存任何内容。checkpointer、数据库或消息历史组件负责存储，Prompt 只消费已经读取的数据。</p><p>把这两个职责混在一起，常见结果是程序每次都构造正确模板，却始终传入空 history。</p><h3 id="AIMessage-是模型响应的结构化记录"><a href="#AIMessage-是模型响应的结构化记录" class="headerlink" title="AIMessage 是模型响应的结构化记录"></a>AIMessage 是模型响应的结构化记录</h3><p><strong>读取 AIMessage.content 只能看到原始内容载荷。为了生成界面文本，可优先使用 message.text 或从标准文本内容块提取；为了驱动工具循环，需要检查 </strong>tool_calls；为了统计成本，需要读取可用的 usage_metadata；</p><p>为了排查停止原因、模型标识或供应商返回值，再检查 response_metadata。</p><img src="/b4b696d8/8.webp"><div align="center">图 7 AIMessage 的内容 动作与运行元数据</div><p>模型请求工具时，content 可能为空，而 tool_calls 有值。如果代码以“content 为空”等价于“模型没有输出”，就会丢弃一次有效的动作请求。相反，模型也可能生成看似工具调用的普通文本，却没有结构化 tool call；</p><p>应用<strong>不应</strong>解析自然语言去猜工具名，除非它明确实现了旧式文本协议并承担相应<strong>风险</strong>。</p><p>usage_metadata 是 LangChain 的标准用量视图，通常包含输入、输出和总 Token 数；是否存在以及细分字段由 provider 决定。response_metadata 更贴近供应商响应。</p><p>生产日志可记录必要的数量、模型标识和停止原因，但要避免保存完整敏感 Prompt。消息 id 适合追踪和更新消息，也<strong>不能</strong>自动代替用户身份或会话权限。</p><h3 id="content-与-content-blocks"><a href="#content-与-content-blocks" class="headerlink" title="content 与 content_blocks"></a>content 与 content_blocks</h3><p><strong>content 保持宽松类型，是为了兼容字符串、供应商原生块以及 LangChain 标准块。</strong>content_blocks 提供标准化、带类型的内容视图，可表达 text、reasoning、image、file、audio 等内容。</p><p>官方文档说明，该属性可以按需把 provider 原生 content 解析为标准块；也可以在构造消息时直接传入标准 content_blocks，此时 content 仍会被填充。</p><img src="/b4b696d8/9.webp"><div align="center">图 8 content 原始载荷与标准 content blocks 的关系</div><p>两者不是新旧替代关系。需要把消息原样交还同一 provider 时，原始 content 可能包含重要信息；需要统一渲染多个 provider 的文本、图像或推理结果时，content_blocks 更容易消费。</p><p>设置环境变量 LC_OUTPUT_VERSION=v1 或为模型配置 output_version=”v1”，可以选择把标准内容块序列化进消息 content。是否应该启用取决于存储格式和下游消费者，应先用真实响应做兼容测试。</p><p>多模态支持<strong>必须</strong>局部标注“<strong>待验证</strong>”。LangChain 能表示 image、file、audio 和 video，不等于所选模型接受所有类型、URL、Base64 或 file id。文件大小、MIME 类型、远程 URL 权限和输出能力应以模型 provider 文档为准。</p><p><strong>不要</strong>把标准 schema 的存在误解成底层能力保证。</p><h3 id="ToolMessage-如何关联工具结果"><a href="#ToolMessage-如何关联工具结果" class="headerlink" title="ToolMessage 如何关联工具结果"></a>ToolMessage 如何关联工具结果</h3><p><strong>Tool Calling 分为两个动作。模型生成 </strong>AIMessage.tool_calls，应用读取名称和参数并执行函数；执行结果被包装成 ToolMessage，其 tool_call_id<strong>必须</strong>匹配原请求 id。随后消息列表再次传给模型，由模型结合结果生成答案或继续请求工具。</p><img src="/b4b696d8/10.webp"><div align="center">图 9 AIMessage 工具请求与 ToolMessage 工具结果的关联</div><p>ToolMessage.content 是会进入模型上下文的工具结果，应简洁、准确并避免泄露无关内部数据。artifact 保存应用需要、但不希望发送给模型的补充对象，例如原始检索文档 id、页码、调试字段或用于前端展示的数据。</p><p>把大型原始 JSON 全部塞入 content 会增加 Token 和提示注入<strong>风险</strong>；只把摘要放入 content、把完整结构留在 artifact，可以明确两类消费者。</p><p>工具异常也应结构化处理。网络超时、权限拒绝和参数校验<strong>失败</strong>发生在应用执行阶段，不是模型文本生成阶段。Agent 运行时可以把可安全展示的<strong>错误</strong>转换成 ToolMessage 让模型调整，但不可重试的写操作<strong>必须</strong>由业务逻辑阻止重复执行。消息关联保证上下文可解释，却不提供幂等性和授权。</p><h3 id="流式输出中的-AIMessageChunk"><a href="#流式输出中的-AIMessageChunk" class="headerlink" title="流式输出中的 AIMessageChunk"></a>流式输出中的 AIMessageChunk</h3><p><strong>聊天模型流式运行时返回 AIMessageChunk。每个 chunk 只包含当前到达的增量，文本、工具调用参数片段、响应元数据或用量信息可能出现在不同块中。</strong>LangChain 消息块支持相加，按顺序合并后才能得到完整内容和较完整的结构。</p><img src="/b4b696d8/11.webp"><div align="center">图 10 AIMessageChunk 按顺序合并为完整消息</div><p>用户界面可以边到达边显示 chunk.text，持久化层却<strong>不应</strong>把每个 chunk 当成独立对话消息。更稳妥的方式是维护一个累加对象，流结束后保存合并结果，同时在异常中断时标记该消息未完成。</p><p>工具调用参数常以 JSON 片段逐步出现，在完整合并和验证之前调用函数，会得到缺字段或语法不完整的数据。</p><p>流式模型 token、Agent 步骤更新和自定义事件属于不同流模式。本文只讨论消息块。接入真实模型后，首块时间、总耗时、取消行为、最终用量位置都属于 provider 和运行环境相关信息，<strong>必须</strong>通过带时间戳的实测确认，<strong>不能</strong>根据 stream() 方法名推断。</p><h3 id="消息简写和强制转换失败"><a href="#消息简写和强制转换失败" class="headerlink" title="消息简写和强制转换失败"></a>消息简写和强制转换失败</h3><p><strong>LangChain 接受若干便利格式，例如字符串、{“role”: “user”, “content”: “…”} 字典、(“human”, “…”) 元组和正式消息对象。这些输入会在组件边界转换为标准消息。简写适合局部代码；当消息要跨模块存储、校验或追踪时，显式对象通常更清楚。</strong></p><img src="/b4b696d8/12.webp"><div align="center">图 11 消息简写经过强制转换后的成功和失败路径</div><p>常见的 MESSAGE_COERCION_FAILURE 来源包括字典缺少 role 或 content、角色名称无法识别、把整个消息列表多包了一层，或把业务 JSON 当成消息字典传入。</p><p>异常往往发生在距离原始输入较远的 Prompt 或模型边界，因此需要在进入链之前打印 type(value) 与受控长度的 repr(value)，并为外部请求先做 schema 校验。</p><p><strong>不要</strong>通过不断增加 str() 消除类型<strong>错误</strong>。它会把对象变成可读文本，却同时丢掉 role、tool call id 和其他字段，使<strong>错误</strong>从“立即<strong>失败</strong>”变成“静默改变模型行为”。正确做法是确定下一个组件要求的输入类型，并构造对应对象。</p><h3 id="可运行的消息结构观察器"><a href="#可运行的消息结构观察器" class="headerlink" title="可运行的消息结构观察器"></a>可运行的消息结构观察器</h3><p><strong>下面的小项目不连接模型，而是完整演示 Prompt 格式化、历史窗口、工具请求、工具结果、流式合并和标准内容块。这样可以先验证数据结构，再把外部模型作为单独变量接入。</strong></p><img src="/b4b696d8/13.webp"><div align="center">图 12 调试消息问题时应检查的字段顺序</div><p>安装环境如下。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python -m venv .venv</span><br><span class="line">.venv\Scripts\activate</span><br><span class="line">python -m pip install <span class="string">&quot;langchain==1.4.0&quot;</span> <span class="string">&quot;langchain-core==1.6.2&quot;</span></span><br></pre></td></tr></table></figure><p>保存为 message_lab.py 后运行。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain.messages <span class="keyword">import</span> (</span><br><span class="line">    AIMessage, AIMessageChunk, HumanMessage, ToolMessage</span><br><span class="line">)</span><br><span class="line"><span class="keyword">from</span> langchain_core.prompts <span class="keyword">import</span> ChatPromptTemplate, MessagesPlaceholder</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">describe</span>(<span class="params">message</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">    <span class="built_in">print</span>(</span><br><span class="line">        <span class="string">f&quot;<span class="subst">&#123;<span class="built_in">type</span>(message).__name__&#125;</span>: &quot;</span></span><br><span class="line">        <span class="string">f&quot;type=<span class="subst">&#123;message.<span class="built_in">type</span>!r&#125;</span>, content=<span class="subst">&#123;message.content!r&#125;</span>&quot;</span></span><br><span class="line">    )</span><br><span class="line"> </span><br><span class="line">prompt = ChatPromptTemplate.from_messages([</span><br><span class="line">    (<span class="string">&quot;system&quot;</span>, <span class="string">&quot;你是&#123;domain&#125;助手，只回答当前问题。&quot;</span>),</span><br><span class="line">    MessagesPlaceholder(<span class="string">&quot;history&quot;</span>, optional=<span class="literal">True</span>, n_messages=<span class="number">2</span>),</span><br><span class="line">    (<span class="string">&quot;human&quot;</span>, <span class="string">&quot;&#123;question&#125;&quot;</span>),</span><br><span class="line">])</span><br><span class="line"> </span><br><span class="line">prompt_value = prompt.invoke(&#123;</span><br><span class="line">    <span class="string">&quot;domain&quot;</span>: <span class="string">&quot;Python&quot;</span>,</span><br><span class="line">    <span class="string">&quot;history&quot;</span>: [</span><br><span class="line">        HumanMessage(<span class="string">&quot;列表如何排序？&quot;</span>),</span><br><span class="line">        AIMessage(<span class="string">&quot;可以使用 sorted。&quot;</span>),</span><br><span class="line">        HumanMessage(<span class="string">&quot;它会修改原列表吗？&quot;</span>),</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;question&quot;</span>: <span class="string">&quot;请给一个不修改原列表的例子。&quot;</span>,</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;prompt value:&quot;</span>, <span class="built_in">type</span>(prompt_value).__name__)</span><br><span class="line"><span class="keyword">for</span> message <span class="keyword">in</span> prompt_value.to_messages():</span><br><span class="line">    describe(message)</span><br><span class="line"> </span><br><span class="line">tool_request = AIMessage(content=[], tool_calls=[&#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;lookup_python_doc&quot;</span>,</span><br><span class="line">    <span class="string">&quot;args&quot;</span>: &#123;<span class="string">&quot;topic&quot;</span>: <span class="string">&quot;sorted&quot;</span>&#125;,</span><br><span class="line">    <span class="string">&quot;id&quot;</span>: <span class="string">&quot;call_001&quot;</span>,</span><br><span class="line">    <span class="string">&quot;type&quot;</span>: <span class="string">&quot;tool_call&quot;</span>,</span><br><span class="line">&#125;])</span><br><span class="line">tool_result = ToolMessage(</span><br><span class="line">    content=<span class="string">&quot;sorted(iterable) 返回新的已排序列表。&quot;</span>,</span><br><span class="line">    tool_call_id=<span class="string">&quot;call_001&quot;</span>,</span><br><span class="line">    name=<span class="string">&quot;lookup_python_doc&quot;</span>,</span><br><span class="line">    artifact=&#123;<span class="string">&quot;source&quot;</span>: <span class="string">&quot;local_demo&quot;</span>, <span class="string">&quot;page&quot;</span>: <span class="number">1</span>&#125;,</span><br><span class="line">)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tool call:&quot;</span>, tool_request.tool_calls[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tool result content:&quot;</span>, tool_result.content)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tool result artifact:&quot;</span>, tool_result.artifact)</span><br><span class="line"> </span><br><span class="line">chunks = [</span><br><span class="line">    AIMessageChunk(content=<span class="string">&quot;原列表&quot;</span>),</span><br><span class="line">    AIMessageChunk(content=<span class="string">&quot;不会改变&quot;</span>),</span><br><span class="line">    AIMessageChunk(content=<span class="string">&quot;。&quot;</span>),</span><br><span class="line">]</span><br><span class="line">full = chunks[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> chunk <span class="keyword">in</span> chunks[<span class="number">1</span>:]:</span><br><span class="line">    full = full + chunk</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;stream merged:&quot;</span>, full.text)</span><br><span class="line"> </span><br><span class="line">multimodal = HumanMessage(content_blocks=[</span><br><span class="line">    &#123;<span class="string">&quot;type&quot;</span>: <span class="string">&quot;text&quot;</span>, <span class="string">&quot;text&quot;</span>: <span class="string">&quot;请描述这张图片&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;type&quot;</span>: <span class="string">&quot;image&quot;</span>, <span class="string">&quot;url&quot;</span>: <span class="string">&quot;https://example.com/demo.png&quot;</span>&#125;,</span><br><span class="line">])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;content block types:&quot;</span>, [</span><br><span class="line">    block[<span class="string">&quot;type&quot;</span>] <span class="keyword">for</span> block <span class="keyword">in</span> multimodal.content_blocks</span><br><span class="line">])</span><br></pre></td></tr></table></figure><p>实测输出如下。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">prompt value: ChatPromptValue</span><br><span class="line">SystemMessage: type=&#x27;system&#x27;, content=&#x27;你是Python助手，只回答当前问题。&#x27;</span><br><span class="line">AIMessage: type=&#x27;ai&#x27;, content=&#x27;可以使用 sorted。&#x27;</span><br><span class="line">HumanMessage: type=&#x27;human&#x27;, content=&#x27;它会修改原列表吗？&#x27;</span><br><span class="line">HumanMessage: type=&#x27;human&#x27;, content=&#x27;请给一个不修改原列表的例子。&#x27;</span><br><span class="line">tool call: &#123;&#x27;name&#x27;: &#x27;lookup_python_doc&#x27;, &#x27;args&#x27;: &#123;&#x27;topic&#x27;: &#x27;sorted&#x27;&#125;, &#x27;id&#x27;: &#x27;call_001&#x27;, &#x27;type&#x27;: &#x27;tool_call&#x27;&#125;</span><br><span class="line">tool result content: sorted(iterable) 返回新的已排序列表。</span><br><span class="line">tool result artifact: &#123;&#x27;source&#x27;: &#x27;local_demo&#x27;, &#x27;page&#x27;: 1&#125;</span><br><span class="line">stream merged: 原列表不会改变。</span><br><span class="line">content block types: [&#x27;text&#x27;, &#x27;image&#x27;]</span><br></pre></td></tr></table></figure><p>输出展示了三个容易忽略的过程。第一，n_messages=2 只保留 history 的最后两条，所以最早的“列表如何排序”没有进入 Prompt。第二，工具内容与应用 artifact 被分开，模型只应消费 content。</p><p>第三，三个流式块相加后得到完整文本；单独查看任意块都<strong>不能</strong>代表最终消息。</p><img src="/b4b696d8/14.webp"><div align="center">图 13 消息结构观察器从 Prompt 到流式合并的实验流程</div><h3 id="常见错误与调试方法"><a href="#常见错误与调试方法" class="headerlink" title="常见错误与调试方法"></a>常见错误与调试方法</h3><p><strong>第一个错误是把 AIMessage 当字符串。典型症状是字符串拼接失败</strong>，或序列化后出现大量意外字段。应先决定业务需要展示文本还是保存完整响应：展示层读取 text，Agent 与审计层保留消息对象。<strong>不要</strong>在共同服务层过早降级为字符串。</p><p>第二个<strong>错误</strong>是只检查 content，因此把含 tool calls 的空内容响应当成<strong>失败</strong>。调试顺序应是消息类型、content、tool_calls、invalid_tool_calls、usage_metadata、response_metadata。</p><p>真实模型返回结构与本地模拟不一致时，再打开 tracing 检查发送给 provider 的请求和收到的原始响应。</p><p>第三个<strong>错误</strong>是 Placeholder 变量不匹配。模板等待 history，调用方却传 messages，或者传入单条消息而非消息列表。</p><p>使用 prompt.input_variables、prompt.optional_variables 和 prompt.get_input_schema() 检查契约，并给 Prompt 格式化写独立测试。此类<strong>错误</strong>无需调用模型即可复现。</p><p>第四个<strong>错误</strong>是 ToolMessage.tool_call_id 与请求不一致。日志<strong>必须</strong>同时记录 AIMessage 中的 call id、工具执行 id 和 ToolMessage id。若存在并行工具调用，<strong>不能</strong>按列表位置猜配对关系，应以 id 为准。</p><p>工具返回内容还要限制长度，并把内部原始数据放入 artifact。</p><p>第五个<strong>错误</strong>是逐块解析流式工具参数。正确流程是收集 chunk、按顺序合并、验证完整 tool call，再执行工具。界面渲染和业务执行应使用两条消费路径：前者可以展示增量文本，后者等待结构完整。</p><h3 id="适用边界"><a href="#适用边界" class="headerlink" title="适用边界"></a>适用边界</h3><p><strong>结构化消息适合多轮对话、工具调用、多模态输入、用量统计、审计和跨 provider 适配。一次性的纯文本转换任务可以继续使用字符串快捷方式，不需要为了形式统一构造复杂历史。框架对象也不应</strong>直接成为数据库的永久 schema；长期存储要设计版本字段、序列化格式、隐私删除和迁移策略。</p><p>Prompt Template 适合由应用控制结构、由运行时填充变量的场景。若输入只是固定字符串，模板会增加不必要的间接层。MessagesPlaceholder.n_messages 适合简单窗口实验，不负责语义摘要、Token 精确预算或工具回合完整性。</p><p>复杂上下文管理需要独立策略和测试。</p><p>消息标准化能减少上层分支，却不会抹平底层差异。任何关于多模态格式、system role、推理块、工具并行和 Token 统计的能力，都<strong>必须</strong>在选定模型和 provider 包版本上重新验证。文档中能构造某种消息，只说明 schema 接受这种表示，<strong>不保证</strong>模型能够处理它。</p><h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p><strong>LangChain 的模型数据流可以按对象边界解释：ChatPromptTemplate 接收变量并生成 ChatPromptValue，PromptValue 转成消息列表，聊天模型返回 AIMessage，工具请求位于 tool_calls，工具结果通过匹配 id 的 ToolMessage 回传，流式增量以 AIMessageChunk 到达并在结束时合并。</strong></p><p>每一步都有可检查的 Python 类型和字段。</p><p>一旦保留这些结构，常见问题就能沿数据流定位。角色<strong>错误</strong>检查消息顺序，变量<strong>错误</strong>检查 Prompt 输入，工具未执行检查 tool_calls，结果无法关联检查 call id，流式结构不完整检查 chunk 合并。把消息过早转换成字符串，会让这些证据同时消失。</p><hr><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/1b0NnAVf-p2uc7HEK5YZJg">https://mp.weixin.qq.com/s/1b0NnAVf-p2uc7HEK5YZJg</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/18c24b36.html" rel="prev" title="ICML 2026｜不重采样也能跨设备泛化：NeurOCNN 把生理信号“还原”成连续时间"><i class="fa fa-chevron-left"></i> ICML 2026｜不重采样也能跨设备泛化：NeurOCNN 把生理信号“还原”成连续时间</a></div><div class="post-nav-item"><a href="/c2f6b56.html" rel="next" title="Biol Psychiatry | 多频段脑电连接组学揭示躯体症状障碍的岛叶网络亚型">Biol Psychiatry | 多频段脑电连接组学揭示躯体症状障碍的岛叶网络亚型 <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#LangChain-%E7%9A%84%E6%B6%88%E6%81%AF%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88-%E4%BB%8E-Prompt-%E5%88%B0-Tool-Calling-%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-number">1.</span> <span class="nav-text">LangChain 的消息到底是什么 从 Prompt 到 Tool Calling 的数据流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E9%97%AE%E9%A2%98%E4%BB%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BC%80%E5%A7%8B%E6%9A%B4%E9%9C%B2"><span class="nav-number">2.</span> <span class="nav-text">实际问题从字符串开始暴露</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Message-%E7%9A%84%E5%85%B1%E5%90%8C%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">Message 的共同结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E7%A7%8D%E6%A0%B8%E5%BF%83%E8%A7%92%E8%89%B2%E4%B8%8E%E6%B6%88%E6%81%AF%E9%A1%BA%E5%BA%8F"><span class="nav-number">4.</span> <span class="nav-text">四种核心角色与消息顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prompt-Template-PromptValue-%E4%B8%8E-Message-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">5.</span> <span class="nav-text">Prompt Template PromptValue 与 Message 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MessagesPlaceholder-%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E5%8E%86%E5%8F%B2"><span class="nav-number">6.</span> <span class="nav-text">MessagesPlaceholder 如何插入历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AIMessage-%E6%98%AF%E6%A8%A1%E5%9E%8B%E5%93%8D%E5%BA%94%E7%9A%84%E7%BB%93%E6%9E%84%E5%8C%96%E8%AE%B0%E5%BD%95"><span class="nav-number">7.</span> <span class="nav-text">AIMessage 是模型响应的结构化记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#content-%E4%B8%8E-content-blocks"><span class="nav-number">8.</span> <span class="nav-text">content 与 content_blocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ToolMessage-%E5%A6%82%E4%BD%95%E5%85%B3%E8%81%94%E5%B7%A5%E5%85%B7%E7%BB%93%E6%9E%9C"><span class="nav-number">9.</span> <span class="nav-text">ToolMessage 如何关联工具结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E5%BC%8F%E8%BE%93%E5%87%BA%E4%B8%AD%E7%9A%84-AIMessageChunk"><span class="nav-number">10.</span> <span class="nav-text">流式输出中的 AIMessageChunk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E7%AE%80%E5%86%99%E5%92%8C%E5%BC%BA%E5%88%B6%E8%BD%AC%E6%8D%A2%E5%A4%B1%E8%B4%A5"><span class="nav-number">11.</span> <span class="nav-text">消息简写和强制转换失败</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%BF%90%E8%A1%8C%E7%9A%84%E6%B6%88%E6%81%AF%E7%BB%93%E6%9E%84%E8%A7%82%E5%AF%9F%E5%99%A8"><span class="nav-number">12.</span> <span class="nav-text">可运行的消息结构观察器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E4%B8%8E%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95"><span class="nav-number">13.</span> <span class="nav-text">常见错误与调试方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E8%BE%B9%E7%95%8C"><span class="nav-number">14.</span> <span class="nav-text">适用边界</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">15.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">16.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1764</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">57</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">10.9m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">452:55</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru02.model.json"},"display":{"position":"right","width":208,"height":520},"mobile":{"show":false},"log":false});</script></body></html>

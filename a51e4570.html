@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0"><meta name="baidu-site-verification" content="code-KCMz4b3cnd"><meta name="google-site-verification" content="MTp8U7dJ1uzrfz8Mu6rgqX1CIm3HjqPWd0xaRcv1tFg"><link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png"><link rel="mask-icon" href="/images/favicon.png" color="#222"><link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><script id="hexo-configurations">var NexT=window.NexT||{},CONFIG={hostname:"aisakaaoi.github.io",root:"/",scheme:"Pisces",version:"7.8.0",exturl:!1,sidebar:{position:"left",display:"post",padding:18,offset:12,onmobile:!1},copycode:{enable:!1,show_result:!1,style:null},back2top:{enable:!0,sidebar:!0,scrollpercent:!0},bookmark:{enable:!1,color:"#222",save:"auto"},fancybox:!1,mediumzoom:!1,lazyload:!1,pangu:!1,comments:{style:"tabs",active:"valine",storage:!0,lazyload:!1,nav:null,activeClass:"valine"},algolia:{hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}},localsearch:{enable:!0,trigger:"auto",top_n_per_article:1,unescape:!1,preload:!1},motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},path:"search.xml"}</script><meta name="description" content="脑机接口（BCI）是一个复杂的领域，它不仅涉及神经科学，还融合了信号处理、人工智能、硬件设备、软件开发和人机交互等多方面内容。与此同时，脑机接口也是一个容易被误解的领域。很多人第一次接触脑机接口时，可能会将它简单理解为“读心术”，或者认为戴上一套脑电设备，就能够直接读取人的思想和情绪。但在实际研究和工程应用中，脑机接口远比这些描述更加复杂。脑信号是如何产生的，设备能够采集到什么信息，算法又是如何"><meta property="og:type" content="article"><meta property="og:title" content="脑机接口的基础概念与发展史"><meta property="og:url" content="https://aisakaaoi.github.io/a51e4570.html"><meta property="og:site_name" content="逢坂葵的个人博客"><meta property="og:description" content="脑机接口（BCI）是一个复杂的领域，它不仅涉及神经科学，还融合了信号处理、人工智能、硬件设备、软件开发和人机交互等多方面内容。与此同时，脑机接口也是一个容易被误解的领域。很多人第一次接触脑机接口时，可能会将它简单理解为“读心术”，或者认为戴上一套脑电设备，就能够直接读取人的思想和情绪。但在实际研究和工程应用中，脑机接口远比这些描述更加复杂。脑信号是如何产生的，设备能够采集到什么信息，算法又是如何"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://aisakaaoi.github.io/a51e4570/1.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a51e4570/2.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a51e4570/3.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a51e4570/4.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a51e4570/5.webp"><meta property="og:image" content="https://aisakaaoi.github.io/a51e4570/6.webp"><meta property="article:published_time" content="2026-08-01T16:49:00.000Z"><meta property="article:modified_time" content="2026-10-22T19:37:03.008Z"><meta property="article:author" content="Aisaka Aoi"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://aisakaaoi.github.io/a51e4570/1.webp"><link rel="canonical" href="https://aisakaaoi.github.io/a51e4570.html"><script id="page-configurations">CONFIG.page={sidebar:"",isHome:!1,isPost:!0,lang:"zh-CN"}</script><title>脑机接口的基础概念与发展史 | 逢坂葵的个人博客</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7308ed05421777c301eefa3754da1b42";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-header,.use-motion .comments,.use-motion .menu-item,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript><style>.epub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:1.5em 0}.epub-card{display:flex;background:var(--content-bg-color,#fff);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s}.epub-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.epub-cover{width:110px;min-width:110px;height:160px;background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2em;font-weight:700;position:relative;overflow:hidden}.epub-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}.epub-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.epub-vol{position:absolute;top:6px;left:6px;background:#ff4757;color:#fff;padding:2px 7px;border-radius:4px;font-size:.72em;font-weight:700;z-index:2;box-shadow:0 2px 4px rgba(0,0,0,.25)}.epub-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}.epub-title{margin:0 0 6px;font-size:1.05em;line-height:1.3;color:var(--text-color,#333)}.epub-date{margin:0 0 12px;font-size:.78em;color:var(--text-color,#999);opacity:.85}.epub-actions{display:flex;gap:8px}.epub-btn{flex:1;padding:6px 10px;border-radius:6px;font-size:.82em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.epub-btn:hover{opacity:.85}.epub-btn.read{background:#5b8ff9;color:#fff}.epub-btn.download{background:var(--tag-background,#f0f0f0);color:var(--text-color,#555)}#hexo-epub-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99999;flex-direction:column}#hexo-epub-modal.active{display:flex}.hexo-epub-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-epub-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-epub-bar button:hover{background:#444}.hexo-epub-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-epub-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-epub-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-epub-toc.active{display:flex}.hexo-epub-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-epub-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-epub-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hexo-epub-toc-item:hover{background:#e0e0e0}.hexo-epub-toc-item.active{background:#5b8ff9;color:#fff}.hexo-epub-view{flex:1;position:relative;background:#fff;overflow:hidden}#hexo-epub-stage{width:100%;height:100%}.hexo-epub-loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#666;display:none;z-index:10;text-align:center}.hexo-epub-loading .err{color:#ff4757;font-size:.85em;margin-top:6px}.hexo-epub-fallback{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:none}.hexo-epub-fallback p{margin:0 0 12px;color:var(--text-color,#555)}.hexo-epub-fallback .epub-btn{display:inline-block;width:auto;padding:10px 28px;font-size:.9em}@media (max-width:600px){.epub-grid{grid-template-columns:1fr}.epub-cover{width:90px;min-width:90px;height:135px}#hexo-epub-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}}.epub-mobile{display:none}.epub-mobile-inner{padding:14px;background:var(--content-bg-color,#fff);border-radius:10px;border:1px solid var(--border-color,#eee);margin:1em 0}.epub-mobile-title{margin:0 0 8px;font-size:1.05em;color:var(--text-color,#333)}.epub-mobile-date{margin:0 0 12px;font-size:.85em;color:#999}.epub-mobile-hint{margin:0 0 12px;font-size:.85em;color:#666}@media (max-width:768px){.epub-card.desktop-only{display:none!important}.epub-mobile.mobile-only{display:block!important}}@media (min-width:769px){.epub-card.desktop-only{display:flex!important}.epub-mobile.mobile-only{display:none!important}}</style><style>.txt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:1.5em 0}.txt-card{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:var(--content-bg-color,#fff);border-radius:10px;padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.08);border:1px solid var(--border-color,#eee);transition:transform .2s,box-shadow .2s;cursor:pointer}.txt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}.txt-title{margin:0;font-size:1.05em;line-height:1.4;color:var(--text-color,#333);text-align:center}.txt-btn{padding:6px 24px;border-radius:6px;font-size:.85em;text-decoration:none;border:none;cursor:pointer;text-align:center;transition:opacity .2s}.txt-btn:hover{opacity:.85}.txt-btn.read{background:#5b8ff9;color:#fff}#hexo-txt-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:99998;flex-direction:column}#hexo-txt-modal.active{display:flex}.hexo-txt-bar{height:50px;background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 18px;gap:10px;border-bottom:1px solid #333;flex-shrink:0}.hexo-txt-bar button{background:#333;color:#fff;border:none;padding:5px 12px;border-radius:4px;cursor:pointer}.hexo-txt-bar button:hover{background:#444}.hexo-txt-bar .bar-title{margin-left:auto;font-size:.9em;opacity:.9;max-width:45%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hexo-txt-main{flex:1;display:flex;overflow:hidden;position:relative}#hexo-txt-toc{width:280px;min-width:280px;background:#f5f5f5;border-right:1px solid #ddd;display:none;flex-direction:column;overflow:hidden}#hexo-txt-toc.active{display:flex}.hexo-txt-toc-header{padding:14px 16px;background:#e8e8e8;border-bottom:1px solid #ddd;font-weight:700;color:#333;font-size:.95em}.hexo-txt-toc-list{flex:1;overflow-y:auto;padding:8px 0}.hexo-txt-toc-item{display:block;padding:8px 18px;color:#333;text-decoration:none;font-size:.88em;border-bottom:1px solid #eee;cursor:pointer;transition:background .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px}.hexo-txt-toc-item:hover{background:#e0e0e0}.hexo-txt-toc-item.active{background:#5b8ff9;color:#fff}.hexo-txt-view{flex:1;position:relative;background:#fff;overflow:hidden;overflow-y:auto}#hexo-txt-stage{width:100%;min-height:100%}.txt-chapter-content{padding:40px;line-height:1.8;font-size:1.05em;max-width:800px;margin:0 auto;color:#333}.txt-chapter-content h3{margin-top:0;font-size:1.8em;font-weight:700;text-align:center;border-bottom:1px solid #eee;padding-bottom:16px;margin-bottom:32px}.txt-chapter-content p{margin:0 0 1em;text-indent:2em}.txt-chapter-content p:first-of-type{margin-top:0}@media (max-width:600px){.txt-grid{grid-template-columns:1fr}.txt-card{padding:18px 16px}#hexo-txt-toc{width:220px;min-width:220px;position:absolute;z-index:20;height:100%;box-shadow:2px 0 8px rgba(0,0,0,.15)}.txt-chapter-content{padding:20px;font-size:1em}.txt-chapter-content h3{font-size:1.5em;margin-bottom:24px}}.txt-mobile-content{display:none}.txt-mobile-content h3{margin-top:1.5em;margin-bottom:.75em}@media (max-width:768px){.txt-grid.desktop-only{display:none!important}.txt-mobile-content.mobile-only{display:block!important}}@media (min-width:769px){.txt-grid.desktop-only{display:grid!important}.txt-mobile-content.mobile-only{display:none!important}}</style><link rel="alternate" href="/atom.xml" title="逢坂葵的个人博客" type="application/atom+xml"></head><body itemscope itemtype="http://schema.org/WebPage"><div class="container use-motion"><div class="headband"></div><header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-container"><div class="site-nav-toggle"><div class="toggle" aria-label="切换导航栏"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div></div><div class="site-meta"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span><h1 class="site-title">aoi学院</h1><span class="logo-line-after"><i></i></span></a><p class="site-subtitle" itemprop="description">Aisaka's Blog, School of Aoi, Aisaka University</p></div><div class="site-nav-right"><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class="site-nav"><ul id="menu" class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">57</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">1764</span></a></li><li class="menu-item menu-item-search"><a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索</a></li></ul></nav><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-icon"><i class="fa fa-search"></i></span><div class="search-input-container"><input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div><div id="search-result"><div id="no-result"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></div></header><div class="reading-progress-bar"></div><a href="https://github.com/AisakaAoi" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><main class="main"><div class="main-inner"><div class="content-wrap"><div class="content post posts-expand"><article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://aisakaaoi.github.io/a51e4570.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/manatsu.jpg"><meta itemprop="name" content="Aisaka Aoi"><meta itemprop="description" content="Aisaka's Blog, School of Aoi, Aisaka University"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="逢坂葵的个人博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">脑机接口的基础概念与发展史</h1><div class="post-meta"><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-calendar"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2026-08-02 00:49:00" itemprop="dateCreated datePublished" datetime="2026-08-02T00:49:00+08:00">2026-08-02</time> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-folder"></i> </span><span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">🌙进阶学习</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/" itemprop="url" rel="index"><span itemprop="name">⭐SCNU BCI团队</span></a> </span>， <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%F0%9F%8C%99%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/%E2%AD%90SCNU-BCI%E5%9B%A2%E9%98%9F/%F0%9F%92%AB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">💫基础知识</span></a> </span></span><span id="/a51e4570.html" class="post-meta-item leancloud_visitors" data-flag-title="脑机接口的基础概念与发展史" title="阅读次数"><span class="post-meta-item-icon"><i class="fa fa-eye"></i> </span><span class="post-meta-item-text">阅读次数：</span> <span class="leancloud-visitors-count"></span> </span><span class="post-meta-item"><span class="post-meta-item-icon"><i class="far fa-comment"></i> </span><span class="post-meta-item-text">Valine：</span> <a title="valine" href="/a51e4570.html#valine-comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/a51e4570.html" itemprop="commentCount"></span></a></span><br><span class="post-meta-item" title="本文字数"><span class="post-meta-item-icon"><i class="far fa-file-word"></i> </span><span class="post-meta-item-text">本文字数：</span> <span>6.5k</span> </span><span class="post-meta-item" title="阅读时长"><span class="post-meta-item-icon"><i class="far fa-clock"></i> </span><span class="post-meta-item-text">阅读时长 &asymp;</span> <span>16 分钟</span></span></div></header><div class="post-body" itemprop="articleBody"><img src="/a51e4570/1.webp"><p>脑机接口（BCI）是一个复杂的领域，它不仅涉及神经科学，还融合了信号处理、人工智能、硬件设备、软件开发和人机交互等多方面内容。与此同时，脑机接口也是一个容易被误解的领域。很多人第一次接触脑机接口时，可能会将它简单理解为“读心术”，或者认为戴上一套脑电设备，就能够直接读取人的思想和情绪。但在实际研究和工程应用中，脑机接口远比这些描述更加复杂。脑信号是如何产生的，设备能够采集到什么信息，算法又是如何从复杂且充满噪声的信号中理解我们大脑信号的，这些都是理解脑机接口时无法绕开的问题。</p><span id="more"></span><p>专栏内容预计会涉及：</p><ul><li>脑机接口的基本概念与发展现状；</li><li>理解大脑和EEG脑电信号——EEG脑电信号的基础原理与分析；</li><li>EEG预处理、特征提取和模型分析方法；</li><li>脑机接口当中常见任务和范式；</li><li>深度学习驱动的脑机接口技术；</li><li>可穿戴脑机接口设备与实际工程落地困境；</li><li>前沿论文解读以及行业发展思考。</li></ul><p>这个系列将从脑机接口的基本概念和 EEG 信号基础讲起，逐步延伸到信号预处理、特征提取、经典任务范式、生理信号算法（非参数方法）和深度学习（参数方法），同时也会结合可穿戴设备的实际工程落地问题，对前沿论文和行业发展进行持续解读与思考。需要说明的是，脑机接口仍然处于快速发展阶段，许多问题尚未形成统一结论，并且不同学科领域对其理解和定义会有所不同。<strong>专栏中的内容主要来自公开资料、论文研究，以及我个人在学习和工作过程中的理解，难免存在不足或偏差，也欢迎相关领域的老师、同学和从业者交流与指正。</strong></p><p>希望通过这个系列，和大家一起逐步认识脑机接口：它到底是什么，它目前能够做到什么，它还面临哪些困难，以及未来可能走向哪里。</p><p><strong>脑机接口到底是什么？从基本概念到发展现状</strong></p><h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>提到脑机接口，很多人首先想到的可能是科幻电影中的场景：人类将一枚芯片植入大脑，不需要开口说话，也不需要移动身体，只需要产生一个想法，计算机就能立即知道我们在想什么。</p><p>近年来，随着人工智能、神经科学和脑信号采集技术的发展，脑机接口开始频繁出现在新闻报道、学术论文和产业规划中。有人通过脑信号控制电脑光标，有人通过神经活动生成文字或语音，还有一些可穿戴设备声称能够判断使用者的专注、疲劳、放松或情绪状态。这些应用让脑机接口看起来已经非常接近“读心术”。然而真实的脑机接口究竟是什么？它是否真的能够读取人的思想？侵入式脑机接口和非侵入式脑机接口有什么区别？脑机接口目前已经发展到了什么阶段？它距离真正进入我们的日常生活，还有多远？作为本系列专栏的第一篇文章，本文将从脑机接口的基本概念开始，介绍它的系统组成、主要分类、经典任务、发展历程、应用方向以及当前仍然面临的问题，建立起专栏的一个知识框架。</p><h3 id="一、什么是脑机接口？"><a href="#一、什么是脑机接口？" class="headerlink" title="一、什么是脑机接口？"></a>一、什么是脑机接口？</h3><p>脑机接口的英文名称是 Brain-Computer Interface，通常简称为 BCI。</p><p>根据国际脑机接口学会提出的工作定义，脑机接口是一种能够测量脑活动，并将其近实时转换为具有实际功能输出的系统。这些输出可以用于替代、恢复、增强或补充大脑原有的输出能力，进而改变大脑与外部或内部环境之间的交互。这个定义听起来比较复杂，我们可以将其简化为一句话：</p><p>| <strong>脑机接口是一种将脑活动转化为计算机指令、设备控制或反馈信息的 技术。</strong></p><p>例如，一名因脊髓损伤而无法控制手臂的患者，可能仍然能够在大脑中产生<strong>移动手臂</strong>的运动意图。虽然这个运动意图无法通过脊髓和肌肉正常执行，但是与运动相关的脑区仍然可能出现特定的神经活动。脑机接口可以通过电极或其他传感器记录这些活动，再利用算法分析信号，最后将识别结果转化为光标移动，字符选择，机械臂控制，外骨骼运动，功能性电刺激，语音或文字输出，康复训练反馈等。<strong>因此，脑机接口的核心不是简单地“观察大脑”，而是建立一条能够发挥实际作用的信息通路</strong>。</p><h3 id="二、传统人机交互与脑机接口有什么区别？"><a href="#二、传统人机交互与脑机接口有什么区别？" class="headerlink" title="二、传统人机交互与脑机接口有什么区别？"></a>二、传统人机交互与脑机接口有什么区别？</h3><p>我们平时使用键盘、鼠标和触摸屏时，完整的信息传递过程大致如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">大脑产生操作意图</span><br><span class="line">↓ </span><br><span class="line">运动神经传递指令</span><br><span class="line">↓ </span><br><span class="line">手臂和手指肌肉活动</span><br><span class="line">↓ </span><br><span class="line">操作键盘、鼠标或触摸屏</span><br><span class="line">↓ </span><br><span class="line">计算机接收到输入</span><br></pre></td></tr></table></figure><p>在这个过程中，计算机并没有直接接收大脑信号。它接收到的是身体运动所产生的设备输入。脑机接口则尝试建立一条新的通路：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">大脑产生活动</span><br><span class="line">↓ </span><br><span class="line">传感器采集脑信号</span><br><span class="line">↓ </span><br><span class="line">算法分析和解码</span><br><span class="line">↓ </span><br><span class="line">生成控制指令</span><br><span class="line">↓ </span><br><span class="line">计算机或外部设备执行</span><br></pre></td></tr></table></figure><p>也就是说，脑机接口可以在一定程度上减少对肌肉和外周神经通路的依赖。这也是为什么脑机接口最早、最重要的应用方向之一，是帮助严重瘫痪、渐冻症或脊髓损伤患者恢复与外界交流和控制设备的能力。不过，这并不意味着所有脑机接口都必须完全绕过肌肉。在实际系统中，脑信号也可能与眼动、肌电、语音、动作捕捉等信息结合，构成更加稳定的多模态人机交互系统。</p><h3 id="三、脑机接口真的能够“读心”吗？"><a href="#三、脑机接口真的能够“读心”吗？" class="headerlink" title="三、脑机接口真的能够“读心”吗？"></a>三、脑机接口真的能够“读心”吗？</h3><p>大众对脑机接口最常见的疑问。从目前的技术水平来看效果会然让人很失望，大多数脑机接口还不能像科幻电影中那样，读取一个人完整、自由和连续的思想。当前脑机接口更加擅长做的，是在特定条件下识别相对有限的脑活动模式。例如：</p><ul><li>判断使用者正在想象左手运动还是右手运动；</li><li>判断使用者正在注视哪一个闪烁目标；</li><li>判断使用者是否注意到了某个特定刺激；</li><li>判断使用者处于清醒、疲劳还是某个睡眠阶段；</li><li>将尝试说话时的神经活动转换为文字或语音；</li><li>判断某些认知任务中脑活动是否发生变化。</li></ul><p>这些任务通常具有一个共同特点：</p><p>| <strong>研究人员已经提前规定了任务范围和可能的答案。</strong></p><p>例如，在一个左右手运动想象实验中，模型只需要从“左手”和“右手”两个类别中做出判断。研究人员会先让受试者完成大量左手和右手运动想象任务，并记录对应的脑信号，再使用这些数据训练分类模型。模型最终学习到的，是这两个任务对应信号之间的统计差异。它并不是通过脑信号理解了使用者全部的思想（人类对大脑的基本结构、神经元活动和部分功能环路已经积累了大量知识，但对于不同尺度的神经活动如何协同产生完整的认知、情绪、意识和行为，仍然缺少统一而完整的解释。当前脑科学更像是掌握了许多局部地图和运行规律，却尚未完全理解整个大脑系统如何工作）。即使是当前受到广泛关注的言语脑机接口，也主要是在特定脑区、特定任务和特定参与者条件下，解码与尝试说话或内部言语有关的神经活动。2025 年，美国国立神经疾病与卒中研究所介绍了一项实时解码内部言语的研究，但这类研究仍然面向特定临床场景，不能简单等同于通用意义上的“读取内心想法”。因此，更准确的表述应该是：</p><p>| <strong>当前脑机接口主要是在限定任务和实验条件下，识别与运动、语言、感知、注意或认知状态有关的神经活动模式。</strong></p><p>从“识别特定脑信号模式”到“理解人类完整思想”，中间仍然存在巨大的技术和科学距离。</p><h3 id="四、一套完整的脑机接口系统由什么组成？"><a href="#四、一套完整的脑机接口系统由什么组成？" class="headerlink" title="四、一套完整的脑机接口系统由什么组成？"></a>四、一套完整的脑机接口系统由什么组成？</h3><p>一套脑机接口系统通常不是一个单独的算法或一台脑电设备，而是由多个环节共同组成。</p><p>其基本工作流程可以概括为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">任务或刺激设计</span><br><span class="line">↓ </span><br><span class="line">脑信号采集</span><br><span class="line">↓ </span><br><span class="line">数据质量评估</span><br><span class="line">↓ </span><br><span class="line">信号预处理</span><br><span class="line">↓ </span><br><span class="line">特征提取或表征学习</span><br><span class="line">↓ </span><br><span class="line">模型识别与神经解码</span><br><span class="line">↓ </span><br><span class="line">控制、通信或状态输出</span><br><span class="line">↓ </span><br><span class="line">向使用者提供反馈</span><br></pre></td></tr></table></figure><p>一套完整的脑机接口系统闭环的结构应当是：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">使用者产生意图或接收刺激</span><br><span class="line">      ↓</span><br><span class="line">  脑活动变化</span><br><span class="line">      ↓</span><br><span class="line">  脑信号采集</span><br><span class="line">      ↓</span><br><span class="line"> 数据质量评估</span><br><span class="line">      ↓</span><br><span class="line">   信号预处理</span><br><span class="line">      ↓   </span><br><span class="line">  特征提取或表征学习</span><br><span class="line">      ↓    </span><br><span class="line">  模型识别与神经解码</span><br><span class="line">      ↓  </span><br><span class="line">  控制、通信或状态输出</span><br><span class="line">      ↓   </span><br><span class="line">  视觉、听觉、触觉或动作反馈</span><br><span class="line">      ↓ </span><br><span class="line">  使用者感知反馈并调整脑活动</span><br><span class="line">      ↓</span><br><span class="line">  再次采集脑信号</span><br></pre></td></tr></table></figure><p>当前许多脑机接口已经实现了“基础反馈闭环”，但能够长期运行、实时自适应并根据使用者状态动态调整的“完整智能闭环”仍然较少。一套完整的脑机接口系统通常包括任务或刺激设计、脑信号采集、数据质量评估、信号预处理、特征提取、模型解码以及控制或状态输出等环节。如果系统进一步将解码结果以视觉、听觉、触觉、动作或神经刺激等方式反馈给使用者，并持续采集反馈后的脑活动，就能够形成“脑活动—信号解码—外部反馈—脑活动变化”的闭环脑机接口系统。总之一句话概括是：<strong>有反馈不一定就是闭环，反馈能够影响下一轮脑活动和系统决策，才是真正的闭环。</strong></p><img src="/a51e4570/2.webp"><p>下面将逐一介绍基础的脑机接口系统的具体流程。</p><h4 id="任务或刺激设计"><a href="#任务或刺激设计" class="headerlink" title="任务或刺激设计"></a>任务或刺激设计</h4><p>脑机接口通常需要通过特定实验任务，使不同状态下的脑活动产生可识别差异。例如：</p><ul><li>想象左手或右手运动；</li><li>注视不同频率闪烁的目标；</li><li>在多个字符中注意目标字符；</li><li>完成心算任务；</li><li>观看不同类型的图片或视频；</li><li>执行记忆、注意或认知负荷任务。</li></ul><p>实验范式决定了系统希望从脑信号中识别什么信息。如果任务设计本身无法产生稳定的脑信号差异，那么即使使用非常复杂的算法，也很难获得可靠结果。</p><h4 id="脑信号采集"><a href="#脑信号采集" class="headerlink" title="脑信号采集"></a>脑信号采集</h4><p>脑机接口需要通过传感器记录与神经活动相关的信号。</p><p>常见方式包括：</p><ul><li>头皮脑电 EEG；</li><li>皮层脑电 ECoG；</li><li>皮层内微电极；</li><li>功能性磁共振成像 fMRI；</li><li>脑磁图 MEG；</li><li>其他能够反映脑活动的神经信号采集技术（例如fNIRS）。</li></ul><p>不同采集方式在信号质量、时间分辨率、空间分辨率、便携性、安全性和成本方面存在明显差异。</p><h4 id="数据质量评估与预处理"><a href="#数据质量评估与预处理" class="headerlink" title="数据质量评估与预处理"></a>数据质量评估与预处理</h4><p>原始脑信号中通常包含大量干扰。</p><p>以 EEG 为例，常见干扰包括：</p><ul><li>眨眼；</li><li>眼球转动；</li><li>面部肌肉活动；</li><li>咬牙和吞咽；</li><li>头部运动；</li><li>电极松动；</li><li>工频干扰；</li><li>环境电磁噪声。</li></ul><p>因此，原始信号通常需要经过滤波、去伪迹、异常通道检测、重参考、分段和归一化等处理。需要特别注意的是，预处理并不是简单地“把信号处理得越干净越好”。<strong>过强或不合理的滤波，也可能改变原始信号波形、引入相位偏移，甚至制造出并不存在的信号结构。</strong></p><h4 id="特征提取或表征学习"><a href="#特征提取或表征学习" class="headerlink" title="特征提取或表征学习"></a>特征提取或表征学习</h4><p>传统脑机接口通常依靠人工设计特征，例如不同频段的功率、事件相关电位幅值、信号均值和方差、通道间相关性、脑区功能连接、时频分布、信号复杂度和熵。随着深度学习的发展，模型开始直接从原始信号或经过简单处理的信号中学习特征。这种从数据中自动学习特征的过程，也可以称为表征学习。</p><h4 id="模型识别与解码"><a href="#模型识别与解码" class="headerlink" title="模型识别与解码"></a>模型识别与解码</h4><p>模型根据输入特征完成分类、回归或序列生成任务。例如判断左手或右手运动想象、输出疲劳风险分数、识别使用者注视的目标、将神经活动转换为文字、根据运动意图控制机械臂、判断康复训练过程中是否出现有效运动意图。</p><h4 id="控制与反馈"><a href="#控制与反馈" class="headerlink" title="控制与反馈"></a>控制与反馈</h4><p>模型输出需要进一步转化为实际结果。</p><p>例如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">识别到左手运动想象</span><br><span class="line">↓ </span><br><span class="line">光标向左移动</span><br></pre></td></tr></table></figure><p>或者：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">检测到患者产生运动意图</span><br><span class="line">↓ </span><br><span class="line">触发外骨骼或功能性电刺激</span><br><span class="line">↓ </span><br><span class="line">帮助患者完成手臂运动</span><br></pre></td></tr></table></figure><p>当系统能够根据脑信号持续调整刺激或反馈时，就形成了闭环脑机接口。</p><h3 id="五、脑机接口可以如何分类？"><a href="#五、脑机接口可以如何分类？" class="headerlink" title="五、脑机接口可以如何分类？"></a>五、脑机接口可以如何分类？</h3><p>脑机接口有多种分类方式，其中最常见的是按照传感器与大脑之间的位置关系分类。</p><h4 id="侵入式脑机接口"><a href="#侵入式脑机接口" class="headerlink" title="侵入式脑机接口"></a>侵入式脑机接口</h4><p>侵入式脑机接口需要通过手术，将电极植入大脑组织内部或放置在特定颅内位置。由于电极距离神经元较近，侵入式脑机接口通常可以获得更高信噪比和更精细的神经活动信息。其优势包括信号质量相对较高、空间分辨率较高、可以记录较精细的运动或言语相关活动、适合复杂控制和高性能神经解码。但侵入式系统也存在明显限制，具体为需要进行手术、存在感染和组织损伤风险、需要考虑电极长期稳定性、需要解决生物相容性问题、医疗器械监管和临床验证周期较长、使用和维护成本较高。</p><p>侵入式脑机接口目前主要面向严重瘫痪、语言功能障碍和脊髓损伤患者。美国食品药品监督管理局已经发布针对瘫痪或截肢患者植入式脑机接口设备的非临床测试和临床试验指导文件，说明这一领域正在逐步从基础研究走向规范化临床转化。</p><h4 id="半侵入式脑机接口"><a href="#半侵入式脑机接口" class="headerlink" title="半侵入式脑机接口"></a>半侵入式脑机接口</h4><p>半侵入式脑机接口的电极通常位于大脑皮层表面、硬脑膜上下或其他颅内位置，但不一定深入脑组织内部。例如，ECoG 皮层脑电可以直接记录皮层表面的电活动。这种方式在信号质量和侵入程度之间形成了一定折中，<strong>ECoG信号具有以下优点：信号通常优于头皮 EEG、对脑组织的直接损伤可能低于皮层内电极但仍然需要进行手术。</strong></p><img src="/a51e4570/3.webp"><h4 id="非侵入式脑机接口"><a href="#非侵入式脑机接口" class="headerlink" title="非侵入式脑机接口"></a>非侵入式脑机接口</h4><p>非侵入式脑机接口不需要进行开颅手术，传感器通常放置在头皮或头部外侧。其中，EEG 是目前应用最广泛的非侵入式脑机接口信号之一。</p><img src="/a51e4570/4.webp"><p>其主要优势包括：安全性相对较高，可以重复使用，成本相对较低，容易实现便携化，适合实时信号采集，更有机会进入日常应用。<strong>但头皮和颅骨会削弱、扩散脑电信号，加上眼电、肌电和运动伪迹的干扰，使非侵入式系统在精确控制方面仍然存在局限。</strong>2025 年的一篇非侵入式脑机接口综述指出，非侵入式系统在可及性和安全性方面具有优势，但信号获取、校准、稳定控制和真实环境使用仍然是重要挑战。</p><h3 id="六、主动式、反应式和被动式脑机接口"><a href="#六、主动式、反应式和被动式脑机接口" class="headerlink" title="六、主动式、反应式和被动式脑机接口"></a>六、主动式、反应式和被动式脑机接口</h3><p>除了按照侵入程度分类，脑机接口还可以按照使用者产生脑信号的方式进行分类。</p><h4 id="主动式脑机接口"><a href="#主动式脑机接口" class="headerlink" title="主动式脑机接口"></a>主动式脑机接口</h4><p>使用者主动执行某种心理任务，以产生可以被识别的脑活动。最常见的例子是运动想象。使用者并不真正移动手脚，而是在大脑中想象某个动作，例如：想象左手握拳，想象右手运动，想象双脚运动，想象舌头运动。系统分析不同运动想象状态下的脑电变化，并将其转化为控制指令。</p><h4 id="反应式脑机接口"><a href="#反应式脑机接口" class="headerlink" title="反应式脑机接口"></a>反应式脑机接口</h4><p>反应式脑机接口需要外部刺激。使用者的大脑在接收到视觉、听觉或触觉刺激后，会产生特定神经反应。典型范式包括：P300，稳态视觉诱发电位 SSVEP，听觉诱发电位，其他事件相关电位。</p><p>例如，在 SSVEP 系统中，屏幕上的不同目标以不同频率闪烁。当使用者注视其中一个目标时，视觉皮层可能产生与该闪烁频率相关的脑电响应。系统通过分析脑电频率，就可以推断使用者正在注视哪个目标。</p><h4 id="被动式脑机接口"><a href="#被动式脑机接口" class="headerlink" title="被动式脑机接口"></a>被动式脑机接口</h4><p>被动式脑机接口不要求使用者主动控制设备。系统持续分析使用者自然状态下的脑信号对疲劳、注意力、认知负荷、压力、情绪变化等进行评估。例如，系统检测到驾驶员疲劳后发出警告，或者检测到学习者认知负荷过高后调整任务难度。与主动控制相比，被动状态识别更容易受到任务、环境和个体差异影响，因此实际工程当中具有较大困难。</p><img src="/a51e4570/5.webp"><h3 id="七、脑机接口经历了怎样的发展过程？"><a href="#七、脑机接口经历了怎样的发展过程？" class="headerlink" title="七、脑机接口经历了怎样的发展过程？"></a>七、脑机接口经历了怎样的发展过程？</h3><h4 id="脑电信号的发现"><a href="#脑电信号的发现" class="headerlink" title="脑电信号的发现"></a>脑电信号的发现</h4><p>1924 年，德国精神病学家 Hans Berger 首次使用头皮电极记录到人类脑电活动。这一工作为 EEG 和后来的非侵入式脑机接口奠定了重要基础。</p><img src="/a51e4570/6.webp"><p>图：汉斯·伯杰（Hans Berger）于1924年发表的第一份人类脑电图记录。图中展示了早期EEG设备记录的alpha波（约8-13Hz）节律，这一发现为现代脑电图学和脑机接口技术奠定了基础。（图源：sciencenews）</p><h4 id="脑机接口概念的提出"><a href="#脑机接口概念的提出" class="headerlink" title="脑机接口概念的提出"></a>脑机接口概念的提出</h4><p>1973 年，Jacques Vidal 发表了题为《Toward Direct Brain-Computer Communication》的论文，系统讨论了通过脑信号实现人脑与计算机直接通信的可能性。这篇论文被广泛认为是现代脑机接口概念形成过程中的重要工作。</p><h4 id="从脑电实验走向通信和控制"><a href="#从脑电实验走向通信和控制" class="headerlink" title="从脑电实验走向通信和控制"></a>从脑电实验走向通信和控制</h4><p>20 世纪末到 21 世纪初，研究人员逐渐证明，人可以利用脑电节律、P300、SSVEP 和神经元放电活动控制光标、选择字符和操作外部设备。</p><p>2002 年，Wolpaw 等人的综述系统总结了脑机接口在通信和控制方面的发展，并强调脑机接口是神经生物学、心理学、工程、数学和计算机科学共同参与的交叉领域。</p><h4 id="机器学习和深度学习进入脑机接口"><a href="#机器学习和深度学习进入脑机接口" class="headerlink" title="机器学习和深度学习进入脑机接口"></a>机器学习和深度学习进入脑机接口</h4><p>传统脑机接口依赖人工选择频段、通道和特征。随着机器学习和深度学习的发展，研究人员开始利用 CNN、Transformer、图神经网络和状态空间模型学习更加复杂的脑信号表示。算法研究也逐渐从单一受试者、单一任务识别，扩展到跨被试学习、跨会话学习、跨设备迁移、多模态融合、自监督学习、脑信号基座大模型。</p><h4 id="从实验室研究走向临床转化"><a href="#从实验室研究走向临床转化" class="headerlink" title="从实验室研究走向临床转化"></a>从实验室研究走向临床转化</h4><p>近年来，侵入式脑机接口在语言恢复、计算机控制和运动功能代偿方面出现了重要进展。2024 年发表在《新英格兰医学杂志》的一项研究展示了一种能够较快完成校准的言语神经假体，将与尝试说话有关的皮层神经活动解码为文字。同年，另一项研究报告了一名渐冻症患者对植入式脑机接口长达 7 年的居家独立使用，说明长期家庭场景使用已经开始得到临床研究验证。2026 年发表的一项研究进一步报告，一名严重瘫痪参与者在 19 个月内居家使用皮层内脑机接口超过 3800 小时，用于通信、上网和工作。这说明部分侵入式脑机接口已经从短时实验演示逐渐走向长期、实际生活中的使用。</p><h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><blockquote><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/UeknH5vwlUAl85gStR13Xw">https://mp.weixin.qq.com/s/UeknH5vwlUAl85gStR13Xw</a></p></blockquote></div><footer class="post-footer"><div class="post-nav"><div class="post-nav-item"><a href="/d19f2c96.html" rel="prev" title="Nature Medicine | 脑起搏器学会“察言阅色”：自适应DBS改善帕金森步态"><i class="fa fa-chevron-left"></i> Nature Medicine | 脑起搏器学会“察言阅色”：自适应DBS改善帕金森步态</a></div><div class="post-nav-item"><a href="/b51cd5ae.html" rel="next" title="理解大脑和EEG脑电信号——EEG脑电信号的基础原理与分析">理解大脑和EEG脑电信号——EEG脑电信号的基础原理与分析 <i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div class="comments" id="valine-comments"></div><script>window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }</script></div><div class="toggle sidebar-toggle"><span class="toggle-line toggle-line-first"></span> <span class="toggle-line toggle-line-middle"></span> <span class="toggle-line toggle-line-last"></span></div><aside class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc">文章目录</li><li class="sidebar-nav-overview">站点概览</li></ul><div class="post-toc-wrap sidebar-panel"><div id="toc-div"><div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">一、什么是脑机接口？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%BC%A0%E7%BB%9F%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E4%B8%8E%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">二、传统人机交互与脑机接口有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E7%9C%9F%E7%9A%84%E8%83%BD%E5%A4%9F%E2%80%9C%E8%AF%BB%E5%BF%83%E2%80%9D%E5%90%97%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">三、脑机接口真的能够“读心”吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%B8%80%E5%A5%97%E5%AE%8C%E6%95%B4%E7%9A%84%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E7%B3%BB%E7%BB%9F%E7%94%B1%E4%BB%80%E4%B9%88%E7%BB%84%E6%88%90%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">四、一套完整的脑机接口系统由什么组成？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E6%88%96%E5%88%BA%E6%BF%80%E8%AE%BE%E8%AE%A1"><span class="nav-number">5.1.</span> <span class="nav-text">任务或刺激设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%84%91%E4%BF%A1%E5%8F%B7%E9%87%87%E9%9B%86"><span class="nav-number">5.2.</span> <span class="nav-text">脑信号采集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%B4%A8%E9%87%8F%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">5.3.</span> <span class="nav-text">数据质量评估与预处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96%E6%88%96%E8%A1%A8%E5%BE%81%E5%AD%A6%E4%B9%A0"><span class="nav-number">5.4.</span> <span class="nav-text">特征提取或表征学习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%86%E5%88%AB%E4%B8%8E%E8%A7%A3%E7%A0%81"><span class="nav-number">5.5.</span> <span class="nav-text">模型识别与解码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E4%B8%8E%E5%8F%8D%E9%A6%88"><span class="nav-number">5.6.</span> <span class="nav-text">控制与反馈</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E5%8F%AF%E4%BB%A5%E5%A6%82%E4%BD%95%E5%88%86%E7%B1%BB%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">五、脑机接口可以如何分类？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%B5%E5%85%A5%E5%BC%8F%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3"><span class="nav-number">6.1.</span> <span class="nav-text">侵入式脑机接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%8A%E4%BE%B5%E5%85%A5%E5%BC%8F%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3"><span class="nav-number">6.2.</span> <span class="nav-text">半侵入式脑机接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%9E%E4%BE%B5%E5%85%A5%E5%BC%8F%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3"><span class="nav-number">6.3.</span> <span class="nav-text">非侵入式脑机接口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E4%B8%BB%E5%8A%A8%E5%BC%8F%E3%80%81%E5%8F%8D%E5%BA%94%E5%BC%8F%E5%92%8C%E8%A2%AB%E5%8A%A8%E5%BC%8F%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3"><span class="nav-number">7.</span> <span class="nav-text">六、主动式、反应式和被动式脑机接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E5%8A%A8%E5%BC%8F%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3"><span class="nav-number">7.1.</span> <span class="nav-text">主动式脑机接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E5%BA%94%E5%BC%8F%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3"><span class="nav-number">7.2.</span> <span class="nav-text">反应式脑机接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A2%AB%E5%8A%A8%E5%BC%8F%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3"><span class="nav-number">7.3.</span> <span class="nav-text">被动式脑机接口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E7%BB%8F%E5%8E%86%E4%BA%86%E6%80%8E%E6%A0%B7%E7%9A%84%E5%8F%91%E5%B1%95%E8%BF%87%E7%A8%8B%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">七、脑机接口经历了怎样的发展过程？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%84%91%E7%94%B5%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%8F%91%E7%8E%B0"><span class="nav-number">8.1.</span> <span class="nav-text">脑电信号的发现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E6%A6%82%E5%BF%B5%E7%9A%84%E6%8F%90%E5%87%BA"><span class="nav-number">8.2.</span> <span class="nav-text">脑机接口概念的提出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E8%84%91%E7%94%B5%E5%AE%9E%E9%AA%8C%E8%B5%B0%E5%90%91%E9%80%9A%E4%BF%A1%E5%92%8C%E6%8E%A7%E5%88%B6"><span class="nav-number">8.3.</span> <span class="nav-text">从脑电实验走向通信和控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%BF%9B%E5%85%A5%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3"><span class="nav-number">8.4.</span> <span class="nav-text">机器学习和深度学习进入脑机接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E5%AE%9E%E9%AA%8C%E5%AE%A4%E7%A0%94%E7%A9%B6%E8%B5%B0%E5%90%91%E4%B8%B4%E5%BA%8A%E8%BD%AC%E5%8C%96"><span class="nav-number">8.5.</span> <span class="nav-text">从实验室研究走向临床转化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E9%93%BE%E6%8E%A5"><span class="nav-number">9.</span> <span class="nav-text">原文链接</span></a></li></ol></div></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" alt="Aisaka Aoi" src="/images/manatsu.jpg"><p class="site-author-name" itemprop="name">Aisaka Aoi</p><div class="site-description" itemprop="description">逢坂葵的个人博客</div></div><div class="site-state-wrap motion-element"><nav class="site-state"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">1764</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"><a href="/categories/"><span class="site-state-item-count">57</span> <span class="site-state-item-name">分类</span></a></div></nav></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/AisakaAoi" title="GitHub 👨‍💻 → https:&#x2F;&#x2F;github.com&#x2F;AisakaAoi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👨‍💻</a> </span><span class="links-of-author-item"><a href="https://github.com/Aisakaorz" title="GitHub 👩‍💻 → https:&#x2F;&#x2F;github.com&#x2F;Aisakaorz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub 👩‍💻</a> </span><span class="links-of-author-item"><a href="mailto:aisakaaoi@qq.com" title="E-Mail 📧 → mailto:aisakaaoi@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 📧</a> </span><span class="links-of-author-item"><a href="mailto:chenzongnan@m.scnu.edu.cn" title="E-Mail 🏫 → mailto:chenzongnan@m.scnu.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail 🏫</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/91560309" title="Bilibili 📺 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;91560309" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 📺</a> </span><span class="links-of-author-item"><a href="https://space.bilibili.com/198562921" title="Bilibili 🎮 → https:&#x2F;&#x2F;space.bilibili.com&#x2F;198562921" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>Bilibili 🎮</a> </span><span class="links-of-author-item"><a href="https://www.youtube.com/channel/UCALvyn5Cl76GCotO9pczvjg" title="YouTube 📺 → https:&#x2F;&#x2F;www.youtube.com&#x2F;channel&#x2F;UCALvyn5Cl76GCotO9pczvjg" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube 📺</a></span></div></div><div class="back-to-top motion-element"><i class="fa fa-arrow-up"></i> <span>0%</span></div></div></aside><div id="sidebar-dimmer"></div></div></main><footer class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2026</span> <span class="with-love"><i class="fa fa-heart"></i> </span><span class="author" itemprop="copyrightHolder">Aisaka Aoi</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-chart-area"></i> </span><span class="post-meta-item-text">站点总字数：</span> <span title="站点总字数">10.9m</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-coffee"></i> </span><span class="post-meta-item-text">站点阅读时长 &asymp;</span> <span title="站点阅读时长">452:55</span></div><div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动</div></div></footer></div><script src="/lib/anime.min.js"></script><script src="/lib/velocity/velocity.min.js"></script><script src="/lib/velocity/velocity.ui.min.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/pisces.js"></script><script src="/js/next-boot.js"></script><script src="/js/local-search.js"></script><script>document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});</script><script>if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }</script><script>NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'UqjWdRYbIUEUQRXhBUUIh1QE-gzGzoHsz',
+      appKey     : 'gj89JXC485PFbpdHLKVkz6dm',
+      placeholder: "这里可以发送评论~（上面可以输入昵称、邮箱）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});</script><script>!function(){function n(){var e=document.getElementById("toc-div");e&&(e.style.display="block");var t=document.querySelector(".post-toc-wrap"),n=document.querySelector(".site-overview-wrap")||document.querySelector(".site-overview");t&&n&&(t.classList.add("sidebar-panel-active"),n.classList.remove("sidebar-panel-active"));var o=document.querySelector(".sidebar-nav-toc"),a=document.querySelector(".sidebar-nav-overview");o&&a&&(o.classList.add("sidebar-nav-active"),a.classList.remove("sidebar-nav-active"));var r,l,c,s,u,i=document.querySelector(".post-toc");i&&(i.querySelector("ol.nav")||(!(r=document.querySelector(".post-body")||document.getElementById("hexo-blog-encrypt"))||0!==(l=Array.from(r.querySelectorAll("h1, h2, h3, h4, h5, h6"))).length&&(l.forEach(function(e,t){e.id||(e.id="toc-heading-"+t)}),(c=document.createElement("ol")).className="nav",s=[{level:0,ol:c}],u=[0,0,0,0,0,0],l.forEach(function(e){var t=parseInt(e.tagName.charAt(1));u[t-1]++;for(var n=t;n<6;n++)u[n]=0;for(var o="",n=0;n<t;n++)0<u[n]&&(o+=(o?".":"")+u[n]);for(o+=".";1<s.length&&s[s.length-1].level>=t;)s.pop();var a=s[s.length-1].ol,r=document.createElement("li");r.className="nav-item nav-level-"+t;var l=document.createElement("a");l.className="nav-link",l.href="#"+e.id;var c=document.createElement("span");c.className="nav-number",c.textContent=o;var i=document.createElement("span");i.className="nav-text",i.textContent=" "+e.textContent.trim(),l.appendChild(c),l.appendChild(i),r.appendChild(l);var d=document.createElement("ol");d.className="nav-child",r.appendChild(d),a.appendChild(r),s.push({level:t,ol:d})}),function t(e){Array.from(e.children).forEach(function(e){e.querySelectorAll(":scope > ol.nav-child").forEach(function(e){0===e.children.length?e.parentNode.removeChild(e):t(e)})})}(c),i.innerHTML="",i.appendChild(c),window.NexT&&window.NexT.utils&&window.NexT.utils.initSidebarTOC&&setTimeout(function(){window.NexT.utils.initSidebarTOC()},200))))}window.addEventListener("hexo-blog-decrypt",n),new MutationObserver(function(){var e=document.getElementById("hexo-blog-encrypt");e&&(!e.querySelector("hbe-prefix")&&document.getElementById("hbePass")||setTimeout(n,200))}).observe(document.body,{childList:!0,subtree:!0}),function e(){var t=document.getElementById("hexo-blog-encrypt");!t||!t.querySelector("hbe-prefix")&&document.getElementById("hbePass")?setTimeout(e,500):setTimeout(n,200)}()}()</script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".category-list li").forEach(function(e){var n,t,o=e.querySelector(":scope > ul");o&&(o.style.display="none",(n=document.createElement("span")).textContent="▸",n.className="cat-toggle",(t=e.querySelector(":scope > a"))&&(t.parentNode.insertBefore(n,t.nextSibling),n.addEventListener("click",function(e){e.preventDefault(),e.stopPropagation();var t="none"!==o.style.display;o.style.display=t?"none":"block",n.textContent=t?"▸":"▾"})))})})</script><div id="hexo-epub-modal"><div class="hexo-epub-bar"><button onclick="HexoEpubReader.close()">✕</button> <button onclick="HexoEpubReader.prev()">←</button> <button onclick="HexoEpubReader.next()">→</button> <button onclick="HexoEpubReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-epub-tit">Reader</span></div><div class="hexo-epub-main"><div id="hexo-epub-toc"><div class="hexo-epub-toc-header">章节目录</div><div class="hexo-epub-toc-list" id="hexo-epub-toc-list"></div></div><div class="hexo-epub-view"><div class="hexo-epub-loading" id="hexo-epub-load">正在加载书籍...<div class="err" id="hexo-epub-err"></div></div><div class="hexo-epub-fallback" id="hexo-epub-fallback"><p style="color:#ff4757;font-size:1.1em;margin-bottom:8px">该文件不支持浏览器在线阅读</p><p style="font-size:.85em;color:#666;margin-bottom:20px">可能是文件格式特殊，请下载到本地使用阅读器打开</p><a class="epub-btn read" id="hexo-epub-fallback-link" href="#" download>⬇️ 下载 EPUB</a></div><div id="hexo-epub-stage"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.88/dist/epub.min.js"></script><script>window.HexoEpubReader = {
+  r: null,
+  toc: [],
+
+  open: async function(id) {
+    const c = document.querySelector('[data-epub-id="' + id + '"]');
+    if (!c) return;
+    const path = c.dataset.epubPath;
+    const title = c.dataset.epubTitle;
+    const loadEl = document.getElementById('hexo-epub-load');
+    const errEl = document.getElementById('hexo-epub-err');
+    const fallback = document.getElementById('hexo-epub-fallback');
+    const fallbackLink = document.getElementById('hexo-epub-fallback-link');
+    const stage = document.getElementById('hexo-epub-stage');
+    const tocPanel = document.getElementById('hexo-epub-toc');
+    const tocList = document.getElementById('hexo-epub-toc-list');
+
+    errEl.textContent = '';
+    loadEl.style.display = 'block';
+    fallback.style.display = 'none';
+    stage.innerHTML = '';
+    tocPanel.classList.remove('active');
+    tocList.innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+    document.getElementById('hexo-epub-tit').textContent = title;
+    document.getElementById('hexo-epub-modal').classList.add('active');
+
+    if (typeof JSZip === 'undefined' || typeof ePub === 'undefined') {
+      errEl.textContent = '阅读器库未加载';
+      return;
+    }
+
+    if (this.r) { try { this.r.destroy(); } catch(e) {} }
+
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      this.r = ePub(arrayBuffer);
+    } catch (e) {
+      errEl.textContent = '加载失败: ' + e.message;
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      if (loadEl.style.display !== 'none') {
+        loadEl.style.display = 'none';
+        fallbackLink.href = path;
+        fallback.style.display = 'block';
+      }
+    }, 8000);
+
+    this.r.on('openFailed', function(error) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    });
+
+    try {
+      const book = this.r;
+      const rendition = book.renderTo('hexo-epub-stage', {
+        width: '100%',
+        height: '100%',
+        flow: 'paginated'
+      });
+
+      // ==================== 目录生成 ====================
+      const self = this;
+      book.loaded.navigation.then(function(nav) {
+        self.toc = nav.toc || [];
+        console.log('[HexoEpubReader] 目录项数:', self.toc.length);
+        
+        tocList.innerHTML = '';
+        if (self.toc.length === 0) {
+          tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">暂无目录</div>';
+          return;
+        }
+
+        self.toc.forEach(function(item, idx) {
+          const a = document.createElement('a');
+          a.className = 'hexo-epub-toc-item';
+          a.textContent = item.label;
+          a.title = item.label;
+          a.dataset.href = item.href;
+          a.onclick = function(e) {
+            e.preventDefault();
+            self.currentTocIdx = idx;
+            rendition.display(item.href);
+            self.highlightToc(idx);
+            if (window.innerWidth <= 600) tocPanel.classList.remove('active');
+          };
+          tocList.appendChild(a);
+        });
+      }).catch(function(err) {
+        console.warn('[HexoEpubReader] 读取目录失败:', err);
+        tocList.innerHTML = '<div style="padding:12px 18px;color:#999;font-size:.85em">目录加载失败</div>';
+      });
+
+      // 监听当前位置变化，高亮对应目录
+      rendition.on('relocated', function(location) {
+        const currentHref = location.start.href;
+        if (!currentHref) return;
+
+        let foundIdx = -1;
+        for (let i = 0; i < self.toc.length; i++) {
+          const tocHref = self.toc[i].href;
+          if (!tocHref) continue;
+
+          // 去掉锚点，只比较文件路径
+          const tocBase = tocHref.split('#')[0];
+          const currBase = currentHref.split('#')[0];
+
+          if (currBase === tocBase || currBase.endsWith(tocBase) || tocBase.endsWith(currBase)) {
+            foundIdx = i;
+            break;
+          }
+        }
+
+        if (foundIdx >= 0 && foundIdx !== self.currentTocIdx) {
+          self.currentTocIdx = foundIdx;
+          self.highlightToc(foundIdx);
+        }
+      });
+      // ==================================================
+
+      rendition.hooks.content.register(function(contents) {
+        const doc = contents.document;
+        const fontStyle = doc.createElement('style');
+        fontStyle.textContent = '* { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; } @font-face { font-display: swap; src: local("Arial"); }';
+        doc.head.insertBefore(fontStyle, doc.head.firstChild);
+
+        doc.querySelectorAll('link[rel="stylesheet"]').forEach(function(link) {
+          if (link.href && link.href.includes('res://')) link.remove();
+        });
+
+        doc.querySelectorAll('style').forEach(function(style) {
+          if (!style.textContent) return;
+          let css = style.textContent;
+          if (css.includes('res://') || css.includes('@font-face')) {
+            css = css.replace(/@font-face\s*\{[^{}]*\}/gi, '');
+            css = css.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+            style.textContent = css;
+          }
+        });
+
+        doc.querySelectorAll('[style*="res://"]').forEach(function(el) {
+          let s = el.getAttribute('style');
+          s = s.replace(/url\(['"]?res:\/\/[^'")]+['"]?\)/gi, 'none');
+          el.setAttribute('style', s);
+        });
+
+        const zip = book.archive && (book.archive.zip || book.archive);
+        if (!zip || !zip.file) return;
+
+        doc.querySelectorAll('img').forEach(function(img) {
+          let src = img.getAttribute('src');
+          if (!src) return;
+          if (src.startsWith('blob:') || src.startsWith('http') || src.startsWith('data:')) return;
+
+          src = src.replace(/\\/g, '/').replace(/^\/+/, '');
+          const tryPaths = [src, 'OEBPS/' + src, 'OPS/' + src, 'item/' + src];
+
+          for (let i = 0; i < tryPaths.length; i++) {
+            const file = zip.file(tryPaths[i]);
+            if (file) {
+              file.async('blob').then(function(blob) {
+                img.src = URL.createObjectURL(blob);
+              });
+              return;
+            }
+          }
+        });
+      });
+
+      await rendition.display();
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+    } catch (err) {
+      clearTimeout(timeout);
+      loadEl.style.display = 'none';
+      fallbackLink.href = path;
+      fallback.style.display = 'block';
+    }
+  },
+
+  toggleToc: function() {
+    const panel = document.getElementById('hexo-epub-toc');
+    panel.classList.toggle('active');
+  },
+
+  highlightToc: function(idx) {
+    const items = document.querySelectorAll('.hexo-epub-toc-item');
+    items.forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  close: function() {
+    if (this.r) { try { this.r.destroy(); } catch(e) {} this.r = null; }
+    document.getElementById('hexo-epub-modal').classList.remove('active');
+    document.getElementById('hexo-epub-toc').classList.remove('active');
+    document.getElementById('hexo-epub-load').style.display = 'none';
+    document.getElementById('hexo-epub-load').innerHTML = '正在加载书籍...<div class="err" id="hexo-epub-err"></div>';
+    document.getElementById('hexo-epub-fallback').style.display = 'none';
+    document.getElementById('hexo-epub-stage').innerHTML = '';
+    document.getElementById('hexo-epub-toc-list').innerHTML = '';
+    this.toc = [];
+    this.currentTocIdx = 0;
+  },
+
+  prev: function() { if (this.r && this.r.rendition) this.r.rendition.prev(); },
+  next: function() { if (this.r && this.r.rendition) this.r.rendition.next(); }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-epub-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoEpubReader.prev();
+  if (e.key === 'ArrowRight') HexoEpubReader.next();
+  if (e.key === 'Escape') HexoEpubReader.close();
+});</script><div id="hexo-txt-modal"><div class="hexo-txt-bar"><button onclick="HexoTxtReader.close()">✕</button> <button onclick="HexoTxtReader.prev()">←</button> <button onclick="HexoTxtReader.next()">→</button> <button onclick="HexoTxtReader.toggleToc()">☰ 目录</button> <span class="bar-title" id="hexo-txt-tit">Reader</span></div><div class="hexo-txt-main"><div id="hexo-txt-toc"><div class="hexo-txt-toc-header">章节目录</div><div class="hexo-txt-toc-list" id="hexo-txt-toc-list"></div></div><div class="hexo-txt-view"><div id="hexo-txt-stage"></div></div></div></div><script>window.HexoTxtReader = {
+  chapters: [],
+  currentIdx: 0,
+  containerId: null,
+
+  open: function(containerId, idx) {
+    this.containerId = containerId;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    this.chapters = [];
+    const self = this;
+    container.querySelectorAll(':scope > div[data-chapter]').forEach(function(div, i) {
+      self.chapters.push({
+        title: div.dataset.title || '',
+        content: div.innerHTML
+      });
+    });
+
+    if (this.chapters.length === 0) return;
+
+    this.currentIdx = idx || 0;
+    document.getElementById('hexo-txt-modal').classList.add('active');
+    this.render();
+  },
+
+  render: function() {
+    const chapter = this.chapters[this.currentIdx];
+    document.getElementById('hexo-txt-tit').textContent = chapter.title;
+
+    const tocList = document.getElementById('hexo-txt-toc-list');
+    tocList.innerHTML = '';
+    const self = this;
+    this.chapters.forEach(function(ch, i) {
+      const a = document.createElement('a');
+      a.className = 'hexo-txt-toc-item';
+      a.textContent = ch.title;
+      a.title = ch.title;
+      a.onclick = function(e) {
+        e.preventDefault();
+        self.currentIdx = i;
+        self.render();
+        if (window.innerWidth <= 600) document.getElementById('hexo-txt-toc').classList.remove('active');
+      };
+      tocList.appendChild(a);
+    });
+    this.highlightToc(this.currentIdx);
+
+    const titleHtml = chapter.title ? '<h3>' + chapter.title + '</h3>' : '';
+    const stage = document.getElementById('hexo-txt-stage');
+    stage.innerHTML = '<div class="txt-chapter-content">' + titleHtml + chapter.content + '</div>';
+  },
+
+  highlightToc: function(idx) {
+    document.querySelectorAll('.hexo-txt-toc-item').forEach(function(el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+  },
+
+  toggleToc: function() {
+    document.getElementById('hexo-txt-toc').classList.toggle('active');
+  },
+
+  prev: function() {
+    if (this.currentIdx > 0) {
+      this.currentIdx--;
+      this.render();
+    }
+  },
+
+  next: function() {
+    if (this.currentIdx < this.chapters.length - 1) {
+      this.currentIdx++;
+      this.render();
+    }
+  },
+
+  close: function() {
+    this.chapters = [];
+    this.currentIdx = 0;
+    this.containerId = null;
+    document.getElementById('hexo-txt-modal').classList.remove('active');
+    document.getElementById('hexo-txt-toc').classList.remove('active');
+    document.getElementById('hexo-txt-stage').innerHTML = '';
+    document.getElementById('hexo-txt-toc-list').innerHTML = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  const m = document.getElementById('hexo-txt-modal');
+  if (!m.classList.contains('active')) return;
+  if (e.key === 'ArrowLeft') HexoTxtReader.prev();
+  if (e.key === 'ArrowRight') HexoTxtReader.next();
+  if (e.key === 'Escape') HexoTxtReader.close();
+});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/haru02.model.json"},"display":{"position":"right","width":208,"height":520},"mobile":{"show":false},"log":false});</script></body></html>
