@@ -41,7 +41,6 @@
   var ruffleReady = null;
   var activeCard = null;
   var currentPlayer = null;
-  var objectUrl = '';
   var abortCtrl = null;
   var seq = 0; // 每次启动/停止自增，用来丢弃已过期任务的回调
 
@@ -123,10 +122,6 @@
       try { abortCtrl.abort(); } catch (e) {}
       abortCtrl = null;
     }
-    if (objectUrl) {
-      try { URL.revokeObjectURL(objectUrl); } catch (e) {}
-      objectUrl = '';
-    }
     if (currentPlayer) {
       try { currentPlayer.remove(); } catch (e) {}
       currentPlayer = null;
@@ -134,7 +129,17 @@
     stage.innerHTML = '';
   }
 
-  // 分块读取 SWF，实时汇报字节进度；读完转成 Blob 交给 Ruffle，避免二次网络请求
+  function concatChunks(chunks) {
+    var len = 0, i, out, off = 0;
+    for (i = 0; i < chunks.length; i++) len += chunks[i].length;
+    out = new Uint8Array(len);
+    for (i = 0; i < chunks.length; i++) { out.set(chunks[i], off); off += chunks[i].length; }
+    return out;
+  }
+
+  // 分块读取 SWF，实时汇报字节进度；读完以 data 模式交给 Ruffle。
+  // 不用 blob URL：Ruffle 的 SharedObject 存档 key 绑定 SWF 的 URL，
+  // blob: 地址带随机 uuid，每次打开 key 都变，游戏进度就存不住。
   function fetchSwf(url, mySeq) {
     var ctrl = new AbortController();
     abortCtrl = ctrl;
@@ -142,10 +147,10 @@
       if (!res.ok) throw new Error('HTTP ' + res.status);
       var totalBytes = parseInt(res.headers.get('content-length'), 10) || 0;
       if (!res.body || !res.body.getReader) {
-        return res.blob().then(function (blob) {
+        return res.arrayBuffer().then(function (buf) {
           if (mySeq !== seq) return null;
-          setProgress(100, '100%  ·  ' + readable(blob.size));
-          return blob;
+          setProgress(100, '100%  ·  ' + readable(buf.byteLength));
+          return new Uint8Array(buf);
         });
       }
       var reader = res.body.getReader();
@@ -155,7 +160,7 @@
           if (mySeq !== seq) return null;
           if (r.done) {
             setProgress(100, totalBytes ? '100%  ·  ' + readable(received) : readable(received));
-            return new Blob(chunks, { type: 'application/x-shockwave-flash' });
+            return concatChunks(chunks);
           }
           chunks.push(r.value);
           received += r.value.length;
@@ -178,7 +183,8 @@
     activeCard = card;
     var w = parseInt(card.getAttribute('data-w'), 10) || 800;
     var h = parseInt(card.getAttribute('data-h'), 10) || 600;
-    var url = root + 'swf/' + card.getAttribute('data-file');
+    var file = card.getAttribute('data-file');
+    var url = root + 'swf/' + file;
 
     nameEl.textContent = card.getAttribute('data-title') || '';
     stageBox.style.setProperty('--g-ratio', (w / h).toFixed(4));
@@ -196,8 +202,8 @@
       setStatus('正在加载游戏…');
       setProgress(0, '0%');
       return fetchSwf(url, mySeq);
-    }).then(function (blob) {
-      if (mySeq !== seq || !blob) return null;
+    }).then(function (bytes) {
+      if (mySeq !== seq || !bytes) return null;
       setStatus('正在初始化游戏…');
       setProgress(null, '');
       var rp = window.RufflePlayer;
@@ -208,9 +214,11 @@
       player.style.height = '100%';
       stage.appendChild(player);
       currentPlayer = player;
-      objectUrl = URL.createObjectURL(blob);
-      if (typeof player.load === 'function') return player.load(objectUrl);
-      if (typeof player.ruffle === 'function') return player.ruffle().load(objectUrl);
+      // data 模式下 movie URL = 当前页面目录 + swfFileName，是固定地址，
+      // SharedObject 才会落在稳定的 localStorage key 上，进度能跨次保留。
+      if (typeof player.load === 'function') {
+        return player.load({ data: bytes, swfFileName: file });
+      }
       throw new Error('播放器不支持 load()');
     }).then(function () {
       if (mySeq !== seq) return;
