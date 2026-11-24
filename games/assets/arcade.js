@@ -100,9 +100,18 @@
           warnOnUnsupportedContent: false,
           showSwfDownload: false,
           allowScriptAccess: true,
-          allowFullscreen: true,
+          // 禁止 SWF 自己请求全屏（部分游戏一启动就 stage.displayState=fullScreen）。
+          // 页面上的「全屏」按钮走浏览器原生 requestFullscreen，与此配置无关。
+          allowFullscreen: false,
           quality: 'high',
-          scale: 'showAll'
+          scale: 'showAll',
+          // 部分游戏（如死神3.01）选人时要解析大量数据，在 Ruffle 下较慢，
+          // 默认 15s 会被强制中断。Ruffle 0.8 要求直接写秒数（旧对象格式已废弃）。
+          maxExecutionDuration: 300,
+          // 统一中文字库：部分 SWF 未内嵌字体，靠系统回退会在不同机器上显示异常。
+          // font.swf 是 SimSun 精简字库（约 1MB），和 oldswf 的 defaultFonts 配置一致。
+          fontSources: [root + 'ruffle/font.swf'],
+          defaultFonts: { sans: ['SimSun'], serif: ['SimSun'], typewriter: ['SimSun'] }
         };
         var el = document.createElement('script');
         el.src = s.src;
